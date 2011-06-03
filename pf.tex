@@ -1,0 +1,80 @@
+\documentclass[pdftex,12pt,oneside,openany,a4paper]{book}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage[unicode]{hyperref}
+\hypersetup{
+    unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+    pdftitle={Projeto Final},    % title
+    pdfauthor={Werner Spolidoro Freund},     % author
+    pdfsubject={Projeto Final},   % subject of the document
+    colorlinks=true,       % false: boxed links; true: colored links
+    citecolor=black,%
+    filecolor=black,%
+    linkcolor=black,%
+    urlcolor=black%
+}
+
+\usepackage{indentfirst}
+\usepackage{listings}
+% Formato do PF
+\usepackage{layout}
+% Modelo da página
+\setlength{\textheight}{24.7cm}
+\setlength{\textwidth}{15cm}
+\setlength{\footskip}{1.25cm}
+\setlength{\footnotesep}{0.5cm}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\oddsidemargin}{0.46cm} % 0.46
+\setlength{\topmargin}{-.04cm}   %-.04
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\parindent}{1.25cm}
+\renewcommand{\baselinestretch}{1.5}
+\pagestyle{plain}
+
+\begin{document}
+
+\input{capa.tex}
+\pagenumbering{roman}
+
+% Agradecimento
+\input{agradecimento}
+
+% Resumo
+\input{resumo}
+
+\cleardoublepage
+
+% Sumário
+\tableofcontents
+
+\listoffigures
+
+%\listoftables
+
+\cleardoublepage
+\pagenumbering{arabic}
+
+\input{introducao}
+\input{cern}
+\input{bancos_de_dados}
+\input{proposta}
+\input{tecnologias}
+\input{glance}
+\input{aplicacoes}
+\input{conclusao}
+
+\cleardoublepage
+
+\addcontentsline{toc}{chapter}{Referências Bibliográficas}
+\bibliographystyle{coppe}
+\bibliography{bibliografia}
+
+\appendix
+\input{publicacoes}
+
+\end{document}
+
