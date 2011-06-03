@@ -1,0 +1,98 @@
+\chapter{Conclusão}
+
+O LHC, em operação no CERN, é o maior acelerador de partículas do mundo. O
+ATLAS, o maior dos seus detectores, foi construído e é operado por uma
+colaboração internacional envolvendo 172 institutos em 37 países.  Nesse
+ambiente, dados referentes à instalação, resultados de testes ou monitoração
+do desempenho dos milhares de equipamentos, são armazenados em bancos de dados
+usando modelagens específicas para cada caso e até tecnologias de armazenamento
+diferentes, tais como banco de dados Oracle ou MySQL.  Como a colaboração
+envolve pessoas inseridas em diferentes culturas, pode também acontecer de haver
+diferentes terminologias para um mesmo equipamento.  Além disso, se uma busca
+é realizada sobre todos os dados da colaboração, é grande a probabilidade de não
+trazer resultados úteis por causa de possíveis erros de digitação ou pelo grande
+volume de dados retornados.  Por outro lado, se cada grupo da colaboração criar
+um sistema de recuperação para os dados de interesse, será necessário um grande
+esforço de manutenção para que os sistemas continuem funcionando durante toda a
+operação do detector, que será de, pelo menos, 20 anos.
+
+Para solucionar esses problemas de recuperação de dados, foi desenvolvido o
+Glance. O sistema é baseado em interfaces de buscas independentes, de forma que
+um único sistema pode manipular diversas interfaces.  O custo de manutenção é,
+portanto,  diminuido pois há somente um sistema para ser mantido.  A descrição
+das interfaces de recuperação não é dependente de uma determinada tecnologia de
+armazenamento, e o sistema foi projetado de forma que possa recuperar dados de
+diferentes repositórios. Além disso, diferentes perspectivas sobre o mesmo
+conjunto de dados podem ser exibidas, criando interfaces para cada caso de
+interesse.
+
+O sistema Glance pode ser acessado através da Web, o que permite que seja usado
+pelos colaboradores de qualquer parte do mundo.
+%
+O sistema auxilia a realização de buscas em bancos de dados. Para tal, apresenta
+opções para o usuário escolher, minimizando os problemas devidos a erros de
+digitação e terminologia dos atributos. Durante o processo de criação de uma
+interface, o sistema apresenta a estrutura do repositório, refinando
+sucessivamente os detalhes. Adicionalmente, as interfaces de
+recuperação criadas são paramétricas.
+
+O mecanismo de operações do Glance permite que os dados recuperados sejam
+processados, e o resultado do processamento é exibido para o usuário final.
+As transformações a serem realizadas podem genéricas, no sentido de poderem ser
+usadas em diferentes contextos, tais como transformar uma série temporal de
+valores numéricos em um gráfico, ou específicas a uma determinada necessidade,
+tais como a realização do processo de \textit{unsmoothing} do DCS.
+Dessa forma, os resultados da recuperação chegam ao usuário no formato adequado
+para análise.
+
+O sistema Glance está instalado nos servidores Web do CERN e vem sendo usado
+ativamente pela colaboração.
+%
+Dentre suas aplicações a casos reais da colaboração, destacam-se a interface ao
+banco de dados ATLASIntegration, o monitoramento do alinhamento dos componentes
+com o ATLAS Survey e a monitoração de sensores para o DCS do TileCal.
+%
+Para o banco de dados ATLASIntegration, o sistema auxilia no processo de
+instalação dos componentes do detector recuperando dados sobre posição dos
+equipamentos, disposição dos cabos e os estados de conectividade entre cabos e
+eletrônicos.
+%
+As aplicações para o ATLAS Survey e para o DCS do TileCal recuperam do banco de
+dados amostras de sensores e, através do mecanismo de processamento, calculam
+diferenças entre as leituras de sensores correlacionados, extraem médias e desvio
+padrão dos valores e gera gráficos.
+%
+Os resultados são usados, no caso do ATLAS Survey, para detectar desníveis no
+chão da caverna experimental, e, no caso do DCS, para diagnosticar problemas nas
+fontes de alimentação do TileCal.
+
+O sistema também foi aplicado ao banco de dados LHCb Integration, cujos
+requisitos são muito parecidos com os do ATLAS Integration, mas registra
+equipamentos do LHCb, que é outro detector de partículas do LHC.
+%
+Isso mostra que, devido ao fato do Glance ter sido projetado para ser genérico,
+atende aos requisitos de recuperação de outras colaborações dentro do CERN, ou
+até em contextos diferentes.
+
+Atualmente existem no sistema mais de 400 interfaces de busca. Dessas, 150 são
+destinadas a recuperação de informações de equipamentos para aplicações do
+ATLAS Integration e LHCb Integration, enquanto 25 são utilizadas pelo sistema
+DCS do TileCal, e 2 pelo o ATLAS Survey. As demais interfaces são utilizadas
+por outros sistemas da Coordenação Técnica do ATLAS.
+
+Dentre os possíveis futuros passos para o sistema, destacam-se: a integração
+de dados correlacionados, mas armazenados em repositórios distintos; melhorias
+no desempenho da recuperação e do processamento dos dados; criação de um
+isolamento entre as aplicações do Glance, de forma que novas funcionalidades
+possam ser introduzidas no sistema sem impactar as outras aplicações, caso haja
+alguma falha de programação.
+
+
+O Glance também recebeu contribuições de outros alunos participantes da
+colaboração entre a UFRJ e o ATLAS, que desenvolveram funcionalidades além das
+apresentadas neste documento.
+%
+Dentre elas, destacam-se a inserção de dados utilizando o conceito de interfaces
+de inserção, análogo ao da interface de busca, realizado por Kaio Karam, e o
+esquema de categorização hierárquica das interfaces armazenadas, para facilitar
+o acesso, realizado por Cimar Massulo.
