@@ -1,353 +1,353 @@
 \chapter{Publicações}
 
-\begin{itemize}
+%\begin{itemize}
 
 %-------------------------------------------------------------------------------
-\item Tile DCS Web System
-MAIDANTCHIK, C. L. L., FEREIRA, F. G., GRAEL, Felipe F.
-Computing in High Energy Physics, 2009, Prague.
-
-The web system described here provides functionalities to monitor the Detector
-Control System (DCS) acquired data. The DCS is responsible for overseeing the
-coherent and safe operation of the ATLAS experiment hardware. In the context of
-the Hadronic Tile Calorimeter Detector, it controls the power supplies of the
-readout electronics acquiring voltages, currents, temperatures and coolant
-pressure measurements. The physics data taking requires the stable operation of
-the power sources.
-
-The DCS Web System retrieves data automatically and processes it extracting the
-statistics for given periods of time. The mean and standard deviation outcomes
-are stored as XML files and are compared to preset thresholds. Further, a
-graphical representation of the TileCal barrels indicates the state of the
-supply system of each detector drawer. Colors are designated for each kind of
-state. This way problems are easier to find and the collaboration members can
-focus on them. The user can pick a module to see detailed information. It is
-possible to check the statistics and generate charts of the parameters over the
-time.
-
-The DCS Web System also gives information about the power supplies latest
-status. The barrel colors green whenever the system is on. Otherwise it is
-colored red. Furthermore, it is possible to perform customized analyses. It
-provides search interfaces where the user can set the module, parameters, and
-the time period of interest. Moreover the system produces the output of the
-retrieved data as charts, XML files, CSV and ROOT files according to the user's
-choice.
-
-%-------------------------------------------------------------------------------
-\item Glance project: a database retrieval mechanism for the ATLAS detector
-In: Computing in High Energy Physics, 2007, Victoria.
-Maidantchik, C, Grael, F F, GALVÃO, K K, Pommès, K
- Journal of Physics: Conference Series. , 2008. v.119.
-
-During the construction and commissioning phases of the ATLAS Collaboration, data
-related to the installation, testing and performance of the equipment are stored in
-relational databases. Each group acquires information and saves them in repositories
-placed in different servers, using diverse technologies. Both data modeling and
-terminology may vary among the storage areas. The development of retrieval systems
-for each data set would require too much effort and high maintenance cost.
-The goal of the Glance Project is to provide navigation mechanisms among the
-databases, which is independent of both the technology used to build them and their
-relationship. The browsing over the data sets results in hypertext tables and links
-on the Web. The user chooses the database and the system shows its structure. After
-selecting a partition of the repository, the system automatically creates a retrieval
-interface that allows the specification of search parameters. The interface can be
-customized for specific needs and saved in order to be easily accessed later. Glance
-corresponds to a single system that handles distinctive recovery mechanisms among
-diverse databases. Therefore, further knowledge about how data is organized and
-labeled is not required to perform queries. Maintenance costs are also minimized.
-This paper describes the Glance conception, its development and functionalities. The
-system usage is illustrated with some examples. Current status and future work are
-also discussed.
-
-%-------------------------------------------------------------------------------
-\item Web system to support analysis of the Tile Calorimeter commissioning
-In: Computing in High Energy Physics, 2007, Victoria.
-Maidantchik, C, Faria, A, Grael, F F, Ferreira, F G, GALVÃO, K K,
-Dotti, A, Solans, C, Price, L
- Journal of Physics: Conference Series. , 2008. v.119.
-
-During the ATLAS detector commissioning phase, installed readout electronics
-must pass performance standards tests. The resulting data must be analyzed to
-ensure correct operation. For the Tile Calorimeter, developers plug their code
-into a specific framework for physics data-processing,. Collaboration members,
-taking shifts on commissioning work, interpret the results, in thousands of
-readout channels, to identify potential problems that may need correction
-during commissioning. The Tile Commissioning Web System (TCWS) facilitates the
-repetitive data analysis and quality control by encapsulating all necessary
-steps to retrieve information, execute programs, access the outcomes, register
-statements, and verify the equipment status. TCWS integrates different
-applications, each presenting a particular view of the commissioning process.
-The TileComm Analysis application stores plots and analysis results, provides
-equipment-oriented visualization, collects information regarding equipment
-performance, and summarizes its status. The Timeline application provides
-equipment status history in a chronological way. The Web Interface for Shifters
-application supports monitoring tasks by managing test parameters, graphical
-views of the calorimeter performance, and information status of all equipment
-that was used in each test. Finally, equipment quality control data can be
-filled, stored, modified, and retrieved as hypertext forms through the
-ATLASMonitor application. These applications are also connected with other
-commissioning programs that allow an automatic gathering of the commissioning
-data. This paper describes in detail the programs that compose the TCWS and how
-they are integrated within the Tile Calorimeter commissioning. Current status
-and future work are also discussed
-
-%-------------------------------------------------------------------------------
-\item Management of Equipment Databases at CERN for the ATLAS Experiment
-In: 10th ICATPP Conference on Astroparticle, Particle, Space Physics,
-Detectors and Medical Physics Applications, 2007, Villa Olmo.
-POMMES, K., GALVÃO, K K, MOLINA-PEREZ, J., Grael, F F, MAIDANTCHIK, C. L. L.
- 10th ICATPP Conference on Astroparticle, Particle, Space Physics,
-Detectors and Medical Physics Applications. , 2007.
-
-The ATLAS experiment apparatus is divided into major components, composed by
-numerous single equipment devices and a back end electronics. A complex cabling
-scheme connects the machinery. The detector has large dimensions and a complex
-geometry with components in several different shapes. Displacements and
-deformation are important in data analysis and calculus. Furthermore, nuclear
-and radiation control rules state the traceability of all the apparatus
-components. Graphical visualization systems were deployed to address and
-identify the several parts and manage displacements and deformation. Equipment
-Databases were designed to support the trace of objects composing the
-structure. User interfaces designed for potable devices facilitate data
-updates. A universal mechanism allows the management of the distinct
-information stored, providing means of data access and update by users and
-other applications. Various aspects of equipment installation and maintenance
-are addressed and supported by distinct software components, with heterogeneous
-information integrated by one universal tool.
-
-%-------------------------------------------------------------------------------
-\item Sistema Glance para recuperação e operação de dados de repositórios
-heterogêneos para o ATLAS
-MAIDANTCHIK, C. L. L., GRAEL, Felipe F., GALVÃO, K K, EVORA, L. H. R. A.
-XXIX Encontro Nacional de Física de Partículas e Campos, 2008.
-
-O detector ATLAS é construído por uma colaboração internacional heterogênea.
-Durante as etapas de construção, teste e integração dos componentes, dados
-sobre a construção e desempenho dos equipamentos foram gerados. No entanto, a
-recuperação desses dados envolve conhecer detalhes técnicos das tecnologias
-utilizadas para o armazenamento, a organização dos repositórios para que um
-método de recuperação seja programado.
-
-Frente às dificuldades de recuperação de informações, foi desenvolvido na UFRJ,
-em colaboração com o ATLAS, o Glance, um sistema universal capaz de reconhecer
-a estrutura dos repositórios, auxiliar o usuário na criação de uma interface de
-recuperação e realizar buscas sobre os dados. As interfaces criadas são
-descritas em uma linguagem intermediária independente da tecnologia do
-repositório. Dessa forma um único sistema gerencia diversas interfaces
-independentes.
-
-Ao longo da fase de comissionamento surgiu o requisito de processar os dados
-recuperados para serem melhor interpretados pelos colaboradores. Para suportar
-essa nova necessidade, foi proposto e implementado um mecanismo capaz de
-realizar operações tais como calcular médias ou aplicar fórmulas envolvendo
-atributos de uma pesquisa.
-
-Com essa funcionalidade, o sistema reconhece o tipo dos dado que serão
-operados, que podem ser numéricos ou textuais, e apresenta operações adequadas.
-Ao executar a busca, o Glance passa para um módulo intermediário os resultados,
-descritos em um formato intermediário, e a operação definida pelo usuário. Pela
-existência do módulo intermediário, a operação é independente do tipo de banco
-de dados. Os resultados são apresentados como uma nova coluna ou como um
-sumário contendo, por exemplo, a média de uma coluna. Além disso, os dados
-podem ser retornado na forma de uma tabela hipertextual, como gráficos ou até
-em outros formatos como CSV ou XML.
-
-Esse esquema está sendo aplicado ao Detector Control System (DCS) do
-calorímetro de telhas. O DCS monitora e registra em um banco de dados tensões,
-correntes e temperaturas em determinados pontos da eletrônica do sub-detector.
-Através da nova funcionalidade, o Glance calcula a diferença de voltagem entre
-dois pontos e também a média e o RMS das medições sobre um determinado período
-de tempo. Outra aplicação semelhante é junto ao grupo que mede o posicionamento
-dos equipamentos no ambiente experimental e monitora desvios entre a posição
-teórica e a observada em determinados pontos do detector.
-
-Este trabalho apresenta a funcionalidade de operações sobre dados do Glance e
-demonstra sua utilização. Também são discutidas em mais detalhes as aplicações
-existentes desse mecanismo.
-
-%-------------------------------------------------------------------------------
-\item O sistema Glance para recuperaçao e inserçao de dados em repositórios
-heterogêneos
-MAIDANTCHIK, C. L. L., GRAEL, Felipe F., GALVÃO, K K
-XXVIII Encontro Nacional de Física de Partículas e Campos, 2007.
-
-Os componentes do detector de partículas ATLAS são construídos por uma
-colaboração internacional geografi- camente dispersa. A montagem de suas
-dezenas de milhares de componentes está sendo finalizada no CERN, onde entrará
-em operação. Uma vez integrados, os equipamentos são testados em conjunto. As
-informações de localização e conectividade de cada parte, bem como os
-resultados dos testes são armazenados em diferentes repositórios, utilizando
-diversas tecnologias, modelagens e terminologias.
-
-Para solucionar os problemas de recuperação de dados heterogêneos, inerentes a
-esse ambiente, foi desenvolvido um sistema universal capaz de realizar buscas
-sobre os repositórios independentemente de suas tecnologias.  Ao serem
-fornecidas as informações de como se conectar em um repositório, o Glance
-reconhece sua estrutura interna, e permite a seleção do conjunto de dados de
-interesse aumentando sucessivamente o nível de detalhes apresentados. O sistema
-então reconhece os atributos e seus tipos e gera automaticamente a descrição de
-uma interface de recuperação correspondente. A descrição é feita em uma
-linguagem de marcação baseada em XML e contém o nome dos atributos, as
-informações técnicas necessárias para localizá-los, seus tipos, descrições e
-possíveis valores. Baseado nessa descrição, o sistema gera uma interface de
-busca paramétrica, onde devem ser estabelecidos os atributos sobre o qual se
-quer realizar a pesquisa, os operadores e os valores de referência. Os
-operadores são sensíveis ao tipo do atributo, isto é, um atributo numérico
-possui os operadores ``maior que'' e ``menor que'', enquanto um textual possui
-``contém''. Os resultados da busca são apresentados na forma de uma tabela
-hipertextual, ou como arquivos em formatos tais como CSV ou XML.
-
-Ao instalar ou remover um componente do detector, a equipe de coordenação
-técnica precisa atualizar as informações de conectividade e localização nos
-bancos de dados. Para dar suporte a essa tarefa, o sistema permite também a
-criação de interfaces para inserção e modificação de dados. Antes de realizar
-qualquer alteração no repositório, o Glance verifica a integridade dos novos
-dados, evitando inconsistências.  O sistema também é usado pelo grupo do
-calorímetro hadrônico, para recuperar dados do DCS (Detector Control System)
-que monitora tensões, correntes e temperaturas. Para isso, o Glance realiza
-operações pre-definidas sobre os resultados da busca, de acordo com o tipo de
-análise a ser realizada.
-
-Este trabalho apresenta a concepção do Glance e demonstra sua utilização.
-Também é mostrado em mais detalhes como o sistema é utilizado pela coordenação
-técnica e pelo calorímetro hadrônico.
-
-%-------------------------------------------------------------------------------
-\item Sistema de Análise e Monitoração dos dados não-físicos do Calorímetro
-Hadrônico do detector ATLAS
-MAIDANTCHIK, C. L. L., FEREIRA, F. G., GRAEL, Felipe F.
-XXVIII Encontro Nacional de Física de Partículas e Campos, 2007.
-
-O calorímetro hadrônico  do detector ATLAS encontra-se em fase de
-comissionamento. Durante este periodo são testados os equipamentos e sistemas
-que o compõe a fim de garantir o seu futuro funcionamento. O Laboratório de
-Processamento de Sinais (LPS-UFRJ) é um dos laboratórios participantes desta
-colaboração internacional.
-
-O DCS (\emph{Detector Control System}), responsável pela monitoração das fontes
-de alta e baixa tensões que alimentam os componentes eletrônicos integrantes do
-sub-detector e pelo sistema de refrigeração que garante o funcionamento dessas
-fontes, é um desses sistemas. Para tal, adquire dados como tensões, correntes e
-temperaturas utilizando um programa  desenvolvido dentro do framework do
-software proprietário PVSS, que é uma plataforma destinada especialmente para
-sistemas de controle.  Após a aquisição tais informações são armazenadas numa
-base de dados relacional de tecnologia Oracle. Estes dados não são usados para
-análises físicas, mas são importantes para garantir a consistência delas.
-
-Para realizar o monitoramento e análise desses dados foi proposto e
-implementado um sistema capaz de disponibilizar as informações via internet que
-possam garantir que as fontes estejam funcionando corretamente, e a este foi
-dado o nome de \emph{DCS Web System}. Primeiramente os dados são recuperados da
-base de dados utilizando-se o sistema Glance, também desenvolvido pelo chamado
-grupo do Rio.  Após a recuperação dos dados, o sistema \emph{Glance} formata-os
-em arquivos XML, garantindo assim flexibilidade, e através desses gera médias e
-os desvio padrão das amostragens, dados suficientes para estudar a estabilidade
-dos equipamentos, para um dia ou um mês. Ainda são disponibilizados gráficos
-temporais que mostram o progresso de determinada fonte. Ainda são previstos no
-projeto distribuições estatísticas dos dados em estudo.
-
-Atualmente, o \emph{DCS Web System} oferece o suporte à análise e ao
-monitoramento das fontes de baixa tensão e ao sistema de refrigeração, sendo o
-suporte às fontes de alta tensão uma atualização prevista e pelo sistema de
-refrigeração que garante o funcionamento dessas fontes, é um desses sistemas.
-Para tal, adquire dados como tensões, correntes e temperaturas utilizando um
-programa  desenvolvido dentro do framework do software proprietário PVSS, que é
-uma plataforma destinada especialmente para sistemas de controle.  Após a
-aquisição tais informações são armazenadas numa base de dados relacional de
-tecnologia \emph{Oracle}. Estes dados não são usados para análises físicas, mas
-são importantes para garantir a consistência delas.
-
-%-------------------------------------------------------------------------------
-\item Glance: a retrieval system for construction, installation and
-commissioning data for ATLAS equipments
-MAIDANTCHIK, C. L. L., Grael, F F, SEIXAS, J. M.
-XXVII Encontro Nacional de Física de Partículas e Campos, 2006.
-
-The ATLAS detector is being constructed by an international collaboration for
-the LHC experiment at CERN.  For each part a big amount of data related to its
-construction, installation and commissioning is being generated.  Since each
-part is being constructed by different institute, the data are being stored at
-different places and modeled according to the specific needs of each part and
-institute.
-
-During the current phase of installation and commissioning each working group
-needs to have access to the data related to their equipments, which can involve
-parts coming from different institutes. Different groups may be interested in
-different perspectives of the data. For example, the commissioning team of a
-sub-detector is interested in the installation and production data of their
-electronics and cables. Other group, like the cabling team, is interested in
-the data about installation and connectivity for all subsystems, but not about
-the construction.
-
-In this context of distributed working groups it is very difficult to provide a
-single interface that delivers the information suitable for every group. In the
-other hand, requiring each group to develop their own solution would need a
-great effort. This would also represent a high maintenance cost, since small
-changes to the repository of an institute can reflect into adjustments of
-multiple interfaces.
-
-The goal of the project is to facilitate the retrieval of the data of
-construction, installation and commissioning for the equipments in an
-integrated way. The user selects the set of data of his interest. The system
-then recognizes the characteristics of the data and automatically generates a
-corresponding retrieval interface. This interface then can be stored in order
-to be accessed by the collaborators from the same group. Through the retrieval
-interface, the user can perform searches and filter the results successively to
-reach the desired data.  The system stores the description of each interface,
-with the information needed to perform the retrieval, in a way that they can be
-added or modified as needed, without requiring changes to the main program.
-
-The system is being actively used by the Technical Coordination group to
-retrieve data about cabling, positioning and physical installation of
-electronic crates and boards, and integrate these data with an inventory
-database, and with the production database of some of the sub-detectors. It is
-running on the CERN web servers, and is developed using C++ and XML
-technologies.
-
-
-%-------------------------------------------------------------------------------
-\item Sistema WEB para Testes de Equipamentos em Física de Altas Energias
-MAIDANTCHIK, C. L. L., SEIXAS, J. M., ALVES, A. M., FARIA, A., GRAEL,
-Felipe F., FEREIRA, F. G., GALVÃO, K K
-XXVII Encontro Nacional de Física de Partículas e Campos, 2006.
-
-O detector ATLAS, acoplado ao acelerador de partículas LHC do CERN, encontra-se
-atualmente em fase de comissionamento. Os testes realizados geram uma enorme
-quantidade de dados, que são posteriormente analisados pelos colaboradores em
-diferentes países. A cada execução dos programas de análise, uma série de
-procedimentos e configurações deve ser realizada pelos pesquisadores. Os
-gráficos e histogramas resultantes se referem aos níveis de energia durante uma
-colisão de partículas, e dados para o controle de qualidade dos equipamentos
-também são gerados a partir das análises.
-
-Este projeto apresenta o sistema \emph{Tile Commissioning Web System} que apóia
-a manipulação e análise dos dados provenientes dos testes realizados no
-Calorímetro de Telhas (TileCal), um dos sub-detectores do ATLAS, e apresenta
-ferramentas para a recuperação dos resultados obtidos. O sistema é composto por
-três softwares com interface Web que possuem funções específicas: o \emph{Web
-Interface for Offline Shifters}, o \emph{Tilecomm Analysis} e o
-\emph{AtlasMonitor}.
-
-O \emph{Web Interface for Offline Shifters} (WIS) automatiza o processo de
-análise, apresentando ao usuário uma tabela com todos os testes realizados e os
-tipos de análises que podem ser realizadas para cada um. Após a seleção do
-usuário, o WIS recupera o arquivo correspondente no sistema de armazenamento
-CASTOR (\emph{Cern Advanced STORage}) e executa remotamente o programa de
-análise requerido, seguindo todos os procedimentos e configurações exigidos. Ao
-final do processo de análise, os resultados são disponibilizados na interface
-do sistema, apresentando gráficos de níveis de energia e dados de controle de
-qualidade. Os gráficos e os dados são automaticamente armazenados nas
-respectivas bases de dados dos sistemas \emph{Tilecomm Analysis} e \emph{Atlas
-Monitor}. O primeiro software recupera os gráficos, através da associação com o
-tipo e o identificador do teste e com a seção do sub-detector que foi testada.
-O \emph{AtlasMonitor} insere automaticamente os dados resultantes nas folhas de
-controle de qualidade. Posteriormente, o colaborador pode inserir informações
-adicionais ou até mesmo criar uma nova folha de controle de qualidade.
-
-O sistema \emph{Tile Commissioning Web Syste}m está instalado no servidor do
-CERN e é utilizado pelos colaboradores do TileCal e seu desenvolvimento conta
-com a participação dos responsáveis tanto pelos testes dos equipamentos quanto
-pelo funcionamento do calorímetro.
-
-
-\end{itemize}
+%\item Tile DCS Web System
+%MAIDANTCHIK, C. L. L., FEREIRA, F. G., GRAEL, Felipe F.
+%Computing in High Energy Physics, 2009, Prague.
+%
+%The web system described here provides functionalities to monitor the Detector
+%Control System (DCS) acquired data. The DCS is responsible for overseeing the
+%coherent and safe operation of the ATLAS experiment hardware. In the context of
+%the Hadronic Tile Calorimeter Detector, it controls the power supplies of the
+%readout electronics acquiring voltages, currents, temperatures and coolant
+%pressure measurements. The physics data taking requires the stable operation of
+%the power sources.
+%
+%The DCS Web System retrieves data automatically and processes it extracting the
+%statistics for given periods of time. The mean and standard deviation outcomes
+%are stored as XML files and are compared to preset thresholds. Further, a
+%graphical representation of the TileCal barrels indicates the state of the
+%supply system of each detector drawer. Colors are designated for each kind of
+%state. This way problems are easier to find and the collaboration members can
+%focus on them. The user can pick a module to see detailed information. It is
+%possible to check the statistics and generate charts of the parameters over the
+%time.
+%
+%The DCS Web System also gives information about the power supplies latest
+%status. The barrel colors green whenever the system is on. Otherwise it is
+%colored red. Furthermore, it is possible to perform customized analyses. It
+%provides search interfaces where the user can set the module, parameters, and
+%the time period of interest. Moreover the system produces the output of the
+%retrieved data as charts, XML files, CSV and ROOT files according to the user's
+%choice.
+%
+%%-------------------------------------------------------------------------------
+%\item Glance project: a database retrieval mechanism for the ATLAS detector
+%In: Computing in High Energy Physics, 2007, Victoria.
+%Maidantchik, C, Grael, F F, GALVÃO, K K, Pommès, K
+% Journal of Physics: Conference Series. , 2008. v.119.
+%
+%During the construction and commissioning phases of the ATLAS Collaboration, data
+%related to the installation, testing and performance of the equipment are stored in
+%relational databases. Each group acquires information and saves them in repositories
+%placed in different servers, using diverse technologies. Both data modeling and
+%terminology may vary among the storage areas. The development of retrieval systems
+%for each data set would require too much effort and high maintenance cost.
+%The goal of the Glance Project is to provide navigation mechanisms among the
+%databases, which is independent of both the technology used to build them and their
+%relationship. The browsing over the data sets results in hypertext tables and links
+%on the Web. The user chooses the database and the system shows its structure. After
+%selecting a partition of the repository, the system automatically creates a retrieval
+%interface that allows the specification of search parameters. The interface can be
+%customized for specific needs and saved in order to be easily accessed later. Glance
+%corresponds to a single system that handles distinctive recovery mechanisms among
+%diverse databases. Therefore, further knowledge about how data is organized and
+%labeled is not required to perform queries. Maintenance costs are also minimized.
+%This paper describes the Glance conception, its development and functionalities. The
+%system usage is illustrated with some examples. Current status and future work are
+%also discussed.
+%
+%%-------------------------------------------------------------------------------
+%\item Web system to support analysis of the Tile Calorimeter commissioning
+%In: Computing in High Energy Physics, 2007, Victoria.
+%Maidantchik, C, Faria, A, Grael, F F, Ferreira, F G, GALVÃO, K K,
+%Dotti, A, Solans, C, Price, L
+% Journal of Physics: Conference Series. , 2008. v.119.
+%
+%During the ATLAS detector commissioning phase, installed readout electronics
+%must pass performance standards tests. The resulting data must be analyzed to
+%ensure correct operation. For the Tile Calorimeter, developers plug their code
+%into a specific framework for physics data-processing,. Collaboration members,
+%taking shifts on commissioning work, interpret the results, in thousands of
+%readout channels, to identify potential problems that may need correction
+%during commissioning. The Tile Commissioning Web System (TCWS) facilitates the
+%repetitive data analysis and quality control by encapsulating all necessary
+%steps to retrieve information, execute programs, access the outcomes, register
+%statements, and verify the equipment status. TCWS integrates different
+%applications, each presenting a particular view of the commissioning process.
+%The TileComm Analysis application stores plots and analysis results, provides
+%equipment-oriented visualization, collects information regarding equipment
+%performance, and summarizes its status. The Timeline application provides
+%equipment status history in a chronological way. The Web Interface for Shifters
+%application supports monitoring tasks by managing test parameters, graphical
+%views of the calorimeter performance, and information status of all equipment
+%that was used in each test. Finally, equipment quality control data can be
+%filled, stored, modified, and retrieved as hypertext forms through the
+%ATLASMonitor application. These applications are also connected with other
+%commissioning programs that allow an automatic gathering of the commissioning
+%data. This paper describes in detail the programs that compose the TCWS and how
+%they are integrated within the Tile Calorimeter commissioning. Current status
+%and future work are also discussed
+%
+%%-------------------------------------------------------------------------------
+%\item Management of Equipment Databases at CERN for the ATLAS Experiment
+%In: 10th ICATPP Conference on Astroparticle, Particle, Space Physics,
+%Detectors and Medical Physics Applications, 2007, Villa Olmo.
+%POMMES, K., GALVÃO, K K, MOLINA-PEREZ, J., Grael, F F, MAIDANTCHIK, C. L. L.
+% 10th ICATPP Conference on Astroparticle, Particle, Space Physics,
+%Detectors and Medical Physics Applications. , 2007.
+%
+%The ATLAS experiment apparatus is divided into major components, composed by
+%numerous single equipment devices and a back end electronics. A complex cabling
+%scheme connects the machinery. The detector has large dimensions and a complex
+%geometry with components in several different shapes. Displacements and
+%deformation are important in data analysis and calculus. Furthermore, nuclear
+%and radiation control rules state the traceability of all the apparatus
+%components. Graphical visualization systems were deployed to address and
+%identify the several parts and manage displacements and deformation. Equipment
+%Databases were designed to support the trace of objects composing the
+%structure. User interfaces designed for potable devices facilitate data
+%updates. A universal mechanism allows the management of the distinct
+%information stored, providing means of data access and update by users and
+%other applications. Various aspects of equipment installation and maintenance
+%are addressed and supported by distinct software components, with heterogeneous
+%information integrated by one universal tool.
+%
+%%-------------------------------------------------------------------------------
+%\item Sistema Glance para recuperação e operação de dados de repositórios
+%heterogêneos para o ATLAS
+%MAIDANTCHIK, C. L. L., GRAEL, Felipe F., GALVÃO, K K, EVORA, L. H. R. A.
+%XXIX Encontro Nacional de Física de Partículas e Campos, 2008.
+%
+%O detector ATLAS é construído por uma colaboração internacional heterogênea.
+%Durante as etapas de construção, teste e integração dos componentes, dados
+%sobre a construção e desempenho dos equipamentos foram gerados. No entanto, a
+%recuperação desses dados envolve conhecer detalhes técnicos das tecnologias
+%utilizadas para o armazenamento, a organização dos repositórios para que um
+%método de recuperação seja programado.
+%
+%Frente às dificuldades de recuperação de informações, foi desenvolvido na UFRJ,
+%em colaboração com o ATLAS, o Glance, um sistema universal capaz de reconhecer
+%a estrutura dos repositórios, auxiliar o usuário na criação de uma interface de
+%recuperação e realizar buscas sobre os dados. As interfaces criadas são
+%descritas em uma linguagem intermediária independente da tecnologia do
+%repositório. Dessa forma um único sistema gerencia diversas interfaces
+%independentes.
+%
+%Ao longo da fase de comissionamento surgiu o requisito de processar os dados
+%recuperados para serem melhor interpretados pelos colaboradores. Para suportar
+%essa nova necessidade, foi proposto e implementado um mecanismo capaz de
+%realizar operações tais como calcular médias ou aplicar fórmulas envolvendo
+%atributos de uma pesquisa.
+%
+%Com essa funcionalidade, o sistema reconhece o tipo dos dado que serão
+%operados, que podem ser numéricos ou textuais, e apresenta operações adequadas.
+%Ao executar a busca, o Glance passa para um módulo intermediário os resultados,
+%descritos em um formato intermediário, e a operação definida pelo usuário. Pela
+%existência do módulo intermediário, a operação é independente do tipo de banco
+%de dados. Os resultados são apresentados como uma nova coluna ou como um
+%sumário contendo, por exemplo, a média de uma coluna. Além disso, os dados
+%podem ser retornado na forma de uma tabela hipertextual, como gráficos ou até
+%em outros formatos como CSV ou XML.
+%
+%Esse esquema está sendo aplicado ao Detector Control System (DCS) do
+%calorímetro de telhas. O DCS monitora e registra em um banco de dados tensões,
+%correntes e temperaturas em determinados pontos da eletrônica do sub-detector.
+%Através da nova funcionalidade, o Glance calcula a diferença de voltagem entre
+%dois pontos e também a média e o RMS das medições sobre um determinado período
+%de tempo. Outra aplicação semelhante é junto ao grupo que mede o posicionamento
+%dos equipamentos no ambiente experimental e monitora desvios entre a posição
+%teórica e a observada em determinados pontos do detector.
+%
+%Este trabalho apresenta a funcionalidade de operações sobre dados do Glance e
+%demonstra sua utilização. Também são discutidas em mais detalhes as aplicações
+%existentes desse mecanismo.
+%
+%%-------------------------------------------------------------------------------
+%\item O sistema Glance para recuperaçao e inserçao de dados em repositórios
+%heterogêneos
+%MAIDANTCHIK, C. L. L., GRAEL, Felipe F., GALVÃO, K K
+%XXVIII Encontro Nacional de Física de Partículas e Campos, 2007.
+%
+%Os componentes do detector de partículas ATLAS são construídos por uma
+%colaboração internacional geografi- camente dispersa. A montagem de suas
+%dezenas de milhares de componentes está sendo finalizada no CERN, onde entrará
+%em operação. Uma vez integrados, os equipamentos são testados em conjunto. As
+%informações de localização e conectividade de cada parte, bem como os
+%resultados dos testes são armazenados em diferentes repositórios, utilizando
+%diversas tecnologias, modelagens e terminologias.
+%
+%Para solucionar os problemas de recuperação de dados heterogêneos, inerentes a
+%esse ambiente, foi desenvolvido um sistema universal capaz de realizar buscas
+%sobre os repositórios independentemente de suas tecnologias.  Ao serem
+%fornecidas as informações de como se conectar em um repositório, o Glance
+%reconhece sua estrutura interna, e permite a seleção do conjunto de dados de
+%interesse aumentando sucessivamente o nível de detalhes apresentados. O sistema
+%então reconhece os atributos e seus tipos e gera automaticamente a descrição de
+%uma interface de recuperação correspondente. A descrição é feita em uma
+%linguagem de marcação baseada em XML e contém o nome dos atributos, as
+%informações técnicas necessárias para localizá-los, seus tipos, descrições e
+%possíveis valores. Baseado nessa descrição, o sistema gera uma interface de
+%busca paramétrica, onde devem ser estabelecidos os atributos sobre o qual se
+%quer realizar a pesquisa, os operadores e os valores de referência. Os
+%operadores são sensíveis ao tipo do atributo, isto é, um atributo numérico
+%possui os operadores ``maior que'' e ``menor que'', enquanto um textual possui
+%``contém''. Os resultados da busca são apresentados na forma de uma tabela
+%hipertextual, ou como arquivos em formatos tais como CSV ou XML.
+%
+%Ao instalar ou remover um componente do detector, a equipe de coordenação
+%técnica precisa atualizar as informações de conectividade e localização nos
+%bancos de dados. Para dar suporte a essa tarefa, o sistema permite também a
+%criação de interfaces para inserção e modificação de dados. Antes de realizar
+%qualquer alteração no repositório, o Glance verifica a integridade dos novos
+%dados, evitando inconsistências.  O sistema também é usado pelo grupo do
+%calorímetro hadrônico, para recuperar dados do DCS (Detector Control System)
+%que monitora tensões, correntes e temperaturas. Para isso, o Glance realiza
+%operações pre-definidas sobre os resultados da busca, de acordo com o tipo de
+%análise a ser realizada.
+%
+%Este trabalho apresenta a concepção do Glance e demonstra sua utilização.
+%Também é mostrado em mais detalhes como o sistema é utilizado pela coordenação
+%técnica e pelo calorímetro hadrônico.
+%
+%%-------------------------------------------------------------------------------
+%\item Sistema de Análise e Monitoração dos dados não-físicos do Calorímetro
+%Hadrônico do detector ATLAS
+%MAIDANTCHIK, C. L. L., FEREIRA, F. G., GRAEL, Felipe F.
+%XXVIII Encontro Nacional de Física de Partículas e Campos, 2007.
+%
+%O calorímetro hadrônico  do detector ATLAS encontra-se em fase de
+%comissionamento. Durante este periodo são testados os equipamentos e sistemas
+%que o compõe a fim de garantir o seu futuro funcionamento. O Laboratório de
+%Processamento de Sinais (LPS-UFRJ) é um dos laboratórios participantes desta
+%colaboração internacional.
+%
+%O DCS (\emph{Detector Control System}), responsável pela monitoração das fontes
+%de alta e baixa tensões que alimentam os componentes eletrônicos integrantes do
+%sub-detector e pelo sistema de refrigeração que garante o funcionamento dessas
+%fontes, é um desses sistemas. Para tal, adquire dados como tensões, correntes e
+%temperaturas utilizando um programa  desenvolvido dentro do framework do
+%software proprietário PVSS, que é uma plataforma destinada especialmente para
+%sistemas de controle.  Após a aquisição tais informações são armazenadas numa
+%base de dados relacional de tecnologia Oracle. Estes dados não são usados para
+%análises físicas, mas são importantes para garantir a consistência delas.
+%
+%Para realizar o monitoramento e análise desses dados foi proposto e
+%implementado um sistema capaz de disponibilizar as informações via internet que
+%possam garantir que as fontes estejam funcionando corretamente, e a este foi
+%dado o nome de \emph{DCS Web System}. Primeiramente os dados são recuperados da
+%base de dados utilizando-se o sistema Glance, também desenvolvido pelo chamado
+%grupo do Rio.  Após a recuperação dos dados, o sistema \emph{Glance} formata-os
+%em arquivos XML, garantindo assim flexibilidade, e através desses gera médias e
+%os desvio padrão das amostragens, dados suficientes para estudar a estabilidade
+%dos equipamentos, para um dia ou um mês. Ainda são disponibilizados gráficos
+%temporais que mostram o progresso de determinada fonte. Ainda são previstos no
+%projeto distribuições estatísticas dos dados em estudo.
+%
+%Atualmente, o \emph{DCS Web System} oferece o suporte à análise e ao
+%monitoramento das fontes de baixa tensão e ao sistema de refrigeração, sendo o
+%suporte às fontes de alta tensão uma atualização prevista e pelo sistema de
+%refrigeração que garante o funcionamento dessas fontes, é um desses sistemas.
+%Para tal, adquire dados como tensões, correntes e temperaturas utilizando um
+%programa  desenvolvido dentro do framework do software proprietário PVSS, que é
+%uma plataforma destinada especialmente para sistemas de controle.  Após a
+%aquisição tais informações são armazenadas numa base de dados relacional de
+%tecnologia \emph{Oracle}. Estes dados não são usados para análises físicas, mas
+%são importantes para garantir a consistência delas.
+%
+%%-------------------------------------------------------------------------------
+%\item Glance: a retrieval system for construction, installation and
+%commissioning data for ATLAS equipments
+%MAIDANTCHIK, C. L. L., Grael, F F, SEIXAS, J. M.
+%XXVII Encontro Nacional de Física de Partículas e Campos, 2006.
+%
+%The ATLAS detector is being constructed by an international collaboration for
+%the LHC experiment at CERN.  For each part a big amount of data related to its
+%construction, installation and commissioning is being generated.  Since each
+%part is being constructed by different institute, the data are being stored at
+%different places and modeled according to the specific needs of each part and
+%institute.
+%
+%During the current phase of installation and commissioning each working group
+%needs to have access to the data related to their equipments, which can involve
+%parts coming from different institutes. Different groups may be interested in
+%different perspectives of the data. For example, the commissioning team of a
+%sub-detector is interested in the installation and production data of their
+%electronics and cables. Other group, like the cabling team, is interested in
+%the data about installation and connectivity for all subsystems, but not about
+%the construction.
+%
+%In this context of distributed working groups it is very difficult to provide a
+%single interface that delivers the information suitable for every group. In the
+%other hand, requiring each group to develop their own solution would need a
+%great effort. This would also represent a high maintenance cost, since small
+%changes to the repository of an institute can reflect into adjustments of
+%multiple interfaces.
+%
+%The goal of the project is to facilitate the retrieval of the data of
+%construction, installation and commissioning for the equipments in an
+%integrated way. The user selects the set of data of his interest. The system
+%then recognizes the characteristics of the data and automatically generates a
+%corresponding retrieval interface. This interface then can be stored in order
+%to be accessed by the collaborators from the same group. Through the retrieval
+%interface, the user can perform searches and filter the results successively to
+%reach the desired data.  The system stores the description of each interface,
+%with the information needed to perform the retrieval, in a way that they can be
+%added or modified as needed, without requiring changes to the main program.
+%
+%The system is being actively used by the Technical Coordination group to
+%retrieve data about cabling, positioning and physical installation of
+%electronic crates and boards, and integrate these data with an inventory
+%database, and with the production database of some of the sub-detectors. It is
+%running on the CERN web servers, and is developed using C++ and XML
+%technologies.
+%
+%
+%%-------------------------------------------------------------------------------
+%\item Sistema WEB para Testes de Equipamentos em Física de Altas Energias
+%MAIDANTCHIK, C. L. L., SEIXAS, J. M., ALVES, A. M., FARIA, A., GRAEL,
+%Felipe F., FEREIRA, F. G., GALVÃO, K K
+%XXVII Encontro Nacional de Física de Partículas e Campos, 2006.
+%
+%O detector ATLAS, acoplado ao acelerador de partículas LHC do CERN, encontra-se
+%atualmente em fase de comissionamento. Os testes realizados geram uma enorme
+%quantidade de dados, que são posteriormente analisados pelos colaboradores em
+%diferentes países. A cada execução dos programas de análise, uma série de
+%procedimentos e configurações deve ser realizada pelos pesquisadores. Os
+%gráficos e histogramas resultantes se referem aos níveis de energia durante uma
+%colisão de partículas, e dados para o controle de qualidade dos equipamentos
+%também são gerados a partir das análises.
+%
+%Este projeto apresenta o sistema \emph{Tile Commissioning Web System} que apóia
+%a manipulação e análise dos dados provenientes dos testes realizados no
+%Calorímetro de Telhas (TileCal), um dos sub-detectores do ATLAS, e apresenta
+%ferramentas para a recuperação dos resultados obtidos. O sistema é composto por
+%três softwares com interface Web que possuem funções específicas: o \emph{Web
+%Interface for Offline Shifters}, o \emph{Tilecomm Analysis} e o
+%\emph{AtlasMonitor}.
+%
+%O \emph{Web Interface for Offline Shifters} (WIS) automatiza o processo de
+%análise, apresentando ao usuário uma tabela com todos os testes realizados e os
+%tipos de análises que podem ser realizadas para cada um. Após a seleção do
+%usuário, o WIS recupera o arquivo correspondente no sistema de armazenamento
+%CASTOR (\emph{Cern Advanced STORage}) e executa remotamente o programa de
+%análise requerido, seguindo todos os procedimentos e configurações exigidos. Ao
+%final do processo de análise, os resultados são disponibilizados na interface
+%do sistema, apresentando gráficos de níveis de energia e dados de controle de
+%qualidade. Os gráficos e os dados são automaticamente armazenados nas
+%respectivas bases de dados dos sistemas \emph{Tilecomm Analysis} e \emph{Atlas
+%Monitor}. O primeiro software recupera os gráficos, através da associação com o
+%tipo e o identificador do teste e com a seção do sub-detector que foi testada.
+%O \emph{AtlasMonitor} insere automaticamente os dados resultantes nas folhas de
+%controle de qualidade. Posteriormente, o colaborador pode inserir informações
+%adicionais ou até mesmo criar uma nova folha de controle de qualidade.
+%
+%O sistema \emph{Tile Commissioning Web Syste}m está instalado no servidor do
+%CERN e é utilizado pelos colaboradores do TileCal e seu desenvolvimento conta
+%com a participação dos responsáveis tanto pelos testes dos equipamentos quanto
+%pelo funcionamento do calorímetro.
+%
+%
+%\end{itemize}
