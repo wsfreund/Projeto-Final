@@ -5,12 +5,12 @@ classificação de dados, podendo ser utilizadas em um campo abrangente de área
 do conhecimento, citando como exemplos a medicina e bolsa de valores.
 
 Em certos casos a elevada taxa de dados pode ser um problema, sendo necessário a
-utilização de um sistema de filtragem. Essa ferramenta realiza a seleção dos dados 
+utilização de um Sistema de Filtragem. Essa ferramenta realiza a seleção dos dados 
 de interesse, de modo a eliminar aqueles que não agregam informações relevantes 
-para o caso em questão. Essa tarefa se torna ainda mais difícil nos casos do evento 
-de interesse ser raro, sendo necessário otimizar o sistema de filtragem de modo que 
+para o caso em questão. A tarefa se torna ainda mais difícil nos casos de raros
+eventos de interesse, sendo necessário otimizar o Sistema de Filtragem de modo que 
 ele seja capaz de detectar com precisão tais eventos, ao mesmo tempo que descarta 
-com eficiência a informação inútil ao problema em questão, reduzindo assim a dimensão 
+de modo eficaz a informação inútil ao problema em questão, reduzindo assim a dimensão 
 de eventos, sem desprezar a parte interessante dos mesmos.
 Podem ser utilizados tanto métodos baseados no conhecimento especialista do
 assunto, quanto métodos baseados na informação estatística do processo, 
@@ -19,24 +19,24 @@ a combinação do conhecimento especialista ao processamento
 estatístico trás uma abordagem ainda mais poderosa, através da utilização das informações 
 em técnicas não lineares, como redes neurais.
 
-O sistema de filtragem pode ser utilizado no ambiente {\it online},
+O Sistema de Filtragem pode ser utilizado no ambiente em tempo real,
 quando o processo de seleção ocorre durante a aquisição de dados. Nesse ambiente
 deseja-se reduzir o volume de dados a serem armazenados. A decisão deve ser realizada 
 em curtos espaços de tempo, de maneira que atenda a taxa esperada de geração de
 dados, e ainda ser eficiente, uma vez que não se terá mais acesso aos dados
-rejeitados. No ambiente {\it online} é possível o processamento dos dados em série
+rejeitados. No ambiente em tempo real é possível o processamento dos dados em série
 ou em paralelo. O processamento em série limita o tempo de processamento àquele
 de aquisição dos dados, não sendo interessante quando há flutuação do
 processamento dos eventos. Por outro lado, o processamento em
 paralelo possibilita que eventos mais complexos ocorram durante um tempo maior
 que a taxa de aquisição de dados. Nesse tipo de processamento é necessário que
 todos os eventos tenham um tempo de latência(tempo máximo de processamento), determinado pela capacidade
-de processamento, para evitar gargalos no sistema de filtragem.
+de processamento, para evitar gargalos no Sistema de Filtragem.
 
-Já no ambiente {\it offline} o processo de seleção pode ser mais
-complexo, uma vez que ele não está imbuído de realizar a decisão atendendo os
-requisitos de tempo do ambiente {\it online}, e espera-se que ele um sistema
-tenha melhor eficiência quando atuando em {\it offline}.
+Já no ambiente a posteriori o processo de seleção pode ser mais
+complexo, uma vez que ele não está imbuído de realizar a decisão atendendo aos
+requisitos de tempo quando em tempo real. Assim, é esperado 
+uma melhor eficiência quando realizando a filtragem a posteriori.
 
 \section{Motivação} 
 
@@ -50,13 +50,13 @@ Nesse ambiente de colaboração internacional estarão presentes
 todas as características de um sistema de alta taxa de dados e raros eventos de
 interesse.
 
-Serão acelerados pacotes de prótons em feixes com sentidos opostos no LHC,
-ocorrendo colisões em quatro pontos, com uma frequência de 40MHz. Nesses pontos, são instalados 
+Serão acelerados pacotes (um aglomerado) de prótons em feixes com sentidos opostos no LHC,
+ocorrendo colisões em quatro pontos. Nesses pontos, são instalados 
 detectores de partículas que observam o subproduto das colisões dos pacotes de prótons 
 acelerados pelo LHC. O ATLAS é um dos detectores do LHC, sendo construído e operado por 
 uma colaboração internacional envolvendo 174 institutos de 38
 países \cite{webATLAS}. Ele foi projetado 
-de modo a atender a diversos requisitos da física experimental atual e por isso é dito de uso
+de modo a atender diversos dos requisitos da física experimental atual e por isso é dito de uso
 geral. Para atendê-los ele é dividido nos seguintes sub-detectores:
 
 \begin{itemize}
@@ -72,21 +72,23 @@ Múons.
 A física estudada nesse experimento é muito rara, podendo ser observados algumas
 poucas vezes ao longo de vários dias de colisão. Um dos objetivos para o qual o
 ATLAS foi designado é a identificação da partícula bóssom de Higgs, única partícula 
-do modelo padrão ainda não observada. Estima-se que cerca de 17 k dessas
+do Modelo Padrão ainda não observada. Estima-se que cerca de 17 k dessas
 partículas (para a massa de 500 GeV) deverão ser produzidas por ano, comparados
 com o total de $1.7\times10^{16}$ eventos produzidos de colisões inelásticas \cite{resumo_ATLAS}. 
 
-Para a taxa de colisão de 40 MHz são esperadas cerca de 1 GHz de iterações quando
-operando nas condições nominais. Nessas condições estima-se para cada evento de colisão 
-cerca de aproximadamente 1.5 MB de espaço em disco rígido. Desta forma, 
-o fluxo de dados no decorrer do experimento será de 60 TB/s, impossibilitando o
-armazenamento completo dos eventos ocorridos no experimento. 
+É estimada um média de cerca de 1.5 MB de espaço em disco rígido para cada evento de 
+colisão. A taxa de cruzamento entre os pacotes de prótons é de 40 MHz, 
+desta forma o fluxo de dados no decorrer do experimento será de 60 TB/s, impossibilitando o
+armazenamento completo dos eventos ocorridos no experimento. Para tornar a
+situação ainda mais complexa são esperadas cerca de 1 GHz de iterações quando
+operando nas condições nominais, onde grande parte delas não irão gerar a física
+desejada como objeto de estudo.
 
-Assim é natural a adoção de um sistema de filtragem {\it online} para a
-identificação dos eventos de interesse a serem armazenados, reduzindo os 1GHz
-para cerca de 100Hz. O sistema de filtragem do ATLAS realiza o processamento dos 
+Assim é natural a adoção de um Sistema de Filtragem em tempo real para a
+identificação dos eventos de interesse a serem armazenados, reduzindo a taxa de 1GHz
+para cerca de 100Hz. O Sistema de Filtragem do ATLAS realiza o processamento dos 
 eventos em paralelo, estando dividido em três níveis sequenciais, onde cada um 
-analisa o evento com maior complexidade.
+analisa o evento com maior complexidade:
 
 \begin{itemize}
 \item O primeiro nível de filtragem realiza a filtragem com FPGA (circuitos
@@ -110,8 +112,12 @@ infraestrutura computacional do segundo nível, entretanto tem disponíveis 1900
 \end{itemize}
 
 Uma vez o evento sendo aceito pelo terceiro nível, o mesmo é então armazenado
-para futura analise pelos algoritmos desenvolvidos para analise em {\it
-offline}.
+para futura analise pelos físicos que irão utilizar os algoritmos desenvolvidos 
+para analise a posteriori. Os físicos dão o nome para esses algoritmos de Sistema de
+Reconstrução, pois eles os permitem fazer a reconstrução da física que ocorreu
+durante a colisão e sua interação com o detetor. Para facilitar a leitura irá se 
+referir ao Sistema de Filtragem em tempo real simplesmente como Sistema de 
+Filtragem, já a sua versão de analise a posteriori será referida como Sistema de Reconstrução.
 
 Um dos canais de interesse do experimento, o canal elétron/fóton (e/$\gamma$),
 deseja identificar elétrons (e$^-$), pósitrons (e$^+$) ou fótons ($\gamma$), 
@@ -138,9 +144,9 @@ Para que tal melhoria seja alcançada no
 algoritmo será realizado um estudo de preprocessamento dos dados,
 através da escolha da melhor normalização a ser adotada.
 
-Ainda, um dos requisitos para a adesão do algoritmo no sistema de filtragem é a
-implementação de uma versão do mesmo para o ambiente de analise em {\it
-offline}, de maneira  que a colaboração possa utilizá-lo e entender o seu
+Ainda, um dos requisitos para a adesão do algoritmo no Sistema de Filtragem é a
+implementação de uma versão do mesmo para o Sistema de Reconstrução,
+de maneira  que a colaboração possa utilizá-lo e entender o seu
 funcionamento. Por esse motivo, também se faz necessário a implementação 
 da nova versão para a complexa estrutura de código desse ambiente.
 
@@ -154,8 +160,8 @@ O capítulo 2 apresenta o contexto de colaboração internacional no qual o proj
 foi desenvolvido, dando a base necessária para o entendimento do experimento. No
 capítulo 3, são especificados os algoritmos de filtragem desenvolvidos para o
 canal e/$\gamma$, assim como os detalhes de implementação do algoritmo
-\emph{offline}. No capítulo 4 são apresentado os resultados para a analise de
-normalização e a eficiência da versão {\it online} algoritmo, enquanto no
+a posteriori. No capítulo 4 são apresentado os resultados para a analise de
+normalização e a eficiência da versão em tempo real algoritmo, enquanto no
 capítulo 5 são apresentados os resultados de performance para a versão {\it
 offline} do algoritmo. 
 sistema é usado pela colaboração no capítulo 6. Por fim, o capítulo 7 apresenta
