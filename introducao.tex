@@ -1,4 +1,5 @@
 \chapter{Introdução}
+\glsresetall
 
 O uso de técnicas de processamento de sinais podem facilitar a análise e
 classificação de dados, podendo ser utilizadas em um campo abrangente de áreas
@@ -9,12 +10,12 @@ utilização de um Sistema de Filtragem. Essa ferramenta realiza a seleção dos
 de interesse, de modo a eliminar aqueles que não agregam informações relevantes 
 para o caso em questão. A tarefa se torna ainda mais difícil nos casos de raros
 eventos de interesse, sendo necessário otimizar o Sistema de Filtragem de modo que 
-ele seja capaz de detectar com precisão tais eventos, ao mesmo tempo que descarta 
-de modo eficaz a informação inútil ao problema em questão, reduzindo assim a dimensão 
+ele seja capaz de detectar com precisão tais eventos, descartando eficientemente a 
+informação inútil ao problema em questão, reduzindo assim a dimensão 
 de eventos, sem desprezar a parte interessante dos mesmos.
 Podem ser utilizados tanto métodos baseados no conhecimento especialista do
 assunto, quanto métodos baseados na informação estatística do processo, 
-que frequentemente filtram com maior qualidade os dados de interesse. Ainda, 
+que geralmente filtram com maior qualidade os dados de interesse. Ainda, 
 a combinação do conhecimento especialista ao processamento 
 estatístico trás uma abordagem ainda mais poderosa, através da utilização das informações 
 em técnicas não lineares, como redes neurais.
@@ -23,37 +24,41 @@ O Sistema de Filtragem pode ser utilizado no ambiente em tempo real,
 quando o processo de seleção ocorre durante a aquisição de dados. Nesse ambiente
 deseja-se reduzir o volume de dados a serem armazenados. A decisão deve ser realizada 
 em curtos espaços de tempo, de maneira que atenda a taxa esperada de geração de
-dados, e ainda ser eficiente, uma vez que não se terá mais acesso aos dados
-rejeitados. No ambiente em tempo real é possível o processamento dos dados em série
+dados, e ainda ser eficiente, uma vez que os dados rejeitados serão perdidos. 
+No ambiente em tempo real é possível o processamento dos dados em série
 ou em paralelo. O processamento em série limita o tempo de processamento àquele
 de aquisição dos dados, não sendo interessante quando há flutuação do
 processamento dos eventos. Por outro lado, o processamento em
 paralelo possibilita que eventos mais complexos ocorram durante um tempo maior
 que a taxa de aquisição de dados. Nesse tipo de processamento é necessário que
-todos os eventos tenham um tempo de latência(tempo máximo de processamento), determinado pela capacidade
-de processamento, para evitar gargalos no Sistema de Filtragem.
+todos os eventos não ultrapassem o valor máximo de latência (tempo utilizado
+para a tomada de decisão pelo Sistema de Filtragem), assim como obterem um valor 
+médio de latência estipulado, determinados pela capacidade de processamento,
+afim de evitar gargalos no Sistema de Filtragem.
 
-Já no ambiente a posteriori o processo de seleção pode ser mais
+Já no ambiente de análise a posteriori, o processo de seleção pode ser mais
 complexo, uma vez que ele não está imbuído de realizar a decisão atendendo aos
 requisitos de tempo quando em tempo real. Assim, é esperado 
 uma melhor eficiência quando realizando a filtragem a posteriori.
 
 \section{Motivação} 
 
-O CERN (Centro Europeu para Pesquisas Nucleares) é o maior centro de
+O \gls{cern} é o maior centro de
 pesquisas em física de partículas do mundo, situado na fronteira da Suíça com a
-França \cite{webCERN}. O experimento de grande repercussão do CERN se consiste no LHC ({\it
-Large Hadron Collider}), um acelerador de partículas de 27 km de
-circunferência que irá atingir energias nunca antes obtidas
+França \cite{webCERN}. O experimento de grande repercussão do \gls{cern} se
+consiste no \gls{lhc}, um acelerador de partículas de 27 km de
+circunferência que irá atingir energia de colisões nunca antes obtidas
 experimentalmente \cite{webLHC}. 
 Nesse ambiente de colaboração internacional estarão presentes
 todas as características de um sistema de alta taxa de dados e raros eventos de
 interesse.
 
-Serão acelerados pacotes (um aglomerado) de prótons em feixes com sentidos opostos no LHC,
+Serão acelerados pacotes\footnote{Um aglomerado de partículas.} de prótons em
+feixes com sentidos opostos no \gls{lhc},
 ocorrendo colisões em quatro pontos. Nesses pontos, são instalados 
 detectores de partículas que observam o subproduto das colisões dos pacotes de prótons 
-acelerados pelo LHC. O ATLAS é um dos detectores do LHC, sendo construído e operado por 
+acelerados pelo \gls{lhc}. O \gls{atlas} é um dos detectores do
+\gls{lhc}, sendo construído e operado por 
 uma colaboração internacional envolvendo 174 institutos de 38
 países \cite{webATLAS}. Ele foi projetado 
 de modo a atender diversos dos requisitos da física experimental atual e por isso é dito de uso
@@ -69,46 +74,64 @@ absorção da energia de partículas hadrônicas;
 Múons.
 \end{itemize}
 
-A física estudada nesse experimento é muito rara, podendo ser observados algumas
-poucas vezes ao longo de vários dias de colisão. Um dos objetivos para o qual o
-ATLAS foi designado é a identificação da partícula bóssom de Higgs, única partícula 
-do Modelo Padrão ainda não observada. Estima-se que cerca de 17 k dessas
-partículas (para a massa de 500 GeV) deverão ser produzidas por ano, comparados
-com o total de $1.7\times10^{16}$ eventos produzidos de colisões inelásticas \cite{resumo_ATLAS}. 
+A física estudada nesse experimento é muito rara, podendo ser observados eventos
+de interesse algumas poucas vezes ao longo de vários dias de colisão. 
+Um dos objetivos para o qual o \gls{atlas} foi 
+designado é a identificação da partícula bóssom de Higgs, única partícula 
+do \glslink{mp}{Modelo Padrão} ainda não observada. Estima-se que cerca de 17 k dessas
+partículas\footnote{Considerando o decaimento esperado para a massa de 500 GeV.} deverão ser produzidas por ano, comparados
+com o total de $1.7\times10^{16}$ eventos produzidos de interações inelásticas
+não difrativas \cite{resumo_ATLAS}. 
 
-É estimada uma média de cerca de 1.5 MB de espaço em disco rígido para cada evento de 
+%\newglossaryentry{byte}{type=Simb,name=B,
+%  description={\emph{Byte}, unidade de informa{çã}o digital}
+%\newglossaryentry{hertz}{type=Simb,name=Hz,
+%  description={\emph{Hertz}, unidade de informa{çã}o digital}
+
+É prevista uma média de cerca de 1.5 MB de espaço em disco rígido para cada evento de 
 colisão. A taxa de cruzamento entre os pacotes de prótons é de 40 MHz, 
 desta forma o fluxo de dados no decorrer do experimento será de 60 TB/s, impossibilitando o
 armazenamento completo dos eventos ocorridos no experimento. Para tornar a
-situação ainda mais complexa são esperadas cerca de 1 GHz de iterações quando
-operando nas condições nominais, onde grande parte delas não irão gerar a física
-desejada como objeto de estudo.
+situação ainda mais complexa são esperadas cerca de 1 GHz de interações
+inelásticas não difrativas \cite{resumo_ATLAS} quando operando nas condições nominais, onde apenas
+uma pequena parte dessas interações irá gerar a física desejada como objeto de
+estudo.
 
 Assim é natural a adoção de um Sistema de Filtragem em tempo real para a
-identificação dos eventos de interesse a serem armazenados, reduzindo a taxa de 1GHz
-para cerca de 100Hz. O Sistema de Filtragem do ATLAS realiza o processamento dos 
-eventos em paralelo, estando dividido em três níveis sequenciais, onde cada um 
-analisa o evento com maior complexidade:
+identificação dos eventos de interesse a serem armazenados, reduzindo a taxa de 1 GHz
+para cerca de 100 Hz. O Sistema de Filtragem do \gls{atlas} realiza o processamento dos 
+eventos em paralelo, estando dividido em três níveis sequenciais, cada um 
+analisando o evento com maior complexidade:
+
+\newacronym[type=Abrev]{fpga}{FPGA}{\emph{Field-Programmable Gate Array}} 
+\newacronym[type=Abrev]{roi}{RoI}{Região de Interesse} 
+\newacronym[type=Abrev]{l1}{L1}{Primeiro N{í}vel de filtragem do
+\acrshort{atlas}} 
+\newacronym[type=Abrev]{l2}{L2}{Segundo N{í}vel de filtragem do \acrshort{atlas}} 
+\newacronym[type=Abrev]{ef}{EF}{Filtro de Eventos (\emph{Event Filter}), ou terceiro n{í}vel de
+filtragem do \acrshort{atlas}} 
 
 \begin{itemize}
-\item O primeiro nível de filtragem realiza a filtragem com FPGA (circuitos
-integrados com portas lógicas) usando resolução reduzida das células do detector
+\item O \glslink{l1}{Primeiro Nível de filtragem (L1)} realiza a filtragem com
+\gls{fpga}\footnote{Circuitos integrados com portas lógicas.}, 
+utilizando resolução reduzida das células do detector
 com um tempo fixo de 2 $\mu$s, reduzindo a taxa de eventos para
 75 kHz. Ele também é responsável pela identificação de regiões no detector onde
-há informação relevante, referidas como região de interesse (RoI). Somente a
+há informação relevante, referidas como \gls{roi}. Somente a
 informação contida nessa região é propagada para o segundo nível, de forma a
 minimizar o fluxo de dados no sistema.
-\item O segundo nível analisa somente os eventos que passaram pelas condições do
+\item O \glslink{l2}{Segundo Nível (L2)} analisa somente os eventos que passaram pelas condições do
 primeiro nível. Utiliza a resolução total das células do detector, 
 tendo um tempo de latência de 10 ms, de maneira a reduzir a taxa de eventos para
 1kHz. É implementado em linguagens de alto nível como C++ e python para sua configuração. 
 Para esse nível são disponíveis cerca de 500 processadores, com quatro
 núcleos de processamento, conectados em rede.
-\item O terceiro nível, além de avaliar com maior acurácia aqueles que foram
+\item O \glslink{ef}{Terceiro Nível (EF)}, além de avaliar com maior acurácia aqueles que foram
 selecionados pelo segundo nível, realiza a procura por eventos não identificados pelo
 primeiro nível por causa de sua menor resolução. Ele possui um tempo de 
 latência de 10 s, reduzindo a taxa de eventos para 100 Hz. Utiliza a mesma
-infraestrutura computacional do segundo nível, entretanto tem disponíveis 1900 processadores.
+infraestrutura computacional do segundo nível, entretanto tem disponíveis 1900
+processadores \cite{tese_torres}.
 \end{itemize}
 
 Uma vez o evento sendo aceito pelo terceiro nível, o mesmo é então armazenado
@@ -119,24 +142,25 @@ durante a colisão e sua interação com o detetor. Para facilitar a leitura ir�
 referir ao Sistema de Filtragem em tempo real simplesmente como Sistema de 
 Filtragem, já a sua versão de analise a posteriori será referida como Sistema de Reconstrução.
 
-Um dos canais de interesse do experimento, o canal elétron/fóton (e/$\gamma$),
-deseja identificar elétrons (e$^-$), pósitrons (e$^+$) ou fótons ($\gamma$), 
+Um dos canais de interesse do experimento, o canal \acrshort{eg},
+deseja identificar elétrons \glslink{eg}{(e$^-$)}, pósitrons \glslink{eg}(e$^+$)
+ou fótons \glslink{eg}{($\gamma$)}, 
 partículas de componentes eletromagnéticas. Muitos dos decaímentos do bóssom de
 Higgs serão nessas partículas, de forma que esse canal é de fundamental
 importância para o experimento. Ainda, a partícula $J/\Psi$, partícula importante
 para a determinação da resolução em baixa energia do detector, 
 também decai em elétrons, sendo assim um objeto de estudo nesse canal.
 Jatos, partículas onde componentes hadrônicas são predominantes, 
-mascaram a assinatura das partículas desejadas pelo canal e/$\gamma$, fazendo 
+mascaram a assinatura das partículas desejadas pelo canal \acrshort{eg}, fazendo 
 com que a tarefa da identificação dessas partículas não seja trivial.
 
 \section{Objetivo} % {{{
 
-O objetivo deste trabalho é otimizar o \emph{Egamma Calorimeter Ringer},
-um algoritmo alternativo que vem sido desenvolvido pelo LPS (Laboratório 
-de Processamento de Sinais) para realizar a discriminação 
-no canal e/$\gamma$. Tal algoritmo foi idealizado para o segundo
-nível de filtragem do detector ATLAS, sendo implementado na colaboração em 2005.
+O objetivo deste trabalho é otimizar o \gls{egcaloringer},
+um algoritmo alternativo que vem sido desenvolvido pelo \gls{lps}
+para realizar a discriminação 
+no canal \acrshort{eg}. Tal algoritmo foi idealizado para o \gls{l2}, 
+sendo implementado na colaboração em 2005.
 Nele a informação de calorimetria é tratada através do conhecimento especialista
 e então propagada para um método estatístico 
 de discriminação, onde atualmente é utilizado redes neurais. 
@@ -151,7 +175,8 @@ funcionamento. Por esse motivo, também se faz necessário a implementação
 da nova versão para a complexa estrutura de código desse ambiente.
 
 Por fim, é necessária uma analise da eficiência do algoritmo para ambos os
-ambientes, utilizando como parâmetro seus equivalentes desenvolvidos pela colaboração.
+ambientes, utilizando como parâmetro de comparação seus equivalentes 
+desenvolvidos pela colaboração.
 
  % }}}
 \section{Organização do documento} % {{{

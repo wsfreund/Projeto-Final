@@ -17,7 +17,9 @@
 }
 
 \usepackage{indentfirst}
+\usepackage{multirow}
 \usepackage{listings}
+%\usepackage{simplemargins}
 % Formato do PF
 \usepackage{layout}
 % Modelo da página
@@ -35,25 +37,44 @@
 \renewcommand{\baselinestretch}{1.5}
 \pagestyle{plain}
 
+\usepackage[style=long,nonumberlist,toc]{glossaries}
+\renewcommand{\glossaryname}{S{í}mbulos e Abreviaturas}
+%\renewcommand{\glossarypreamble}{Texto principal}
+% Define a new glossary type
+\newglossary[slg]{Simb}{sym}{sbl}{Lista de S{í}mbulos}
+\newglossary[alg]{Abrev}{abr}{abv}{Lista de Abreviaturas}
+
+\makeglossaries
+
+% add = sign in the list of abbreviations:
+
+\renewenvironment{theglossary}
+  {\begin{longtable}{l@{{ }{ }{ }{ }{ }{ }{ }{ }{ }{ }}p{0.80\textwidth}}}
+  {\end{longtable}}%
+\renewcommand{\glsgroupskip}{}
+
+
 \begin{document}
 
 \input{capa.tex}
 \pagenumbering{roman}
-
 % Agradecimento
 \input{agradecimento}
-
-% Resumo
 \input{resumo}
-
 \cleardoublepage
-
 % Sumário
+\vfill
 \tableofcontents
-
+\addcontentsline{toc}{chapter}{Lista de Figuras}
 \listoffigures
-
+\addcontentsline{toc}{chapter}{Lista de Tabelas}
 \listoftables
+%\renewcommand{\glossarypreamble}{Texto Simbulos}
+\printglossary[type=Simb]
+\renewcommand{\glossarypreamble}{No caso de algumas abreviaturas
+internacionalmente conhecidas, optou-se por mantê-las em sua lingua original.}
+\printglossary[type=Abrev]
+%\glssymbol{ohm}.
 
 \cleardoublepage
 \pagenumbering{arabic}
@@ -66,6 +87,7 @@
 %\input{glance}
 %\input{aplicacoes}
 \input{conclusao}
+\glsaddall
 
 \cleardoublepage
 

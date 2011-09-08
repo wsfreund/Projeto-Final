@@ -4,14 +4,20 @@
 \end{center}
 \addcontentsline{toc}{chapter}{Resumo}
 
-O Centro Europeu de Pesquisa Nuclear (CERN) tem sido foco da mídia atual devido
-ao maior acelerador de partículas já construído, o \emph{Large Hadron Collider} (LHC). Esse
+\newacronym[type=Abrev]{cern}{CERN}{\emph{Centre Européene pour la Rech{è}rche Nucleaire}} 
+\newacronym[type=Abrev]{lhc}{LHC}{\emph{Large Hadron Collider}} 
+O \gls{cern} tem sido foco da mídia atual devido
+ao maior acelerador de partículas já construído, o \gls{lhc}. Esse
 acelerador dará aos cientistas a oportunidade de explorar um novo universo da física
 experimental de altas energias, permitindo-os validar e desenvolver teorias.
 
-Uma das teorias que deseja-se validar, o Modelo Padrão, prevê a partícula bóssom
-de Higgs, ainda não observada experimentalmente. Um dos detectores do LHC, o
-ATLAS, tem dentre seus objetivos confirmar a existência de tal partícula.
+\newacronym[type=Abrev]{mp}{MP}{Modelo Padr{ã}o de intera{çã}o entre as part{í}culas
+  elementares} 
+\newacronym[type=Abrev]{atlas}{ATLAS}{\textit{A Toroidal LHC ApparatuS}} 
+
+Uma das teorias que deseja-se validar, o \glslink{mp}{Modelo Padrão}, prevê a partícula bóssom
+de Higgs, ainda não observada experimentalmente. Um dos detectores do \gls{lhc}, o
+\gls{atlas}, tem dentre seus objetivos confirmar a existência de tal partícula.
 
 O bóssom de Higgs é altamente instável e irá decair rapidamente em outras
 partículas, como elétrons e fótons, de forma que é importante a detecção das
@@ -24,22 +30,29 @@ Existem duas versões, uma em tempo real, que reduz a massiva quantidade de dado
 a serem armazenados, e outra a posteriori, normalmente referida como Sistema de
 Reconstrução, utilizada por físicos nos dados selecionados de forma a validar suas teorias.
 
+\newacronym[type=Simb]{ej}{\ensuremath{e/J}}{El{é}tron (e p{ó}sitron)/Jato} 
+\newacronym[type=Simb]{eg}{\ensuremath{e/\gamma}}{El{é}tron (e p{ó}sitron)/Fóton} 
+\newacronym[type=Abrev,sort=egcaloringer]{egcaloringer}{EgCaloRinger}{\acrshort{eg} \emph{
+Calorimeter Ringer}} 
+
 Nesse contexto internacional, o presente trabalho realiza a continuação
-do projeto \emph{Egamma Calorimeter Ringer}. O projeto se consiste de um algoritmo 
-para o Sistema de Filtragem do ATLAS, atuando no canal físico de
-elétrons/fótons. Nele a informação especialista do detetor é propagada para um
+do projeto \acrshort{egcaloringer}. 
+O projeto se consiste de um algoritmo 
+para o Sistema de Filtragem do \gls{atlas}, atuando no canal físico de
+\acrshort{eg}. Nele a informação especialista do detetor é propagada para um
 método estatístico de discriminação, atualmente composto de redes neurais.
 
-No presente trabalho realizou-se a otimização da eficiência do algoritmo, 
+Assim, realizou-se a otimização da eficiência do algoritmo, 
 através do estudo do preprocessamento mais indicado. 
 Ainda, foi implementada uma versão para a analise em 
 a posteriori desse algoritmo, versão adicionada oficialmente ao
-sistema de análise do ATLAS. Por fim, comparou a performance desse algoritmo 
+sistema de análise do \gls{atlas}. Por fim, comparou a performance desse algoritmo 
 utilizando como referência o algoritmo padrão implementado pela colaboração.
 
 \paragraph{}
 
-\noindent Palavras-Chave:  redes neurais, Sistema de Filtragem, CERN, ATLAS.
+\noindent Palavras-Chave:  redes neurais, Sistema de Filtragem, \acrshort{cern},
+  \acrshort{atlas}.
 
 \vfill
 
@@ -52,15 +65,15 @@ utilizando como referência o algoritmo padrão implementado pela colaboração.
 \end{center}
 \addcontentsline{toc}{chapter}{Abstract}
 
-The European Laboratory for Particle Physics (CERN) is one of the current
-media highlights due to the biggest particle accelerator ever built, the Large Hadron
-Collider (LHC). This accelerator will give scientists the opportunity to explore 
+The \glslink{cern}{European Laboratory for Particle Physics (CERN)} is one of the current
+media highlights due to the biggest particle accelerator ever built, \glslink{lhc}{the Large 
+Hadron Collider (LHC)}. This accelerator will give scientists the opportunity to explore 
 one new experimental physics universe, allowing them to validate and develop
 theories.
 
 One of those theories, the Standard Model, foresees the Higgs boson particles,
-yet not seen experimentally. One of the LHC detectors, the ATLAS, has between
-its goals to corroborate this particle existence.
+yet not seen experimentally. One of the \acrshort{lhc} detectors, the
+\gls{atlas}, has between its goals to corroborate this particle existence.
 
 The Higgs boson is highly unstable and will decay rapidly into other particles,
 such as electrons and photons, so that it is important the detection of those to
@@ -74,21 +87,21 @@ to be stored, and another offline, refereed as Reconstruction System, used by
 physicists on stored data to evaluate their theories.
 
 In this international context, the present work proceed with the Egamma
-Calorimeter project. The project consists of one algorithm to the ATLAS
-Reconstruction System, acting on the electron/photon physics channel. In this
-algorithm particular information from the detector is propagated to a stochastic
+Calorimeter project. The project consists of one algorithm to the
+\gls{atlas} Reconstruction System, acting on the \acrshort{eg} physics channel. In this
+algorithm, particular information from the detector is propagated to a stochastic
 discrimination method, currently composed of artificial neural networks.
 
 This document describes the algorithm efficiency optimization, through a study
-of the most indicated data preprocessing. Furthermore, is was developed an
-offline version for this algorithm, which was officially added to the ATLAS
-framework. Finally, this algorithm performance was compared using as benchmark
+of the most indicated data preprocessing. Furthermore, it was developed an
+offline version for this algorithm, which was officially added to the
+\gls{atlas} framework. Finally, the algorithm performance was compared using as benchmark
 the standard algorithm developed by the collaboration.
 
 
 \paragraph{}
 
-\noindent Key-words: neural networks, Trigger, CERN, ATLAS.
+\noindent Key-words: neural networks, Trigger, \acrshort{cern}, \acrshort{atlas}.
 
 
 \vfill

@@ -1,106 +1,124 @@
 \chapter{O CERN e Física Experimental de Altas Energias}
+\glsresetall
 
-O CERN ({\it Centre Européene pour la Rechèrche Nucleaire}) é o maior
+% Fazer lista de abreviaturas
+
+O \gls{cern} é o maior
 laboratório de Física de Partículas do mundo, situado na fronteira da Suíça com
 a França, contando com a colaboração de cientistas vindos de institutos
 do mundo todo. Desde sua fundação em 1954, tem sido uma das referências de
 avanços tecnológicos. Dentre seus feitos constam a construção do primeiro 
 colisionador de prótons-prótons (1971), a descoberta 
 da corrente de neutrons (1973), dos bóssom Z e W (1983), 
-e a invenção da Web (1990) \cite{webCERN}. O acelerador de partículas mais ambicioso 
-\cite{Intro_Standard} já construido é o \emph{Large Hadron
-Collider}, o atual experimento do CERN, onde espera-se que o maior de seus 
-detectores, o ATLAS, dê respostas a diversas questões da Física de Partículas
+e a invenção da \emph{Web} (1990) \cite{webCERN}. O acelerador de partículas mais ambicioso 
+\cite{Intro_Standard,Beiser} já construido é o \gls{lhc}, o atual experimento do
+\gls{cern}, onde espera-se que o maior de seus 
+detectores, o \gls{atlas}, dê respostas a diversas questões da Física de Partículas
 Elementares e da natureza do universo.
 
 Este trabalho está inserido no ambiente de colaboração internacional do detector
-ATLAS. O propósito deste capítulo é descrever a base para o entendimento desse ambiente
-e os ferramentais nele utilizados. Serão introduzidos o estudo de Física de Partículas
-Elementares e o Modelo Padrão (seção \ref{sec:fis_part}), 
-o experimento LHC (seção~\ref{sec:lhc}), o detector
-ATLAS (seção~\ref{sec:ATLAS}), dando enfoque ao seu sistema de calorimetria
+\gls{atlas}. O propósito deste capítulo é descrever a base para o entendimento desse ambiente
+e os ferramentais nele utilizados, entretanto alguns assuntos serão mais
+aprofundados do que apenas o necessário para o entendimento básico, com o
+intuíto de mostrar que os experimentos \gls{lhc}/\gls{atlas} vão muito além 
+da busca pelo bóssom de Higgs. Serão introduzidos o estudo de Física de Partículas
+Elementares e o \glslink{mp}{Modelo Padrão} (seção \ref{sec:fis_part}), 
+o experimento \gls{lhc}(seção~\ref{sec:lhc}), o detector
+\gls{atlas} (seção~\ref{sec:ATLAS}), tratando de seu sistema de calorimetria
 (seção~\ref{ssec:calorimetria}), assim como o ferramental utilizado pela colaboração
-(seção~\ref{sec:ferramentas}).
+(seção~\ref{sec:ferramentas}). 
 
 \section{Introdução a Física das Partículas Elementares}
 \label{sec:fis_part}
 
-Se dá o nome de Física de Partículas Elementares ao estudo dos contituintes
+Dá-se o nome de Física de Partículas Elementares, ou simplesmente Física de
+Partículas, ao estudo dos contituintes
 elementares e da natureza do universo. Embora a noção de que a matéria é
 composta por um conjunto de constituintes elementares tenha surgido em cerca de
 430 a.C., por Demócritos \cite{democritos}, o seu estudo na ciência moderna teve ínicio apenas 
 no século 19, quando o elétron foi descoberto por Thompson \cite{thompson}.
-Uma das grandes conquistas do século 20 foi o desenvolvimento do Modelo Padrão
-de Física de Partículas Elementares.  
+Uma das grandes conquistas do século 20 foi o desenvolvimento \gls{mp}.  
+
+\newacronym[type=Abrev]{qed}{QED}{EletroDinâmica Quântica}
 
 Qualquer teoria de Física de Partículas Elementares precisa ser consistente com
 a Relatividade Especial. A junção da Mecânica Quântica, Eletromagnetismo e
 Relativaidade Especial foi realizada através da Lei de Dirac e da Teoria de
 Campo Quântico. A Teoria de Campo Quântico teve como seu primeiro triumfo a
-Eletrodinâmica Quântica (QED), que descreve a interação de elétrons com o campo
+\gls{qed}, que descreve a interação de elétrons com o campo
 eletromagnético. 
 
-O Modelo Padrão, como o QED nele contido, é uma teoria de
-interação de campos. A construção do Modelo Padrão foi guiada pelos principios 
-de simetria, que podem ser divididos em diversos grupos com diferentes
-propriedades matemáticas. A conexão entre a física e simetria é forte, como
-demonstrado pelo teorema de Noether, onde essencialmente, para cada simetria
-continua na natureza existe uma lei de conversação correspondente, podendo ser
-citado a pressuposição da homogeniedade do espaço-tempo, o que leva ao lagrangiano
-invariante para translações uniformes no espaço-tempo e, finalmente, a
-transformações simétricas no sistema, tendo como consequência a lei da conservação 
-de massa e momento \cite{Intro_Standard}. 
-
-O Modelo Padrão descreve de maneira bem sucedida as relações entre
+O \gls{mp}, como o \gls{qed} nele contido, é uma teoria de
+interação de campos. Ele descreve de maneira 
+bem sucedida as relações entre
 partículas elementares conhecidas pela ciência atual 
 \cite{Intro_Nuclear} e as características de
-três forças que interagem com essas partículas:
-eletrogmagnetismo, forças fracas e forças fortes. A força gravitacional é
+três interações entre essas partículas:
+eletrogmagnética, fraca e forte. A interação gravitacional é
 desprezível na escala da Física de Partículas, onde a massa da partículas é da
 ordem de $10^{-27}$ kg \cite{Intro_Standard}.
+
+\newacronym[type=Abrev]{si}{SI}{Sistema Internacional de unidades e medidas}
 
 As unidades normalmente utilizadas no estudo de Física de Partículas são fm para
 distância (equivalente a $10^{-15}$ m), MeV ou GeV para massa ou energia, onde 1
 eV (elétron-Volt) é a energia necessária para aumentar o potêncial elétrico de
-um elétron em um volt, equivalente a $1,6\times10^{-19}$ J no SI, ou em unidades
+um elétron em um volt, equivalente a $1,6\times10^{-19}$ J no \gls{si}, ou em unidades
 de massa 1eV/$c^2$ = $1,78\times10^{-36}$ kg. A unidade para
 área é o \emph{barn}, definida por 1 b = $10^{-28} m^2$, utilizada em
 termos de mb ou fb \cite{Intro_Nuclear}.
 
-O Modelo Padrão utiliza doze férmions, partículas elementares, divididas em dois grupos: os
+São utilizados no \gls{mp} doze férmions, partículas elementares, divididas em dois grupos: os
 léptons e os quarks. Existem três diferentes gerações, ou familias, de férmions, cada uma com maior
-massa e carga. Ainda, existem quatro outras partículas
-transportadoras de campo, chamadas de bóssoms.
+massa e carga. Ainda, existem quatro outras partículas transportadoras das
+interações, chamadas de bóssoms de campo.
 A Figura \ref{fig:modelo_padrao} contêm as diferentes partículas que são
-descritas pelo Modelo Padrão, e seus respectivos números quânticos, como as massas de repouso em $GeV/c^2$, momento
+descritas pelo \gls{mp}, e seus respectivos números quânticos, como as massas de repouso em $GeV/c^2$, momento
 angular ou rotação, em unidades de $\hbar$, e carga elétrica normalizadas em função da carga
 do elétron, $e$, cerca de $1,6\times10^{-19}$ C. Note que todos os férmions
 possuem rotação de $\frac{1}{2}$, enquanto para os bóssoms esse valor é de 1.
 
 \begin{figure}[h!t]
 \centering
-\includegraphics[width=0.6\textwidth]{imagens/standart_model.pdf}
-\caption{O Modelo Padrão de partículas elementares. Extraído de
-\cite{wiki_standart_model}.}
+\includegraphics[width=0.6\textwidth]{imagens/screen-capture-29.png}
+\caption{O Modelo Padrão de interação entre partículas elementares. Extraído de
+\cite{tese_torres}.}
 \label{fig:modelo_padrao}
 \end{figure}
 
+%\newacronym[type=Simb]{bossonfoton}{\ensuremath{\gamma}}{Fóton (bóssom)} 
+%\newacronym[type=Simb]{bossonZ}{\ensuremath{Z}}{Bóssom Intermediário Z} 
+%\newacronym[type=Simb]{bossonW}{\ensuremath{W}}{Bóssom Intermediário W} 
+%\newacronym[type=Simb]{quarku}{\ensuremath{u}}{Quark \emph{up} (partícula elementar)} 
+%\newacronym[type=Simb]{quarkd}{\ensuremath{d}}{Quark \emph{down} (partícula elementar)} 
+%\newacronym[type=Simb]{quarkc}{\ensuremath{c}}{Quark \emph{charm} (partícula elementar)} 
+%\newacronym[type=Simb]{quarks}{\ensuremath{s}}{Quark \emph{strange} (partícula elementar)} 
+%\newacronym[type=Simb]{quarkt}{\ensuremath{t}}{Quark \emph{top} (partícula elementar)} 
+%\newacronym[type=Simb]{quarkb}{\ensuremath{b}}{Quark \emph{bottom} (partícula elementar)} 
+%\newacronym[type=Simb]{bossong}{\ensuremath{g}}{Gluón (bóssom)} 
+%\newacronym[type=Simb]{neutrinoEletron}{\ensuremath{\nu_e}}{Neutrino do elétron (partícula elementar)} 
+%\newacronym[type=Simb]{neutrinoMuon}{\ensuremath{\nu_{\mu}}}{Neutrino do múon (partícula elementar)} 
+%\newacronym[type=Simb]{neutrinoTaon}{\ensuremath{\nu_{\tau}}}{Neutrino do táon (partícula elementar)} 
+%\newacronym[type=Simb]{eletron}{\ensuremath{e^{-}}}{Elétron (partícula elementar)} 
+%\newacronym[type=Simb]{muon}{\ensuremath{\mu}}{Múon (partícula elementar)} 
+%\newacronym[type=Simb]{taon}{\ensuremath{\tau}}{Táon (partícula elementar)} 
+
 Além dessas partículas elementares, a Lei de Dirac prevê a
 existência de uma anti-partícula para cada partícula carregada
-com a mesma massa e rotação, mas cargas invertidas. A equação de Dirac para léptons neutrinos tambêm permite a existência de
-anti-neutrinos. Quando um par de partícula e anti-partícula entram em contato
-eles se aniquilam liberando sua energia de repouso $2mc$ em fótons e outras
-partículas. Elas são representadas através de uma barra acima dos simbulos
-das partículas, ou, no caso de partículas com indices de carga em seus símbulos, 
+com a mesma massa e rotação, mas cargas invertidas. 
+Quando um par de partícula e anti-partícula, ambas de massa $m$, entram em contato
+eles se aniquilam liberando sua energia de repouco $2mc$ em fótons e outras
+partículas. As anti-partículas são representadas através de uma barra acima dos simbulos
+das partículas, ou, no caso de partículas com indices de carga, 
 apenas os sinais da carga são modificados. A anti-partícula do elétron tem o nome de pósitron, por motivos
-históricos \cite{Intro_Standard}. 
+históricos \cite{Intro_Standard,Intro_Nuclear}. 
 
-As forças são comunicadas através dos bóssoms, partículas elementares
-transportadoras de campo. Cada força tem seu
-bóssom característico: o glúon (g): força forte; o fóton $\gamma$: força
-eletromagnética; e os bóssoms W e Z: força fraca. 
+As interações são comunicadas através dos bóssoms, partículas elementares
+transportadoras de campo. Cada interação tem seu
+bóssom característico: o glúon (g): interação forte; o fóton $\gamma$: interação 
+eletromagnética; e os bóssoms W e Z: interação fraca.  
 Os bóssoms W e Z possuem respectivamente massa de aproximadamente
-80 e 90 GeV. Essa fato limita o alcance da força fraca a cerca $10^{-3}$ fm de,
+80 e 90 GeV. Esse fato limita o alcance da interação fraca a cerca $10^{-3}$ fm,
 uma vez que uma partícula de massa M só pode existir como parte de um estado
 intermediário por tempo $\hbar/Mc^2$, viajando uma distância não maior que
 $\hbar/Mc$. O bóssom W possui carga elétrica, enquanto o bóssom Z é neutro, sendo sua própria anti-partícula.
@@ -108,36 +126,59 @@ O glúon e o fóton não possuem carga, assim como massa de repouso, de forma qu
 interação infinito para os campos portados por essas partículas. 
 Contudo, diferente do campo eletromagnético, o campo de
 glúons é confinado a um alcance de 1 fm. 
-Assim, para distâncias maiores a 1 fm, a força eletromagnética é dominante,
+Assim, para distâncias maiores a 1 fm, a interação eletromagnética é dominante,
 enquanto para distâncias menores, as interações forte e fraca também ocorrem.
-Os físicos esperam adicionar a força gravitacional
-através da partícula \emph{graviton}, que deverá ter rotação equivalente a 2
-unidades de $\hbar$.
-A intensidade relativa (em comparação com a interação forte) dos quatro tipos de
-interações são mostradas na Tabela \ref{tab:interacoes}.
 
 \begin{table}
 \centering
-\begin{tabular}{cc}
+\resizebox{15cm}{!}{
+\begin{tabular}{ccccc}
 \hline
-\textbf{Interação} & \textbf{Intensidade Relativa} \\
 \hline
-Forte & 1 \\
-Eletromagnética & $10^{-2}$ \\
-Fraca & $10^{-5}$ \\
-Gravitacional & $10^{-39}$ \\
+\textbf{Interação} & \textbf{Partículas Afetadas} & \textbf{Alcânce} &
+\textbf{Intensidade Relativa} & \textbf{Partículas Intercambiadas} \\
+\hline
+\hline
+\multirow{2}{*}{Forte} & Quarks & \multirow{2}{*}{$~10^{-15}$ m} &
+\multirow{2}{*}{1} & Glúons  \\
+ & Hádrons &  &  & Mésons  \\
+\hline
+Eletromagnética & Partículas carregadas & $\infty$ & $10^{-2}$ & Fótons
+\\
+\hline
+Fraca & Quarks e Léptons & $~10^{-18}$ m & $10^{-3}$ & Bóssoms W e Z\\
+\hline
+Gravitacional & Todas & $\infty$ & $10^{-39}$ & Gráviton \\
+\hline
 \hline
 \label{tab:interacoes}
 \end{tabular}
-\caption{Intensidade Relativa (em comparação com a interação forte) dos diversos
-tipos de interação. Extraído de \cite{tese_eduardo}.}
+}
+\caption{As quatro interações fundamentais. A intensidade relativa se dá em
+relação a interação forte. Adaptado de \cite{Beiser}.}
 \end{table}
 
-Duas leis de convervação muito importantes na Física de
-Partículas são: Conjugação de Paridade e de Carga, referidas como Simetria CP. 
-A Simetria CP diz que a física deve reagir
-da mesma maneira se a partícula for alterada para sua anti-partícula (C) e refletida
-espacialmente (P). Existem evidências que a Simetria CP é violada pela interação fraca \cite{Intro_Nuclear}.
+Conseguiu-se unir as interações eletromagnética e fraca, chamada de interação
+eletrofraca. O problema da realização de tal conexão se deu ao fato dos
+transportadores da interação fraca terem massa, fato não ocorrido para o caso da
+interação eletromagnética. Para realizar essa união se mostrou que, em um
+estado primitivo, uma única interação era mediada pelos quatro bóssoms sem massa.
+Através de um processo chamado quebra de simetria espontânea, três dos quatro
+bóssoms adquiriram massa e viraram as partículas Z e W, com a consequente
+redução no alcance de interação, enquanto o quarto bóssom continuou sem massa e
+de forma que o alcance da parte eletromagnética da interação original continuou infinita
+\cite{Beiser}.
+
+\newacronym[type=Simb]{hbar}{\ensuremath{\hbar}}{Constante de Planck reduzida
+(\ensuremath{\frac{h}{2\pi}})} 
+
+Os físicos esperam adicionar a interação gravitacional
+através da partícula gráviton, que deverá ter rotação equivalente a 2
+unidades de $\hbar$ e massa nula, entretanto não há nenhuma evidência 
+experimental a favor ou contra sua existência \cite{Beiser}.
+A Tabela~\ref{tab:interacoes} contêm um resumo sobre as interações
+fundamentais.
+
 
 Os léptons podem ser subdivididos em dois grupos, 
 um com massa e carga elétrica idêntica unitária: elétron, múon e táon; 
@@ -151,9 +192,10 @@ um anti-lépton do mesmo subgrupo. Esse fato pode ser melhor observado no
 decaimento descrito por \ref{eq:muon}, onde um múon decaí em um
 elétron, lépton carregado, criando ao mesmo tempo um neutrino do múon e um
 anti-neutrino do elétron, ambos do grupo de léptons neutrinos.
-Nenhum dos léptons sofrem interações com os glúons, portadores da força forte.
-No caso do subgrupo dos léptons neutrinos, eles tambêm não interagem com a força eletromagnética (fótons), 
-uma vez que não têm carga, só interagindo com a força fraca e, por esse motivo,
+Nenhum dos léptons sofrem interações com os glúons, portadores da interação forte.
+No caso do subgrupo dos léptons neutrinos, eles tambêm não interagem com a
+interação eletromagnética (fótons), 
+uma vez que não têm carga, só interagindo com a interação fraca e, por esse motivo,
 são de difícil detecção \cite{Intro_Nuclear,Intro_Standard}.
 
 \begin{equation} \label{eq:muon}
@@ -167,17 +209,27 @@ Para cada geração existe um par de sabores, onde um dos constituintes do par t
 carga elétrica positiva, correspondente a $\frac{2e}{3}$,
 e outro negativa, igual a $\frac{-e}{3}$. São os possíveis sabores: \emph{up}
 (u) e \emph{down} (d), \emph{charm} (c) e \emph{strange} (s), \emph{top} (t) e
-\emph{bottom} (b). 
+\emph{bottom} (b). Os quarks sofrem influência de todas as interações descritas
+pelo \gls{mp}.
+
+\newacronym[type=Abrev]{qcd}{QCD}{CromoDinâmica Quântica}
+
 Uma dificuldade da investigação experimental dos quarks é devida aos mesmos
 nunca terem sidos observados isoladamente. Eles estão sempre confinados em sistemas
-compostos, que se extendem a uma distância de até 1 fm, alcance máximo da
-interação forte. Se da ao nome dos sistemas compostos por quarks e glúons de
-hádrons, sendo os bárions e mésons os sistemas mais simples conhecidos. 
-A Teoria da Cromodinâmica Quantica (QCD) prevê como os quarks e glúons 
-interagem para formar os hádrons. Mesmo
+compostos, que se extendem a uma distância de até 1 fm, alcance máximo da interação forte. 
+A \gls{qcd}, modelada na \gls{qed}, mas alterando a carga elétrica pelas cores do quark, 
+prevê como os quarks e glúons interagem para formar os hádrons. Mesmo
 em colisões de altas energias os quarks se agrupam rapidamente em hádrons,
-formando jatos hadrônicos \cite{Intro_Nuclear}.
-Os quarks sofrem influência de todas as forças descritas pelo Modelo Padrão.
+formando jatos hadrônicos \cite{Intro_Nuclear}. Esse confinamento dos quarks ocorre 
+porque a interação forte é similar a uma mola, quanto mais afastados, maior é a
+força de atração entre os quarks. Mas se energia suficiente for adicionada,
+ao invés de um quark se liberar dos outros no hádron, a energia excedente produz
+um par de quark-antiquark \cite{Beiser}.
+Se dá ao nome dos sistemas compostos por quarks e glúons de
+hádrons, sendo os bárions e mésons os sistemas mais simples conhecidos. 
+
+%\newacronym[type=Simb]{kaon}{\ensuremath{K}}{Káon (méson)} 
+%\newacronym[type=Simb]{pion}{\ensuremath{\pi}}{Píon (méson mais leve existente)} 
  
 Um largo espectro dos bárions podem ser explicados como uma cápsula contendo
 três quarks confinados por glúons, sendo exemplos os prótons e neutróns. Os mésons, 
@@ -190,9 +242,42 @@ $u\bar{u}$ ou $d\bar{d}$, e os káons, os mais leves dos mésons estranhos
 compostos pelos sistemas $u\bar{s}$, $d\bar{s}$,
 $\frac{d\bar{s}+s\bar{d}}{\sqrt{2}}$, onde a diferença do $K^{0}_{S}$ e
 $K^{0}_{L}$ está no tempo de vida médio dessas partículas. 
-O próton ($uud$) é o único bárion estável, já o neutron ($udd$), apesar de estável na estrutura atômica,
-quando isolado tem vida média de 15 minutos \cite{Intro_Standard}. Enquanto
-isso, todos mésons são instáveis.
+O próton ($uud$) é o único bárion estável\footnote{Teorias atuais consideram que
+o próton decai com um tempo de vida muito longo, entretanto esse valor talvez seja maior 
+que o valor mínimo detectado experimentalmente, de $10^{32}$ anos. 
+Para comparação, a idade do universo é de $10^{10}$ anos \cite{Beiser}.}, 
+já o neutron ($udd$), apesar de estável na estrutura atômica,
+quando isolado tem vida média de 15 minutos \cite{Intro_Standard}. Finalmente, 
+todos mésons são instáveis.
+
+A construção do \gls{mp} foi guiada pelos principios 
+de simetria, que podem ser divididos em diversos grupos com diferentes
+propriedades matemáticas. A conexão entre a física e simetria é forte, como
+demonstrado pelo Teorema de Noether, onde essencialmente, para cada simetria
+continua na natureza existe uma lei de conservação correspondente. De maneira
+geral, a simetria de um tipo particular existe quando uma certa operação não
+altera um certo fenômeno ou objeto. A operação de simêtria mais simples é a
+translação no espaço, que significa que as leis da física não dependem do local
+das coordenadas de origem escolhidas. Noether mostrou que essa invariância tem a
+consequência da conservação do momento linear. De forma semelhante a translação
+no tempo, significando que não importa a escolha de $t = 0$, resulta na
+conservação de energia e a invariância de rotações no espaço, ou seja, as leis
+da física são invariantes conforme a escolha da orientação do sistemas de
+coordenadas, resultam na conservação de momento ângular.
+\cite{Intro_Standard,Feynman}. 
+
+Duas leis de convervação importantes na Física de
+Partículas são: Conjugação de Paridade e de Carga, referidas como Simetria CP. 
+A Simetria CP diz que a física deve reagir
+da mesma maneira se a partícula for alterada para sua anti-partícula (C) e refletida
+espacialmente (P).
+Embora a Simetria CP seja conservada para as interações forte
+e eletromagnética, o mesmo não acontece para a interação fraca
+\cite{Intro_Nuclear}. Esse fato pode ser uma explicação possível do
+desequilíbrio de matéria e anti-matéria no universo, todavia, o \gls{mp} não
+prevê a violação da Simetria CP para as interações fracas, apenas para a
+interação forte em escalas de energia muito altas, de forma que são necessárias
+outras fontes de violação da Simetria CP para se estudar e expandir o modelo.
  
 Outra simetria muito importante é conhecida como a Invariância de Gauge.
 Ela prevê que todos os bóssoms de rotação unitária precisam ter
@@ -202,27 +287,27 @@ fótons e gluóns não possuem massa, mas é experimentalmente contraditório
 para os bóssoms Z e W. A Invariância de Gauge tem um papel ainda mais forte
 quando na teoria unificada eletrofraca, onde sua consequência é que todas as
 partículas contêm massa nula. Foi introduzido um mecânismo, 
-por Peter Higgs em 1964, para corrigir o Modelo Padrão de modo que ele atendesse
+por Peter Higgs em 1964, para corrigir o \gls{mp} de modo que ele atendesse
 a essa formulação, conhecido como o bóssom de Higgs, portador do campo de Higgs. O bóssom de Higgs seria
 uma partícula mediadora responsável de fornecer massa às partículas elementares.
-A existência do bóssom de Higgs é a mais importânte previsão do Modelo Padrão
+A existência do bóssom de Higgs é a mais importânte previsão do \gls{mp} 
 ainda não verificada experimentalmente e sua busca é de máxima importância para
 a Física de Partículas. Diferente dos outros bóssoms, o
 bóssom de Higgs teria rotação nula \cite{Intro_Nuclear}.
 
-O progresso da ciência tem o comprometimento entre teoria e experimento. Kelvin
-diz que sem medir ou poder expressar em números o assunto tratado, se há apenas
-uma ideia inícial do conhecimento sobre o tema \cite{kelvin}. 
+O progresso da ciência tem o comprometimento entre teoria e experimento. De
+acordo com Kelvin, sem se medir ou poder expressar em números o assunto tratado, 
+se há apenas uma ideia inícial do conhecimento sobre o tema \cite{kelvin}. 
 Na Física de Partículas Elementares, experimentos atualmente dependem
 principalmente de grandes aceleradores de partículas. Outras fonte de avanços na
-Física de Partículas são experimentos com raios cósmicos, estudados tantos
+Física de Partículas são experimentos com raios cósmicos, estudados tanto
 através de detectores na superficie terrestre como através de satelites 
 \cite{nature_space_and_time}. 
 
 De acordo com a Teoria da Relatividade, não há diferença qualitativa entre
 massa e energia, essa é apenas quantitativa \cite{einstein} sendo descrita por
-\ref{eq:einstein}, onde E é a energia, $m_0$ a massa de repouso, e c a constante que representa a
-velocidade de propagação da luz no vácuo, aproximadamente $3\times 10^{8}$ m/s. Ao se acelerar
+\ref{eq:einstein}, onde $E$ é a energia, $m_0$ a massa de repouso, e $c$ a constante que representa a
+velocidade de propagação da luz no vácuo, aproximadamente $3\times10^{8}$ m/s. Ao se acelerar
 partículas de pequenas massas, é possível gerar partículas com maiores massas
 através das interações ocorridas durante a colisão. Experimentos em
 aceleradores de partículas tiveram seu início por volta de 1930, com o
@@ -231,11 +316,16 @@ acelerador atingia energias de 0.7 MeV com prótons. A tabela
 \ref{tab:aceleradores} lista alguns dos aceleradores já construidos. Os
 aceleradores podem ser lineares ou circulares, assim como de alvo fixo ou colisionadores
 de feixes. Nos aceleradores de alvo fixo as partículas são aceleradas até
-obterem a energia desejada e então direcionadas a um alvo estacionário. Já os
+obterem a energia desejada e então direcionadas a um alvo estacionário. Já nos
 colisionadores de feixes, as partículas são aceleradas em feixes em direções
 opostas e então colididas quando a energia desejada é atingida. A aceleração é
-realizada através do uso de força eletrogmanética, de forma que apenas
+realizada através de interação eletrogmanética, de forma que apenas
 partículas carregadas elétricamente são aceleradas.
+
+\newacronym[type=Simb]{E}{\ensuremath{E}}{Energia} 
+\newacronym[type=Simb]{massa}{\ensuremath{m}}{Massa} 
+\newacronym[type=Simb]{c}{\ensuremath{c}}{Constante de velocidade de propagação da luz no
+vácuo} 
 
 \begin{equation} \label{eq:einstein}
 E=m_0c^2
@@ -247,54 +337,80 @@ E=m_0c^2
 \hline \hline \hline
 \textbf{Máquina} & \textbf{Partículas Colididas} & \textbf{Início-Término} \\
 \hline \hline
-Tevatron & p: 900GeV & 1987 \\
-(Fermilab, Batavia, Ilinóia) & $\bar{p}$: 900GeV & \\
+Tevatron & p: 900 GeV & 1987 \\
+(Fermilab, Batavia, Ilinóia) & $\bar{p}$: 900 GeV & \\
 \hline
-SLC & $e^{+}$: 50GeV & 1989-1998 \\
-(SLAC, Standford) & $e^{-}$: 50GeV & \\
+SLC & $e^{+}$: 50 GeV & 1989-1998 \\
+(SLAC, Standford) & $e^{-}$: 50 GeV & \\
 \hline
-HERA & e: 30GeV & 1992 \\
-(DESY, Hamburgo) & p: 820GeV & \\
+HERA & e: 30 GeV & 1992 \\
+(DESY, Hamburgo) & p: 820 GeV & \\
 \hline
-LEP2 & $e^{+}$: 81GeV & 1996-2000 \\
-(CERN, Genebra) & $e^{-}$: 81GeV & \\
+LEP2 & $e^{+}$: 81 GeV & 1996-2000 \\
+(CERN, Genebra) & $e^{-}$: 81 GeV & \\
 \hline
-PEP-II & $e^{+}$: 9GeV & 1999-2008 \\
-(SLAC, Standford) & $e^{-}$: 3.1GeV & \\
+PEP-II & $e^{+}$: 9 GeV & 1999-2008 \\
+(SLAC, Standford) & $e^{-}$: 3.1 GeV & \\
 \hline
-LHC & p: 7TeV & 2008 \\
-(CERN, Genebra) & p: 7TeV & \\
+LHC & p: 7 TeV & 2008 \\
+(CERN, Genebra) & p: 7 TeV & \\
 \hline \hline
 \label{tab:aceleradores}
 \end{tabular}
 \caption{Alguns aceleradores de partículas no mundo. Adaptado de \cite{Intro_Standard}.}
 \end{table}
 
+\newacronym[type=Abrev]{qgp}{QGP}{Plasma de Quarks e Glúons}
+
 Muitos aceleradores de partículas utilizam prótons pois eles são mais facilmente
-acelerados, atingindo níveis mais elevados de energia. Entretanto a
-estrutura dos prótons são muito mais complexas (hádrons
+acelerados, atingindo níveis mais elevados de energia. Entretanto, a
+estrutura dos prótons é muito mais complexas (hádrons
 compostos por quarks e glúons) que a dos elétrons (partícula elementar), de forma que as colisões com elétrons são 
-de mais fácil compreensão. Como consquência, as
+de mais fácil compreensão. Como consequência, as
 descobertas normalmente são realizadas através das colisões com prótons, enquanto as medições com
 maior precisão são realizadas na colisão de elétrons \cite{nature_space_and_time}.
 As colisões com íons de chumbo foram introduzidas em meados dos anos 80
-para se estudar o Plasma de Quarks e Glúons (QGP) \cite{heavy_ions}.
+para se estudar o \gls{qgp} \cite{heavy_ions}.
 
-O Modelo Padrão ainda deixa muitas questões em aberto. Não se foi capaz, até o
+O \gls{mp} ainda deixa muitas questões em aberto. Não se foi capaz, até o
 momento, de adicionar o campo gravitacional ao mesmo. São necessários a
 determinação de cerca de 25 a 26 parâmetros quando considerando a existência do
 bóssom de Higgs. Existem realmente tal ordem de parâmetros independentes na
 natureza? Ainda, experimentos astronômicos mostram que apenas 4\% do universo é
-composto pela materia conhecida no modelo padrão, outros 23\% são de matéria
-escura, partículas ou conglomerados massivos que não brilham ou disseminam luz,
-e os 73\% restantes, grande parte da energia do universo, são de energia escura,
-totalmente desconhecida para a ciência atual. Indo mais além, o Modelo Padrão
+composto pela materia conhecida no \gls{mp}, outros 23\% são de Matéria
+Escura, partículas ou conglomerados massivos que não brilham ou disseminam luz,
+e os 73\% restantes, grande parte da energia do universo, são de Energia Escura,
+totalmente desconhecida para a ciência atual. Indo mais além, o \gls{mp} 
 não explica porque o universo se consiste quase totalmente por matéria e
-praticamente nenhuma anti-matéria. Espera-se que o experimento LHC (seção
-\ref{sec:lhc}) seja capaz de responder a essas perguntas, entre outras, 
+praticamente nenhuma anti-matéria, como foi dito quando se referindo a simetria
+CP. Espera-se que o experimento LHC seja capaz de responder a essas perguntas, entre outras, 
 e ajude os cientistas a resolverem as incoerências e problemas do modelo, quem sabe também reduzindo 
 o número de parâmetros livres a serem determinados para um, ou dois.
 \cite{nature_space_and_time,Intro_Nuclear}
+
+\newacronym[type=Abrev]{susy}{SUSY}{Teoria de SuperSimetria}
+\newacronym[type=Abrev]{gut}{GUT}{Grande Interação Unificada}
+
+Há ainda outras duas teorias além do \gls{mp}: a \gls{susy} e a Teoria de Cordas. 
+A \gls{susy} é uma expansão do \gls{mp} com um
+novo principio de simetria, no qual toda partícula deve ter uma contraparte
+supersimétrica, chamadas de superpartículas. Dois aspectos da \gls{susy} são
+que, em primeiro lugar, ela integra as teorias separadas do \gls{mp} para formar
+um papel muito mais satisfatório na procura pela \gls{gut}, - união da interação
+forte com a interação eletrofraca - e é concebível que a Matéria Escura 
+é composta de superpartículas, ainda que não tenha sido observado nenhum sinal delas 
+até o momento. 
+
+A Teoria de Cordas tem o proposto de ser a Teoria de Tudo, que uniria a
+gravidade com a \gls{gut}. Nessa teoria os léptons, quarks e bóssoms não são
+pontos nas quatro dimensões (x,y,z,t) do espaço-tempo, mas laços vibrantes de
+cordas em um espaço de dez dimensões. Cada partícula representa um módulo de
+vibração, que tem supostamente $10^{-35} m$ e por isso supostamente se
+assemelham a pontos. Não se há conhecimento das seis dimensões adicionais porque
+elas estão "enroladas" para nós do mesma forma que a analogia de um papel pode
+parecer como uma linha unidimensional. A Teoria de Cordas, que é muito complexa
+matematicamente, incorpora as principais características da \gls{gut}, incluindo
+em particular a \gls{susy}.
 
 \section{O Large Hadron Collider}
 \label{sec:lhc}
@@ -321,15 +437,15 @@ Padrão para descrever a matéria escura. Um dos possíveis modelos é a supergr
 \item \textbf{Física do quark \emph{top}}: Busca melhorar a compreensão da física dessa
 partícula elementar, ainda não muito bem compreendida;
 \item \textbf{Física do Z' (Z \emph{prime})}: Estudos dos possíveis bóssoms Z adicionais; 
-\item \textbf{Assinaturas visiveis do Setor Escondido (HS)}: Modelo baseados em cordas
-membranas provem um novo setor de física, o Setor Escondido, que poderá ser
+\item \textbf{Assinaturas visiveis do Setor Escondido (HS)}: Modelos baseados em
+cordas e membranas provêm um novo setor de física, o Setor Escondido, que poderá ser
 explorado pelo LHC;
 \item \textbf{Provar a origem da massa dos léptons neutrinos}: Se o mecânismo que gera
 suas massas estiver na região TeV, o LHC poderá resolver essa questão;
 \item \textbf{Caça por dimensões extras}: Modelo com ordens superiores de dimensões
 oferecem alternativas para a Supersimetria;
 \item \textbf{Busca por cordas no LHC}: A Teria de Cordas oferece a possibilidade de
-união de todas as forças conhecidas na natureza, incluindo a gravidade. Muitos
+união de todas as interações conhecidas na natureza, incluindo a gravidade. Muitos
 trabalhos apresentados mostram predições de cordas na escala TeV.
 \end{itemize}
 
@@ -349,23 +465,28 @@ prótons.
 \caption{Os diferentes aceleradores e detectores do CERN, extraido de
 \cite{cern_accelerators}. A seta cinza claro corresponde ao sentido do
 deslocamento de prótons nos aceleradores. À esquerda, foto da garrafa
-de onde são retirados os prótons, e na direita foto do LINAC 2.}
+de hidrôgenio de onde são retirados os prótons, e na direita foto do LINAC 2.}
 \label{fig:esquema_aceleradores}
 \end{figure}
 
 Tão importante quanto obter altas energias, é obter alta
 luminosidade, um indicador da concentração 
 de partículas no ponto de colisão, parâmetro similar a densidade de 
-corrente $\overrightarrow{J}$ utilizado na engenharia elétrica. A luminosidade é definida por
+corrente $\vec{J}$ utilizado na engenharia elétrica. A luminosidade é definida por
 \ref{eq:luminosidade}, onde a frequência de cruzamento entre feixes
-\footnote{Traduzido do inglês \emph{bunch crossing rate}}, $f$, é de 40 MHz, $n$ é o número de feixes, 
+\footnote{Traduzido do inglês \emph{bunch crossing rate}.}, $f$, é de 40 MHz, $n$ é o número de feixes, 
 $N_i$ equivale ao número de prótons em
 cada pacote, correspondentes a $1.5\times10^{11}$ no início de uma
-temporada\footnote{Traduzido do inglês \emph{run}} de colisão nominal, e,
+temporada\footnote{Traduzido do inglês \emph{run}.} de colisão nominal, e,
 finalmente, o termo A é a área dada pela secção transversal do feixe, 
 de 64 microns (aproximadamente um fio de cabelo) no ponto de interação
 \cite{webLHC}. No LHC, luminosidades de até $10^{34}cm^{-2}s^{-1}$ serão
 atingidas.
+
+\newacronym[type=Simb]{densI}{\ensuremath{\vec{J}}}{Densidade de Corrente} 
+\newacronym[type=Simb]{lum}{\ensuremath{L}}{Luminosidade} 
+\newacronym[type=Simb]{f}{\ensuremath{f}}{Frequência} 
+\newacronym[type=Simb]{crossSeq}{\ensuremath{\sigma}}{Seção de choque} 
 
 \begin{equation} \label{eq:luminosidade}
 L=fn\frac{N_1 N_2}{A}
@@ -384,19 +505,21 @@ R = L \times \sigma
 \label{eq:taxa_colisao}
 \end{equation}
 
+% Falar sobre os slides
+
 Os eventos de colisões podem ser de dois tipos \cite{THESIS_LAR}:
 
 \begin{enumerate}
 \item \textbf{Colisões Rigidas}:
 elas são devidas as interações de curto alcance,
-resultando em grandes transferências de momemnto que produzindo partículas de
+resultando em grandes transferências de momento que produzindo partículas de
 alto momento, assim como condições para a geração de novas partículas de altas
 energias, como o bóssom de Higgs.
 \item \textbf{Colisões Suaves}: 
 é o tipo de iteração mais comum e devidas as interações de longo alcance entre dois prótons cruzantes. Os
 resultados são partículas com grande momento longitudinal\footnote{Na direção de
-propagação do feixe} e pouco momento transverso\footnote{Perpendicular à
-propagação}. Esses eventos de colisão são
+propagação do feixe.} e pouco momento transverso\footnote{Perpendicular à
+propagação.}. Esses eventos de colisão são
 denominados de \emph{mininum bias} e são compostos na sua maioria por jatos.
 \end{enumerate}
 
