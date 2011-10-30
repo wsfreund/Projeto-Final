@@ -62,7 +62,7 @@ ordem de $10^{-27}$ kg \cite{Intro_Standard}.
 \newacronym[type=Abrev]{si}{SI}{Sistema Internacional de unidades e medidas}
 
 As unidades normalmente utilizadas no estudo de Física de Partículas são fm para
-distância (equivalente a $10^{-15}$ m), MeV ou GeV para massa ou energia, onde 1
+distância (equivalente a $10^{-15}$ m), MeV, GeV ou TeV para massa ou energia, onde 1
 eV (elétron-volt) é a energia necessária para aumentar o potencial elétrico de
 um elétron em um volt, equivalente a $1,6\times10^{-19}$ J no \gls{si}, ou em unidades
 de massa 1eV/$c^2$ = $1,78\times10^{-36}$ kg. A unidade para
@@ -416,17 +416,17 @@ e ajude os cientistas a resolverem as incoerências e problemas do modelo, quem 
 o número de parâmetros livres a serem determinados para um, ou dois.
 \cite{nature_space_and_time,Intro_Nuclear}
 
-\newacronym[type=Abrev]{susy}{SUSY}{teoria de SUperSImetria}
+\newacronym[type=Abrev]{susy}{SUSY}{teoria de SUper-SImetria}
 \newacronym[type=Abrev]{gut}{GUT}{Grande Interação Unificada}
 
 Há ainda outras duas teorias além do \gls{mp}: a \gls{susy} e a Teoria de Cordas. 
 A \gls{susy} é uma expansão do \gls{mp} com um
 novo principio de simetria, no qual toda partícula deve ter uma contraparte
-supersimétrica, chamadas de superpartículas. Dois aspectos da \gls{susy} são
+super-simétrica, chamadas de super-partículas. Dois aspectos da \gls{susy} são
 que, em primeiro lugar, ela integra as teorias separadas do \gls{mp} para formar
 um papel muito mais satisfatório na procura pela \gls{gut} -- união da interação
 forte com a interação eletrofraca -- e, segundo, é concebível que a Matéria Escura 
-é composta de superpartículas, ainda que não tenha sido observado nenhum sinal delas 
+é composta de super-partículas, ainda que não tenha sido observado nenhum sinal delas 
 até o momento. 
 
 A Teoria de Cordas tem o proposto de ser a Teoria de Tudo, que uniria a
@@ -479,7 +479,8 @@ No caso das colisões de p-p, dentre os tópicos principais a serem testados pel
 \begin{itemize}
 \item \textbf{Busca pelo bóssom de Higgs}: Tópico no qual este trabalho está
 inserido. Se tal partícula existir, o \gls{lhc} deverá ser capaz de observá-lo;
-\item \textbf{Busca pela \gls{susy}}: Algumas partículas previstas por esse modelo, as superpartículas, 
+\item \textbf{Busca pela \gls{susy}}: Algumas partículas previstas por esse
+modelo, as super-partículas, 
 devem ser visualizadas na região TeV;
 \item \textbf{Violação \gls{cp}}: Estudo da violação da Simetria \gls{cp};
 \item \textbf{Matéria escura}: Os candidatos mais relevantes vão além do \gls{mp}
@@ -520,7 +521,7 @@ partículas seguem a trajetórias circulares dirigidas por magnetos: \acrshort{b
 GeV), \acrshort{ps} (25 GeV), \acrshort{sps} (450 GeV), até finalmente 
 abastecer o \gls{lhc} com os pacotes de prótons. O \gls{lhc} também é um
 síncroton, assim como grande parte dos aceleradores de altas energias anteriormente 
-construídos \cite{lecture_slides_1}.
+construídos \cite{lecture_slides_1,lecture_slides_2}.
 
 \begin{figure}[h!t]
 \centering
@@ -549,7 +550,7 @@ Scattering and Diffraction Dissociation}}
 O \gls{lhc} não é uma circunferência perfeita, sendo dividido em octantes, 
 contendo dois arcos e um trecho reto, iniciando e terminando no ponto
 intermediário de arcos sucessivos. Os arcos medem cerca de 2,45 km,
-sendo dividido em 23 células em estrutura \gls{fodo}, que serão detalhadas
+cotendo 23 células em estrutura \gls{fodo}, que serão detalhadas
 posteriormente nesta seção. 
 Cada trecho reto tem 528 m e são utilizados como \glspl{ip},
 seja para um experimento ou para uma utilidade. A parte
@@ -584,12 +585,17 @@ A injeção ocorre no plano vertical, com os feixes
 vindo por baixo do plano de \gls{lhc}. 
 
 Apenas uma fração de $10^{-6}$ dos feixes é capaz de causar
-danos aos magnetos supercondutores, ou mesmo destruir partes do detector\footnote{A 
+danos aos magnetos super-condutores, ou mesmo destruir partes do detector\footnote{A 
 energia armazenada nos feixes, 360 MJ, é capaz de derreter uma tonelada 
 de cobre \cite{closerLook,lhc_design}.}. Nos \gls{ip}3 e \gls{ip}7 estão localizados 
 dois sistemas de colimação, fazendo a proteção 
 do acelerador contra as perdas inevitáveis e limpando os feixes de
-qualquer irregularidade. Essas são as áreas mais radioativas do \gls{lhc} 
+qualquer irregularidade. A diferença entre os pontos \gls{ip}3 e \gls{ip}7 está
+em duas limpezas adicionais realizadas nesses pontos. No \gls{ip}3 se
+encontra um sistema para a limpeza de momento de ambos os feixes, oscilação
+gerada pelo sistema \acrshort{rf}. Já no \gls{ip}7 se encontra um sistema de
+limpeza das oscilações \emph{betatron}. Ambos efeitos serão descritos com
+maiores detalhes a seguir. Essas são as áreas mais radioativas do \gls{lhc} 
 \cite{lhc_design}.
 
 Conforme o acontecimento de colisões, o número de hádrons nos pacotes irá se
@@ -607,7 +613,7 @@ altíssima confiabilidade, que condicionaram sua concepção.
 No \gls{ip}4 está localizado dois (um para cada feixe) sistemas independentes de \gls{rf}, 
 que irão realizar a aceleração das partículas no \gls{lhc}. A
 aceleração é feita nas cavidades \gls{rf}, onde são geradas tensões oscilantes
-§com a \gls{frf} de 400 MHz no sentido longitudinal, criando uma
+com a \gls{frf} de 400 MHz no sentido longitudinal, criando uma
 tensão acelerante. São utilizadas 8 células individuais de cavidades por feixe,
 agrupando 4 células em um mesmo criostato que irá operar numa temperatura de 4,5 K.
 Para que uma partícula sempre encontre uma tensão
@@ -616,7 +622,7 @@ acelerante elas precisam estar separadas por uma fase fixa, no caso da
 realizar tal espaçamento entre as partículas. Uma partícula que está exatamente
 sincronizada com a \gls{frf} é chamada de partícula síncrona, entretanto,
 nem todas partículas vão estar sincronizadas. Supondo uma partícula assíncrona com maior
-energia que a partícula síncrona, podem ocorrer dois efeitos dependendo, da faixa
+energia que a partícula síncrona, podem ocorrer dois efeitos dependendo da faixa
 de energia da partícula síncrona (o efeito análogo oposto irá 
 ocorrer caso a partícula assíncrona tenha menor energia que a síncrona):
 
@@ -654,16 +660,17 @@ possíveis pontos de estabilidade podem ser preenchidos por pacotes, determinado
 pela fração entre a \gls{frf} e \gls{frev}. 
 Por outro lado, mesmo que o Sistema de Remoção seja
 veloz, ele ainda exige um tempo considerável para realizar sua função, assim, o
-número de pacotes no \gls{lhc} é de 2808 para cada feixe \cite{closerLook,lhc_design,lecture_slides_1}.
+número de pacotes no \gls{lhc} é de 2808 para cada feixe
+\cite{closerLook,lhc_design,lecture_slides_1,lecture_slides_2}.
 
 \newacronym[type=Abrev]{mq}{MQ}{Quadripólos Principais} 
 \newacronym[type=Abrev]{mb}{MB}{Dipólos Principais} 
 
 Os \gls{mb} do \gls{lhc} são os responsáveis por realizar a defleção
-das partículas.  São necessários magnetos fortes para curvar os feixes de altas
+das partículas.  São necessários magnétos fortes para curvar os feixes de altas
 energias, sendo, na verdade, a capacidade dos mesmos o fator que limita a energia
 dos feixes. Por isso, a tecnologia utilizada neles está no limiar da ciência
-atual, contando com supercondutores resfriados a 2 K, que criaram campos
+atual, contando com super-condutores resfriados a 2 K, que criaram campos
 magnéticos de até 8 T.
 
 Enquanto isso, os \gls{mq} são responsáveis por concentrar os
@@ -709,8 +716,9 @@ trajetória nominal.
 
 
 A estrutura \gls{fodo} utilizada nos arcos do \gls{lhc} pode ser observada na
-Figura~\ref{fig:fodo_lhc}. Nela se encontram os já citados \gls{mb}, os
-\gls{mq}, assim como outros magnetos que realizam correções de maiores ordem. 
+Figura~\ref{fig:fodo_lhc}. Nela se encontram os já citados \gls{mb} e
+\gls{mq}, assim como outros magnétos que realizam correções de maiores ordem,
+como por exemplo a correção devido ao efeito da gravidade no feixe. 
 
 \begin{figure}[h!t]
 \centering
@@ -719,30 +727,232 @@ Figura~\ref{fig:fodo_lhc}. Nela se encontram os já citados \gls{mb}, os
 \label{fig:fodo_lhc}
 \end{figure}
 
-Nas transições de arco com os trechos retos com são inseridos 
-Supressores de Dispersão, dando um total de 16 deles cuja sua função é
+Nas transições de arcos com os trechos retos são inseridos 
+Supressores de Dispersão, totalizando 16 deles, cuja as funções são
 \cite{lhc_design}:
 
 \begin{itemize}
 \item Adaptar a órbita de referência do \gls{lhc} com a geometria do túnel;
-\item Cancelar a dispersão horizontal de correntes no arco, geradas pela
-separação/recombinação dos dipolos magnéticos e dos ângulos de desvios causados pelas
+\item Cancelar a dispersão horizontal nos arcos, geradas tanto pela descontinuidade na
+separação / recombinação dos dipolos magnéticos, como pelos desvios causados nas
 colisões;
-\item Ajudar na solução óptica de inserção períodica nos arcos.
+\item Ajudar na combinação entre a óptica de inserção com a solução períodica nos arcos.
 \end{itemize}
 
 Finalmente, \emph{Low Triplets}, grupo de quadripólos especiais, são utilizados antes dos
 \glspl{ip} experimentais, afim de concentrar ao máximo os feixes nos pontos de
 colisão. Eles são os responsáveis pela alta luminosidade durante a colisão.
 
-\subsection{Das colisões, seus tipos, e parâmetros relacionados}
+\subsection{Detectores do LHC}
+\label{ssec:lhc_detectores}
+
+Uma vez atingido a energia desejada para as colisões dos hádrons no \gls{lhc}, 
+os pacotes serão então colididos nos \glspl{ip} experimentais. Neles são colocados detectores
+para realizar a medição dos eventos de colisão ocorridos, onde o   
+\gls{lhc} conta com distintos detectores, cada um deles projetado 
+de modo a explorar com maior eficiência a diversa física gerada
+durante as colisões. 
+
+\glsreset{atlas}
+
+Os detectores são experimentos fundados independentes do \gls{cern}. O
+\gls{cern} é um membro de cada um dos experimentos e contribui com parte do
+orçamento de cada um dos experimentos. São utilizados quatro detectores de maior
+escala: \acrshort{atlas} (14\% do material pago pelo \gls{cern}),
+\acrshort{cms} (20\%), \acrshort{alice} (16\%) e \acrshort{lhcb} (20\%); e três de menor escala:
+\acrshort{totem}, \acrshort{lhcf} e \acrshort{moedal}. O trabalho atual está definido no
+escopo da colaboração do detector \acrshort{atlas} (seção~\ref{sec:ATLAS}). 
+Uma descrição breve deles será realizada a seguir
+\cite{lecture_slides_1,lecture_slides_2,closerLook}: 
+\begin{itemize}
+\item \textbf{\gls{atlas}} e \textbf{\gls{cms}} são de propósito geral, ou seja, são capazes de estudar 
+diversos fenômenos físicos. O fato de existirem dois detectores projetados de forma
+diferente, mas para o mesmo fim, é importante para que as descobertas físicas
+sejam confirmadas por ambos experimentos, garantindo que elas não sejam
+tendênciosas. Algumas das diferenças mais importantes entre os dois detectores são:
+\begin{enumerate}
+\item O calorímetro eletrogmanético do \gls{cms} é composto por cristais de
+$\text{PbWO}_4$, enquanto o
+\gls{atlas} projetou o seu calorímetro com argônio líquido;
+\item O sistema detector de traços do \gls{cms} é totalmente composto de
+silicone, enquanto o do \gls{atlas} é composto desse material apenas na parte mais
+interna. Ainda, a segmentação no \gls{cms} é maior, o que será importante em
+maiores luminosidades.
+Por outro lado, todo esse silicone e serviços associados (cabos, resfriamento
+etc) poderá causar a interação das partículas antes delas atingirem o calorímetro,
+podendo degradar os benefícios do calorímetro eletromagnético de $\text{PbWO}_4$;
+\item O solenóide do \gls{atlas} está localizado dentro do seu sistema de
+calorimetria, sendo a configuração padrão, já o oposto ocorre para o \gls{cms}.
+O solenóide do \gls{cms} gera 4T e é o maior do mundo.
+\item O \gls{atlas} tem magnétos toroidais que são utilizados como um
+espectômetro separado para mûons. O \gls{cms} não possui tal
+sistema, entretanto, ele utiliza medições independentes do momento dos mûons
+usando o campo magnético no laço de retorno de seu solenóide;
+\end{enumerate}
+\item \textbf{\gls{lhcb}} é um detector especializado no estudo do méson B com o
+intuito de compreender a Violação \gls{cp} e a diferença de matéria e
+anti-matéria. O experimento irá melhorar resultados anteriores tanto
+qualitativamente quanto quantitativamente, explorando grande parte dos
+diferentes mésons B produzidos no \gls{lhc}. Eles deverão surgir de colisões que
+irão se propagar próximas a direção do feixe, de forma que o \gls{lhcb} 
+é um detector projetado para medir partículas com pequenos valores angulares de
+colisão.
+\item \textbf{\gls{alice}}, por sua vez, estudará o \gls{qgp} que será formado
+enquando o \gls{lhc} fizer colisões de íons de chumbo. Esse detector é composto
+principalmente de dois componentes, a parte central composta de detectores dedicados
+a estudar sinais hadrônicos e elétrons, e o espêctometro de mûons avançado,
+dedicado a estudar o comportamento de quarks na matéria condensada.
+\item \textbf{\gls{lhcf}} se situa na mesma caverna do \gls{atlas}, a cerca de
+140 m do ponto de interação para ambos lados. Ele estuda a seção de choque (ver
+\ref{ssec:lhc_lum_choque}) de produção de
+partículas neutras na região dianteira das colisões, utilizando
+partículas que não chegaram a colir no ponto de colisão, 
+mas foram desviadas. Esse estudo irá ajudar a compreender o desenvolvimento de
+chuveiros cósmicos induzidos por raios cósmicos de altas energias.
+\item \textbf{\gls{totem}} está instalado em um tunel separado aproximadamente a
+200 m do \gls{cms}. Ele mede a seção de choque total de colisões p-p, e estuda colisões 
+elásticas e difrativas no \gls{lhc}. 
+\item \textbf{\gls{moedal}} é o mais novo dos experimentos do \gls{lhc},
+aprovado em dezembro de 2009. Embora barato e fácil de instalar seu potêncial
+de explorar física é grande, sendo instalado na caverna do \gls{lhcb}. 
+Ele irá buscar evidências de partículas hipotéticas, como partículas estáveis de monopólo
+magnético e outras partículas estáveis super-simétricas e massivas, através de
+cauterizações no plástico do detector.
+\end{itemize}
+
+
+\subsection{Das colisões, seus tipos e parâmetros relacionados}
 \label{ssec:lhc_lum_choque}
 
+Nesta subseção serão apresentados parâmetros importantes envolvidos nas
+colisões. Iniciará-se com uma breve introdução a cinemática das colisões e as 
+coordenadas utilizadas. A taxa de colisão é
+afetada por dois parâmetros, a luminosidade e a seção de choque, que serão
+posteriormente descritos com maiores detalhes. Em seguida serão
+apresentados os tipos de colisões, divididos de acordo com a intensidade da
+alteração da estrutura dos hádrons em interação. Por fim, serão tratados
+fenômenos envolvidos durante as colisões que irão afetar a busca por física 
+de interesse, sendo eles o Empilhamento e os Eventos Adjacentes. 
+
+\subsubsection{A cinemática das colisões}
+
+Ainda que não seja o objetivo do trabalho, um breve resumo da cinemática
+relativística envolvida nas interações de partículas ajudará a entender algumas
+das variáveis comumente utilizadas. 
+Como o trabalho está englobado no experimento \gls{atlas}, irá considerar o 
+eixe de coordenadas adotado para o \gls{ip}1, ponto de inserção do mesmo. 
+
+\newacronym[type=Simb]{theta}{\ensuremath{\theta}}{ângulo polar} 
+\newacronym[type=Simb]{phi}{\ensuremath{\phi}}{ângulo azimutal} 
+\newacronym[type=Simb]{z}{\ensuremath{z}}{eixo de propagação do feixe} 
+\newacronym[type=Simb]{y}{\ensuremath{y}}{rapidez} 
+\newacronym[type=Simb]{mom}{\ensuremath{\vec{p}}}{momento linear} 
+\newacronym[type=Simb]{eta}{\ensuremath{\eta}}{pseudorrapidez} 
+\newacronym[type=Simb]{pt}{\ensuremath{p_T}}{momento transverso} 
+\newacronym[type=Simb]{pl}{\ensuremath{p_L}}{momento longitudinal} 
+\newacronym[type=Simb]{mt}{\ensuremath{m_T}}{massa transversa} 
+\newacronym[type=Simb]{Et}{\ensuremath{E_T}}{energia transversa} 
+
+Normalmente se utilizam coordenadas cilindricas ($p,\theta,\phi$), uma vez que 
+essa é a geometria das colisões.
+Seus eixos definidos em coordenadas retangulares estão dispostos 
+na Figura~\ref{fig:atlas_p1_coord}, sendo o eixo \emph{z} a direção do feixe com
+o lado positivo na direção do \gls{ip}8, o eixo
+\emph{x} aponta na direção do centro do anel do \gls{lhc} e o eixo \emph{y}
+aponta para a superfície.  
+As transformações para coordenadas cilíndricas
+são bem conhecidas e realizadas através de \ref{eq:transf_cil}.  
+A física é simétrica em relação ao \gls{phi}, 
+mas há correlação entre o
+tipo de colisão com o \gls{theta}, onde geralmente quanto mais forte a
+interação ocorrida durante a colisão mais próximo de $90^\circ$ será esse
+ângulo. O plano transverso é definido 
+pelo corte transversal à direção de propagação do feixe, sendo o plano-xy do
+sistema de coordenadas descrito, e a componente restante, paralela a direção de
+propagação do feixe ($z$), é chamada de componente longitudinal.
+
+\begin{figure}[h!t]
+\centering
+\includegraphics[width=0.7\textwidth]{imagens/atlas_p1_coord.png}
+\caption{O Sistema de Coordenadas adotado para o IP1, ponto de inserção do
+experimento ATLAS. Extraído de \cite{tese_torres}.}
+\label{fig:atlas_p1_coord}
+\end{figure}
+
+\begin{subequations}\label{eq:transf_cil}
+\begin{equation}\label{eq:transf_phi}
+\phi = arctan\left( \frac{x}{y} \right) \\
+\end{equation}
+\begin{equation}\label{eq:transf_theta}
+\theta = arctan\left( \frac{x}{z} \right) 
+\end{equation}
+\end{subequations}
+
+Estando interessado no momento das partículas
+produzidas, afim de se evitar as transformações de Lorentz, se faz mão de dois
+parâmetros. Um deles, a \gls{y}, foi introduzido pela métrica de Minkowski
+\cite{schlippe} e está definido na equação~\ref{eq:rapidez}.
+O outro é o \gls{pt}, a projeção do momento no plano
+transverso, dado pela ~\ref{eq:pt}. 
+Esses parâmetros são invariantes as transformações relativisticas 
+longitudinais. O \gls{pl}, que não é conservado nas colisões entre hádrons por
+esses não serem partículas ponto, pode ser obtido através
+de~\ref{eq:pl}. Outras duas variáveis que também
+são projetadas no plano transverso são a \gls{mt} e \gls{Et}, obtidas através das
+relações~\ref{eq:mt} e \ref{eq:Et}.
+
+\begin{equation}\label{eq:rapidez}
+y = \frac{1}{2}ln\left(\frac{E+p_z}{E-p_z}\right)
+\end{equation}
+
+\begin{subequations}\label{eq:proj_transv}
+\begin{equation}\label{eq:pt}
+p_T = p sen ( \theta ) = \sqrt{(p_x^2 + p_y^2)}
+\end{equation}
+\begin{equation}\label{eq:mt}
+m_T = m^2 + p_T
+\end{equation}
+\begin{equation}\label{eq:Et}
+E_T = E sen ( \theta )
+\end{equation}
+\end{subequations}
+
+\begin{equation}\label{eq:pl}
+p_L = p_z = m_T senh ( y )
+\end{equation}
+
+Os detectores absorvem a energia total (E) de grande parte das partículas
+geradas nas colisões através de seus calorímetros, 
+estando a mesma relacionada com a \gls{mt} por \ref{eq:etot}. Entretanto, na física de 
+altas energias algumas aproximações podem
+ser feitas de modo a facilitar a manipulação dos parâmetros. No caso ultrarrelativístico (quando $p \gg
+m$) a rapidez se aproxima da \gls{eta}, parâmetro relacionado a \gls{theta}
+através das equações \ref{eq:eta} \cite{pdg_book}.
+Ainda, nesses casos a \gls{mt} tende a se aproximar de
+\gls{pt}, e a energia total das partículas é predominantemente dado
+pelo momento das partículas. Desta forma, ao se projetar a energia absorvida
+pelo calorímetro no plano tranverso obtêm-se diretamente o \gls{pt} das
+partículas, equação~\ref{eq:e_pt}, obtida aplicando as relações \ref{eq:eta} em \ref{eq:etot}.
+
+\begin{equation}\label{eq:etot}
+E = m_{T}cosh(y) \approx m_{T}cosh(\eta) \approx p_{T}cosh(\eta)
+\end{equation}
+\begin{equation}\label{eq:eta}
+\eta = -ln \left( tan\left( \frac{\theta}{2} \right) \right) \;,\; senh(\eta) =
+cot(\theta) \;,\;  cosh(\eta) = 1 / sen(\theta) \;,\; tanh(\eta) = cos(\theta) 
+\end{equation}
+\begin{equation}\label{eq:e_pt}
+p_t \approx \frac{E}{sen(\theta)}
+\end{equation}
+
+
+\subsubsection{Luminosidade e Seção de Choque}
 \newacronym[type=Simb]{densI}{\ensuremath{\vec{J}}}{densidade de corrente} 
 \newacronym[type=Simb]{f}{\ensuremath{f}}{frequência} 
 \newacronym[type=Simb]{crossSeq}{\ensuremath{\sigma}}{seção de choque} 
 
 \newacronym[type=Simb]{lum}{\ensuremath{L}}{luminosidade} 
+\label{sssec:Lum_Crosseq}
 Tão importante quanto obter altas energias, é obter alta
 \gls{lum}, um indicador da concentração 
 de partículas no ponto de colisão, parâmetro similar a \gls{densI} 
@@ -763,6 +973,11 @@ valores de $10^{34}cm^{-2}s^{-1}$.
 \gls{lum}=fn\frac{N_1 N_2}{A}
 \end{equation}
 
+\begin{equation}
+R = \gls{lum} \times \sigma
+\label{eq:taxa_colisao}
+\end{equation}
+
 A taxa de colisões é diretamente proporcional a luminosidade e a \gls{crossSeq}, 
 definida por \ref{eq:taxa_colisao}. A seção de choque, expressa em mbarn, 
 é determinada experimentalmente e indica a probabilidade de ocorrência de uma colisão. 
@@ -777,7 +992,7 @@ explica, assim, a busca por elevadas luminosidades.
 
 \begin{figure}[h!t]
 \centering
-\includegraphics[width=.5\textwidth]{imagens/Lum_cross.png}
+\includegraphics[width=.7\textwidth]{imagens/Lum_cross.png}
 \caption{
 A seção de choque, na escala a esquerda, em função da energia de colisão no
 centro de massa. A escala a direita contêm a taxa de eventos por segundo 
@@ -789,55 +1004,25 @@ Extraído de \cite{ATLAS_HLT_DAQ}.}
 \newacronym[type=Abrev,\glslongpluralkey={Colisões Elásticas}
 ]{el}{EL}{Colisão Elástica} 
 \newacronym[type=Abrev,\glslongpluralkey={Colisões Inelásticas}
-]{in}{IN}{colisão Inelástica}
-\newacronym[type=Abrev]{ds}{DS}{Difração Simples}
-\newacronym[type=Abrev]{dd}{DD}{Difração Dupla}
-\newacronym[type=Abrev,\glslongpluralkey={Não Difrativas}]{nd}{ND}{Não Difrativa}
+]{in}{IN}{Colisão Inelástica}
+\newacronym[type=Abrev]{ds}{DS}{Colisão Difrativa Simples}
+\newacronym[type=Abrev]{dd}{DD}{Colisão Difrativa Dupla}
+\newacronym[type=Abrev,\glslongpluralkey={Colisões Não
+Difrativas}]{nd}{ND}{Colisão Não Difrativa}
+\newacronym[type=Abrev,\glslongpluralkey={Colisões Não Difrativas
+Suaves}]{nds}{NDS}{Colisão Não Difrativa Suave}
+\newacronym[type=Abrev,\glslongpluralkey={Colisões Não Difrativas
+Rígidas}]{ndr}{NDR}{Colisão Não Difrativa Rígida}
 
-\begin{equation}
-R = \gls{lum} \times \sigma
-\label{eq:taxa_colisao}
-\end{equation}
+
+\subsubsection{Tipos de colisão}
+\label{sssec:tipos_col}
 
 \begin{equation}
 \sigma_{tot} =  \sigma_{EL} + \overbrace{\sigma_{DS} + \sigma_{DD} +
-\sigma_{ND}}^{\sigma_{IN}}
+\underbrace{\sigma_{NDS}+\sigma_{NDR}}_{\sigma_{ND}}}^{\sigma_{IN}}
 \label{eq:secao_choque}
 \end{equation}
-
-\newacronym[type=Simb]{pt}{\ensuremath{p_T}}{momento transverso} 
-
-Por sua vez, a seção de choque pode ser distinguida conforme o tipo de colisão,
-equação \ref{eq:secao_choque}. As \glspl{el}, Figura~\ref{fig:col_el},
-não alteram as propriedades dos hádrons em interação, havendo apenas 
-modificações em seus momentos. As
-\glspl{in}, por sua vez, modificam os hádrons, com maior ou menor intensidade. 
-Colisões Difrativas estão no limiar entre as colisões \gls{el} e \gls{in},
-produzindo apenas alguns novos hádrons em um dos hádrons da intereção, enquanto no outro
-lado ocorre colisão elástica, criando a \gls{ds}, Figura~\ref{fig:col_ds}. 
-Se ocorrer esse tipo de interação nos dois lados, dá-se o nome de \gls{dd},
-Figura~\ref{fig:col_dd}. Já nas colisões \glspl{nd}
-há dissociação dos núcleos. Nessas colisões, as partículas constituintes do
-hádrons atuam como feixes de pártons, partículas-ponto de altas energias, podendo haver
-multiplas interações entre os pártons na mesma interação hádron-hádron. 
-As colisões \glspl{nd} podem ser de dois tipos \cite{THESIS_LAR,Underlying}:
-\begin{enumerate}
-\item \textbf{Colisões Rígidas}:
-são devidas as interações de curto alcance entre dois pártons dos hádrons em
-interação. Nessas colisões, Figura~\ref{fig:col_cr}, as transferências de momento podem ser altas,
-permitindo a produção de resíduos com alto \gls{pt}\footnote{Perpendicular à
-propagação.}, assim como condições para a geração de novas partículas de altas
-energias, como o bóssom de Higgs. Grande parte dos eventos de alto \gls{pt} são
-dominados pela produção de jatos hadrônicos no resíduo pela fragmentação de
-quarks e glúons. Eventos raros com a produção de novas partículas tem seção de
-choque ordem menores que a produção de jatos, e por isso os decaímentos em
-estados hadrônicos não podem ser utilizados para detectar eventos raros. 
-\item \textbf{Colisões Suaves}: 
-são o tipo de interação mais comum e devidas as interações de longo alcance entre
-dois hádrons cruzantes. Nelas os partons dos hádrons escoam uns pelos outros sem produzir
-nenhuma colisão rígida, Figura~\ref{fig:col_cs}. Os resultados são jatos hadrônicos com grande momento 
-longitudinal\footnote{Na direção de propagação do feixe.} e pouco \gls{pt}.
-\end{enumerate}
 
 \begin{figure}[ht!]
     \label{fig:colisoes}
@@ -855,11 +1040,11 @@ longitudinal\footnote{Na direção de propagação do feixe.} e pouco \gls{pt}.
             \label{fig:col_dd}
             \includegraphics[width=0.3\textwidth]{imagens/col_dd.png}
         }\\ %  ------- End of the first row ----------------------% 
-        \subfigure[Colisões Não Difrativas (ND) Suaves]{%
+        \subfigure[Colisões Inelásticas Não Difrativas Suaves (NDS) ]{%
             \label{fig:col_cs}
             \includegraphics[width=0.45\textwidth]{imagens/col_cs.png}
         }
-        \subfigure[Colisões Não Difrativas (ND) Rígidas]{%
+        \subfigure[Colisões Inelásticas Não Difrativas Rígidas (NDR)]{%
             \label{fig:col_cr}
             \includegraphics[width=0.45\textwidth]{imagens/col_cr.png}
         }
@@ -871,17 +1056,53 @@ longitudinal\footnote{Na direção de propagação do feixe.} e pouco \gls{pt}.
      }%
 \end{figure}
 
+Por sua vez, a seção de choque pode ser distinguida conforme o tipo de colisão,
+equação \ref{eq:secao_choque}. As \glspl{el}, Figura~\ref{fig:col_el},
+não alteram as propriedades dos hádrons em interação, havendo apenas 
+modificações em seus momentos. As
+\glspl{in}, por sua vez, modificam os hádrons, com maior ou menor intensidade. 
+Colisões Difrativas estão no limiar entre as colisões \gls{el} e \acrshort{in},
+produzindo apenas alguns novos hádrons em um dos hádrons da intereção, enquanto no outro
+lado ocorre colisão elástica, criando a \gls{ds}, Figura~\ref{fig:col_ds}. 
+Se ocorrer esse tipo de interação nos dois lados, dá-se o nome de \gls{dd},
+Figura~\ref{fig:col_dd}. Já nas \glspl{nd}
+há dissociação dos hádrons. Nelas as partículas constituintes dos
+hádrons atuam como feixes de pártons, partículas-ponto de altas energias, podendo haver
+multiplas interações entre os pártons na mesma interação hádron-hádron. 
+As \glspl{nd} podem ser de dois tipos \cite{THESIS_LAR,Underlying}:
+\begin{enumerate}
+\item \textbf{\gls{ndr}}:
+são devidas as interações de curto alcance entre dois pártons dos hádrons em
+interação. Nessas colisões, Figura~\ref{fig:col_cr}, as transferências de momento podem ser altas,
+permitindo a produção de resíduos com alto \gls{pt}, 
+assim como condições para a geração de novas partículas de altas
+energias, como o bóssom de Higgs. Grande parte dos eventos de alto \gls{pt} são
+dominados pela produção de jatos hadrônicos no resíduo pela fragmentação de
+quarks e glúons. Eventos raros com a produção de novas partículas tem seção de
+choque ordem menores que a produção de jatos, e por isso os decaímentos em
+estados hadrônicos não podem ser utilizados para detectar eventos raros. 
+\item \textbf{\gls{nds}}: 
+são o tipo de interação mais comum e devidas as interações de longo alcance entre
+dois hádrons cruzantes. Nelas os pártons dos hádrons escoam uns pelos outros sem produzir
+nenhuma colisão rígida, Figura~\ref{fig:col_cs}. Os resultados são jatos
+hadrônicos com maiores \gls{pl} e baixos \gls{pt}.
+\end{enumerate}
+
+
 \newacronym[type=Abrev]{ue}{UE}{\emph{Underlying Event}}
 \newacronym[type=Abrev]{mbias}{Minbias}{\emph{Minimum Bias}}
+
+\subsubsection{\emph{Minimum Bias}, Evento Adjacente e o fenômeno de Empilhamento}
+\label{sssec:minb_ue_pileup}
 
 Eventos de colisão que tenham um mínimo de atividade desejável,
 geralmente o suficiente para diferenciá-los de ruído eletrônico, 
 são chamados de \gls{mbias}, ou
 seja, eventos coletados com uma filtragem minimamente restritiva. Esses
-eventos são compostos por colisões \gls{ds}, \gls{dd}, assim como colisões
-suaves. Por outro lado, se ocorrer colisão rígida, 
-todo o restante que acompanharem essa
-colisão serão chamadas de \gls{ue}, ou eventos adjacentes.
+eventos são compostos por \glspl{ds}, \glspl{dd}, assim como \glspl{nds}. 
+Por outro lado, se ocorrer \gls{ndr}, 
+todo o restante que acompanharem não for gerado pela interação de curto alcance
+entre párton-párton serão chamados de \gls{ue}, ou Eventos Adjacentes.
 Por definição, os \glspl{ue} são compostos por resíduos de física no
 detector e poderão contaminar regiões do detector se interagirem próximos 
 ao local em que a física de interesse o fez, dificultando assim o
@@ -894,48 +1115,22 @@ a seção de choque é de 110 mbarn para as colisões a 7 TeV, e
 Nesses valores, obtêm-se 19 \glspl{in} para cada
 cruzamento de feixes \cite{webLHC,ATLAS_TDR}. Esse fenômeno, de elevado número de
 colisões ocorrendo ao mesmo tempo em um cruzamento de pacotes de hádrons, é
-denominado de \emph{pile-up}, ou empilhamento. Grande parte dessas colisões 
+denominado de \emph{pile-up}, ou Empilhamento. Grande parte dessas colisões 
 serão de \gls{mbias}, que assim como os \glspl{ue} irão
 dificultar o processo de discriminação.
 
 Vale ressaltar a diferença entre \glspl{ue}
-e empilhamento, onde os primeiros ocorrem na geração de ruído físico
+e Empilhamento, onde os primeiros ocorrem na geração de ruído físico
 pela mesma interação hádron-hádron que a colisão rígida, enquanto o
 último, caracterizado em sua grande maioria por \gls{mbias}, 
 provêm de uma outra interação hádron-hádron ocorrendo no mesmo cruzamento entre dois 
 pacotes de hádrons. Os \glspl{ue} implicam em um pequeno parâmetro de
 impacto de colisão, já que ocorreu uma colisão rígida, o que deixa mais 
 provável que multiplas interações párton-párton ocorram. 
-Além disso, esses últimos são influênciados pela
-radiação de glûon criada pelo estado inicial e final da colisão rígida. Desta
-forma, a densidade de partículas nos \glspl{ue} é normalmente duas vezes
+Desta forma, a densidade de partículas nos \glspl{ue} é normalmente duas vezes
 maior que aquela encontrada de um evento de \gls{mbias} típico.
-
-% falar sobre pt, eta e phi
-
-\subsection{Detectores do LHC}
-\label{ssec:lhc_detectores}
-
-O experimento LHC conta com quatro detectores de maior escala: ATLAS, CMS, ALICE e
-LHCb; e dois de menor escala: TOTEM e LHCf. O trabalho atual está definido no
-escopo da colaboração do detector ATLAS (seção~\ref{sec:ATLAS}).
-
-O ATLAS e o CMS são de propósito geral, ou seja, são capazes de estudar diversos
-fenômenos físicos. O fato de existirem dois detectores projetados de forma
-diferente, mas para o mesmo fim, é importante para que um possa confirmar o
-resultado do outro.
-
-O LHCb é um detector especializado no estudo do méson B com o
-intuito de compreender a Violação \gls{cp} e a diferença de matéria e anti-matéria.
-
-O ALICE, por sua vez, estudará o \gls{qgp} que será formado quando o
-LHC fizer colisões de íons de chumbo.
-
-Os dois menores detectores são o LHCf e o TOTEM. O LHCf, que se situa na mesma
-caverna do ATLAS, estuda o comportamento de raios cósmicos, utilizando
-partículas que não chegaram a colir no ponto de colisão, mas foram desviadas.
-O TOTEM, que está instalado perto do CMS, estuda o feixe de prótons produzidos
-pelo LHC, bem como a estrutura interna do próton.
+Além disso, eles são influênciados pela
+radiação de glûon criada pelo estado inicial e final da colisão rígida. 
 
 \section{O Detector de Partículas ATLAS}
 \label{sec:ATLAS}
