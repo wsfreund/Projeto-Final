@@ -5,6 +5,8 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{subfigure}
 \usepackage[unicode]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{array}
 \usepackage{eurosym}
 \hypersetup{
     unicode=true,          % non-Latin characters in Acrobat’s bookmarks
@@ -12,6 +14,7 @@
     pdfauthor={Werner Spolidoro Freund},     % author
     pdfsubject={Projeto Final},   % subject of the document
     colorlinks=true,       % false: boxed links; true: colored links
+    pdfdisplaydoctitle=true,
     citecolor=black,%
     filecolor=black,%
     linkcolor=black,%
@@ -40,7 +43,8 @@
 \renewcommand{\baselinestretch}{1.5}
 \pagestyle{plain}
 
-\usepackage[style=long,nonumberlist,toc]{glossaries}
+%\usepackage[style=long,nonumberlist,toc]{glossaries}
+\usepackage[style=long,nonumberlist]{glossaries}
 \renewcommand{\glossaryname}{S{í}mbulos e Abreviaturas}
 %\renewcommand{\glossarypreamble}{Texto principal}
 % Define a new glossary type
@@ -57,6 +61,8 @@
 \renewcommand{\glsgroupskip}{}
 
 
+\renewcommand{\contentsname}{Whatever}
+
 \begin{document}
 
 \input{capa.tex}
@@ -67,13 +73,16 @@
 \cleardoublepage
 % Sumário
 \vfill
+\clearpage \phantomsection \addcontentsline{toc}{chapter}{Sumário}
 \tableofcontents
-\addcontentsline{toc}{chapter}{Lista de Figuras}
+\clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Figuras}
 \listoffigures
-\addcontentsline{toc}{chapter}{Lista de Tabelas}
+\clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Tabelas}
 \listoftables
+\clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Símbulos}
 %\renewcommand{\glossarypreamble}{Texto Simbulos}
 \printglossary[type=Simb]
+\clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Abreviaturas}
 \renewcommand{\glossarypreamble}{No caso de algumas abreviaturas
 internacionalmente conhecidas, optou-se por mantê-las em sua lingua original.}
 \printglossary[type=Abrev]
@@ -84,6 +93,7 @@ internacionalmente conhecidas, optou-se por mantê-las em sua lingua original.}
 
 \input{introducao}
 \input{cern}
+\input{sf}
 %\input{bancos_de_dados}
 %\input{proposta}
 %\input{tecnologias}
@@ -94,8 +104,8 @@ internacionalmente conhecidas, optou-se por mantê-las em sua lingua original.}
 
 \cleardoublepage
 
-\addcontentsline{toc}{chapter}{Referências Bibliográficas}
 \bibliographystyle{coppe}
+\clearpage \phantomsection \addcontentsline{toc}{chapter}{Referências Bibliográficas}
 \bibliography{bibliografia}
 
 \appendix

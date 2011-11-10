@@ -1,4 +1,5 @@
 \chapter{Introdução}
+\label{cap:intro}
 \glsresetall
 
 O uso de técnicas de processamento de sinais podem facilitar a análise e
@@ -62,13 +63,17 @@ acelerados pelo \gls{lhc}. O \gls{atlas} é um dos detectores do
 uma colaboração internacional envolvendo 174 institutos de 38
 países \cite{webATLAS}. Ele foi projetado 
 de modo a atender diversos dos requisitos da física experimental atual e por isso é dito de uso
-geral. Para atendê-los ele é dividido nos seguintes sub-detectores:
+geral. Para atendê-los ele é dividido nos seguintes subdetectores:
+
+\newacronym[type=Abrev]{id}{ID}{Detector Interno}
+\newacronym[type=Abrev]{ecal}{ECAL}{Calorímetro Eletromagnético}
+\newacronym[type=Abrev]{hcal}{HCAL}{Calorímetro Hadrônico}
 
 \begin{itemize}
-\item Detector de traços, responsável pela detecção da trajetória de partículas carregadas;
-\item Calorímetro Eletromagnético, cujo objetivo é realizar a absorção total da
+\item \gls{id}, responsável pela detecção da trajetória de partículas carregadas;
+\item \gls{ecal}, cujo objetivo é realizar a absorção total da
 energia de partículas eletromagnéticas;
-\item Calorímetro Hadrônico, que de maneira similar ao eletromagnético realiza a
+\item \gls{hcal}, que de maneira similar ao eletromagnético realiza a
 absorção da energia de partículas hadrônicas;
 \item Detector de Múons, para a identificação e determinação da trajetória de
 Múons.
@@ -88,7 +93,7 @@ não difrativas \cite{resumo_ATLAS}.
 %\newglossaryentry{hertz}{type=Simb,name=Hz,
 %  description={\emph{Hertz}, unidade de informa{çã}o digital}
 
-É prevista uma média de cerca de 1.5 MB de espaço em disco rígido para cada evento de 
+É prevista uma média de cerca de 1,5 MB de espaço em disco rígido para cada evento de 
 colisão. A taxa de cruzamento entre os pacotes de prótons é de 40 MHz, 
 desta forma o fluxo de dados no decorrer do experimento será de 60 TB/s, impossibilitando o
 armazenamento completo dos eventos ocorridos no experimento. Para tornar a
@@ -105,11 +110,10 @@ analisando o evento com maior complexidade:
 
 \newacronym[type=Abrev]{fpga}{FPGA}{\emph{Field-Programmable Gate Array}} 
 \newacronym[type=Abrev]{roi}{RoI}{Região de Interesse} 
-\newacronym[type=Abrev]{l1}{L1}{Primeiro N{í}vel de filtragem do
-\acrshort{atlas}} 
-\newacronym[type=Abrev]{l2}{L2}{Segundo N{í}vel de filtragem do \acrshort{atlas}} 
+\newacronym[type=Abrev]{l1}{L1}{Primeiro N{í}vel de filtragem} 
+\newacronym[type=Abrev]{l2}{L2}{Segundo N{í}vel de filtragem} 
 \newacronym[type=Abrev]{ef}{EF}{Filtro de Eventos (\emph{Event Filter}), ou terceiro n{í}vel de
-filtragem do \acrshort{atlas}} 
+filtragem} 
 
 \begin{itemize}
 \item O \glslink{l1}{Primeiro Nível de filtragem (L1)} realiza a filtragem com
