@@ -24,8 +24,8 @@ da busca pelo bóssom de Higgs. Serão introduzidos o estudo de Física de Part�
 Elementares e o \glslink{mp}{Modelo Padrão} (Seção \ref{sec:fis_part}), 
 o experimento \gls{lhc} (Seção~\ref{sec:lhc}), o detector
 \gls{atlas} (Seção~\ref{sec:ATLAS}), tratando de seu sistema de calorimetria
-(Seção~\ref{ssec:calorimetria}), assim como o ferramental utilizado pela colaboração
-(Seção~\ref{sec:ferramentas}). 
+(Subseção~\ref{ssec:calorimetria}), assim como o ferramental utilizado
+disponível para a Colaboração (Seção~\ref{sec:ferramentas}). 
 
 \section{Introdução a Física das Partículas Elementares}
 \label{sec:fis_part}
@@ -66,27 +66,28 @@ As unidades normalmente utilizadas no estudo de Física de Partículas são fm p
 distância (equivalente a $10^{-15}$ m), MeV, GeV ou TeV para massa ou energia, onde 1
 eV (elétron-volt) é a energia necessária para aumentar o potencial elétrico de
 um elétron em um volt, equivalente a $1,6\times10^{-19}$ J no \gls{si}, ou em unidades
-de massa 1eV/$c^2$ = $1,78\times10^{-36}$ kg. A unidade para
-área é o \emph{barn}, definida por 1 b = $10^{-28} m^2$, utilizada em
+de massa 1 eV/$c^2$ = $1,78\times10^{-36}$ kg e momento 1 eV/c = $5,34 10^{-28}$ kg m/s. 
+A unidade para área é o \emph{barn}, definida por 1 b = $10^{-28} m^2$, utilizada em
 termos de mb ou fb \cite{Intro_Nuclear}.
 
 São utilizados no \gls{mp} doze férmions, partículas elementares, divididas em dois grupos: os
 léptons e os quarks. Existem três diferentes gerações, ou famílias, de férmions, cada uma com maior
 massa. Ainda, existem quatro outras partículas de campo das
 interações, chamadas de bóssoms de campo.
-A Figura \ref{fig:modelo_padrao} contêm as diferentes partículas que são
+A Tabela~\ref{tab:modelo_padrao} contêm as diferentes partículas que são
 descritas pelo \gls{mp}, e seus respectivos números quânticos, como as massas de repouso em $GeV/c^2$, momento
 angular ou rotação, em unidades de $\hbar$, e carga elétrica normalizadas em função da carga
 do elétron, $e$, cerca de $1,6\times10^{-19}$ C. Note que todos os férmions
 possuem rotação de $\frac{1}{2}$, enquanto para os bóssoms esse valor é de 1.
 
-\begin{figure}[h!t]
+\begin{table}[ht!]
 \centering
 \includegraphics[width=0.6\textwidth]{imagens/standart_model.png}
-\caption{O Modelo Padrão de interação entre partículas elementares. Extraído de
+\caption[O Modelo Padrão de interação entre as partículas elementares]{
+O Modelo Padrão de interação entre partículas elementares. Extraído de
 \cite{tese_torres}.}
-\label{fig:modelo_padrao}
-\end{figure}
+\label{tab:modelo_padrao}
+\end{table}
 
 %\newacronym[type=Simb]{bossonfoton}{\ensuremath{\gamma}}{Fóton (bóssom)} 
 %\newacronym[type=Simb]{bossonZ}{\ensuremath{Z}}{Bóssom Intermediário Z} 
@@ -161,7 +162,7 @@ Gravitacional & Todas & $\infty$ & $10^{-39}$ & Gráviton \\
 \hline
 \end{tabular}
 }
-\caption{As quatro interações fundamentais. A intensidade relativa se dá em
+\caption[As quatro interações fundamentais]{As quatro interações fundamentais. A intensidade relativa se dá em
 relação a interação forte. Adaptado de \cite{Beiser}.}
 \label{tab:interacoes}
 \end{table}
@@ -382,7 +383,7 @@ LHC & p: 7 TeV & 2008 \\
 (CERN, Genebra) & p: 7 TeV & \\
 \hline \hline
 \end{tabular}
-\caption{Alguns aceleradores de partículas no mundo. Adaptado de \cite{Intro_Standard}.}
+\caption[Alguns aceleradores de partículas no mundo]{Alguns aceleradores de partículas no mundo. Adaptado de \cite{Intro_Standard}.}
 \label{tab:aceleradores}
 \end{table}
 
@@ -527,7 +528,8 @@ construídos \cite{lecture_slides_1,lecture_slides_2}.
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=\textwidth]{imagens/lhc_garrafa_linac2.pdf}
-\caption{Os diferentes aceleradores e detectores do CERN, extraído de
+\caption[A cadeia de aceleração do LHC]{
+Os diferentes aceleradores da cadeia e detectores do CERN, extraído de
 \cite{cern_accelerators}. A seta cinza claro corresponde ao sentido do
 deslocamento de prótons nos aceleradores. A esquerda, foto da garrafa
 de hidrogênio de onde são retirados os prótons, e na direita foto do LINAC 2.}
@@ -562,7 +564,7 @@ como as utilizações de seus \glspl{ip}.
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=.6\textwidth]{imagens/lhc-schematic.png}
-\caption{Esboço esquemático do LHC, extraído de
+\caption[Esboço esquemático do LHC]{Esboço esquemático do LHC, extraído de
 \cite{webLHC}. Os diversos octantes do LHC, contendo os pontos de inserção 
 com suas respectivas funcionalidades e experimentos.
 O anel 1, em vermelho, gira no sentido horário, enquanto o anel
@@ -649,7 +651,7 @@ daquela em sincronismo.
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=.7\textwidth]{imagens/estabilidade_fase.png}
-\caption{Estabilidade das partículas no feixe dos síncrotons. No eixo y, a
+\caption[Estabilidade das partículas no feixe dos síncrotons]{Estabilidade das partículas no feixe dos síncrotons. No eixo y, a
 aceleração aplicada pela cavidade RF em função da fase das partículas. 
 A fase de estabilidade P1 ocorre para baixas energias, e P2 para altas energias. 
 Extraído de \cite{lecture_slides_1}.}
@@ -718,7 +720,8 @@ trajetória nominal.
         }%
 %
     \end{center}
-    \caption{%
+    \caption[A utilização do magneto de quadripólos na concentração das partículas
+em torno da trajetória nominal e estrutura FODO]{%
         A utilização do magneto de quadripólos na concentração das partículas em
       torno da trajetória nominal e a estrutura FODO. Figuras extraídas de 
       \cite{lecture_slides_1}.
@@ -734,7 +737,7 @@ como por exemplo a correção devido ao efeito da gravidade no feixe.
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=\textwidth]{imagens/fodo_lhc.jpg}
-\caption{A estrutura FODO do LHC. Extraído de \cite{closerLook}.}
+\caption[A estrutura FODO do LHC.]{A estrutura FODO do LHC. Extraído de \cite{closerLook}.}
 \label{fig:fodo_lhc}
 \end{figure}
 
@@ -814,7 +817,7 @@ propagação do feixe ($z$), é chamada de componente longitudinal.
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=0.7\textwidth]{imagens/atlas_p1_coord.png}
-\caption{O Sistema de Coordenadas adotado para o IP1, ponto de inserção do
+\caption[O Sistema de Coordenadas adotado para o ATLAS]{O Sistema de Coordenadas adotado para o IP1, ponto de inserção do
 experimento ATLAS. Extraído de \cite{tese_torres}.}
 \label{fig:atlas_p1_coord}
 \end{figure}
@@ -932,7 +935,7 @@ explica, assim, a busca por elevadas luminosidades.
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=.7\textwidth]{imagens/Lum_cross.png}
-\caption{
+\caption[A seção de choque em função da energia de colisão no centro de massa]{
 A seção de choque, na escala a esquerda, em função da energia de colisão no
 centro de massa. A escala a direita contêm a taxa de eventos por segundo 
 para a luminosidade de $10^{34}cm^{-2}s^{-1}$. 
@@ -989,7 +992,7 @@ Rígidas}]{ndr}{NDR}{Colisão Não Difrativa Rígida}
         }
 %
     \end{center}
-    \caption{%
+    \caption[As diversas colisões possiveis na física de altas energias]{%
        As diversas colisões possíveis na física de altas energias. Adaptado de
 \cite{rick_field_slides}.
      }%
@@ -1038,11 +1041,11 @@ hádrons, pode-se estimar a energia da colisão elementar ($\sqrt{s_{elem}}$)
 através de \ref{eq:s_elem}. Assim, a relação \ref{eq:cin_cov} contêm $\gls{y}_{max}$
 para as partículas produzidas pelas colisões elementares nos hádrons.
 Utilizando o valor máximo de enegia obtido nas colisões de prótons do \gls{lhc}, 14 TeV, 
-obtêm-se $\gls{y}_{max}$ de 2,2 ($41,42^{\circ}$ em \gls{theta}) para o bóssom Z, 
-e 5,15 ($0,04^{\circ}$) para píons, os hádrons mais leves que poderão formar os
+obtêm-se $\gls{y}_{max}$ de 2,19 ($12,64^{\circ}$ em \gls{theta}) para o bóssom Z, 
+e 5,15 ($0,66^{\circ}$) para píons, os hádrons mais leves que poderão formar os
 jatos hadrônicos. Cabe ressaltar que esses valores serão menores devido as
 colisões elementares conterem apenas uma fração da energia total 
-de colisão dos hádrons. Ainda, mesmo que partículas massivas sejam produzidas
+de colisão dos hádrons. Ainda, mesmo que partículas massiças sejam produzidas
 para pequenos valores de \gls{eta}, os seus estados finais podem decair em uma
 região mais larga, de forma que os detectores devem cobrir a maior região
 possível.
@@ -1094,7 +1097,7 @@ processo de discriminação.
             \includegraphics[width=\textwidth]{imagens/ue3.png}
         }
     \end{center}
-    \caption{%
+    \caption[Os Eventos Adjacentes (UEs) e de \emph{Minimum Bias} (Minbias)]{%
        Os Eventos Adjacentes (UEs) e de \emph{Minimum Bias} (Minbias). 
 Adaptado de \cite{rick_field_slides}.
      }%
@@ -1223,7 +1226,8 @@ Esses números incluem a \acrshort{ufrj}, que participa através do
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=0.8\textwidth]{imagens/atlas_detector.png}
-\caption{O detector ATLAS e seus diversos componentes. Extraído de
+\caption[O detector ATLAS e seus diversos componentes]
+{O detector ATLAS e seus diversos componentes. Extraído de
 \cite{tese_torres}.}
 \label{fig:det_atlas}
 \end{figure}
@@ -1231,7 +1235,9 @@ Esses números incluem a \acrshort{ufrj}, que participa através do
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=0.8\textwidth]{imagens/particulas_subdetectores_3.png}
-\caption{Um esboço contendo exemplos de interação de partículas com os
+\caption[Esboço contendo exemplos de interação de partículas com os
+subdetectores do ATLAS]
+{Um esboço contendo exemplos de interação de partículas com os
 subdetectores do ATLAS. 
 Apenas partículas carregadas eletricamente deixam traços no Detector Interno. 
 Elétrons, pósitrons e fótons serão totalmente absorvidos pelo Calorímetro 
@@ -1279,8 +1285,8 @@ de núcleo a ar. Os picos de campo nos \glspl{ect} são de
 
 Serão descritos cada um dos subdetectores do \gls{atlas} nas
 subseções que seguirão. Os calorímetros (Subseção \ref{ssec:calorimetria}) são de grande importância 
-para este trabalho e será dado enfoque ao mesmo, 
-especialmente o \gls{ecal} uma vez que o mesmo é responsável 
+para este trabalho e será dado enfoque aos mesmos, 
+especialmente o \gls{ecal} uma vez que ele é responsável 
 pela absorção de elétrons e fótons, partículas no qual este trabalho atual deseja
 discriminar. Ao \gls{hcal} cabe a tarefa da absorção de partículas
 com componentes hadrônicas, como os jatos de hádrons gerados com grande
@@ -1429,7 +1435,7 @@ pseudorrapidez relacionas. Extraído de \cite{paper_atlas}.]{%
             \includegraphics[width=.8\textwidth]{imagens/id_eta.pdf}
         }
     \end{center}
-    \caption{O Detector Interno.}%
+    \caption[O Detector Interno (ID)]{O Detector Interno.}%
 \end{figure}
 
 O \gls{id} dispõe de dois medidores de alta precisão, eles exploram a redução 
@@ -1445,7 +1451,7 @@ cada um dos detectores é fornecido na Tabela~\ref{tab:info_id}.
 \begin{tabular}{lp{5cm}cccp{2cm}}
 \hline
 \hline
-\textbf{Sistema} & \textbf{Posição} & \textbf{Área} & \textbf{\gls{respos}
+\textbf{Sistema} & \textbf{Posição} & \textbf{Área} ($\text{m}^2$) & \textbf{\gls{respos}
 ($\mu$m)} & \textbf{Canais ($10^6$)} & \textbf{Cobertura em $|\eta|$} \\
 \hline
 \hline
@@ -1453,7 +1459,7 @@ Píxeis & 1 camada removível no barril (camada B) & 0,2 & R$\phi$ = 12, z = 66 
 & $\leq 2,5$ \\
 & 2 camadas no barril & 1,4 & R$\phi$ = 12, z = 66 & 81 
 & $\leq 1,7$ \\
-& 3 discos nas tampas de cada lado & 0,7 & R$\phi$ = 12, R = 77 & 43 
+& 4 discos nas tampas de cada lado & 0,7 & R$\phi$ = 12, R = 77 & 43 
 & $1,7-2,5$ \\
 \hline
 SCT & 4 camadas no barríl & 34,4 & R$\phi$ = 16, z = 580 & 3,2
@@ -1469,7 +1475,8 @@ TRT & Canudos axiais no barril &  & 170 (por canudo) & 0,1
 \hline
 \end{tabular}
 }
-\caption{Parâmetros do ID. As resoluções estão citadas em valores típicos (a
+\caption[Parâmetros do ID]
+{Parâmetros do ID. As resoluções estão citadas em valores típicos (a
 resolução verdadeira em cada detector depende do ângulo de impacto). Adaptado de
 \cite{ATLAS_TDR}. O número de tampas de pixeís foi corrigida com base em
 \cite{pixel,inner_tdr1}.}
@@ -1500,7 +1507,7 @@ região intermediária do \gls{id}, contribuindo tanto para a medição do momen
 parâmetro de impacto e posição do vértice primário, quanto provendo bom
 reconhecimento de padrões pelo uso de alta granularidade. O seu barril usa oito
 camadas de microfibras de silicone para gerar precisão nos pontos nas
-coordenadas de R$\phi$ e z. Cada componente mede $6,36\times6,40cm^2$ com 768 canais de
+coordenadas de R$\phi$ e z. Cada componente mede $6,36\times6,40 \text{cm}^2$ com 768 canais de
 leitura com 80 $\mu$m de afastamento. A tampa possui construção similar, mas usa
 tiras cilíndricas, formando um conjuto alinhado radialmente. Ela possui cerca de 61
 $m^2$ de detectores de silicone, com 6,2 M de canais, que permitem distinguir
@@ -1602,7 +1609,7 @@ através da irradiação de fótons;
 reações nucleares em energias muito elevadas.
 \end{itemize}
 
-Por outro lado os fótons, interagem através dos seguintes efeitos:
+Por outro lado, os fótons interagem através dos seguintes efeitos:
 
 \begin{itemize}
 \item \textbf{Efeito fotoelétrico}: é o processo mais comum para baixas
@@ -1626,7 +1633,9 @@ criando um chuveiro de partículas eletromagnéticas. Ao longo da evolução des
 chuveiro, a energia média das partículas diminuirá até o ponto onde não há mais
 multiplicação das partículas. A partir desse ponto, o ponto máximo do chuveiro,
 o número de partículas irá decair, uma vez que a energia das partículas
-produzidas não é suficiente para produzir novos pares. Os processos de mais
+produzidas não é suficiente para produzir novos pares. A
+Figura~\ref{fig:particulas_atlas} esboça o desenvolvimento de chuveiros eletromagnéticos 
+para as partículas elétron e fóton. Os processos de mais
 baixas energias não produzem pósitrons, de modo que 75\% da energia dos
 chuveiros é depositada em elétrons, e o restante, em pósitrons.
 
@@ -1672,7 +1681,9 @@ Novamente, o número de partículas aumenta
 devido ao processo de multiplicação, mas
 ao chegar ao seu ponto máximo, as multiplicações subsequentes são
 balanceadas pela absorção de partículas do chuveiro, fazendo com que o número de
-partículas do chuveiro reduza gradativamente.
+partículas do chuveiro reduza gradativamente. Veja novamente a
+Figura~\ref{fig:particulas_atlas} para um esboço de desenvolvimento de chuveiros
+hadrônicos para as nêutrons e prótons.
 
 \newacronym[type=Simb]{lambdaint}{\ensuremath{\lambda_{int}}}{comprimento de interação nuclear} 
 
@@ -1708,7 +1719,7 @@ podem ser estados finais de outras partículas.
 Por outro lado, o \gls{hcal} deve absorver todas as partículas hadrônicas, como os jatos
 hadrônicos que podem ser resíduos de um \gls{ue} e \gls{mbias}, ou até mesmo de
 um decaimento. Alguns canais de interesse desejam encontrar jatos, como 
-o decaimento do bóssom W em altos \gls{pt} para $|\gls{eta}<3|$: $W\rightarrow
+o decaimento do bóssom W em altos \gls{pt} para $|\gls{eta}|<3$: $W\rightarrow
 jato-jato$. Entretanto, é necessário separar esses jatos dos criados pelo ruído 
 gerados por \gls{mbias} e \glspl{ue}, e para isso o \gls{hcal} deve ser capaz de
 separar um jato hadrônico de um decaímento duplo em jatos próximos, sendo
@@ -1716,7 +1727,7 @@ necessário uma granularidade maior nessa região.
 
 Quanto maior o número atômico do meio, maior será a profundidade no qual um
 chuveiro hadrônico irá se propagar no mesmo, quando em comparação com um chuveiro
-eletromagnético de mesma energia. Esse fato tem como consequência a disposição
+eletromagnético de mesma energia. Isso culmina na disposição
 dos \gls{ecal} serem anteriores ao dos \gls{hcal}, uma vez que é inútil, assim, utilizar calorímetros com a 
 configuração espacial oposta, já que todos os chuveiros de partículas se
 extinguiriam no \gls{hcal}, não atingindo o \gls{ecal}. Ainda, é interessante a
@@ -1725,17 +1736,21 @@ garantir, por esse motivo, a menor deposição de energia possível de partícul
 hadrônicas no mesmo.
 
 Ainda, o perfil de chuveiros hadrônicos é mais largo que o de chuveiros
-eletromagnéticos, fazendo inútil alta granularidade nos \gls{hcal}. 
-Esse fato é muito explorada para realizar a discriminação entre as 
-partículas que interagem com os calorímetros, buscando perfís de chuveiros
-justos para partículas eletromagnéticas.
+eletromagnéticos. Essa ocorrência é muito explorada para realizar a discriminação 
+entre as partículas que interagem com os calorímetros, buscando perfís de chuveiros
+justos para partículas eletromagnéticas. Ela têm como consequência 
+a menor granularidade no \gls{ecal} quando comparados com os \gls{hcal}, já que
+para realizar a discriminação é necessário que o calorímetro tenha resolução
+para discernir entre os chuveiros. Ao mesmo tempo, se faz desnecessário
+utilizar altas granularidades no \gls{hcal}, justamente pelos chuveiros se
+espalharem por uma região maior.
 
 Grande parte da física de interesse busca por decaimentos
 leptônicos, uma vez que o ruído hadrônico gerados pelas colisões é de ordem
 muito superior a da produção de física de interesse, visto anteriormente na
 Subseção~\ref{sssec:tipos_col}. Essas partículas irão interagir com o \gls{ecal},
 assim como partículas hadrônicas, por mais que o \gls{X0} seja algumas vezes 
-menor que \gls{lambdaint}, fato importante para minimizar a energia depositada
+menor que \gls{lambdaint}, acontecimento importante para minimizar a energia depositada
 por hadrôns no \gls{ecal}. Ainda, é necessário uma granularidade 
 maior no \gls{ecal} para que seja possível observar as diferenças no 
 perfil dos chuveiros formados.
@@ -1743,10 +1758,11 @@ perfil dos chuveiros formados.
 Léptons neutrinos são partículas de difícil detecção uma vez que sofrem 
 apenas interações fracas. Elas não são detectadas diretamente pelo 
 \gls{atlas}, senão pelo balanceamento do \gls{pt} das colisões, que devem ser
-aproximadamente nulos. Para se identificar o \gls{ptmiss} é necessário em
+aproximadamente nulos. Ao se identificar a existência de uma grande parcela de 
+\gls{ptmiss}, sabe-se que foi gerada uma dessas partículas. Para isso, é necessário em
 primeiro lugar hermerticidade, de forma que ele seja capaz de
-detectar os resíduos gerados pelas colisões. Aos calorímetros esse fato é
-especialmente importante, uma vez que geralmente jatos hadrônicos
+detectar os resíduos gerados pelas colisões e não atribuí-los aos neutrinos. 
+Nos calorímetros esse fato é especialmente importante, uma vez que geralmente jatos hadrônicos
 são gerados para balancear os decaimentos das partículas.
 
 \subsubsection{Dos subsistemas de calorimetria e suas topologias}
@@ -1769,7 +1785,8 @@ simetria e cobertura total em \gls{phi}.
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=\textwidth]{imagens/calorimetros.pdf}
-\caption{Os diversos calorimetros do ATLAS. Extraído de
+\caption[Os diversos subsistemas de calorimetria do ATLAS]{
+Os diversos calorimetros do ATLAS. Extraído de
 \cite{atlas_calorimeter_photo}.}
 \label{fig:cal_atlas}
 \end{figure}
@@ -1875,7 +1892,9 @@ estendido}     \\  \hline
   \hline
 \end{tabular}
 }
-\caption{Região de cobertura em $\eta$, granularidade e
+\caption[Região de cobertura em $\eta$, granularidade e
+número de canais de leitura das camadas dos calorímetros]
+{Região de cobertura em $\eta$, granularidade e
 número de canais de leitura das camadas dos calorímetros. Adaptado de
 \cite{tese_eduardo}}
 \vspace{.3cm}
@@ -1918,7 +1937,8 @@ raio.
 \begin{sidewaysfigure}[p]
 \centering
 \includegraphics{imagens/calorimetros_secao.pdf}
-\caption{Seção de corte longitudinal do ECAL. Extraído de
+\caption[Seção de corte longitudinal do ECAL]
+{Seção de corte longitudinal do ECAL. Extraído de
 \cite{cal_tdr}}
 \label{fig:secao_em_calo}
 \end{sidewaysfigure}
@@ -1954,8 +1974,9 @@ seguintes propriedades:
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=.6\textwidth]{imagens/cal_lar_camadas.pdf}
-\caption{Esboço da estrutura de acordeão e a granularidade de suas camadas  para
-o barril. A quantidade de $X_0$ típicos para cada uma das camadas também são
+\caption[Esboço da escrutura do acordeão e a granularidade de suas camadas para
+o barril do EMB]{Esboço da estrutura de acordeão e a granularidade de suas camadas  para
+o barril do EMB. A quantidade de $X_0$ típicos para cada uma das camadas também são
 mostrados. Extraído de \cite{cal_tdr}.}
 \label{fig:cal_lar_camadas}
 \end{figure}
@@ -1965,7 +1986,7 @@ mostrados. Extraído de \cite{cal_tdr}.}
 finas com grande granularidade em \gls{eta}, tendo como objetivo fazer uma
 boa leitura dessa posição. Isso é especialmente importante no caso de fótons,
 que não são medidos pelo detector de traços, e ao mesmo tempo para casar os
-traços das partículas com seus respectivos chuveiros. Conforme o \gls{eta} aumenta 
+traços das partículas com seus respectivos chuveiros. Conforme o \gls{eta} aumenta,
 há um decréscimo da granularidade devido ao fato das tiras não poderem ser feitas com menos de 5 mm.
 A escolha de tiras mais grosseiras em \gls{phi} quando comparadas com a segunda e 
 terceiras camadas é consequência do campo magnético do \gls{cs} espalhar os
@@ -2002,7 +2023,8 @@ Subtópico~\ref{par:cal_ps}.
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=.6\textwidth]{imagens/cal_em_x0.pdf}
-\caption{Valores de $X_0$ em função de $\eta$ para as diferentes camadas do ECAL
+\caption[Valores de $X_0$ em função de $\eta$ para as diferentes camadas do ECAL
+e outros materiais dispostos antes do mesmo]{Valores de $X_0$ em função de $\eta$ para as diferentes camadas do ECAL
 e outros materiais dispostos antes do mesmo. Extraído de \cite{cal_tdr}.}
 \label{fig:cal_em_x0}
 \end{figure}
@@ -2059,7 +2081,9 @@ Figura~\ref{fig:cal_had_lambda}.
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=.6\textwidth]{imagens/cal_had_lambda.pdf}
-\caption{Valores de $\lambda_{int}$ em função de $\eta$ para as diferentes
+\caption[Valores de $\lambda_{int}$ em função de $\eta$ para as diferentes
+camadas e subsistemas do calorímetro]{
+Valores de $\lambda_{int}$ em função de $\eta$ para as diferentes
 camadas e subsistemas do HCAL. Também estão presentes os comprimentos de interação do ECAL. 
 Extraído de \cite{cal_tdr}.}
 \label{fig:cal_had_lambda}
@@ -2081,10 +2105,10 @@ casos as chapas de cobre estão separadas por uma fenda de 8,5 mm contendo
 uma maior resistência a radiação e eficácia de custo, ainda fornecendo a
 cobertura espacial necessária.
 
-Os requisitos de linearidade de resolução de energia devem atender aqueles
-especificados para o \nameref{par:cal_tilecal}. Ainda, um tempo de pico de sinal
-de $\sim40$ ns deve ser atendido pelo \gls{lar}. O número de \gls{lambdaint} do
-\gls{hec} podem ser vistos na Figura~\ref{fig:cal_had_lambda}.
+Os requisitos de linearidade e de resolução de energia devem atender aqueles
+especificados para o \gls{tilecal}. Ainda, um tempo de pico de sinal
+de $\sim40$ ns deve ser atendido pelo \gls{lar}. O número de \gls{lambdaint} da
+\gls{hec} em função de $\gls{eta}$ estão na Figura~\ref{fig:cal_had_lambda}.
 
 \paragraph{Calorímetro Dianteiro (FCal)}
 \label{par:cal_fcal}
@@ -2118,7 +2142,7 @@ hermeticidade para a medição de \gls{ptmiss}. Por isso, a resolução de energ
 o \gls{hcal} na região dianteira pode ser menor, de
 acordo com \ref{eq:res_tile2}. Nessa região também é necessário a identificação de
 jatos dianteiros uma vez que a região de admissão para seus decaimentos do
-bóssom de Higgs é de $2<|\gls{eta}|<5$. Novamente veja a
+bóssom de Higgs é de $2<|\gls{eta}|<5$. Observe novamente a
 Figura~\ref{fig:cal_had_lambda} para os comprimentos do \gls{fcal}.
 
 
@@ -2147,7 +2171,7 @@ Figura~\ref{fig:cal_had_lambda} para os comprimentos do \gls{fcal}.
         }%
 %
     \end{center}
-    \caption{%
+    \caption[As diferentes estruturas dos subsitemas de calorimetria do ATLAS]{%
 As diferentes estruturas dos subsitemas de calorimetria do ATLAS.
      }%
 \end{figure}
@@ -2173,11 +2197,12 @@ de energia da partícula) é reduzido e a energia total das partículas
 
 Na região de transição entre o barríl e a tampa, para
 $|\gls{eta}| = 1,4$, a situação é particularmente critica devido aos serviços e
-cabos para o \gls{id}, e uma camada cintiladora é colocada entre os dois criostatos
-com o objetivo de recuperar parte da energia perdida, principalmente por
+cabos para o \gls{id}, e uma camada cintiladora em $1,0<|\gls{eta}|<1,6$ 
+é colocada entre os dois criostatos com o objetivo de recuperar parte 
+da energia perdida, principalmente por
 partículas hadrônicas, mas também ajuda a reconstruir a energia de elétrons e
-fótons. Os disposição desses dois calorímetros pode ser observada na
-Figura~\ref{fig:secao_em_calo}. 
+fótons. As disposições desses dois calorímetros, assim como do cintilador pode 
+ser observada na Figura~\ref{fig:secao_em_calo}. 
 
 
 \paragraph{Sistema de Criogênia}
@@ -2195,7 +2220,8 @@ isso não necessita ser refrigerado), enquanto os criostatos na tampa envolvem o
 \gls{hec} e o \gls{fcal}. A parede mais interna do criostato do
 barril utiliza uma estrutura \emph{isogrid}, que tem $\sim80\%$ de material a
 menor que uma placa solida teria, mas rigidez suficiente para suportar a
-estrutura.
+estrutura. Parte da estrutura de Criogênia pode ser vista na
+Figura~\ref{fig:secao_em_calo}.
 
 
 \subsection{O Espectômetro de Múons}
@@ -2220,7 +2246,8 @@ campo magnético dos toróides de núcleo a ar de forma semelhante ao \gls{id}.
 \centering
 %\includegraphics[width=0.8\textwidth]{imagens/espectometro_muons_lowres.jpg}
 \includegraphics[width=0.8\textwidth]{imagens/Muon_system_Initial.pdf}
-\caption{O Espectômetro de Múons e seus subsistemas: as câmaras medidoras de
+\caption[O Espectômetro de Múons]{
+O Espectômetro de Múons e seus subsistemas: as câmaras medidoras de
 precisão: (MDTs e CSCs) e as câmaras de filtragem (RPCs e TGCs). Na tampa, a
 primeira camada TGC (I) é localizada na camada mais interna; as próximas três
 camadas estão na frente (M1) e atrás (M2 e M3) da segunda roda MDT. A primeira
@@ -2274,23 +2301,25 @@ sistemas opticos de alinhamento, de forma que deslocamentos dentre $\sim$30
 $\mu$m e $\sim$1 cm podem ser corrigidos em análise pelos algoritmos do
 Sistema de Reconstrução \cite{muon_tdr}.
 
-\section{Ferramentas Utilizadas na Colaboração}
+\section{Ferramentas utilizadas na Colaboração}
 \label{sec:ferramentas}
 
 As ferramentas utilizadas no \gls{cern} e pelo experimento \gls{atlas} são
-fundamentais para o sucesso do experimento. Será realizada uma breve descrição
-das infraestruturas utilizadas para que se tenha um conhecimento 
-das ferramentas sem entrar em detalhes, uma vez que elas tem um cunho 
-mais prático.
+fundamentais para o seu sucesso. A riqueza de ferramentas disponíveis
+no \gls{cern} é imensa, e muitas vezes, as ferramentas são
+transpartes para o usúario de forma que seria impossível citar todas as 
+ferramentas utilizadas. Será realizada uma breve descrição das infraestruturas 
+mais relevantes utilizadas para que se tenha um conhecimento das ferramentas 
+sem entrar em detalhe de cunho mais prático de utilização das mesmas.
 
 Infraestruturas \cite{root} (\emph{frameworks}), 
-quando referidas em engenharia de software,
+quando referidas em engenharia de \emph{software},
 oferecem ao programador utilidades e serviços básicos necessários de maneira que
 o programador apenas se preocupe em escrever código para a tarefa no qual ele
 está imbuído. A ideia é que o usuário da infraestrutura tenha que apenas saber
 utilizar a infraestrutura, mas a maneira na qual ela funciona seja transparente
 para ele, sendo semelhante a ideia de se viver em uma cidade, onde os serviços
-de eletricidade, água e transporte são oferecidos pela cidade. Assim o objetivo
+de eletricidade, água e transporte são oferecidos pela cidade. Assim, o objetivo
 principal de uma infraestrutura é isolar seus usuários de detalhes irrelevantes,
 como que tipo de biblioteca usar para transferência de dados, ou para gerar um
 gráfico. Os principais benefícios desta abordagem são:
@@ -2319,12 +2348,12 @@ Analysis System}}
 As duas infraestruturas mais relevantes utilizadas foram: o \emph{ROOT}
 (Subseção~\ref{ssec:root}) e o \emph{Athena} (Subseção~\ref{ssec:athena}). 
 O \emph{Athena} é a peça-chave dos programas do \gls{atlas} e serve não somente
-para fazer a reconstrução rodando os algoritmos tanto de análise em tempo real
-quanto os de análise a posteriori, rodar simulações de Monte Carlo, digitalizações etc., 
+para realizar a reconstrução executando os algoritmos, tanto de análise em tempo
+real, quanto os de análise a posteriori, como realizar simulações de Monte Carlo, digitalizações etc., 
 enquanto o \emph{ROOT} é um ambiente dedicado a analise de dados. 
 Ainda, \gls{cern} dispõe de um sistema de grade de 
 computadores (Subseção~\ref{ssec:lcg}) disponível para o experimento \gls{lhc}, chamado de \gls{lcg} 
-\cite{grid}. A comunicação entre as infraestruturas citadas é realizada através do sistema
+\cite{grid}. A comunicação entre as infraestruturas citadas e o \gls{lcg} é realizada através do sistema
 \gls{panda}, que não será descrito nesse trabalho por sair muito do escôpo, 
 mas pode ser encontrado detalhes em \cite{panda}.
 
@@ -2351,47 +2380,50 @@ Alguns dos principais serviços e interfaces do Athena são:
 \emph{Pythia} \cite{pythia}. Este módulo
 realiza simulações de colisões por \gls{mc}, tendo um esboço na
 Figura~\ref{fig:evento_mc}. O processo de simulação grava as
-informações dos eventos de colisão em um registro chamado \emph{HepMC}.
+informações dos eventos de colisão em um registro chamado \emph{HepMC}. Esse é
+apenas um dos geradores de \gls{mc} possíveis.
+\begin{figure}[hb!]
+\centering
+\includegraphics[width=0.8\textwidth]{imagens/evento_mc.png}
+\begin{minipage}{\textwidth}
+\setcounter{mpfootnote}{\value{footnote}}
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+\caption[Esboço de uma colisão simulada por Monte Carlo]{
+Esboço de uma colisão simulada por Monte Carlo. Os prótons cruzantes estão
+desenhados em azul escuro. Os globos em vermelho escuro representam processos de
+colisão rígida dos hádrons em colisão. Fenômenos de \emph{bremsstrahlung} de
+QCD{\footnote{Os fenômenos de \emph{bremsstrahlung} de QCD são parecidos 
+com os mesmos para QED, explicados no Subtópico~{\ref{par:chuveiro_em}}, contudo, ao invés
+de partículas eletricamente carregadas, é correspondente para partículas contendo
+cores (a carga correspondente para a força forte) mas liberando glúons ao invés
+de fótons. Os glûons, diferente dos fótons, podem sofrer de seu próprio
+\emph{bremsstrahlung}}}
+estão desenhados em azul para o estado inicial e vermelho para o estado
+final. O modelo para Múltiplas Interações de Pártons (MPI), que no caso seria um
+Evento Adjacente (UE) está em roxo. A hadronização dos pártons é representada
+por elipses verde claro. Os decaimentos dos hádrons estão em verde escuro.
+Finalmente, o \emph{bremsstrahlung} de QED é esboçado em amarelo.
+Extraído de {\cite{mc_event}}.}
+\setcounter{footnote}{\value{mpfootnote}}
+\end{minipage}
+\label{fig:evento_mc}
+\end{figure}
+
 \item \textbf{\emph{Geant4}}: é um conjunto de ferramentas que permitem simular a interação de
 partículas com a matéria. Dessa forma, torna-se possível simular o comportamento
 dos detectores do \gls{atlas} quando excitados por partículas. As simulações de
 \gls{mc} utilizadas para a análise e desenvolvimento de algoritmos de seleção são
 produzidas através da simulação de colisões geradas pelo \emph{Pythia}, e a consequente
 descrição do comportamento dos detectores do \gls{atlas} utilizando o
-\emph{Geant4} para descrever como estas partículas produzidas pelo Pythia interagem 
+\emph{Geant4} para descrever como estas partículas produzidas pelo \emph{Pythia} interagem 
 com o material que compõem os subdetectores do \gls{atlas}. Esse processo gera
 os chamados G4 \emph{Hits}.
 \item \textbf{\gls{sg}}: é um ambiente que permite a propagacão de dados entre pacotes do
 \emph{Athena}. Ele funciona como uma área de armazenamento, onde um dado algoritmo pode
-identificar e salvar informações geradas pelo mesmo no Storegate, de forma que
+identificar e salvar informações geradas pelo mesmo no \emph{Storegate}, de forma que
 os algoritmos subsequentes possam recuperá-lo, ao fornecer ao Storegate a chave
 de identificação do dado desejado.
 \end{itemize}
-
-\begin{figure}[h!t]
-\centering
-\includegraphics[width=0.8\textwidth]{imagens/evento_mc.png}
-%\begin{minipage}{\textwidth}
-\caption[Esboço de uma colisão simulada por Monte Carlo]{
-Esboço de uma colisão simulada por Monte Carlo. Os prótons cruzantes estão
-desenhados em azul escuro. Os globos em vermelho escuro representam processos de
-colisão rígida dos hádrons em colisão. Fenômenos de \emph{bremsstrahlung} de
-QCD\footnotemark estão desenhados em azul para o estado inicial e vermelho para o estado
-final. O modelo para Múltiplas Interações de Pártons (MPI), que no caso seria um
-Evento Adjacente (UE) está em roxo. A hadronização dos pártons é representada
-por elipses verde claro. Os decaimentos dos hádrons estão em verde escuro.
-Finalmente, o \emph{bremsstrahlung} de QED é esboçado em amarelo.
-{\cite{mc_event}}.}
-%\end{minipage}
-\label{fig:evento_mc}
-\end{figure}
-
-\footnotetext{Os fenômenos de \emph{bremsstrahlung} de QCD são parecidos 
-com os mesmos para QED, explicados no Tópico~{\ref{par:chuveiro_em}}, mas, ao invés
-de partícula eletricamente carregadas, é correspondente para partículas contendo
-cores, a carga correspondente para a força forte, mas liberando glúons ao invés
-de fótons. Os glûons, diferente dos fótons, podem sofrer de seu próprio \emph{bremsstrahlung} 
-pois eles carregam carga forte e gerar, assim, mais glûons} 
 
 Essa infraestrtura é utilizada como plataforma de emulação do Sistema de
 Filtragem e o Sistema de Reconstrução do \gls{atlas}, contendo diversas
@@ -2399,7 +2431,7 @@ distribuições. Cada distribuição do \emph{Athena} tem dependencias diferente
 pacotes de algoritmos, focando em uma funcionalidade. Por exemplo, a
 distribuição \emph{AtlasOffline} é utilizada pelos físicos para fazerem análises
 independentes; o \emph{AtlasProduction} é utilizado para
-fazer as reconstruções oficiais da colaboração; e o \emph{AtlasP1HLT} é a
+fazer as reconstruções oficiais da Colaboração; e o \emph{AtlasP1HLT} é a
 distribuição que é utilizada nas máquinas do \gls{ip}1 para fazerem as análises 
 do alto nível do Sistema de Filtragem. 
 
@@ -2411,12 +2443,14 @@ colocados em um arquivo chamado de \gls{jo}, ou opções de trabalho.
 As reconstruções da física podem utilizar os arquivos de simulações com as sequências de
 interações das partículas com o detector após sua digitalização, ou arquivos de eventos
 reais armazenados após passarem o Sistema de Filtragem. Serão realizadas uma
-sequência de trabalhos até se gerar os dados para análise.
+cadeia de trabalhos até se gerar os dados para análise. Para facilitar os
+diversos passos da cadeia de reconstrução, um mecânismo de autoconfiguração e 
+\cite{recotrf} está disponível para a colaboração.
 
 \subsubsection{Formatos dos dados}
 \label{sssec:athena_dados}
 
-Os diferentes formatos \cite{atlaswb} utilizados na sequências de trabalho do \emph{Athena}
+Os diferentes formatos \cite{atlaswb} utilizados na cadeia de trabalho do \emph{Athena}
 são:
 
 \newacronym[type=Abrev]{bs}{BS}{\emph{Bytestream}}
@@ -2428,7 +2462,9 @@ são:
 
 \begin{itemize}
 \item \textbf{\gls{bs}}: é o formato de saída do Sistema de Filtragem, contendo
-uma representação persistente dos dados de eventos;
+uma representação persistente dos dados de eventos em formato
+binário\footnote{Por isso muitas vezes são chamados também de \emph{RAW data},
+ou dados crus.};
 \item \textbf{\gls{rdo}}: assim como o \gls{bs}, contêm uma representação persistente 
 dos dados de eventos, mas em objetos de C++. Elas geralmente são geradas de
 digitalizações dos G4 \emph{Hits} quando realizando a reconstrução de dados de
@@ -2445,8 +2481,9 @@ através da ferramenta \emph{ara};
 apenas os dados necessários pelos físicos para a análise, reduzindo o
 tamanho dos arquivos em disco para cerca de $\sim$100 kB/evento. Também podem ser
 acessados por \gls{ara};
-\item \textbf{\gls{tag}}: são arquivos contendo eventos de física de
-interesses da \gls{aod} rotulados, contendo $\sim$1 kB/evento;
+\item \textbf{\gls{tag}}: são arquivos simples contendo eventos de física de
+interesses da \gls{aod} rotulados em uma estrutura de árvores do \emph{ROOT}, 
+contendo cerca de $\sim$1 kB/evento;
 \end{itemize}
 
 \newacronym[type=Abrev]{pool}{POOL}{\emph{Pool of persistent Objects for
@@ -2459,9 +2496,13 @@ persistentes em disco do \gls{lhc}), são eles:
 
 \newacronym[type=Abrev]{cbnta}{CBNTAA}{\emph{Athena Aware ComBined NTuple}}
 \newacronym[type=Abrev]{dpd}{DPD}{\emph{Derived Physics Datasets}}
-\newacronym[type=Abrev]{d1pd}{\ensuremath{D^1PD}}{\emph{Primary Derived Physics Datasets}}
-\newacronym[type=Abrev]{d2pd}{\ensuremath{D^2PD}}{\emph{Secondary Derived Physics Datasets}}
-\newacronym[type=Abrev]{d3pd}{\ensuremath{D^3PD}}{\emph{Tertiary Derived Physics Datasets}}
+\newacronym[type=Abrev]{d1pd}{\ensuremath{\text{D}^1\text{PD}}}{\emph{Primary Derived Physics Datasets}}
+\newacronym[type=Abrev]{d2pd}{\ensuremath{\text{D}^2\text{PD}}}{\emph{Secondary Derived Physics Datasets}}
+\newacronym[type=Abrev]{d3pd}{\ensuremath{\text{D}^3\text{PD}}}{\emph{Tertiary Derived Physics Datasets}}
+\newacronym[type=Abrev]{desd}{DESD}{\emph{Event Summary Derived Physics Datasets}}
+\newacronym[type=Abrev]{daod}{DAOD}{\emph{Analysis Object Derived Physics Datasets}}
+\newacronym[type=Abrev]{d2esd}{\ensuremath{\text{DESD}^2}}{\emph{Event Summary Secondary Derived Physics Datasets}}
+\newacronym[type=Abrev]{d2aod}{\ensuremath{\text{DAOD}^2}}{\emph{Analysis Object Secondary Derived Physics Datasets}}
 
 \begin{itemize}
 \item \textbf{\gls{cbnta}}: foi criado com o objetivo de ser o arquivo de
@@ -2480,14 +2521,18 @@ a redução de tamanho não permitidas nas \glspl{aod}:
 \item Seleção: Escolha de eventos relevantes;
 \item Emagrecimento: Remoção de recipientes irrelevantes;
 \end{itemize}
+As \glspl{d1pd} derivadas de \glspl{esd} são chamadas de \acrshortpl{desd}, e o
+análogo para as \acrshortpl{daod};
 \item \textbf{\gls{d2pd}}: novamente é o mesmo formato que as \glspl{aod}, mas
 contendo informação mais específica para análise, sendo geralmente produzida das
-\gls{d1pd};
+\gls{d1pd}. Os dados provenientes de \glspl{esd} serão chamados de
+\acrshortpl{d2esd}, e aqueles provenientes de \glspl{aod} chamados de
+\acrshortpl{d2aod};
 \item \textbf{\gls{d3pd}}: são o tipo de arquivo mais utilizados para análise
 atualmente, e não precisam ser arquivos no formato \gls{pool}, podendo ser
 analisados diretamente no \emph{ROOT}. Na sua geração o
 usuário especifica o nível de detalhes de informação desejados, e as variáveis
-da tarefa são automaticamente configuradas;
+da tarefa são automaticamente configuradas.
 \end{itemize}
 \end{itemize}
 
@@ -2502,7 +2547,8 @@ direcionado a resolver os desafios de análise de dados na física de altas
 energias. Ele conta com os seguintes componentes: interpretador de comandos 
 de linha, histogramas e ajuste de curvas, escrita de interfaces gráficas com 
 o usuário, Gráficos 2D/3D, Entrada/Saída de Dados, Coleção de Classes, 
-Processador de Rotinas, Processamento Paralelo, \gls{rtti}, Comunicação em Network e Threads.
+Processador de Rotinas, Processamento Paralelo, \gls{rtti}, Comunicação em
+Rede e \emph{Threads}.
 
 Todas as análises realizadas neste trabalho tiveram partes ou foram feitas por essa
 infraestrutura. Em alguns casos utilizou-se o próprio Matlab, ferramenta bem
@@ -2510,5 +2556,44 @@ discernida na área de engenharia.
 
 \subsection{O Projeto de Grade de Computadores do LHC (LCG)}
 \label{ssec:lcg}
+
+Estima-se que o \gls{lhc} irá gerar, para todos os seus experimentos, cerca de
+15 PB/ano, que milhares de cientistas irão acessar e analisar. O objetivo do
+\gls{lcg} é construir e manter uma infraestrutura de análise para toda a
+comunidade de física de altas energias do \gls{lhc}.
+
+O projeto utiliza uma grade para fornecer suporte computacional aos experimentos
+em quatro camadas. As especificações das camadas são
+\cite{grid,atlas_computing_tdr}:
+
+\begin{itemize}
+\item Camada-0 (\emph{Tier-0}): os arquivos brutos selecionados pelo Sistema de
+Filtragem do \gls{atlas} serão gravados na Camada-0. O primeiro passo de
+reconstrução será realizado por essa camada, onde uma copia dos dados
+reconstruidos
+(\gls{rdo}/\gls{bs}$\rightarrow$\gls{esd}/\gls{aod}/\gls{tag}/\acrshort{desd}) 
+serão gravados em disco local. Uma copia dos arquivos \glspl{bs}
+serão distribuídas entre os centros da Camada-1 relacionados com o experimento,
+cerca de 10 deles servem o \gls{atlas}.
+Cópias adicionais dos dados reconstruídos também serão distribuidos para os
+centros da Camada-1 de acordo com a política do experimento;
+\item Camada-1 (\emph{Tier-1}): seu papel varia de acordo com o experimento,
+mas, de modo geral, eles tem a responsabilidade de gerenciar os dados para
+armazenamento permanente, e fornecer capacidade computacional para
+reprocessamento e processos de análises que requerem acesso a grandes
+quantidades de dados. Os dados mais recentes estarão escritos em disco, e os com
+maior latência estarão, talvez, em fita. Muitos dos dados utilizados neste trabalho estão
+armazenados nesta camada. No total existem 11 centros definidos, em maioria,
+servindo a vários dos experimentos;
+\item Camada-2 (\emph{Tier-2}): provêm capacidade computacional e capacidade de
+armazenamento para simulações de Monte Carlo e análises do usúario final. Os
+centros da Camada-2 vão obter dados quando requeridos da Camada-1 para
+armazenamento. Atualmente existem cerca de 140 centros para a Camada-2;
+\item Camada-3 (\emph{Tier-3}): outras instalações em universidades e
+laboratórios podem fazer parte do processamento e análise dos dados do \gls{lhc}
+como parte da Camada-3. Eles saem do escôpo do projeto \gls{lcg}, contudo é
+necessário que seja fornecido acesso para os dados e análise quando decidido
+pelos experimentos.
+\end{itemize}
 
 

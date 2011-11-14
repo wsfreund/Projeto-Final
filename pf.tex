@@ -6,12 +6,12 @@
 \usepackage{subfigure}
 \usepackage[unicode]{hyperref}
 \usepackage[all]{hypcap}
-\usepackage{array}
-\usepackage[overload]{textcase}
-\usepackage{rotating}
-\usepackage{pdflscape}
-\usepackage{eurosym}
-\usepackage{fixfoot}
+\usepackage{array} % Adicionar a opcao m e b em tabelas
+\usepackage[overload]{textcase} % Adicionar MakeUpperCase etc.
+\usepackage{rotating} % Para rodar as figuras e tabelas
+\usepackage{pdflscape} % Para colocar paginas na horizontal no pdf
+\usepackage{eurosym} % Para o simbulo de Euro
+\usepackage{ccaption} % Para footnotes dentro de captions
 \hypersetup{
     unicode=true,          % non-Latin characters in Acrobat’s bookmarks
     pdftitle={Projeto Final},    % title
@@ -26,7 +26,7 @@
 }
 
 \usepackage{indentfirst}
-\usepackage{multirow}
+\usepackage{multirow} % Tabelas com celulas agrupadas
 \usepackage{amsmath} 
 \usepackage{listings}
 %\usepackage{simplemargins}
@@ -49,7 +49,7 @@
 
 %\usepackage[style=long,nonumberlist,toc]{glossaries}
 \usepackage[style=long,nonumberlist]{glossaries}
-\renewcommand{\glossaryname}{S{í}mbulos e Abreviaturas}
+\renewcommand{\glossaryname}{S{í}mbolos e Abreviaturas}
 %\renewcommand{\glossarypreamble}{Texto principal}
 % Define a new glossary type
 \newglossary[slg]{Simb}{sym}{sbl}{Lista de S{í}mbolos}
@@ -83,6 +83,7 @@
 \makeatother
 
 \newcommand*{\fnref}[1]{\textsuperscript{\ref{#1}}}
+%\newcommand*{\addtotoc}[2]{\clearpage\phantomsection\addcontentsline{toc}{#1}{#2}}
 
 \begin{document}
 
@@ -100,7 +101,7 @@
 \listoffigures
 \clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Tabelas}
 \listoftables
-\clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Símbulos}
+\clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Símbolos}
 %\renewcommand{\glossarypreamble}{Texto Simbulos}
 \printglossary[type=Simb]
 \clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Abreviaturas}
