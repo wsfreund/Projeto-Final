@@ -408,7 +408,7 @@ determinação de cerca de 25 a 26 parâmetros quando considerando a existência
 bóssom de Higgs. Existem realmente tal ordem de parâmetros independentes na
 natureza? Ainda, experimentos astronômicos mostram que apenas 4\% do universo é
 composto pela matéria conhecida no \gls{mp}, outros 23\% são de Matéria
-Escura, partículas ou conglomerados massivos que não brilham ou disseminam luz,
+Escura, partículas ou conglomerados maciços que não brilham ou disseminam luz,
 e os 73\% restantes, grande parte da energia do universo, são de Energia Escura,
 totalmente desconhecida para a ciência atual. Indo mais além, o \gls{mp} 
 não explica porque o universo se consiste quase totalmente por matéria e
@@ -1361,9 +1361,11 @@ alguns TeV;
 \item \textbf{Capacidade de identificação de partículas}: a identificação de
 partículas é um papel crucial no \gls{lhc}. Muitos requerimentos rigorosos na
 identificação de elétrons, fótons, jatos-B, taóns etc. precisam ser satisfeitos.
+A identificação é feita pelo Sistema de Reconstrução, descrito no
+Capítulo~\ref{cap:sf}.
 \item \textbf{Sistema de Filtragem}: o Sistema de Filtragem é outro ponto
-crucial para o sucesso do experimento, onde o Sistema do \gls{atlas} será descrito no 
-Capítulo~\ref{cap:sf}, incluindo o algoritmo proposto pelo trabalho para a
+crucial para o sucesso do experimento, onde o Sistema do \gls{atlas} também 
+será descrito no Capítulo~\ref{cap:sf}, incluindo o algoritmo proposto pelo trabalho para a
 identificação de elétrons e fótons. 
 A taxa de interação de $10^9$ eventos/s deve ser reduzida para cerca de 
 100 eventos/s devido a limites de armazenamento.
@@ -1561,7 +1563,7 @@ partícula; e o ativo, no qual ocorre a geração, ou amostragem, do sinal.
 Calorímetros homogêneos utilizam um único material para realizar as duas
 tarefas: a de interagir com a partícula e gerar sinal; e por isso apresentam melhor resolução de energia 
 que os de amostragem, uma vez que parte da energia das partículas nas interações com o
-material responsável pela geração de sinal é perdida. Por sua vez, calorímetros de amostragem são
+material passivo dos calorímetros de amostragem é perdida. Por sua vez, calorímetros de amostragem são
 mais baratos e por isso utilizados em sistemas de detecção muito grandes, como o
 \gls{atlas}. A resolução de energia do calorímetro para o método de 
 amostragem varia conforme a energia da partícula de acordo com
@@ -1708,7 +1710,7 @@ grupo de partículas puramente eletromagnéticas, atravessam
 grandes quantidades de material perdendo pouca energia uma vez que são bem mais
 maciços que elétrons (sofrem menor efeito de \emph{bremsstrahlung}),
 e por isso são utilizados o Espectrômetro de Múons para
-detectá-los. Táons, são ainda mais massivos, e precisariam de mais
+detectá-los. Táons, são ainda mais maciços, e precisariam de mais
 material que os múons para serem detectados. Entretanto, eles tem tempo de vida muito curto e
 decaem em múons (ou elétrons) e mais dois neutrinos de forma similar aquela
 descrita em \ref{eq:muon} antes de atingirem o detector, sendo detectados
@@ -1747,8 +1749,8 @@ espalharem por uma região maior.
 
 Grande parte da física de interesse busca por decaimentos
 leptônicos, uma vez que o ruído hadrônico gerados pelas colisões é de ordem
-muito superior a da produção de física de interesse, visto anteriormente na
-Subseção~\ref{sssec:tipos_col}. Essas partículas irão interagir com o \gls{ecal},
+muito superior a da produção de física de interesse, visto anteriormente no
+Tópico~\ref{sssec:tipos_col}. Essas partículas irão interagir com o \gls{ecal},
 assim como partículas hadrônicas, por mais que o \gls{X0} seja algumas vezes 
 menor que \gls{lambdaint}, acontecimento importante para minimizar a energia depositada
 por hádrons no \gls{ecal}. Ainda, é necessário uma granularidade 
@@ -1757,13 +1759,13 @@ perfil dos chuveiros formados.
 
 Léptons neutrinos são partículas de difícil detecção uma vez que sofrem 
 apenas interações fracas. Elas não são detectadas diretamente pelo 
-\gls{atlas}, senão pelo balanceamento do \gls{pt} das colisões, que devem ser
+\gls{atlas}, senão pelo balanceamento do \gls{pt} das colisões, que são 
 aproximadamente nulos. Ao se identificar a existência de uma grande parcela de 
 \gls{ptmiss}, sabe-se que foi gerada uma dessas partículas. Para isso, é necessário em
-primeiro lugar hermeticidade, de forma que ele seja capaz de
-detectar os resíduos gerados pelas colisões e não atribuí-los aos neutrinos. 
-Nos calorímetros esse fato é especialmente importante, uma vez que geralmente jatos hadrônicos
-são gerados para balancear os decaimentos das partículas.
+primeiro lugar hermeticidade, de forma que se seja capaz de
+detectar os diversos resíduos gerados pelas colisões e não atribui-los erroneamente aos neutrinos. 
+Nos calorímetros essa necessidade é especialmente importante, uma vez que com frequência 
+jatos hadrônicos são gerados para balancear os decaimentos das partículas.
 
 \subsubsection{Dos subsistemas de calorimetria e suas topologias}
 \label{sssec:cal_estrutura}
@@ -1802,7 +1804,7 @@ extensão para aumentar o alcance na região de $0,8<|\gls{eta}|<1,7$. Juntos el
 compõem o \gls{tilecal}. Finalmente, as \glspl{hec} cobrem a região de $1,5<|\gls{eta}|<3,2$. 
 
 Um calorímetro de menor precisão, \gls{fcal}, 
-é utilizado para cobrir a região mais próxima do feixe, de
+é utilizado para cobrir a região mais próxima do tubo do feixe, de
 $3,1<|\gls{eta}|<4,9$, compondo uma extensão ao \gls{ecal} através de sua primeira camada,  
 e ao \gls{hcal} com suas segunda e terceira camadas. 
 
@@ -1915,18 +1917,17 @@ e indo até os 3 TeV. Ainda, é necessária uma precisão de energia de cerca de
 GeV, especialmente para obter ótima resolução de massa de reconstrução dos
 decaimentos em elétrons e fótons do bóssom de Higgs. 
 
-Por isso, o \gls{lar}
-\footnote{Para efeitos de comparação entre o meio ativo e passivo, 
+Por isso, o \gls{lar}\footnote{Para efeitos de comparação entre o meio ativo e passivo, 
 os comprimentos do \gls{lar} são: $\gls{X0}=14,00$ cm e $\gls{lambdaint}=85,77$
 cm.} foi escolhido pelo seu comportamento linear e resistência a radiação
 intrínseco, assim como sua estabilidade de resposta temporal. O sinal é gerado
 através da absorção das partículas geradas pelo chuveiro que causam a ionização
 do \gls{lar}. A ionização gera um par elétron-ion, e se utiliza acoplamento
-capacitivo para direcionar As partículas carregadas
-produzidas no chuveiro ionizam o \gls{lar} utilizando tensões na ordem de 2 kV.
+capacitivo para direcionar as partículas carregadas para os eletrodos
+utilizando tensões na ordem de 2 kV.
 
-A estrutura dos mesmos é no formato de acordeão, que permite uma cobertura
-completa natural em \gls{phi}, sem fendas, assim como uma extração veloz dos sinais nos eletrodos 
+A estrutura dos calorímetros é no formato de acordeão, que permite uma cobertura
+completa natural, sem fendas, em \{phi}, assim como uma extração veloz dos sinais dos eletrodos 
 na parte frontal e traseira. Essa estrutura pode ser visualizada na Figura~\ref{fig:estr_acordeao}
 para o barril, já para a tampa essa estrutura é mais complexa, uma
 vez que a amplitude das ondas do acordeão tem de crescer proporcionalmente ao
@@ -1956,8 +1957,8 @@ da cobertura. São elas:
 pequena fenda totalizando 6 mm de \gls{lar} inativo;
 \item $|\gls{eta}|\sim1,45$ : a região de transição entre o barril e a tampa é
 utilizada como trajeto para os cabos e serviços do \gls{id}. Essa região é a
-maior fenda do detector, começando a degradar a resposta do detector em
-$|\gls{eta}|>1,35$ indo até cerca de $|\gls{eta}|<1,68$;
+maior fenda do detector, começando a degradar lentamente a resposta do detector em
+$|\gls{eta}|>1,35$, e indo até cerca de $|\gls{eta}|<1,68$;
 \item $|\gls{eta}|=2,5$ : na região de transição entre a tampa mais externa e
 interna do detector uma pequena fenda de 3 mm. Uma degradação adicional é
 causada por um material morto colocado na frente deste local como um anel de
@@ -1968,15 +1969,14 @@ A estrutura de acordeão
 tem como vantagem a flexibilidade de segmentação longitudinal e transversa,
 permitindo a implementação de camadas com diferentes granularidades. São
 utilizadas três camadas, que podem ser observadas na
-Figura~\ref{fig:cal_lar_camadas}, para na região de precisão para o \gls{ecal} com as
-seguintes propriedades:
+Figura~\ref{fig:cal_lar_camadas}, com as seguintes propriedades:
 
 \begin{figure}[h!t]
 \centering
 \includegraphics[width=.6\textwidth]{imagens/cal_lar_camadas.pdf}
 \caption[Esboço da estrutura do acordeão e a granularidade de suas camadas para
-o barril do EMB]{Esboço da estrutura de acordeão e a granularidade de suas camadas  para
-o barril do EMB. A quantidade de $X_0$ típicos para cada uma das camadas também são
+o barril do EMB]{Esboço da estrutura de acordeão e a granularidade de suas camadas para
+$|\eta|=0$ do EMB. A quantidade de $X_0$ típicos para cada uma das camadas também são
 mostrados. Extraído de \cite{cal_tdr}.}
 \label{fig:cal_lar_camadas}
 \end{figure}
@@ -1995,7 +1995,7 @@ Além disso, a partícula $\pi^0$ é instável e decai de acordo com
 $\pi^0\rightarrow\gamma\gamma$ em regiões próximas do calorímetro. Para que seja
 possível fazer a separação $\gamma/\pi^0$ é necessário granularidade de
 poucos milímetros, uma vez que só assim será possível fazer a distinção dos dois
-fótons do decaimento de um único fóton. 
+fótons do decaimento de um fóton "legítimo". 
 \item \textbf{Camada Central (\emph{Middle})}: a segunda camada é responsável pela
 absorção da maior quantidade de energia. Ela é segmentada transversalmente em
 torres quadradas de $(\Delta\eta\times\Delta\phi)\approx(0,025\times0,025)$, que
@@ -2003,7 +2003,7 @@ permitem um compromisso ótimo entre a contenção do perfil lateral do chuveiro
 com a contribuição do ruído por Empilhamento e eletrônico para a medição de
 energia.
 \item \textbf{Camada Traseira (\emph{Back})}: a terceira camada tem a mesma
-granularidade que a central, mas sua granularidade é duas vezes mais grosseira
+granularidade que a central em \gls{phi}, mas sua granularidade é duas vezes mais grosseira
 em \gls{eta}. Ela é utilizada para separar chuveiros de altas energias, e
 contribui para a separação de $\gamma/$jato e elétron/jato. No caso da tampa
 para $|\gls{eta}|>2,5$ são utilizadas apenas duas camadas com granularidade mais
@@ -2011,14 +2011,14 @@ grosseira uma vez que se está fora da região de precisão.
 \end{itemize}
 
 Para fazer a medição com precisão da energia é necessário o mínimo de material 
-antes de sua medição para que não seja prejudicada pela geração de
+antes de sua medição, de modo que essa não seja prejudicada pela geração de
 chuveiros antes dos calorímetros, o que causaria a perda de energia das
 partículas e, ao mesmo tempo, deteriorando a precisão da posição de impacto 
 da partícula com o mesmo. Por mais que todo o material colocado antes do
 calorímetro tenha sido otimizado para minimizar esse efeito, ainda assim é
-possível que isso ocorra, de modo que um instrumento foi colocado para estimar a perda de
-energia no material existente antes do calorímetro, estando descrito no
-Subtópico~\ref{par:cal_ps}.
+possível que isso ocorra, de modo que um instrumento Pré-amostrador foi colocado 
+para estimar a perda de energia no material existente antes do calorímetro, 
+estando descrito no Subtópico~\ref{par:cal_ps}.
 
 \begin{figure}[h!t]
 \centering
@@ -2031,7 +2031,7 @@ e outros materiais dispostos antes do mesmo. Extraído de \cite{cal_tdr}.}
 
 
 Ao mesmo tempo, o \gls{ecal} tem de ser capaz de absorver completamente a energia
-das partículas que devem variar de 50 MeV até 3 GeV. 
+das partículas que devem variar de 50 MeV até 3 TeV. 
 Para absorver as partículas com maiores energias, o \gls{ecal} conta com valores
 maiores a 24 \gls{X0} no barril, e maiores a 26 \gls{X0} na tampa. Os valores de \gls{X0} em 
 função de \gls{eta} estão dispostos na Figura~\ref{fig:cal_em_x0}, onde também é possível
