@@ -1,12 +1,12 @@
 \documentclass[pdftex,12pt,oneside,openany,a4paper]{book}
 \usepackage[brazilian]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[pdftex]{graphicx}
-\usepackage{subfigure}
-\usepackage[unicode]{hyperref}
+\usepackage[utf8]{inputenc} % Aqui tem que mudar de acordo com o seu sistema operacional
+\usepackage[T1]{fontenc} %
+\usepackage[pdftex]{graphicx} % includegraphics
+\usepackage{subfigure} % Poder colocar varias figuras juntas
+\usepackage[unicode]{hyperref} % Para adicionar os links no pdf
 \usepackage[all]{hypcap}
-\usepackage{array} % Adicionar a opcao m e b em tabelas
+\usepackage{array} % Adicionar a opcao m e b em tabelas e um monte de coisa que eu nao usei
 \usepackage[overload]{textcase} % Adicionar MakeUpperCase etc.
 \usepackage{rotating} % Para rodar as figuras e tabelas
 \usepackage{pdflscape} % Para colocar paginas na horizontal no pdf
@@ -25,13 +25,13 @@
     urlcolor=black%
 }
 
-\usepackage{indentfirst}
+\usepackage{indentfirst} % Para dar espaço para o primeiro parágrafo
 \usepackage{multirow} % Tabelas com celulas agrupadas
-\usepackage{amsmath} 
-\usepackage{listings}
+\usepackage{amsmath}  % equation etc
+\usepackage{listings} % Para colocar códigos de programas
 %\usepackage{simplemargins}
 % Formato do PF
-\usepackage{layout}
+\usepackage{layout} 
 % Modelo da página
 \setlength{\textheight}{24.7cm}
 \setlength{\textwidth}{15cm}
@@ -48,7 +48,7 @@
 \pagestyle{plain}
 
 %\usepackage[style=long,nonumberlist,toc]{glossaries}
-\usepackage[style=long,nonumberlist]{glossaries}
+\usepackage[style=long,nonumberlist]{glossaries} % Para as listas de simbolos e abreviaturas
 \renewcommand{\glossaryname}{S{í}mbolos e Abreviaturas}
 %\renewcommand{\glossarypreamble}{Texto principal}
 % Define a new glossary type
