@@ -2,6 +2,9 @@
 \label{cap:cern}
 \glsresetall
 
+\glsunset{em}
+\glsunset{had}
+
 O \gls{cern} é o maior laboratório de Física de Partículas do mundo, 
 está situado na fronteira da Suíça com
 a França, e conta com a colaboração de cientistas vindos 
@@ -1251,7 +1254,7 @@ indicando a presença de uma dessas partículas. Adaptado de \cite{particulas_at
 \label{fig:particulas_atlas}
 \end{figure}
 
-O \gls{atlas} possui 4 subdetectores, com um total de $~150$ M de canais de
+O \gls{atlas} possui 4 subdetectores, com um total de $~140$ M de canais de
 leitura, sendo os mesmos do mais interno para o mais externo: 
 \gls{id}\footnote{O \gls{id} também é referido como Detector de Traços.}, \gls{ecal}, 
 \gls{hcal} e Espectrômetro de Múons. De maneira resumida, o \gls{id} identifica a
@@ -1362,10 +1365,10 @@ alguns TeV;
 partículas é um papel crucial no \gls{lhc}. Muitos requerimentos rigorosos na
 identificação de elétrons, fótons, jatos-B, taóns etc. precisam ser satisfeitos.
 A identificação é feita pelo Sistema de Reconstrução, descrito no
-Capítulo~\ref{cap:sf}.
+Capítulo~\ref{cap:reco}.
 \item \textbf{Sistema de Filtragem}: o Sistema de Filtragem é outro ponto
 crucial para o sucesso do experimento, onde o Sistema do \gls{atlas} também 
-será descrito no Capítulo~\ref{cap:sf}, incluindo o algoritmo proposto pelo trabalho para a
+será descrito no Capítulo~\ref{cap:reco}, incluindo o algoritmo proposto pelo trabalho para a
 identificação de elétrons e fótons. 
 A taxa de interação de $10^9$ eventos/s deve ser reduzida para cerca de 
 100 eventos/s devido a limites de armazenamento.
@@ -1385,9 +1388,10 @@ fator de redução de $10^7$.
 Radiação}
 
 O \gls{id} \cite{inner_tdr1,inner_tdr2}, Figura~\ref{fig:det_interno}, é o responsável pela identificação das 
-trajetórias (rastreamento) de partículas carregadas, medir o seu momento, o vértice primário
-que é o local aonde ocorreu a colisão dos hádrons no detector e o parâmetro de
-impacto, a distância entre o vértice primário e o ponto mais próximo do traço
+trajetórias (rastreamento) de partículas carregadas, medir o seu momento, o
+vértice primário, que é o local aonde ocorreu a colisão dos hádrons no detector, e outros
+vértices de decaimentos de partículas, vértices secundários, o parâmetro de
+impacto, e a distância entre o vértice primário e o ponto mais próximo do traço
 \cite{tese_jatos,ATLAS_TDR}. Ele cobre uma região com completa cobertura em
 \gls{phi} de maneira simétrica para $|\gls{eta}| < 2,5$, a chamada região de precisão
 do detector. Essa região é limitada a esse valor devido 
@@ -1583,13 +1587,13 @@ criam uma cadeia contínua de eventos, provocando os chamados chuveiros de part�
 Os chuveiros de partículas que irão ocorrer nos calorímetros do \gls{atlas} 
 estão aqui explicados:
 
-\paragraph{Chuveiro de partículas eletromagnéticas}
+\paragraph{Chuveiro de partículas eletromagnéticas (EM)}
 \label{par:chuveiro_em}
 
-A manifestação das interações eletromagnéticas com o meio do calorímetro 
+A manifestação das interações \glslink{em}{eletromagnéticas (EM)} com o meio do calorímetro 
 podem ocorrer tanto através de partículas eletricamente carregadas, 
 quanto através do bóssom característico da interação
-eletromagnética, o fóton. No caso de partículas carregadas 
+\gls{em}, o fóton. No caso de partículas carregadas 
 as interações com o meio podem ocorrer através destes fenômenos:
 
 \begin{itemize}
@@ -1605,9 +1609,9 @@ velocidade maior que a da luz no meio, para que as mesmas reduzam sua energia;
 \item \textbf{Raios $\delta$}: em altas energias, elétrons são emitidos ao serem
 arrancados do átomo do meio, gerando os chamados raios $\delta$;
 \item \textbf{\emph{Bremsstrahlung}}: efeito gerado pela deflexão de partículas
-carregadas de altas energias pelos núcleos do material, reduzindo sua energia 
+carregadas de altas energias ($>10$ MeV) pelos núcleos do material, reduzindo sua energia 
 através da irradiação de fótons;
-\item \textbf{Reação nucleares}: a interação eletromagnética pode induzir
+\item \textbf{Reação nucleares}: a interação \gls{em} pode induzir
 reações nucleares em energias muito elevadas.
 \end{itemize}
 
@@ -1631,12 +1635,12 @@ calorímetro. A esmagadora maioria desses fótons é absorvida por espalhamento
 \emph{Compton} e efeito fotoelétrico. Os fótons com maiores energias
 criam pares elétrons-pósitrons. Esses pares podem, dependendo de sua energia, 
 produzir mais fótons, que novamente poderão produzir mais pares,
-criando um chuveiro de partículas eletromagnéticas. Ao longo da evolução desse
+criando um chuveiro de partículas \gls{em}. Ao longo da evolução desse
 chuveiro, a energia média das partículas diminuirá até o ponto onde não há mais
 multiplicação das partículas. A partir desse ponto, o ponto máximo do chuveiro,
 o número de partículas irá decair, uma vez que a energia das partículas
 produzidas não é suficiente para produzir novos pares. A
-Figura~\ref{fig:particulas_atlas} esboça o desenvolvimento de chuveiros eletromagnéticos 
+Figura~\ref{fig:particulas_atlas} esboça o desenvolvimento de chuveiros \gls{em} 
 para as partículas elétron e fóton. Os processos de mais
 baixas energias não produzem pósitrons, de modo que 75\% da energia dos
 chuveiros é depositada em elétrons, e o restante, em pósitrons.
@@ -1644,26 +1648,26 @@ chuveiros é depositada em elétrons, e o restante, em pósitrons.
 \newacronym[type=Simb]{X0}{\ensuremath{X_0}}{comprimento de radiação} 
 
 O \gls{X0}, parâmetro muito utilizado para medir a capacidade de calorímetros
-absorverem partículas eletromagnéticas, representa a distância necessária para que 
+absorverem partículas \gls{em}, representa a distância necessária para que 
 essas partículas percam 63,2\% de sua energia através do fenômeno de
 \emph{bremsstrahlung} em um meio.
 
-\paragraph{Chuveiros de partículas hadrônicas}
+\paragraph{Chuveiros de partículas hadrônicas (HAD)}
 \label{par:chuveiro_had}
 
-As partículas hadrônicas são compostas de sistemas de quarks 
+As partículas \glslink{had}{hadrônicas (HAD)} são compostas de sistemas de quarks 
 e glúons, sendo possível a interação forte dessas partículas com os núcleos do meio. 
-As interações fortes são mais complexas que as eletromagnéticas, contendo uma variedade maior de
+As interações fortes são mais complexas que as \gls{em}, contendo uma variedade maior de
 processos levando em conta as diferentes configurações para os quarks e glúons
-das partículas hadrônicas envolvidas, assim como o número de fenômenos envolvendo o 
+das partículas \gls{had} envolvidas, assim como o número de fenômenos envolvendo o 
 núcleo do meio atingido.
 
 Quando um hádron de alta energia e carregado eletricamente penetra um meio, 
-ele poderá sofrer dos fenômenos de interação eletromagnética descritos, contudo,
+ele poderá sofrer dos fenômenos de interação \gls{em} descritos, contudo,
 o fenômeno com maior relevância para a redução de energia através da interação
-eletromagnética para partículas de altas energias, o
+\gls{em} para partículas de altas energias, o
 fenômeno de \emph{bremsstrahlung}, ocorre em ordens menores nas partículas
-hadrônicas por elas serem compostas de sistemas maciços. Ao mesmo tempo, 
+\gls{had} por elas serem compostas de sistemas maciços. Ao mesmo tempo, 
 tanto hádrons carregados, quanto hádrons neutros, poderão interagir com um
 núcleo do meio, com o qual sofrerão interação forte, podendo mudar a identidade 
 da partícula radicalmente, criando, por exemplo, 15 novos hádrons. O núcleo atingido também sofrerá
@@ -1673,11 +1677,11 @@ ao seu estado relaxado através da emissão de fótons.
 
 Alguns dos hádrons produzidos, em particular o $\pi^0$ e $\eta$, 
 podem decair em fótons, como: $\pi^0,\eta\rightarrow\gamma\gamma$. 
-Os fótons podem gerar chuveiros eletromagnéticos, de forma que uma parte da energia das partículas
-hadrônicas irá se dispersar em um chuveiro eletromagnético. Por outro lado, a 
-produção em cascata de partículas hadrônicas, irá gerar um chuveiro de partículas 
-hadrônicas. Há, no entanto, uma componente de chuveiro de partículas eletromagnéticas, 
-de forma que nem toda a energia da partícula hadrônica
+Os fótons podem gerar chuveiros \gls{em}, de forma que uma parte da energia das partículas
+\gls{had} irá se dispersar em um chuveiro \gls{em}. Por outro lado, a 
+produção em cascata de partículas \gls{had}, irá gerar um chuveiro de partículas 
+\gls{had}. Há, no entanto, uma componente de chuveiro de partículas \gls{em}, 
+de forma que nem toda a energia da partícula \gls{had} 
 será dispersada através da cadeia de eventos causadas por interação forte. 
 Novamente, o número de partículas aumenta 
 devido ao processo de multiplicação, mas
@@ -1685,11 +1689,11 @@ ao chegar ao seu ponto máximo, as multiplicações subsequentes são
 balanceadas pela absorção de partículas do chuveiro, fazendo com que o número de
 partículas do chuveiro reduza gradativamente. Veja novamente a
 Figura~\ref{fig:particulas_atlas} para um esboço de desenvolvimento de chuveiros
-hadrônicos para as nêutrons e prótons.
+\gls{had} para as nêutrons e prótons.
 
 \newacronym[type=Simb]{lambdaint}{\ensuremath{\lambda_{int}}}{comprimento de interação nuclear} 
 
-Um parâmetro similar ao \gls{X0}, mas para partículas hadrônicas, é o \gls{lambdaint},
+Um parâmetro similar ao \gls{X0}, mas para partículas \gls{had}, é o \gls{lambdaint},
 o comprimento médio necessário para que um hádron perca 63,2\% de sua
 energia em um meio. 
 
@@ -1699,14 +1703,14 @@ energia em um meio.
 \glsreset{ecal}
 \glsreset{hcal}
 
-Sabendo como as partículas hadrônicas e eletromagnéticas reagem com
+Sabendo como as partículas \gls{had} e \gls{em} reagem com
 o calorímetro, cabe fazer algumas considerações sobre os calorímetros
 responsáveis pela detecção das mesmas. 
 
 O \gls{ecal} é responsável pela absorção
-de partículas puramente eletromagnéticas, ou seja, que não tem componentes
-hadrônicas, como os léptons carregados e fótons. Os múons, embora façam parte do
-grupo de partículas puramente eletromagnéticas, atravessam
+de partículas puramente \gls{em}, ou seja, que não tem componentes
+\gls{had}, como os léptons carregados e fótons. Os múons, embora façam parte do
+grupo de partículas puramente \gls{em}, atravessam
 grandes quantidades de material perdendo pouca energia uma vez que são bem mais
 maciços que elétrons (sofrem menor efeito de \emph{bremsstrahlung}),
 e por isso são utilizados o Espectrômetro de Múons para
@@ -1718,29 +1722,29 @@ indiretamente através dos resíduos de seu decaimento. Com isso, apenas elétro
 pósitrons e fótons são detectados no \gls{ecal}, mas vale ter em mente que eles
 podem ser estados finais de outras partículas. 
 
-Por outro lado, o \gls{hcal} deve absorver todas as partículas hadrônicas, como os jatos
-hadrônicos que podem ser resíduos de um \gls{ue} e \gls{mbias}, ou até mesmo de
+Por outro lado, o \gls{hcal} deve absorver todas as partículas \gls{had}, como os jatos
+\gls{had} que podem ser resíduos de um \gls{ue} e \gls{mbias}, ou até mesmo de
 um decaimento. Alguns canais de interesse desejam encontrar jatos, como 
-o decaimento do bóssom W em altos \gls{pt} para $|\gls{eta}|<3$: $W\rightarrow
-jato-jato$. Entretanto, é necessário separar esses jatos dos criados pelo ruído 
+o decaimento do bóssom W em altos \gls{pt} para $|\gls{eta}|<3$: $W\rightarrow jato-jato$. 
+Entretanto, é necessário separar esses jatos dos criados pelo ruído 
 gerados por \gls{mbias} e \glspl{ue}, e para isso o \gls{hcal} deve ser capaz de
-separar um jato hadrônico de um decaimento duplo em jatos próximos, sendo
+separar um jato de um decaimento duplo em jatos próximos, sendo
 necessário uma granularidade maior nessa região.
 
 Quanto maior o número atômico do meio, maior será a profundidade no qual um
-chuveiro hadrônico irá se propagar no mesmo, quando em comparação com um chuveiro
-eletromagnético de mesma energia. Isso culmina na disposição
+chuveiro \gls{had} irá se propagar no mesmo, quando em comparação com um chuveiro
+\gls{em} de mesma energia. Isso culmina na disposição
 dos \gls{ecal} serem anteriores ao dos \gls{hcal}, uma vez que é inútil, assim, utilizar calorímetros com a 
 configuração espacial oposta, já que todos os chuveiros de partículas se
 extinguiriam no \gls{hcal}, não atingindo o \gls{ecal}. Ainda, é interessante a
 utilização de materiais com grandes números atômicos no \gls{ecal} para
 garantir, por esse motivo, a menor deposição de energia possível de partículas
-hadrônicas no mesmo.
+\gls{had} no mesmo.
 
-Ainda, o perfil de chuveiros hadrônicos é mais largo que o de chuveiros
-eletromagnéticos. Essa ocorrência é muito explorada para realizar a discriminação 
+Ainda, o perfil de chuveiros \gls{had} é mais largo que o de chuveiros
+\gls{em}. Essa ocorrência é muito explorada para realizar a discriminação 
 entre as partículas que interagem com os calorímetros, buscando perfis de chuveiros
-justos para partículas eletromagnéticas. Ela têm como consequência 
+justos para partículas \gls{em}. Ela têm como consequência 
 a menor granularidade no \gls{ecal} quando comparados com os \gls{hcal}, já que
 para realizar a discriminação é necessário que o calorímetro tenha resolução
 para discernir entre os chuveiros. Ao mesmo tempo, se faz desnecessário
@@ -1748,10 +1752,10 @@ utilizar altas granularidades no \gls{hcal}, justamente pelos chuveiros se
 espalharem por uma região maior.
 
 Grande parte da física de interesse busca por decaimentos
-leptônicos, uma vez que o ruído hadrônico gerados pelas colisões é de ordem
+leptônicos, uma vez que o ruído \gls{had} gerados pelas colisões é de ordem
 muito superior a da produção de física de interesse, visto anteriormente no
 Tópico~\ref{sssec:tipos_col}. Essas partículas irão interagir com o \gls{ecal},
-assim como partículas hadrônicas, por mais que o \gls{X0} seja algumas vezes 
+assim como partículas \gls{had}, por mais que o \gls{X0} seja algumas vezes 
 menor que \gls{lambdaint}, acontecimento importante para minimizar a energia depositada
 por hádrons no \gls{ecal}. Ainda, é necessário uma granularidade 
 maior no \gls{ecal} para que seja possível observar as diferenças no 
@@ -1819,7 +1823,7 @@ conforme o aumento de \gls{eta}. Esse fato se deve a região de precisão do
 \gls{atlas} estar limitada para $|\gls{eta}| < 2,5$, consequência da capacidade do
 \gls{id} de suportar radiação\fnref{fn:radiacao}. A granularidade do
 \gls{hcal} é menor que a do \gls{ecal}, devido a maior largura de chuveiros
-hadrônicos. Nas regiões de maior $|\gls{eta}|$, principalmente no \gls{fcal}, 
+\gls{had}. Nas regiões de maior $|\gls{eta}|$, principalmente no \gls{fcal}, 
 a tarefa principal do calorímetro é reconstruir jatos e medir a
 \gls{Etmiss}, de modo que uma granularidade mais grosseira é aceitável.
 Ainda, é possível observar um decaimento da granularidade conforme o acréscimo
@@ -1861,7 +1865,7 @@ $0,025 \times 0,1$  \\
 |\gls{eta}| < 2,5$ \\
             &                      & $0,1 \times 0,1$      & $2,5   <
 |\gls{eta}| < 3,2$ \\
-  Camada 3  & $0,050 \times 0,025$ & $0,005 \times 0,025$  & $1,5   <
+  Camada 3  & $0,050 \times 0,025$ & $0,050 \times 0,025$  & $1,5   <
 |\gls{eta}| < 2,5$ \\
   Canais de Leitura & 101760 & 62208 (ambos os lados)\\
    \hline
@@ -1912,22 +1916,28 @@ de cobre, o seu meio ativo, enquanto o meio passivo é composto por placas de
 chumbo ($\gls{X0}=0,56$ cm e $\gls{lambdaint}=17,59$ cm\footnote{Os valores de
 comprimentos foram retirados de \cite{pdg_comp}.\label{fn:comp_rad_nucl}}). Eles
 irão operar em uma faixa de dinâmica de energia muito larga, começando em 50 MeV
-e indo até os 3 TeV. Ainda, é necessária uma precisão de energia de cerca de
-0,1\% e linearidade de resposta melhor que 0,5\% na região de energia até 300
-GeV, especialmente para obter ótima resolução de massa de reconstrução dos
-decaimentos em elétrons e fótons do bóssom de Higgs. 
+e indo até os 3 TeV. Ainda, a resolução de energia desses calorímetros tem de
+atender no mínimo a relação~\ref{eq:res_em}, e sua linearidade de resposta deve ser melhor 
+que 0,5\% na região de energia até 300 GeV, especialmente para obter ótima 
+resolução ($\sim1\%$) de massa de reconstrução dos decaimentos em elétrons e fótons 
+do bóssom de Higgs. 
+
+\begin{equation}\label{eq:res_em}
+\frac{\delta E}{E} \approx \frac{10\%}{\sqrt{E}} \oplus 1\%
+\end{equation}
 
 Por isso, o \gls{lar}\footnote{Para efeitos de comparação entre o meio ativo e passivo, 
 os comprimentos do \gls{lar} são: $\gls{X0}=14,00$ cm e $\gls{lambdaint}=85,77$
-cm.} foi escolhido pelo seu comportamento linear e resistência a radiação
-intrínseco, assim como sua estabilidade de resposta temporal. O sinal é gerado
+cm.} foi escolhido pelo seu comportamento linear e estabilidade de resposta temporal. 
+Ainda, o \gls{lar} apresenta uma resistência a radiação intrínseca, necessário
+para esses calorímetros que estão na parte mais interna do detector. O sinal é gerado
 através da absorção das partículas geradas pelo chuveiro que causam a ionização
 do \gls{lar}. A ionização gera um par elétron-ion, e se utiliza acoplamento
 capacitivo para direcionar as partículas carregadas para os eletrodos
 utilizando tensões na ordem de 2 kV.
 
 A estrutura dos calorímetros é no formato de acordeão, que permite uma cobertura
-completa natural, sem fendas, em \{phi}, assim como uma extração veloz dos sinais dos eletrodos 
+completa natural, sem fendas, em \gls{phi}, assim como uma extração veloz dos sinais dos eletrodos 
 na parte frontal e traseira. Essa estrutura pode ser visualizada na Figura~\ref{fig:estr_acordeao}
 para o barril, já para a tampa essa estrutura é mais complexa, uma
 vez que a amplitude das ondas do acordeão tem de crescer proporcionalmente ao
@@ -2013,7 +2023,7 @@ grosseira uma vez que se está fora da região de precisão.
 Para fazer a medição com precisão da energia é necessário o mínimo de material 
 antes de sua medição, de modo que essa não seja prejudicada pela geração de
 chuveiros antes dos calorímetros, o que causaria a perda de energia das
-partículas e, ao mesmo tempo, deteriorando a precisão da posição de impacto 
+partículas e deteriorando, simultaneamente, a precisão da posição de impacto 
 da partícula com o mesmo. Por mais que todo o material colocado antes do
 calorímetro tenha sido otimizado para minimizar esse efeito, ainda assim é
 possível que isso ocorra, de modo que um instrumento Pré-amostrador foi colocado 
@@ -2030,7 +2040,7 @@ e outros materiais dispostos antes do mesmo. Extraído de \cite{cal_tdr}.}
 \end{figure}
 
 
-Ao mesmo tempo, o \gls{ecal} tem de ser capaz de absorver completamente a energia
+O \gls{ecal} tem de ser capaz de absorver completamente a energia
 das partículas que devem variar de 50 MeV até 3 TeV. 
 Para absorver as partículas com maiores energias, o \gls{ecal} conta com valores
 maiores a 24 \gls{X0} no barril, e maiores a 26 \gls{X0} na tampa. Os valores de \gls{X0} em 
@@ -2045,7 +2055,7 @@ calorímetro.
 
 No barril do \gls{hcal}, chamado de \gls{tilecal}, o meio de amostragem se consiste de telhas de
 cintiladores de plástico e seu material passivo é o aço (o \gls{lambdaint} é
-aproximadamente igual ao do chumbo, cerca de $16,8$ cm), Figura~\ref{fig:estr_tilecal}. 
+aproximadamente igual ao do chumbo, cerca de $16,8$ cm\fnref{fn:comp_rad_nucl}), Figura~\ref{fig:estr_tilecal}. 
 Ao invés do efeito capacitivo utilizado no \gls{lar}, os cintiladores de
 plástico são excitados pelas partículas carregadas do chuveiro, de modo que são
 emitidos fótons capturados pelas fibras óticas, que os direcionam aos
@@ -2064,7 +2074,7 @@ das camadas. São utilizadas três camadas para esse propósito.
 A resolução de energia do calorímetro necessária para fazer a medição dos
 diversos jatos e hádrons gerados nas colisões e dos jatos duplos provenientes 
 dos decaimentos do bóssom W tem de atender \ref{eq:res_tile1}. 
-A linearidade de resposta do calorímetro dentre de 2\% em uma escala de até 4
+A linearidade de resposta do calorímetro mínima é dentre de 2\% em uma escala de até 4
 GeV.
 
 \begin{equation}\label{eq:res_tile1}
@@ -2074,7 +2084,7 @@ GeV.
 
 É necessário que o \gls{hcal} tenha no mínimo a espessura de 10 \gls{lambdaint}
 para a contenção completa dos chuveiros, tanto para garantir resolução de
-energia e reduzir o ruído causado no Espectrômetro de Múons. Os valores de
+energia, quanto reduzir o ruído causado no Espectrômetro de Múons. Os valores de
 \gls{lambdaint} para os diversos \gls{hcal} estão dispostos na
 Figura~\ref{fig:cal_had_lambda}.
 
@@ -2093,8 +2103,8 @@ Extraído de \cite{cal_tdr}.}
 \paragraph{Tampas do Calorímetro Hadrônico (HEC)}
 \label{par:cal_hec}
 
-Para a \gls{hec} também se utiliza o \gls{lar} como meio ativo, mas
-ao invés de chumbo, seu material passivo é o cobre
+Para a \gls{hec} também se utiliza o \gls{lar} como meio ativo devido a
+incidência de radiação, mas ao invés de chumbo, seu material passivo é o cobre
 ($\gls{X0} = 1,43$ cm e $\gls{lambdaint}=9,39$ cm\fnref{fn:comp_rad_nucl}). 
 Sua estrutura foi projetada como uma chapa plana 
 demonstrada na Figura~\ref{fig:estr_hec}. São utilizadas duas tampas para cada
@@ -2125,12 +2135,12 @@ criando o efeito capacitivo.
 Essa estrutura fica mais facilmente compreendida na Figura~\ref{fig:estr_fcal}. 
 O material das hastes e da matriz são substituídos de cobre para tungstênio
 ($\gls{X0} = 0,350$ cm e $\gls{lambdaint} = 5,72$ cm\fnref{fn:comp_rad_nucl}) com 
-o objetivo de elevar a capacidade de absorção de partículas hadrônicas nas segunda 
+o objetivo de elevar a capacidade de absorção de partículas \gls{had} nas segunda 
 e terceira camadas. O acumulo de íons de \gls{lar} nas fendas limita a
 luminosidade máxima proporcionalmente a $1/g^2$, de forma que o comprimento das
 fendas (g) devem ser os menores possíveis. 
-As dimensões das mesmas são de 250-375 $\mu$m para a seção eletromagnética 
-e 500 $\mu$m para a seção hadrônica.
+As dimensões das mesmas são de 250-375 $\mu$m para a seção \gls{em} 
+e 500 $\mu$m para a seção \gls{had}.
 
 \begin{equation}\label{eq:res_tile2}
 \frac{\delta E}{E} \approx \frac{100\%}{\sqrt{E}} \oplus 10\% \;\ \text{para} \;\
@@ -2155,20 +2165,20 @@ Figura~\ref{fig:cal_had_lambda} para os comprimentos do \gls{fcal}.
             \label{fig:estr_acordeao}
             \includegraphics[width=.46\textwidth]{imagens/estrutura_acordeao_barril.pdf}
         } \hspace{0.01\textwidth}
-        \subfigure[Chapa plana do HEC. Extraído de \cite{paper_atlas}.]{%
-            \label{fig:estr_hec}
-            \includegraphics[width=0.46\textwidth]{imagens/estrutura_hec.pdf}
-        }\\ %  ------- End of the first row ----------------------%
-        \subfigure[Tubos e Hastes para a primeira camada do FCal. Extraído de
-\cite{paper_atlas}.]{%
-            \label{fig:estr_fcal}
-            \includegraphics[width=0.46\textwidth]{imagens/estrutura_fcal.pdf}
-        } \hspace{0.01\textwidth}
         \subfigure[Telhas e cintiladores do TileCal. Extraído de
 \cite{cal_tdr}]{%
             \label{fig:estr_tilecal}
             \includegraphics[width=0.46\textwidth,height=7cm]{imagens/estrutura_tilecal.pdf}
-        }%
+        } \\
+        \subfigure[Chapa plana do HEC. Extraído de \cite{paper_atlas}.]{%
+            \label{fig:estr_hec}
+            \includegraphics[width=0.46\textwidth]{imagens/estrutura_hec.pdf}
+        }\hspace{0.01\textwidth}
+        \subfigure[Tubos e Hastes para a primeira camada do FCal. Extraído de
+\cite{paper_atlas}.]{%
+            \label{fig:estr_fcal}
+            \includegraphics[width=0.46\textwidth]{imagens/estrutura_fcal.pdf}
+        } \\
 %
     \end{center}
     \caption[As diferentes estruturas dos subsistemas de calorimetria do ATLAS]{%
@@ -2200,7 +2210,7 @@ $|\gls{eta}| = 1,4$, a situação é particularmente critica devido aos serviço
 cabos para o \gls{id}, e uma camada cintiladora em $1,0<|\gls{eta}|<1,6$ 
 é colocada entre os dois criostatos com o objetivo de recuperar parte 
 da energia perdida, principalmente por
-partículas hadrônicas, mas também ajuda a reconstruir a energia de elétrons e
+partículas \gls{had}, mas também ajuda a reconstruir a energia de elétrons e
 fótons. As disposições desses dois calorímetros, assim como do cintilador pode 
 ser observada na Figura~\ref{fig:secao_em_calo}. 
 
@@ -2219,7 +2229,7 @@ são feitas de alumínio. O criostato no barril envolve apenas o
 isso não necessita ser refrigerado), enquanto os criostatos na tampa envolvem o \gls{emec},
 \gls{hec} e o \gls{fcal}. A parede mais interna do criostato do
 barril utiliza uma estrutura \emph{isogrid}, que tem $\sim80\%$ de material a
-menor que uma placa solida teria, mas rigidez suficiente para suportar a
+menos que uma placa solida teria, mas rigidez suficiente para suportar a
 estrutura. Parte da estrutura de Criogenia pode ser vista na
 Figura~\ref{fig:secao_em_calo}.
 
@@ -2265,8 +2275,8 @@ estando localizadas a uma distância radial de $\sim$5, 7,5, e 10m. São
 utilizados quatro discos para as câmaras da tampa que cobrem um o alcance de 
 $1 < |\gls{eta}| < 2,7$ em distâncias de $\sim$7, 10, 14 e 21-23 m do ponto de
 interação, todos concêntricos ao tubo do feixe. Deseja-se medir múons
-na região de poucos GeV com uma resolução de $\sim1\%$, enquanto múons na
-faixa de 1 TeV a precisão pode ser um pouco menor, $ < 10\%$. O poder de
+na região de poucos GeV com uma resolução de $\sim1\%$, enquanto para múons na
+faixa de 1 TeV a precisão pode ser um pouco menor ($ < 10\%$). O poder de
 curvatura $Bl^2$ fornecido pelos toroides e tamanho do detector é de cerca de 36
 $\text{Tm}^2$, comparado com os 2 $\text{Tm}^2$ no \gls{id}. Para fornecer a
 resolução de momento desejada a \gls{respos} deve ser de no mínimo
@@ -2382,7 +2392,7 @@ realiza simulações de colisões por \gls{mc}, tendo um esboço na
 Figura~\ref{fig:evento_mc}. O processo de simulação grava as
 informações dos eventos de colisão em um registro chamado \emph{HepMC}. Esse é
 apenas um dos geradores de \gls{mc} possíveis.
-\begin{figure}[hb!]
+\begin{figure}[b!]
 \centering
 \includegraphics[width=0.8\textwidth]{imagens/evento_mc.png}
 \begin{minipage}{\textwidth}
@@ -2544,9 +2554,12 @@ podem ser de três tipos diferentes: primários, secundários, ou terciários:
 entre tudo menores, contendo cerca de 10 kB/evento. Nelas são permitidas operações para
 a redução de tamanho não permitidas nas \glspl{aod}:
 \begin{itemize}
-\item Empobrecimento: Remoção de detalhes dos eventos;
-\item Seleção: Escolha de eventos relevantes;
-\item Emagrecimento: Remoção de recipientes irrelevantes;
+\item Seleção: Escolha de eventos relevantes, baseada em \gls{tag};
+\item Empobrecimento: Seleção de objetos interessantes de um recipiente,
+como elétrons vindos do Sistema de Reconstrução através de assinaturas no
+calorímetro;
+\item Emagrecimento: Seleção de propriedades interessantes de um objeto, como
+por exemplo, apenas a posição \gls{eta} e \gls{phi} dos elétrons e sua energia.
 \end{itemize}
 As \glspl{d1pd} derivadas de \glspl{esd} são chamadas de \gls{desd}, e o
 análogo para as \gls{daod};
@@ -2646,16 +2659,18 @@ A Camada-1 arquiva os dados de modo que seja possível fazer um reprocessamento
 no futuro dos dados com versões mais recentes dos algoritmos, calibrações 
 para melhorar a qualidade dos dados, assim como reprodução de resultados.
 Os dados mais recentes estarão escritos em disco, e os com
-maior latência estarão, talvez, em fita. No total existem 11 centros definidos, em maioria,
-servindo a vários dos experimentos, cada um deles associado com cerca de 5-6
+maior latência estarão, talvez, em fita. No total existem 11 centros definidos,
+10 deles servindo o \gls{atlas}, cada um deles associado com cerca de 5-6
 centros da Camada-2.
 As análises que requerem acesso a grandes quantidades de dados, como algumas
 realizadas deste trabalho, e aquelas feitas pelos grupos de física são executadas 
 nessa camada;
 \item Camada-2 (\emph{Tier-2}): as cadeias de simulação são realizadas na Camada-2, onde
-posteriormente também executam a reconstrução gerando dados no formato de
-análise escolhidos pelo usuário. As análises de dados reais por usuários
-individuais também são realizadas nessa camada;
+posteriormente também executam a reconstrução. Os resultados das reconstruções
+são entam movidos para o centro correspondente da Camada-1. 
+As análises de dados reais por usuários individuais também são realizadas nessa
+camada. Um total de 140 centros existem na Camada-2, com cerca de 30 centros
+servindo o \gls{atlas}.
 %provêm capacidade computacional e capacidade de
 %armazenamento para simulações de Monte Carlo e análises do usúario final. Os
 %centros da Camada-2 vão obter dados quando requeridos da Camada-1 para

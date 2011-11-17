@@ -66,8 +66,8 @@ de modo a atender diversos dos requisitos da física experimental atual e por is
 geral. Para atendê-los ele é dividido nos seguintes subdetectores:
 
 \newacronym[type=Abrev]{id}{ID}{Detector Interno}
-\newacronym[type=Abrev]{em}{EM}{Eletromagnético}
-\newacronym[type=Abrev]{had}{HAD}{Hadrônico}
+\newacronym[type=Abrev,user1={Eletromagnéticas}]{em}{EM}{Eletromagnético}
+\newacronym[type=Abrev,user1={Hadrônicas}]{had}{HAD}{Hadrônico}
 \newacronym[type=Abrev,\glslongpluralkey=Calorímetros Eletromagnéticos]
 {ecal}{ECAL}{Calorímetro Eletromagnético}
 \newacronym[type=Abrev,\glslongpluralkey=Calorímetros Hadrônicos]
@@ -114,8 +114,8 @@ analisando o evento com maior complexidade:
 
 \newacronym[type=Abrev]{fpga}{FPGA}{\emph{Field-Programmable Gate Array}} 
 \newacronym[type=Abrev]{roi}{RoI}{Região de Interesse} 
-\newacronym[type=Abrev]{l1}{L1}{Primeiro N{í}vel de filtragem} 
-\newacronym[type=Abrev]{l2}{L2}{Segundo N{í}vel de filtragem} 
+\newacronym[type=Abrev]{l1}{L1}{Primeiro N\'{i}vel de filtragem} 
+\newacronym[type=Abrev]{l2}{L2}{Segundo N\'{i}vel de filtragem} 
 \newacronym[type=Abrev]{ef}{EF}{Filtro de Eventos, ou terceiro n{í}vel de
 filtragem} 
 
@@ -131,13 +131,13 @@ minimizar o fluxo de dados no sistema.
 \item O \glslink{l2}{Segundo Nível (L2)} analisa somente os eventos que passaram pelas condições do
 primeiro nível. Utiliza a resolução total das células do detector, 
 tendo um tempo de latência de 10 ms, de maneira a reduzir a taxa de eventos para
-1kHz. É implementado em linguagens de alto nível como C++ e python para sua configuração. 
+2 kHz. É implementado em linguagens de alto nível como C++ e python para sua configuração. 
 Para esse nível são disponíveis cerca de 500 processadores, com quatro
 núcleos de processamento, conectados em rede.
 \item O \glslink{ef}{Terceiro Nível (EF)}, além de avaliar com maior acurácia aqueles que foram
 selecionados pelo segundo nível, realiza a procura por eventos não identificados pelo
 primeiro nível por causa de sua menor resolução. Ele possui um tempo de 
-latência de 10 s, reduzindo a taxa de eventos para 100 Hz. Utiliza a mesma
+latência de 10 s, reduzindo a taxa de eventos para 200 Hz. Utiliza a mesma
 infraestrutura computacional do segundo nível, entretanto tem disponíveis 1900
 processadores \cite{tese_torres}.
 \end{itemize}

@@ -1,0 +1,131 @@
+\chapter{Reconstrução da Física do Experimento ATLAS}
+\label{cap:reco}
+
+A alta energia e luminosidade do \gls{lhc} (Seção~\ref{sec:lhc}) oferecem um alto alcance para
+explorar física, desde a medição precisa de propriedades de objetos conhecidos, a
+ultrapassar a fronteira de energias onde a física ainda não havia sido experimentada.
+Por ser um detector de propósito geral, o \gls{atlas} (Seção~\ref{sec:ATLAS}), deve ser capaz de
+explorar diversos dos objetivos do \gls{lhc} (Subseção~\ref{ssec:obj_lhc}), e
+para isso ele precisar ter a capacidade de explorar um largo espectro de assinaturas
+físicas. Esse fato guiou a otimização do projeto do \gls{atlas}, dando as especificações de sensibilidade e precisão do
+detector para que seja possível através das assinaturas realizar a reconstrução
+com precisão da física ocorrida nas colisões. O foco principal é na busca pelo
+bóssom de Higgs \cite{ATLAS_TDR2}, com o objetivo de provar a origem da escala
+eletrofraca\footnote{A escala eletrofraca existe somente no estado primitivo descrito na
+Subseção~\ref{ssec:bossoms}.}. 
+
+A física se apoia em algoritmos
+para realizar a busca pelas assinaturas, sendo este capítulo dedicado aos
+algoritmos que fazem a reconstrução do Canal \gls{eg} (Seção~\ref{sec:egamma}),
+onde se deseja encontrar as assinaturas dessas partículas.
+Outras assinaturas experimentais são as de hádrons e jatos, que serão tratadas
+quando abordando o Canal \gls{eg}, por serem o ruído de fundo do qual se deseja
+filtrar nesse canal. Entretanto existem setores de física que se
+interessam por esses decaimentos, como o já citado decaimento do bóssom W em jatos
+duplos\footnote{A citação foi realizada no Subtópico~\ref{par:cal_part_id}.}. 
+Além disso, múons constituem de outras assinaturas, uma vez que interagem
+pouco com os calorímetros, tendo seu próprio subsistema, o Espectômetro de
+Múons. Existem outras três assinaturas "indiretas": 
+táons, sabores pesados e léptons neutrinos. Os táons decaem
+rapidamente em múons (ou elétrons) e mais dois neutrinos, ou ainda, em um ou três
+píons carregados acompanhados por traços isolados, de forma que sua assinatura é
+feita nos espectometros de múons (ou calorímetro), ou de chuveiros \gls{had} com um ou três
+traços isolados apontando para o chuveiro. Os sabores pesados procuram
+assinaturas de mésons pesados, que geralmente decaem a menos de 1 mm do ponto de
+colisão, sendo necessário criar um vértice secundário que será identificado com
+a alta precisão do Detector de Pixel. Finalmente, léptons neutrinos escapam da
+deteção, para sua assinatura é utilizada a propriedade de conservação de
+\gls{pt}, de modo que, quando há quantidade suficiente de \gls{ptmiss}, há indicios
+de que algo escapou do processo de deteção.
+
+Os algoritmos são implementados em dois ambientes diferentes, um ambiente mais
+restrito, necessário devido ao alto nível de ruído físico gerado nas condições 
+impostas do \gls{lhc} (citadas no Tópico~\ref{sssec:minb_ue_pileup}): o Sistema de 
+Filtragem (Seção~\ref{sec:sf}). Nesse ambiente o tempo de discriminação 
+é limitado a latência suportada pela capacidade computacional das máquinas localizadas 
+no \gls{ip}1. O trabalho segue com o desenvolvimento do algoritmo HLT\_EgammaCaloRinger 
+(Subseção~\ref{ssec:hlt_ringer}), um algoritmo alternativo proposto para o
+Segundo Nível de Filtragem desse sistema. A versão implementada pela colaboração, o T2Calo (Subseção~\ref{ssec:t2calo}), 
+também é descrita em detalhes. Por sua vez o outro ambiente, o Sistema de Reconstrução
+(\ref{sec:sr}), visa fazer uma análise mais precisa dos eventos de colisão e da 
+física gerada, sendo o Sistema de Filtragem, nos níveis mais altos de filtragem, 
+nada mais que uma versão restringida baseada no mesmo. Para que a Colaboração tenha 
+um melhor contato com o algoritmo proposto e entenda o seu funcionamento, se fez
+necessário a implementação (Tópico~\ref{sssec:egringer_impl}) de uma versão no Sistema 
+de Reconstrução (Subseção~\ref{ssec:egringer}) para que os físicos o utilizassem nas suas 
+análises a posteriori. A versão padrão (Subseção~\ref{ssec:egamma}) utilizada
+pelos físicos também foi abordada.
+
+
+\section{\texorpdfstring{O Canal Elétron/Fóton (e/$\gamma$)}{O Canal
+Elétron/Fóton (Egamma)}}
+\label{sec:egamma}
+
+As assinaturas experimentais de partículas \gls{em} e \gls{had} foram 
+discutidas em detalhes quando se referindo a calorímetria no \gls{em}
+Tópico~\ref{sssec:intro_cal}. Fazendo um breve resumo, quando em contato com o
+calorímetro, essas partículas criam chuveiros de particulas que terão sua energia 
+absorvida pelo mesmo. Os chuveiros eletromagnéticos serão completamente absorvidos pelo
+\gls{ecal}, já os chuveiros de partículas \gls{had}
+
+
+
+%\subsection{Procura pelo bóssom de Higgs}
+%\label{ssec:proc_higgs}
+
+% Explicar aqui os decaimentos do bóssom de Higgs e a relação sinal ruído,
+% utilizando o TDR2
+
+%\subsection{A partícula $\text{J}/\Psi$}
+
+% Falar brevemente do Jpsi
+
+\section{O Sistema de Filtragem}
+\label{sec:sf}
+
+
+\subsection{T2Calo}
+\label{ssec:t2calo}
+
+% Falar sobre Fex 
+% Colocar rcore, eratio etc, fazendo referencia ao processo de geracao dos
+% chuveiros
+
+% Falar sobre Hypo
+% cortes lineares, estudados a partir de Monte Carlo
+
+\subsection{HLT\_EgammaCaloRinger (Ringer\_HLT)}
+\label{ssec:hlt_ringer}
+
+% Explicar o processo de anelamento
+
+% Falar sobre redes neurais
+
+% Pre-processamento: normalizacao, ica etc
+
+\section{O Sistema de Reconstrução}
+\label{sec:sr}
+
+% Falar aqui que o Sistema de Filtragem é uma versão mais simples do Sistema de
+% Reconstrução
+
+\subsection{\texorpdfstring{$e/\gamma$ Regular}{Egamma Regular}}
+\label{ssec:egamma}
+
+
+% Falar que tem mais opções que 
+% Colocar os requerimentos, tight, loose, medium.
+
+
+\subsection{\texorpdfstring{$e/\gamma$ \emph{Calorimeter Ringer}
+(EgCaloRinger)}{Egamma Calorimeter Ringer (EgCaloRinger)}}
+\label{ssec:egringer}
+
+% Falar aqui da request feito pela colaboracao
+
+\subsubsection{Implementação}
+\label{sssec:egringer_impl}
+% Implementação
+
+
+
