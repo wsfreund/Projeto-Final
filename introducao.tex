@@ -2,15 +2,18 @@
 \label{cap:intro}
 \glsresetall
 
+\newacronym[type=Abrev]{sf}{SF}{Sistema de Filtragem}
+\newacronym[type=Abrev]{sr}{SR}{Sistema de Reconstrução}
+
 O uso de técnicas de processamento de sinais podem facilitar a análise e
 classificação de dados, podendo ser utilizadas em um campo abrangente de áreas
 do conhecimento, citando como exemplos a medicina e bolsa de valores.
 
 Em certos casos a elevada taxa de dados pode ser um problema, sendo necessário a
-utilização de um Sistema de Filtragem. Essa ferramenta realiza a seleção dos dados 
+utilização de um \glsdesc{sf}. Essa ferramenta realiza a seleção dos dados 
 de interesse, de modo a eliminar aqueles que não agregam informações relevantes 
 para o caso em questão. A tarefa se torna ainda mais difícil nos casos de raros
-eventos de interesse, sendo necessário otimizar o Sistema de Filtragem de modo que 
+eventos de interesse, sendo necessário otimizar o \glsdesc{sf} de modo que 
 ele seja capaz de detectar com precisão tais eventos, descartando eficientemente a 
 informação inútil ao problema em questão, reduzindo assim a dimensão 
 de eventos, sem desprezar a parte interessante dos mesmos.
@@ -21,7 +24,7 @@ a combinação do conhecimento especialista ao processamento
 estatístico trás uma abordagem ainda mais poderosa, através da utilização das informações 
 em técnicas não lineares, como redes neurais.
 
-O Sistema de Filtragem pode ser utilizado no ambiente em tempo real,
+O \glsdesc{sf} pode ser utilizado no ambiente em tempo real,
 quando o processo de seleção ocorre durante a aquisição de dados. Nesse ambiente
 deseja-se reduzir o volume de dados a serem armazenados. A decisão deve ser realizada 
 em curtos espaços de tempo, de maneira que atenda a taxa esperada de geração de
@@ -33,9 +36,9 @@ processamento dos eventos. Por outro lado, o processamento em
 paralelo possibilita que eventos mais complexos ocorram durante um tempo maior
 que a taxa de aquisição de dados. Nesse tipo de processamento é necessário que
 todos os eventos não ultrapassem o valor máximo de latência (tempo utilizado
-para a tomada de decisão pelo Sistema de Filtragem), assim como obterem um valor 
+para a tomada de decisão pelo \glsdesc{sf}), assim como obterem um valor 
 médio de latência estipulado, determinados pela capacidade de processamento,
-afim de evitar gargalos no Sistema de Filtragem.
+afim de evitar gargalos no \glsdesc{sf}.
 
 Já no ambiente de análise a posteriori, o processo de seleção pode ser mais
 complexo, uma vez que ele não está imbuído de realizar a decisão atendendo aos
@@ -106,18 +109,19 @@ inelásticas não difrativas \cite{resumo_ATLAS} quando operando nas condições
 uma pequena parte dessas interações irá gerar a física desejada como objeto de
 estudo.
 
-Assim é natural a adoção de um Sistema de Filtragem em tempo real para a
+Assim é natural a adoção de um \glsdesc{sf} em tempo real para a
 identificação dos eventos de interesse a serem armazenados, reduzindo a taxa de 1 GHz
-para cerca de 100 Hz. O Sistema de Filtragem do \gls{atlas} realiza o processamento dos 
+para cerca de 100 Hz. O \glsdesc{sf} do \gls{atlas} realiza o processamento dos 
 eventos em paralelo, estando dividido em três níveis sequenciais, cada um 
 analisando o evento com maior complexidade:
 
 \newacronym[type=Abrev]{fpga}{FPGA}{\emph{Field-Programmable Gate Array}} 
-\newacronym[type=Abrev]{roi}{RoI}{Região de Interesse} 
+\newacronym[type=Abrev,\glslongpluralkey={Regiões de Interesse}]{roi}{RoI}{Região de Interesse} 
 \newacronym[type=Abrev]{l1}{L1}{Primeiro N\'{i}vel de filtragem} 
 \newacronym[type=Abrev]{l2}{L2}{Segundo N\'{i}vel de filtragem} 
 \newacronym[type=Abrev]{ef}{EF}{Filtro de Eventos, ou terceiro n{í}vel de
 filtragem} 
+\newacronym[type=Abrev]{hlt}{HLT}{Alto Nível de Filtragem} 
 
 \begin{itemize}
 \item O \glslink{l1}{Primeiro Nível de filtragem (L1)} realiza a filtragem com
@@ -147,8 +151,8 @@ para futura analise pelos físicos que irão utilizar os algoritmos desenvolvido
 para analise a posteriori. Os físicos dão o nome para esses algoritmos de Sistema de
 Reconstrução, pois eles os permitem fazer a reconstrução da física que ocorreu
 durante a colisão e sua interação com o detetor. Para facilitar a leitura irá se 
-referir ao Sistema de Filtragem em tempo real simplesmente como Sistema de 
-Filtragem, já a sua versão de analise a posteriori será referida como Sistema de Reconstrução.
+referir ao \glsdesc{sf} em tempo real simplesmente como Sistema de 
+Filtragem, já a sua versão de analise a posteriori será referida como \glsdesc{sr}.
 
 Um dos canais de interesse do experimento, o canal \acrshort{eg},
 deseja identificar elétrons \glslink{eg}{(e$^-$)}, pósitrons \glslink{eg}(e$^+$)
@@ -176,8 +180,8 @@ Para que tal melhoria seja alcançada no
 algoritmo será realizado um estudo de preprocessamento dos dados,
 através da escolha da melhor normalização a ser adotada.
 
-Ainda, um dos requisitos para a adesão do algoritmo no Sistema de Filtragem é a
-implementação de uma versão do mesmo para o Sistema de Reconstrução,
+Ainda, um dos requisitos para a adesão do algoritmo no \glsdesc{sf} é a
+implementação de uma versão do mesmo para o \glsdesc{sr},
 de maneira  que a colaboração possa utilizá-lo e entender o seu
 funcionamento. Por esse motivo, também se faz necessário a implementação 
 da nova versão para a complexa estrutura de código desse ambiente.

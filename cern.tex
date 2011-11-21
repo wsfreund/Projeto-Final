@@ -322,6 +322,12 @@ ainda não verificada experimentalmente e sua busca é de máxima importância p
 a Física de Partículas. Diferente dos outros bóssoms, o
 bóssom de Higgs teria rotação nula \cite{Intro_Nuclear}.
 
+Este trabalho propõe um algoritmo para otimizar a perfomance de deteção de
+elétrons, pósitrons e fótons, partículas que são estados finais em alguns canais de
+decaimento no qual se esperam descobrir o bóssom de Higgs, inclusive o mais promissor
+deles, $H\rightarrow ZZ^*\rightarrow 4l$. 
+A busca pelo bóssom de Higgs pode ser vista com mais detalhes na Seção~\ref{sec:busca_higgs}.
+
 \subsection{A Física Experimental de Partículas}
 \label{ssec:fisexp}
 
@@ -421,7 +427,7 @@ e ajude os cientistas a resolverem as incoerências e problemas do modelo, quem 
 o número de parâmetros livres a serem determinados para um, ou dois.
 \cite{nature_space_and_time,Intro_Nuclear}
 
-\newacronym[type=Abrev]{susy}{SUSY}{teoria de SUperSImetria}
+\newacronym[type=Abrev]{susy}{SUSY}{Teoria de Supersimetria}
 \newacronym[type=Abrev]{gut}{GUT}{Grande Interação Unificada}
 
 Há ainda outras duas teorias além do \gls{mp}: a \gls{susy} e a Teoria de Cordas. 
@@ -845,10 +851,15 @@ longitudinais. O \gls{pl}, que não é conservado nas colisões entre hádrons p
 esses não serem partículas ponto, pode ser obtido através
 de~\ref{eq:pl}. Outras duas variáveis que também
 são projetadas no plano transverso são a \gls{mt} e \gls{Et}, obtidas através das
-relações~\ref{eq:mt} e \ref{eq:Et}.
+relações~\ref{eq:mt} e \ref{eq:Et}. Uma relação muito importante é a relação
+massa-momento, dada pela equação~\ref{eq:rel_mom}.
 
 \begin{equation}\label{eq:rapidez}
 y = \frac{1}{2}ln\left(\frac{E+p_z}{E-p_z}\right)
+\end{equation}
+
+\begin{equation}\label{eq:rel_mom}
+m^2c^4 = E^2 - p^2c^2
 \end{equation}
 
 \begin{subequations}\label{eq:proj_transv}
@@ -929,7 +940,8 @@ definida por \ref{eq:taxa_colisao}. A seção de choque, expressa em mbarn,
 A Figura~\ref{fig:lum_cross} mostra a relação da seção de choque com a energia
 da colisão no centro de massa, sendo possível visualizar que a probabilidade 
 de ocorrer um evento de colisão de interesse, como a geração do
-bóssom de Higgs com 150GeV\footnote{Se a teoria estiver correta!}, é maior no \gls{lhc} 
+bóssom de Higgs para a massa de 150GeV/$c^2$,\footnote{Resultados atuais do \gls{atlas} excluiram a
+existência para essa massa, ver Seção~\ref{sec:busca_higgs} \cite{atlas_higgs}.} é maior no \gls{lhc} 
 que aquele no Tevatron devido a diferença de energia nos dois aceleradores.
 Já a luminosidade é determinada pelo projeto e a tecnologia utilizada no 
 acelerador, sendo possível através do mesmo elevar a taxa de eventos, o que
@@ -1026,7 +1038,9 @@ dominados pela produção de jatos hadrônicos no resíduo pela fragmentação d
 quarks e glúons. Eventos raros com a produção de novas partículas tem seção de
 choque ordem menores que a produção de jatos (ver novamente
 Figura~\ref{fig:lum_cross}), e por isso os decaimentos em
-estados hadrônicos não podem ser utilizados para detectar eventos raros. 
+estados hadrônicos geralmente não são utilizados para detectar eventos
+raros, já que o sinal será encoberto pelo ruído de fundo (entretanto, há casos
+que seja possível diferenciar os decaimentos hadrônicos de ruído). 
 \item \textbf{\glspl{nds}}: 
 são o tipo de interação mais comum e devidas as interações de longo alcance entre
 dois hádrons cruzantes. Nelas os pártons dos hádrons escoam uns pelos outros sem produzir
@@ -1286,7 +1300,27 @@ e fornecem o campo magnético necessário para o Espectrômetro de Múons como g
 de núcleo a ar. Os picos de campo nos \glspl{ect} são de
 3,9 T e de 4,1 T para o \gls{bt} \cite{ATLAS_TDR}.
 
-Serão descritos cada um dos subdetectores do \gls{atlas} nas
+\newacronym[type=Abrev]{bptx}{BPTX}{Serviços Eletrostáticos de Colheta de Feixes}
+\newacronym[type=Abrev]{bcm}{BCM}{Monitoramento das Condições dos Feixes}
+\newacronym[type=Abrev]{zdc}{ZDC}{Calorímetro Contador de Zero Grau}
+\newacronym[type=Abrev]{alfa}{ALFA}{Luminosidade Absoluta para o \acrshort{atlas}}
+\newacronym[type=Abrev]{mbts}{MBTS}{Cintiladores de Filtragem para o canal
+Minbias}
+
+Outros subdetectores especializados são: \gls{bptx}, localizados a uma distância
+de $z = \pm$175 m, sendo utilizados para a sincronização do Sistema de Filtragem e de 
+monitoramento com os feixes; \gls{bcm}, constituido de duas estações contendo
+sensores de diamante a uma distância de $z = \pm$1,84 m e $\gls{eta} \approx
+4,2$ m; Contadores LUCID \~Cerenkov cobrindo a região $5,4 |\gls{eta}| 5,9$, que
+juntos com os \gls{bcm} são responsáveis pela medição precisa da luminosidade;
+\gls{zdc} cobrindo uma região $|\gls{eta}|>8,3$, realizando estudos tanto em
+colisões p-p como A-A na medição de partículas neutras em $0^{\circ}$;
+\gls{alfa} cobrindo $6<|\gls{eta}|<13,5$, responsável por medir a seção de
+choque de Colisões Elásticas; e, finalmente, os \gls{mbts}, que fornecem
+informação e dados ao \glsdesc{l1}, cobrindo uma região de $2,1
+< |\gls{eta}| < 3,8$.
+
+Serão descritos cada um dos subdetectores principais do \gls{atlas} nas
 subseções que seguirão. Os calorímetros (Subseção \ref{ssec:calorimetria}) são de grande importância 
 para este trabalho e será dado enfoque aos mesmos, 
 especialmente o \gls{ecal} uma vez que ele é responsável 
@@ -1300,7 +1334,7 @@ quando os primeiros eventos de colisão de prótons com moléculas de gás dentr
 foram registrados. Para coletar dados suficientes para as análises físicas o
 experimento pode durar cerca de 20 anos \cite{ATLAS_TDR}. Mas, antes disso, 
 houve o comissionamento, ou a preparação do detector para o estudo da nova
-física, utilizando diferentes tipos de dados (raios cósmicos, colisões de 900 GeV, 2,36
+física, utilizando diferentes tipos de dados (raios cósmicos, colisões de 900 GeV/$c^2$, 2,36
 TeV e durante o início de 2010 com 7 TeV) na fase inicial do experimento. 
 Alguns exemplos realizados durante o comissionamento são:
 
@@ -1364,15 +1398,15 @@ alguns TeV;
 \item \textbf{Capacidade de identificação de partículas}: a identificação de
 partículas é um papel crucial no \gls{lhc}. Muitos requerimentos rigorosos na
 identificação de elétrons, fótons, jatos-B, taóns etc. precisam ser satisfeitos.
-A identificação é feita pelo Sistema de Reconstrução, descrito no
+A identificação é feita pelo \glsdesc{sr}, descrito no
 Capítulo~\ref{cap:reco}.
-\item \textbf{Sistema de Filtragem}: o Sistema de Filtragem é outro ponto
+\item \textbf{Sistema de Filtragem}: o \glsdesc{sf} é outro ponto
 crucial para o sucesso do experimento, onde o Sistema do \gls{atlas} também 
 será descrito no Capítulo~\ref{cap:reco}, incluindo o algoritmo proposto pelo trabalho para a
 identificação de elétrons e fótons. 
 A taxa de interação de $10^9$ eventos/s deve ser reduzida para cerca de 
 100 eventos/s devido a limites de armazenamento.
-Por isso, um Sistema de Filtragem eficiente deve ser capaz de fornecer esse
+Por isso, um \glsdesc{sf} eficiente deve ser capaz de fornecer esse
 fator de redução de $10^7$.  
 \end{itemize}
 
@@ -1920,7 +1954,8 @@ e indo até os 3 TeV. Ainda, a resolução de energia desses calorímetros tem d
 atender no mínimo a relação~\ref{eq:res_em}, e sua linearidade de resposta deve ser melhor 
 que 0,5\% na região de energia até 300 GeV, especialmente para obter ótima 
 resolução ($\sim1\%$) de massa de reconstrução dos decaimentos em elétrons e fótons 
-do bóssom de Higgs. 
+do bóssom de Higgs, os parâmetros que determinaram essas referências durante
+seus projetos. 
 
 \begin{equation}\label{eq:res_em}
 \frac{\delta E}{E} \approx \frac{10\%}{\sqrt{E}} \oplus 1\%
@@ -2309,7 +2344,7 @@ dimensões e posições das câmaras no nível requerido de 30 $\mu$m. Portanto,
 deformações e posições da câmara são constantemente monitoradas por meio de
 sistemas ópticos de alinhamento, de forma que deslocamentos dentre $\sim$30
 $\mu$m e $\sim$1 cm podem ser corrigidos em análise pelos algoritmos do
-Sistema de Reconstrução \cite{muon_tdr}.
+\glsdesc{sr} \cite{muon_tdr}.
 
 \section{Ferramentas utilizadas na Colaboração}
 \label{sec:ferramentas}
@@ -2435,15 +2470,15 @@ os algoritmos subsequentes possam recuperá-lo, ao fornecer ao Storegate a chave
 de identificação do dado desejado.
 \end{itemize}
 
-Essa infraestrutura é utilizada como plataforma de emulação do Sistema de
-Filtragem e do Sistema de Reconstrução do \gls{atlas}, contendo diversas
+Essa infraestrutura é utilizada como plataforma de emulação do \glsdesc{sf} e do 
+\gls{sr} do \gls{atlas}, contendo diversas
 distribuições. Cada distribuição do \emph{Athena}~\cite{atlas_computing_tdr} 
 tem dependências em diferentes
 pacotes de algoritmos, de forma a realizarem a tarefa para o qual foi designada. 
 Por exemplo, o \emph{AtlasProduction} é utilizado 
 nas reconstruções oficiais da Colaboração, já o \emph{AtlasP1HLT} é a
 distribuição utilizada nas máquinas do \gls{ip}1 para executar os algoritmos 
-do alto nível do Sistema de Filtragem, fazendo a discriminação. 
+do alto nível do \glsdesc{sf}, fazendo a discriminação. 
 
 O \emph{Athena} prove uma comunicação para a
 linguagem Python \cite{webPython}, que é utilizada para a configuração dos algoritmos.
@@ -2452,7 +2487,7 @@ colocados em um arquivo chamado de \gls{jo}, ou opções de trabalho.
 
 As reconstruções da física podem utilizar os arquivos de simulações com as sequências de
 interações das partículas com o detector após sua digitalização, ou arquivos de eventos
-reais armazenados após passarem o Sistema de Filtragem. Para cada temporada de
+reais armazenados após passarem o \glsdesc{sf}. Para cada temporada de
 colisão são armazenadas as condições do detector na base de dados CondDB.
 Elas indicam o estado de operação do \gls{atlas}, por exemplo, atuando com o
 solenoide desligado, os desalinhamentos medidos nas câmaras de múons, os canais
@@ -2484,7 +2519,7 @@ são:
 \newacronym[type=Abrev]{ara}{ARA}{\emph{AthenaRootAccess}}
 
 \begin{itemize}
-\item \textbf{\gls{bs}}: é o formato de saída do Sistema de Filtragem, contendo
+\item \textbf{\gls{bs}}: é o formato de saída do \glsdesc{sf}, contendo
 uma representação persistente dos dados de eventos em formato
 binário. Junto com as \acrshortpl{rdo} são chamados também de \textbf{\emph{RAW
 data}}, ou dados crus;
@@ -2556,7 +2591,7 @@ a redução de tamanho não permitidas nas \glspl{aod}:
 \begin{itemize}
 \item Seleção: Escolha de eventos relevantes, baseada em \gls{tag};
 \item Empobrecimento: Seleção de objetos interessantes de um recipiente,
-como elétrons vindos do Sistema de Reconstrução através de assinaturas no
+como elétrons vindos do \glsdesc{sr} através de assinaturas no
 calorímetro;
 \item Emagrecimento: Seleção de propriedades interessantes de um objeto, como
 por exemplo, apenas a posição \gls{eta} e \gls{phi} dos elétrons e sua energia.
@@ -2628,7 +2663,7 @@ dados nas camadas são \cite{grid,atlas_computing_tdr,tier0_reconstruction_atlas
 é o centro computacional localizado no \gls{cern}. Ele é utilizado para a
 calibração e primeira reconstrução dos dados reais. Existem vários canais de dados, 
 separados em duas categorias: o de física e o de calibração. Os canais de física são separados em:
-Minbias, EGamma, Muons, JetTauEtMiss, CosmicCalo. Já alguns os canais de calibração são
+Minbias, EGamma, Muons, JetTauEtMiss. Já alguns os canais de calibração são
 utilizados por apenas subsistemas específicos, e contem apenas eventos parciais,
 com quantidades necessárias apenas para o subsistema. Uma exceção é o canal 
 expresso, gravado com uma taxa de cerca de 10 Hz. A Camada-0 utiliza o canal

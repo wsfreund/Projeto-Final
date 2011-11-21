@@ -11,6 +11,8 @@
 \usepackage{rotating} % Para rodar as figuras e tabelas
 \usepackage{pdflscape} % Para colocar paginas na horizontal no pdf
 \usepackage{eurosym} % Para o simbulo de Euro
+\usepackage{amssymb} % Para adicionar um monte de simbolos que nao existem normalmente, 
+  % como aproximadamente menor que.
 \usepackage{ccaption} % Para footnotes dentro de captions
 \hypersetup{
     unicode=true,          % non-Latin characters in Acrobat’s bookmarks
@@ -48,7 +50,7 @@
 \pagestyle{plain}
 
 %\usepackage[style=long,nonumberlist,toc]{glossaries}
-\usepackage[style=long,nonumberlist]{glossaries} % Para as listas de simbolos e abreviaturas
+\usepackage[style=long,nonumberlist,sanitize=none]{glossaries} % Para as listas de simbolos e abreviaturas
 \renewcommand{\glossaryname}{S{í}mbolos e Abreviaturas}
 %\renewcommand{\glossarypreamble}{Texto principal}
 % Define a new glossary type
