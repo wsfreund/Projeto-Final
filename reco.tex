@@ -2,6 +2,10 @@
 {Reconstrução da Física do Canal e/$\gamma$ do Experimento ATLAS}
 \label{cap:reco}
 
+\newacronym[type=Abrev]{t2calo}{\emph{T2Calo}}{Algoritmo para a Reconstrução do
+Calorímetro no Segundo Nível de Filtragem} 
+\glsunset{t2calo}
+
 A alta energia e luminosidade do \gls{lhc} (Seção~\ref{sec:lhc}) oferecem um alto alcance para
 explorar física, desde a medição precisa de propriedades de objetos conhecidos, a
 ultrapassar a fronteira de energias onde a física ainda não havia sido experimentada.
@@ -56,7 +60,8 @@ impostas do \gls{lhc} (citadas no Tópico~\ref{sssec:minb_ue_pileup}): o
 é limitado a latência suportada pela capacidade computacional das máquinas localizadas 
 no \gls{ip}1. O trabalho segue com o desenvolvimento do algoritmo HLT\_EgammaCaloRinger 
 (Subseção~\ref{ssec:hlt_ringer}), um algoritmo alternativo proposto para o
-Segundo Nível de Filtragem desse sistema. A versão implementada pela colaboração, o T2Calo (Subseção~\ref{ssec:t2calo}), 
+Segundo Nível de Filtragem desse sistema. A versão implementada pela
+colaboração, o \gls{t2calo} (Subseção~\ref{ssec:cadeia_egamma}), 
 também é descrita em detalhes. Por sua vez o outro ambiente, o \glsdesc{sr}
 (Seção~\ref{sec:sr}), visa fazer uma análise mais precisa dos eventos de colisão e da 
 física gerada, sendo o \glsdesc{sf}, nos níveis mais altos de filtragem, 
@@ -71,7 +76,7 @@ pelos físicos também foi abordada.
 \section{Busca pelo bóssom de Higgs}
 \label{sec:busca_higgs}
 
-\newacronym[type=Abrev]{mh}{\ensuremath{m_H}}{massa do bóssom de Higgs} 
+\newacronym[type=Simb]{mh}{\ensuremath{m_H}}{massa do bóssom de Higgs} 
 \newacronym[type=Abrev]{lep}{LEP}{\emph{Large Electron Positron Collider}} 
 \glsunset{mh}
 
@@ -262,9 +267,11 @@ dados com taxas relativamentes mais altas por períodos mais curtos, como foi
 realizado durante 2010 quando a física foi beneficiada utilizando taxas de saída
 de até $\sim$600 Hz. Nessa época, a luminosidade instantânea máxima atingida foi de
 $\sim10^{32}cm^{-2}s^{-1}$, gerando cerca de $\sim$ 1,3 MB, e o \gls{lhc} não 
-operava de forma continua -- o que é comum para uma máquina nova -- permitindo 
+operava de forma continua -- o que é comum para um acelerador novo -- permitindo 
 elevar a taxa de armazenamento.
 
+\subsection{A estrutura do Sistema de Filtragem}
+\label{ssec:estru_sf}
 \newacronym[type=Abrev]{rob}{ROB}{\emph{Buffer} de Leitura}
 \newacronym[type=Abrev]{ros}{ROS}{Sistemas de Leitura}
 
@@ -276,7 +283,9 @@ em detalhes nas referências \cite{trigger_tdr,l1_trigger_tdr,l2_ef_daq_dcs_tdr,
 Os sinais do detector são armazenados em memórias \emph{pipeline}, com pendência
 à decisão do \acrshort{l1}. Para obter uma latência de menos de 2,5 $\mu$s, 
 o \gls{l1} é implementado em rápida eletrônica constituída de \gls{fpga} e
-\gls{asic}, de forma a reduzir a taxa para uma valor máximo de 75 kHz. Além do
+\gls{asic}, de forma a reduzir a taxa para uma valor máximo de 75 kHz. Para
+aumentar a velocidade, esse nível utiliza apenas a informação dos subsistemas de
+calorimetria e câmaras de mûons com granularidade reduzida. Além do
 primeiro passo de seleção, o \gls{l1} identifica as \glspl{roi} do detector a
 serem investigadas pelo \acrshort{hlt}. 
 
@@ -325,6 +334,9 @@ canal, é possível escrever informação parcial de um ou mais subdetectores em
 canal, o que é normalmente realizado para a calibração do detector nos canais
 destinados a esse propósito.
 
+\subsection{Topologia dos algoritmos e sua configuração}
+\label{ssec:alg_topo}
+
 \newacronym[type=Abrev,\glslongpluralkey={Algoritmos de Extração de
 Características}]{fex}{FEX}{Algoritmo de Extração de Característica}
 \newacronym[type=Abrev,\glslongpluralkey={Algoritmos de Hipótese}]
@@ -347,7 +359,9 @@ a dados como o tempo de processamento do \gls{sf}.
 \centering
 \includegraphics[width=0.9\textwidth]{imagens/cadeia_eletron.png}
 \caption[A \emph{cadeia} de filtragem de elétrons.]{A \emph{cadeia} de filtragem
-de elétrons. Adaptado de \cite{trigger_perf_2010}.}
+de elétrons. A direita de cada nível de filtragem estão colocados exemplos de
+nomes de filtros de elétrons e fótons, e o nome de sua respectiva cadeia a
+direita da seta indicando a evolução da \emph{cadeia}. Adaptado de \cite{trigger_perf_2010}.}
 \end{figure}
 
 Aproximadamente 500 filtros são definidos nos \emph{menus} atuais, sendo
@@ -373,7 +387,7 @@ elétrons.
 
 Quando se referindo a um nível em partícular, o nível (\gls{l1}, \gls{l2},
 \gls{ef}) aparece como um prefixo, como por exemplo L1\_EM3 (aqui elétrons e
-fótons não são diferenciados, então utiliza-se o prefixo EM em ambos os casos)
+fótons não são diferenciados, então se utiliza o prefixo EM em ambos os casos)
 para denotar um filtro de elétrons e fótons com um limiar nominal superior a 3
 GeV para o \gls{l1} e L2\_e3 no caso de elétrons para um filtro com o mesmo
 limiar mas para elétrons apenas no \gls{l2}. Um nome sem o prefixo de nível
@@ -382,7 +396,7 @@ refere-se a toda a \emph{cadeia}.
 O controle das taxas de filtragem podem ser realizadas mudando os limiares ou
 aplicando outros valores de seleção. A seletividade de um grupo de cortes
 aplicados para um certo objeto de filtragem é representado pelos termos
-\emph{loose} (frouxo), \emph{medium} (mediano), \emph{tight} (apertado). Esses
+\emph{Loose} (frouxo), \emph{Medium} (mediano), \emph{Tight} (apertado). Esses
 critérios de seleção são colocados como sufixos ao nome do filtro, por exemplo,
 e10\_medium. Requerimentos adicionais como isolamento, podem ser adicionados
 para reduzir as taxas dos filtros. O isolamento mede a quantidade de energia, ou
@@ -427,17 +441,223 @@ regulares, contendo pacotes de feixes opostos que se encontram no ponto de
 colisão simultaneamente), pacotes vazios para estudo de pedestal criado por ruído 
 no detector e raios cósmicos, ou até mesmo configurações mais inusitadas, como 
 exigindo pacotes desparelhados separados por no mínimo 75 ns de quaisquer outro 
-pacote no outro feixe.
+pacote no feixe oposto.
 
-\subsection{T2Calo}
-\label{ssec:t2calo}
+\subsection{Algoritmos Padrões da \emph{Cadeia} de Filtragem de Elétrons e Fótons}
+\label{ssec:cadeia_egamma}
 
-% Falar sobre Fex 
-% Colocar rcore, eratio etc, fazendo referencia ao processo de geracao dos
-% chuveiros
+\newacronym[type=Abrev,\glslongpluralkey={Torres de Filtragem}]
+{tt}{TT}{Torre de Filtragem}
 
-% Falar sobre Hypo
-% cortes lineares, estudados a partir de Monte Carlo
+O sistema de calorimetria do \gls{atlas} cobre uma região de $|\gls{eta}| <
+4,9$, enquanto o \gls{id} fornece reconstrução precisa de traços dentro de
+$|\gls{eta}| < 2,5$. Os chuveiros \gls{em} são reconstruídos com melhor
+performance para essa última região, a região de precisão do \gls{atlas}, 
+contendo calorímetros com maior granularidade como descrito na
+Subseção~\ref{ssec:calorimetria}. Assim, os filtros de elétrons e fótons
+\cite{expected_perf_2011,perf_2011} do \gls{sf} atuam somente para essa região.
+A cadeia de elétrons no \gls{sf} está esboçada na Figura~\ref{fig:electron_chain}, entretanto
+a cadeia de fótons pode ser facilmente extrapolada ao se remover os algoritmos
+referentes ao \gls{id}.
+
+No \gls{l1}, os aglomerados de informação\footnote{No caso, um conjunto de
+células identificados como \emph{clusters} na literatura em inglês.} \gls{eg} do calorímetro são retirados
+utilizando granularidade reduzida, as chamadas \glspl{tt}, que cobrem uma região
+de aproximadamente $\Delta\eta\times\Delta\phi\approx0,1\times0,1$, 
+a Figura~\ref{fig:cal_lar_camadas} contem um esboço da \gls{tt} para o
+barril do calorimetro \gls{em}. A vantagem de se utilizar \glspl{tt} se deve ao
+fato de reduzir a quantidade de fluxo de informação, reduzindo o custo e
+complexidade do sistema, e, ao mesmo tempo, conter o chuveiro \gls{em} inteiramente 
+em cerca de uma ou duas dessas torres, podendo
+assim identificar a região em que foi formado o chuveiro não prejudicando a sua
+eficiência. Para cada \gls{tt}, as células do calorímetro \gls{em} e \gls{had} são somadas, com a
+excessão da quarta camada da tampa do calorímetro \gls{had} e dos cintiladores.
+Um algoritmo de janela deslizante formada por uma dimensão de $4\times4$
+\gls{tt}, ilustrada na Figura~\ref{fig:sliding_window_l1}, 
+busca pela região com a melhor deposição de energia do chuveiro por
+todo o calorímetro com um passo de uma \gls{tt}.
+O \gls{l1} seleciona o núcleo da janela, quando
+os seguintes critérios forem satisfeitos:
+
+\begin{figure}[ht!]
+\label{fig:l1_alg}
+\centering
+        \subfigure[A janela deslizante, seu núcleo e as regiões de isolamento.]{
+            \label{fig:sliding_window_l1}
+            \includegraphics[width=0.6\textwidth]{imagens/sliding_window_l1.pdf}
+        }\hspace{0.01\textwidth}
+        \subfigure[Requerimento para o núcleo ser máximo local.]{%
+            \label{fig:local_et}
+            \includegraphics[width=0.3\textwidth]{imagens/roi_local_max.pdf}
+        }
+\caption[O Primeiro Nível de Filtragem para a Cadeia de Elétrons e Fótons.]
+{O Primeiro Nível de Filtragem para a Cadeia de Elétrons e Fótons. Extraído de
+\cite{l1_trigger_tdr}.}
+\end{figure}
+
+\begin{itemize}
+\item A região deve ser um máximo local. Essa condição é importante para se
+evitar multiplicidade de \glspl{roi}. Assim, a energia contida no núcleo deve ser
+maior, ou ao menos igual, como na lógica da Figura~\ref{fig:local_et}, 
+que em todos as outras regiões de $2\times2$ que podem ser formados na
+janela;
+\item O aglomerado formado pela dupla de torre mais energética na região
+(indicados na Figura~\ref{fig:sliding_window_l1} como somas verticais ou horizontais) deve ultrapassar o limiar
+\gls{em} exigido pelo filtro do \gls{l1}. A posição de \gls{eta} e \gls{phi} desse aglomerado é passado
+para o \gls{l2}, junto com outros \emph{bits} indicando os critérios que foram
+satisfeitos, que formarão a chamada \gls{roi};
+\item Se isolamento for exigido: 
+\begin{itemize}
+\item A \gls{Et} total da região \gls{em} de
+isolamento não deve ultrapassar o limiar de isolamento \gls{em};
+\item A \gls{Et} total da região \gls{had} de isolamento não deve ultrapassar o
+limiar de isolamento \gls{had}.
+\end{itemize}
+\end{itemize}
+
+
+O \gls{l2}, alimentado pela posição dos
+aglomerados de torres do \gls{l1}, realiza uma rápida reconstrução do
+calorímetro, e no de elétrons, uma rápida reconstrução dos traços no \gls{id}. A
+reconstrução do calorímetro trabalha de maneira semelhante aos algoritmos do
+\gls{sr}, entretanto apenas a região da janela de $\Delta\eta\times\Delta\phi =
+0,4 \times 0,4$ em torno da posição alimenda pelo \gls{l1} é utilizada, o que
+reduz o trafico de dados e aumenta a velocidade de processamento no \gls{l2}.
+Algumas diferenças entre o algoritmo do \gls{l2} e o \gls{sr} se dão devido as
+limitações no tempo de latência. O algoritmo de reconstrução do aglomerado de
+células do calorímetro no \gls{l2} começa utilizando a célula mais energética da
+segunda camada \gls{em} dentro da região central de $0,2 \times 0,2$, enquanto o
+algoritmo de análise a posteriori utiliza uma janela deslizante para encontrar
+sua semente.
+
+No \gls{l2}, o tamanho do aglomerado é fixado para $3
+\times 7$ células em $\gls{eta} \times \gls{phi}$ para o barril ($|\gls{eta}|<1,5$) e 
+$5 \times 5$ na tampa ($1,5<|\gls{eta}|<2,5$). O
+algoritmo a posteriori contêm tamanhos de aglomerados diferentes, usando
+$3\times5$ e $3\times7$ para fótons não convertidos e convertidos,
+respectivamente, em $|\gls{eta}|<1,5$, e $5\times5$ até $|\gls{eta}|<2,5$.
+
+As energias das células podem ser corrigidas na análise a posteriori, para
+problemas transientes no \emph{hardware}, como falhas de energia, etc., o que não
+pode ser realizado em tempo real, o que se aplica para tanto o \gls{l2} e
+\gls{ef}. Para a reconstrução de traços no \gls{l2}, um rápido reconhecimento de
+padrões é utilizado ao se determinar primeiro a posição z de interação ao longo
+do eixo do feixe e então realizando a combinação de pontos do traço apenas para o grupo
+de pontos que apontam para a posição determinada.
+
+Como no \gls{sr}, a reconstrução do aglomerado no \gls{ef} é realizado
+utilizando um algoritmo de janela deslizante atuando nas torres contendo energia
+de toda a profundidade do calorímetro somada. Após encontrada
+a semente, um aglomerado é construido iniciando da segunda camada \gls{em},
+com o mesmo tamanho que aqueles descritos para o algoritmo a posteriori. O
+centro de distribuição de energia em \gls{eta} e \gls{phi} é calculado
+utilizando o aglomerado construido na segunda camada, e então o valor dessa
+posição é então propagado de forma a incluir as camadas faltantes. O algoritmo
+de reconstrução de traços é feito como no algoritmo a posteriori, com uma
+combinaçao dos traços começando dos pontos dos Detectores de Silicone e
+\gls{trt}. 
+
+Os algoritmos de seleção são aplicados na reconstrução do
+\gls{l2} e no \gls{ef} com o objetivo de identificar bons candidatos a \gls{eg}
+e rejeitar falsos alarmes provenientes de jatos. As seleções são baseadas no
+formato do chuveiro nas aglomerações, tentando identificar as diferenças já
+citadas entre os chuveiros \gls{em} e \gls{had} no
+Subtópico~\ref{par:cal_part_id}, como: a largura dos chuveiros, onde os \gls{em}
+devem ser mais estreitos; sua profundidade, no qual os \gls{had} são mais
+profundos que os \gls{em} para uma partícula de mesma energia e geralmente
+somente os \gls{had} deverão alcançar o calorímetro \gls{had}, ou deverão
+depositar a maior parte de sua energia no calorímetro específico para a
+contenção de sua energia. Para elétrons, também se utiliza critérios de seleção 
+baseados em informação do traço e qualidade de casamento entre o aglomerado e o
+traço. A parte do algoritmo responsável pela reconstrução do calorímetro no
+\gls{l2} é chamada de \emph{T2Calo}.
+
+\newacronym[type=Simb]{Rhad1}{\ensuremath{R_{had1}}}{Variável de corte dos
+algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
+\newacronym[type=Simb]{Rhad}{\ensuremath{R_{had}}}{Variável de corte dos
+algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
+\newacronym[type=Simb]{reta}{\ensuremath{R_{\eta}}}{Variável de corte dos
+algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
+\newacronym[type=Simb]{eratio}{\ensuremath{E_{ratio}}}{Variável de corte dos
+algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
+\newacronym[type=Simb]{weta2}{\ensuremath{w_{\eta2}}}{Variável de corte dos
+algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
+\newacronym[type=Simb]{weta}{\ensuremath{w_{\eta}}}{Variável de corte dos
+algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
+
+\glsunset{Rhad1}
+\glsunset{Rhad}
+\glsunset{eratio}
+\glsunset{reta}
+\glsunset{weta}
+\glsunset{weta2}
+
+Os três conjuntos de referências citados em~\ref{ssec:alg_topo} são utilizados para 
+seleção de partículas \gls{eg}. Eles são definidos ao se elevar a potência de rejeição 
+de ruído físico nos dados finais: \emph{Loose}, com menor seletividade, 
+evitando a perda de dados prematura, mas ao mesmo tempo elevando a taxa de dados 
+a serem gravados; \emph{Tight}, com grande seletividade, reduzindo o
+ruído físico e a taxa de dados, mas podendo haver perda de eventos de interesse;
+\emph{Medium}, que tenta conciliar a escolha da seletividade de forma
+a reduzir a taxa de armazenamento ao mesmo tempo que evita a perda de eventos
+de forma prematura. As variáveis utilizadas no \gls{ef}, dispostas na
+Tabela~\ref{tab:cortes_em}, são as mesmas que as
+utilizadas na versão a posteriori, mas com limiares tipicamente mais relaxados
+que no último para se evitar a perda de eventos interessantes, enquanto o
+\gls{l2} utiliza apenas algumas dessas variáveis, novamente com valores mais relaxados que no 
+\gls{ef} pelo mesmo motivo. No caso do \gls{t2calo} essas variáveis são: \gls{reta}, 
+\gls{eratio}, \gls{Et} e \gls{Rhad1}, com algumas condições específicas 
+dependendo da região em que a partícula está incidindo, em especial nesse 
+caso para a região de fenda do calorímetro, e para partículas de altas energias onde se aceita um maior
+vazamento hadrônico. Vale ressaltar que as variáveis utilizando o \gls{id} 
+não se aplicam para fótons, independente do algoritmo em questão.
+
+
+\begin{table}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{p{4cm}p{9cm}c}
+\hline
+\hline
+\hline
+\textbf{Tipo} & \textbf{Descrição} & \textbf{Nome da Variável} \\
+\hline
+\hline
+ & \centering Cortes \emph{Loose} & \\
+\hline
+\hline
+Vazamento Hadrônico & Razão de \gls{Et} da primeira camada \gls{had} com a
+depositada no calorímetro \gls{em} (usado para $|\gls{eta}|<0,8$ e
+$|\gls{eta}|>1,37$) & \gls{Rhad1} \\
+ & Razão de \gls{Et} da energia depositada no calorímetro \gls{had} com a
+depositada no calorímetro \gls{em} (usado para $|\gls{eta}|>0,8$ e
+$|\gls{eta}|<1,37$) & \gls{Rhad} \\
+\hline
+Segunda camada do calorímetro \gls{em} & Razão em \gls{eta} entre a enegia contida nas
+células numa região de $3\times7$ por uma região $7\times7$ & \acrshort{reta}\\
+ & Largura lateral do chuveiro & \gls{weta2} \\
+\hline
+\hline
+ & \centering Cortes \emph{Medium} (Incluem o \emph{Loose}) & \\
+\hline
+\hline
+Primeira camada do calorímetro \gls{em} & Largura lateral total do chuveiro &
+\gls{weta} \\
+ & Diferença entre o primeiro e o segundo depósito de maiores
+energias normalizadas por sua soma & \gls{eratio} \\
+
+
+\hline
+\hline
+\hline
+\end{tabular}
+}
+\caption[Definições dos cortes utilizados para os critérios de identificação de elétrons \emph{loose}, \emph{medium}
+e \emph{tight}, na região de $\eta$<2,47]
+{Definições dos cortes utilizados para os critérios de identificação de elétrons \emph{loose}, \emph{medium}
+e \emph{tight}, na região de $|\gls{eta}|<2,47$. Extraído de \cite{expected_perf_2011}.}
+\label{tab:cortes_em}
+\end{table}
 
 \subsection{HLT\_EgammaCaloRinger (Ringer\_HLT)}
 \label{ssec:hlt_ringer}
