@@ -4,6 +4,7 @@
 
 \newacronym[type=Abrev]{t2calo}{\emph{T2Calo}}{Algoritmo para a Reconstrução do
 Calorímetro no Segundo Nível de Filtragem} 
+\newacronym[type=Abrev]{hltringer}{\emph{HLT\_Ringer}}{HLT\_EgammaCaloRinger} 
 \glsunset{t2calo}
 
 A alta energia e luminosidade do \gls{lhc} (Seção~\ref{sec:lhc}) oferecem um alto alcance para
@@ -58,8 +59,8 @@ restrito, necessário devido ao alto nível de ruído físico gerado nas condiç
 impostas do \gls{lhc} (citadas no Tópico~\ref{sssec:minb_ue_pileup}): o
 \glsdesc{sf} (Seção~\ref{sec:sf}). Nesse ambiente o tempo de discriminação 
 é limitado a latência suportada pela capacidade computacional das máquinas localizadas 
-no \gls{ip}1. O trabalho segue com o desenvolvimento do algoritmo HLT\_EgammaCaloRinger 
-(Subseção~\ref{ssec:hlt_ringer}), um algoritmo alternativo proposto para o
+no \gls{ip}1. O trabalho segue com o desenvolvimento do algoritmo
+\acrlong{hltringer} (Subseção~\ref{ssec:hlt_ringer}), um algoritmo alternativo proposto para o
 Segundo Nível de Filtragem desse sistema. A versão implementada pela
 colaboração, o \gls{t2calo} (Subseção~\ref{ssec:cadeia_egamma}), 
 também é descrita em detalhes. Por sua vez o outro ambiente, o \glsdesc{sr}
@@ -476,8 +477,8 @@ Um algoritmo de janela deslizante formada por uma dimensão de $4\times4$
 \gls{tt}, ilustrada na Figura~\ref{fig:sliding_window_l1}, 
 busca pela região com a melhor deposição de energia do chuveiro por
 todo o calorímetro com um passo de uma \gls{tt}.
-O \gls{l1} seleciona o núcleo da janela, quando
-os seguintes critérios forem satisfeitos:
+O \gls{l1} seleciona o evento como um candidato a \gls{eg} 
+quando os seguintes critérios forem satisfeitos:
 
 \begin{figure}[ht!]
 \label{fig:l1_alg}
@@ -497,7 +498,8 @@ os seguintes critérios forem satisfeitos:
 
 \begin{itemize}
 \item A região deve ser um máximo local. Essa condição é importante para se
-evitar multiplicidade de \glspl{roi}. Assim, a energia contida no núcleo deve ser
+evitar multiplicidade de \glspl{roi} a serem analisadas pelo \gls{l2}.
+Assim, a energia contida no núcleo deve ser
 maior, ou ao menos igual, como na lógica da Figura~\ref{fig:local_et}, 
 que em todos as outras regiões de $2\times2$ que podem ser formados na
 janela;
@@ -505,7 +507,8 @@ janela;
 (indicados na Figura~\ref{fig:sliding_window_l1} como somas verticais ou horizontais) deve ultrapassar o limiar
 \gls{em} exigido pelo filtro do \gls{l1}. A posição de \gls{eta} e \gls{phi} desse aglomerado é passado
 para o \gls{l2}, junto com outros \emph{bits} indicando os critérios que foram
-satisfeitos, que formarão a chamada \gls{roi};
+satisfeitos, que formarão a palavra informada para o \gls{l2} para a qual será
+utilizada para a formação da \gls{roi};
 \item Se isolamento for exigido: 
 \begin{itemize}
 \item A \gls{Et} total da região \gls{em} de
@@ -518,12 +521,12 @@ limiar de isolamento \gls{had}.
 
 O \gls{l2}, alimentado pela posição dos
 aglomerados de torres do \gls{l1}, realiza uma rápida reconstrução do
-calorímetro, e no de elétrons, uma rápida reconstrução dos traços no \gls{id}. A
+calorímetro, e no caso de elétrons, uma rápida reconstrução dos traços no \gls{id}. A
 reconstrução do calorímetro trabalha de maneira semelhante aos algoritmos do
 \gls{sr}, entretanto apenas a região da janela de $\Delta\eta\times\Delta\phi =
-0,4 \times 0,4$ em torno da posição alimenda pelo \gls{l1} é utilizada, o que
-reduz o trafico de dados e aumenta a velocidade de processamento no \gls{l2}.
-Algumas diferenças entre o algoritmo do \gls{l2} e o \gls{sr} se dão devido as
+0,4 \times 0,4$, região chamada de \gls{roi}, em torno da posição alimenda pelo \gls{l1} 
+é utilizada, o que reduz o tráfico de dados e aumenta a velocidade de processamento no \gls{l2}.
+Algumas diferenças entre o algoritmo do \gls{l2} e o \gls{sr} se dão as
 limitações no tempo de latência. O algoritmo de reconstrução do aglomerado de
 células do calorímetro no \gls{l2} começa utilizando a célula mais energética da
 segunda camada \gls{em} dentro da região central de $0,2 \times 0,2$, enquanto o
@@ -584,6 +587,12 @@ algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}}
 algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
 \newacronym[type=Simb]{weta}{\ensuremath{w_{\eta}}}{Variável de corte dos
 algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
+\newacronym[type=Simb]{deta1}{\ensuremath{\Delta\eta_1}}{Variável de corte dos
+algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
+\newacronym[type=Simb]{dphi2}{\ensuremath{\Delta\phi_2}}{Variável de corte dos
+algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
+\newacronym[type=Simb]{Ep}{\ensuremath{\frac{E}{p}}}{Variável de corte dos
+algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
 
 \glsunset{Rhad1}
 \glsunset{Rhad}
@@ -591,6 +600,9 @@ algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}}
 \glsunset{reta}
 \glsunset{weta}
 \glsunset{weta2}
+\glsunset{deta1}
+\glsunset{dphi2}
+\glsunset{Ep}
 
 Os três conjuntos de referências citados em~\ref{ssec:alg_topo} são utilizados para 
 seleção de partículas \gls{eg}. Eles são definidos ao se elevar a potência de rejeição 
@@ -609,7 +621,10 @@ que no último para se evitar a perda de eventos interessantes, enquanto o
 \gls{eratio}, \gls{Et} e \gls{Rhad1}, com algumas condições específicas 
 dependendo da região em que a partícula está incidindo, em especial nesse 
 caso para a região de fenda do calorímetro, e para partículas de altas energias onde se aceita um maior
-vazamento hadrônico. Vale ressaltar que as variáveis utilizando o \gls{id} 
+vazamento hadrônico. Os valores dos limiares são escolhidos através de estudos
+de \gls{mc}, e, ainda que os mesmos variem conforme \gls{eta} e a energia da
+partícula, eles são compostos por diversos cortes lineares nessas variáveis
+físicas. Vale ressaltar que as variáveis utilizando o \gls{id} 
 não se aplicam para fótons, independente do algoritmo em questão.
 
 
@@ -620,7 +635,7 @@ não se aplicam para fótons, independente do algoritmo em questão.
 \hline
 \hline
 \hline
-\textbf{Tipo} & \textbf{Descrição} & \textbf{Nome da Variável} \\
+\textbf{Tipo} & \textbf{Descrição} & \textbf{Símbolo (se aplicável)} \\
 \hline
 \hline
  & \centering Cortes \emph{Loose} & \\
@@ -628,45 +643,291 @@ não se aplicam para fótons, independente do algoritmo em questão.
 \hline
 Vazamento Hadrônico & Razão de \gls{Et} da primeira camada \gls{had} com a
 depositada no calorímetro \gls{em} (usado para $|\gls{eta}|<0,8$ e
-$|\gls{eta}|>1,37$) & \gls{Rhad1} \\
+$|\gls{eta}|>1,37$). & \gls{Rhad1} \\
  & Razão de \gls{Et} da energia depositada no calorímetro \gls{had} com a
 depositada no calorímetro \gls{em} (usado para $|\gls{eta}|>0,8$ e
-$|\gls{eta}|<1,37$) & \gls{Rhad} \\
+$|\gls{eta}|<1,37$). & \gls{Rhad} \\
 \hline
 Segunda camada do calorímetro \gls{em} & Razão em \gls{eta} entre a enegia contida nas
-células numa região de $3\times7$ por uma região $7\times7$ & \acrshort{reta}\\
- & Largura lateral do chuveiro & \gls{weta2} \\
+células numa região de $3\times7$ por uma região $7\times7$. & \acrshort{reta}\\
+ & Largura lateral do chuveiro. & \gls{weta2} \\
 \hline
 \hline
  & \centering Cortes \emph{Medium} (Incluem o \emph{Loose}) & \\
 \hline
 \hline
-Primeira camada do calorímetro \gls{em} & Largura lateral total do chuveiro &
-\gls{weta} \\
+Primeira camada do calorímetro \gls{em} & Largura lateral total do chuveiro. & \gls{weta} \\
  & Diferença entre o primeiro e o segundo depósito de maiores
-energias normalizadas por sua soma & \gls{eratio} \\
-
-
+energias normalizadas por sua soma. & \gls{eratio} \\
 \hline
+Qualidade do Traço & Número de pontos no Detector de Píxel ($\ge1$). & \\
+ & Número de pontos no Detector de Píxel e \gls{sct} ($\ge7$). & \\
+ & Parâmetro de impacto transverso ($<5$ mm). & \gls{d0} \\
+\hline
+Casamento de Traço & $\Delta\eta$ entre o aglomerado de células e traço (<0,01)
+& \\
+\hline
+\hline
+ & \centering Cortes \emph{Tight} (Incluem o \emph{Medium}) & \\
+\hline
+\hline
+1 camada do Detector de Pixel (camada B) & Número de pontos na camada B
+($\ge1$).  & \\
+\hline
+Casamento de Traço & $\Delta\phi$ entre o aglomerado de células e traço
+(<~0,02). & \gls{dphi2} \\
+ & Razão entre a energia do aglomerado com o momento medido pelo \gls{id}. & \gls{Ep} \\
+ & Corte mais restritivo em $\Delta\eta$ (<~0,005). & \gls{deta1} \\
+\hline
+Qualidade do Traço & Parâmetro de impacto transvero mais restritivo (<~1 mm).  & \gls{d0} \\
+\hline
+\gls{trt} & Número de pontos no \gls{trt}. & \\
+ & Razão entre o número de pontos de alta precisão com o número de pontos no
+\gls{trt}. & \\
+\hline
+Conversões & Candidatos a elétron provenientes de fótons convertidos são
+rejeitados. & \\
 \hline
 \hline
 \end{tabular}
 }
 \caption[Definições dos cortes utilizados para os critérios de identificação de elétrons \emph{loose}, \emph{medium}
-e \emph{tight}, na região de $\eta$<2,47]
+e \emph{tight}, na região de $|\eta|<2,47$]
 {Definições dos cortes utilizados para os critérios de identificação de elétrons \emph{loose}, \emph{medium}
-e \emph{tight}, na região de $|\gls{eta}|<2,47$. Extraído de \cite{expected_perf_2011}.}
+e \emph{tight}, na região de $|\gls{eta}|<2,47$. Adaptado de \cite{expected_perf_2011}.}
 \label{tab:cortes_em}
 \end{table}
 
 \subsection{HLT\_EgammaCaloRinger (Ringer\_HLT)}
 \label{ssec:hlt_ringer}
 
-% Explicar o processo de anelamento
+\newacronym[type=Abrev]{rna}{RNA}{Rede Neural Artificial}
+\newacronym[type=Abrev]{ica}{ICA}{Análise de Componentes Independentes}
+\newacronym[type=Abrev]{nlica}{NLICA}{Análise de Componentes Independentes
+Não-Linear}
+\newacronym[type=Abrev]{pca}{PCA}{Análise de Componentes Principais}
+\newacronym[type=Abrev]{pcd}{PCD}{Componentes Principáis de Discriminação}
+\newacronym[type=Abrev]{som}{SOM}{Mapas Auto-Organizáveis}
 
-% Falar sobre redes neurais
+Uma outra proposta para se identificar a evolução do chuveiro no calorímetro é 
+abordada pelo algoritmo alternativo proposto, afim de se identificar as partículas \gls{em}. 
+Inicialmente esse algoritmo, chamado de \gls{hltringer}, foi planejado para operar no
+\acrlong{l2} como uma alternativa ao \gls{t2calo}, o ambiente mais restritivo 
+em questões de tempo. Ao invés de gerar diversas variáveis de interpretação física 
+para a compreensão da interação da partícula com o calorímetro, como os já
+citados: \gls{eratio}, \gls{reta} e \gls{Rhad1}; o algoritmo utiliza a informação anelada
+de calorimetria como o seu \gls{fex} (Tópico~\ref{sssec:anelamento}) 
+e um processo de discriminação para o seu \gls{hypo}. Qualquer método estatístico 
+pode ser aplicado para realizar o processo de discriminação. 
+Em partícular, os estudos deste trabalho utilizaram \gls{rna}
+(Tópico~\ref{sssec:rna}), pois resultados anteriores indicam melhor perfomance.
 
-% Pre-processamento: normalizacao, ica etc
+Diversas técnicas de pré-processamento podem ser combinadas com redes neurais de
+forma a melhorar a sua eficiência de discriminação. Estudos anteriores
+\cite{tese_eduardo,tese_torres} utilizaram métodos como \gls{ica}, \gls{pca},
+\gls{nlica}, \gls{som} e \gls{pcd}, obtendo resultados ainda melhores que uma
+abordagem utilizando diretamente \gls{rna}. Ainda, um caso especial de pré-processamento 
+de dados, necessaria quando utilizando redes neurais, é a normalização dos dados. Esse 
+pré-processamento ajusta o alcânce de energia dos anéis ao alcânce dinâmico das
+\gls{rna}. Uma grande gama de métodos de normalização são utilizados, podendo
+gerar alterações no espaço de representação de anéis, de forma que a
+interpretação da nova representação pode ter uma melhor, ou pior, interpretação
+pela \gls{rna}. As normalizações testadas para otimizar a eficiência do
+\gls{hltringer} estão explicadas no Tópico~\ref{sssec:preproc_norm}.
+
+
+\subsubsection{O processo de anelamento}
+\label{sssec:anelamento}
+
+O processo de anelamento, esboçado na Figura~\ref{fig:cons_aneis}, é realizado
+para todas as camadas do Sistema de Calorimetria do \gls{atlas}. Como foi dito,
+no \gls{l2} a semente utilizada para a construção do aglomerado é a célula mais quente  -- ou a célula mais
+energética -- da segunda camada \gls{em} na \gls{roi} estudada gerada a partir da posição 
+fornecida pelo \gls{l1}. No \gls{hltringer}, ao invés da construção do
+aglomerado, essa célula será o centro dos anéis e sua energia será a informação
+contida no anel central. Os anéis posteriores contêm a soma da energia das células adjacentes
+exteriores ao anel anterior, por exemplo, no caso do segundo anel, as células imediatamente
+exteriores a célula quente. Esse processo irá se repetir até que uma região pré-determinada seja
+completamente preenchida, no caso o valor atual utilizado é de $0,4\times0,4$ em
+$\Delta\eta\times\Delta\phi$ centrados na semente. Nas outras camadas a posição da
+semente é utilizada para encontrar a célula central e o processo é repetido, até
+que a mesma região seja preenchida, entretanto, como a granularidade das células
+do calorímetro variam conforme a segmentação longitudinal, o número anéis variam
+conforme a camada em questão. Como o \gls{l2} calcula
+um novo centro, anéis podem necessitar de células exteriores a \gls{roi}, essas não
+estando disponíveis para o \gls{l2}, de forma que nem todos os anéis seram
+completamente fechados, sendo assim o conceito de anéis abstrato. No caso de
+nenhuma célula estiver disponível para um dado anel, é então atribuido valor
+nulo ao mesmo para garantir que o processo complete o número necessário para o
+preenchimento da região. Um total de 100 anéis foram especificados inicialmente,
+divididos conforme as camadas da maneira indicada na Figura~\ref{fig:cons_aneis}, 
+onde a quantidade de anéis é proporcional a granularidade de cada camada.
+
+
+\begin{figure}[p]
+\label{fig:cons_aneis}
+\centering
+\includegraphics[height=0.9\textheight]{imagens/cons_aneis.pdf}
+\caption[Diagrama do processo de construção dos anéis.]
+{Diagrama do processo de construção dos anéis. Extraído de \cite{tese_eduardo}.}
+\end{figure}
+
+
+\begin{figure}[ht!]
+\label{fig:perfil_aneis}
+\centering
+\includegraphics[width=0.9\textwidth]{imagens/segunda_camada_celulas.pdf}
+\caption[Perfil dos anéis na segunda camada para elétrons e jatos.]{Perfil dos
+anéis na segunda camada para elétrons e jatos. Extraído de \cite{tese_eduardo}.}
+\end{figure}
+
+Esse processo reduz a quantidade de informação a ser analisada no calorímetro ao
+agrupar diversas células em uma única informação, mas, ao mesmo tempo, mantêm a interpretação 
+física da propagação do chuveiro, como a sua espessura
+lateral e profundidade longitudinal. Ainda, o número total de anéis a serem
+propagados para o método de discriminação pode ser reduzido através de estudo
+com quantidade elevada de estatística do processo. Entretanto, deve-se enfatizar
+que a redução de informação é utilizada para se referir a compactação da
+informação das células do calorímetro nos anéis, não podendo ser utilizado quando se comparando 
+com a ordem de informação armazenada nas variáveis físicas, que se resumem a cerca de 5 variáveis.
+
+\subsubsection{Normalização}
+\label{sssec:preproc_norm}
+
+Neste tópico estão as descrições das normalizações testadas para a otimização do
+\gls{hltringer}. Foram utilizadas normalizações presentes na literatura
+utilizando tratamento estatístico dos dados, como a Esferização, MinMax, 
+adicionadas de normalizações que fazem mão do conhecimento da topologia dos calorímetros, 
+sua segmentação longitudinal e das diferenças entre os chuveiros \gls{em} e \gls{had}, 
+buscando realçar suas características, citando entre elas a normalização
+sequencial.
+
+\paragraph{Energia Total (Norma 1)}
+\label{par:norm_norm1}
+
+Neste modo de normalização, também chamado de Norma~1, cada um dos anéis ($r$) produzidos é normalizado pela energia total 
+(considerando-se todas as camadas) contida em uma região de $0,4 \times 0,4$ em 
+$\eta \times \phi$ do evento fazendo-se
+
+\begin{equation}
+r_{i}' = \frac{r_i}{\overset{N}{\underset{j=1}{\sum}} r_j}~~\forall~~i=1,2,3,...,N
+\end{equation}
+
+\noindent onde $N$ é o número de anéis produzidos, considerando todas as camadas (i.e. 100). 
+O objetivo desta normalização é reduzir a influência da energia de cada evento nas análises, 
+mantendo, ainda assim, a proporção de energia contida em cada anel.
+
+
+\paragraph{Energia da Camada}
+\label{par:norm_camada}
+
+Neste modo de normalização, os anéis ($r_c$) produzidos na c-ésima camada (PS, EM1, HD1, etc.) 
+são normalizados pela energia contida na camada, em uma região de $0,4 \times 0,4$ em $\eta 
+\times \phi$, fazendo-se
+
+\begin{equation}
+r_{c_{i}}' = \frac{r_{c_{i}}}{\overset{N_c}{\underset{j=1}{\sum}} r_{c_j}}~~\forall~~i=1,2,3,...,N_c
+\end{equation}
+
+\noindent onde $N_c$ é o número de anéis produzidos na c-ésima camada. Neste modo de normalização, 
+objetiva-se equiparar, do ponto de vista energético, a informação contida em cada camada.
+
+
+\paragraph{Energia da Seção}
+\label{par:norm_secao}
+
+Neste modo de normalização, os anéis ($r_s$) produzidos na s-ésima seção (eletromagnética 
+ou hadrônica) são normalizados pela energia contida na seção, em uma região de $0,4 \times 0,4$ 
+em $\eta \times \phi$, fazendo-se
+
+\begin{equation}
+r_{s_{i}}' = \frac{r_{s_{i}}}{\underset{j=1}{\overset{N_s}{ \sum}} r_{s_{j}}}~~\forall~~i=1,2,3,...,N_s
+\end{equation}
+
+\noindent onde $N_s$ é o número de anéis produzidos na s-ésima seção. Neste modo de normalização, 
+objetiva-se equiparar, do ponto de vista energético, a informação contida em cada seção.
+
+
+\paragraph{Sequencial}
+\label{par:norm_seq}
+
+Esta técnica de normalização visa amplificar as diferenças no perfil lateral dos chuveiros produzidos. 
+Nesta técnica, os anéis ($r_c$) produzidos na c-ésima camada são normalizados fazendo-se
+
+\begin{equation}
+\label{eq:normalizacao_sequencial}
+r_{c_{i}}' = \frac{r_{c_{i}}}{ E_{tot_{c}} - \underset{j=1}{\overset{i-1}{\sum}} r_{c_{j}} }
+\end{equation}
+
+\noindent onde $E_{tot_{c}}$ é a energia total da c-ésima camada. Esta normalização pode ser interpretada 
+como uma otimização da normalização por energia da camada, amplificando a contribuição dos anéis mais 
+externos ao centro da RoI, através da aplicação de fatores de normalização sucessivamente menores. Para 
+evitar a amplificação de anéis contendo apenas ruído, quando o fator de normalização fica menor do que 
+um dado limiar  ($E_{stop} = 100$~MeV), todos os anéis restantes passam a ser normalizados pela energia 
+total da camada ($E_{tot_{c}}$). Adicionalmente, para evitar que camadas contendo apenas ruído sejam 
+normalizadas, caso $E_{tot_{c}}$ fique abaixo de um dado limiar ($E_{thres} = 0,01$~MeV), nenhuma 
+normalização é aplicada para a camada em questão.
+
+
+\paragraph{Norma 2}
+\label{par:norm2}
+
+Cada anel foi normalizado por
+
+\begin{equation}
+r_{i}' = \frac{r_i}{||\mathbf{r}||}~~\forall~~i=1,2,3,...,N
+\end{equation}
+
+\noindent onde $||\mathbf{r}||$ é a norma 2 dos N anéis produzidos.
+
+
+%\paragraph{Energia Transversa}
+%\label{par:norm2}
+%
+%Cada anel foi normalizado por
+%
+%\begin{equation}
+%r_{i}' = \frac{r_i}{E_T}~~\forall~~i=1,2,3,...,N
+%\end{equation}
+%
+%\noindent onde $E_T$ é a energia transversa da RoI.
+
+
+\paragraph{Esferização dos Anéis}
+
+Cada anel foi normalizado por
+
+\begin{equation}
+r_{i}' = \frac{r_i - \bar{r_i}}{\sigma_{r_i }}~~\forall~~i=1,2,3,...,N
+\end{equation}
+
+\noindent onde $\bar{r_i}$ e $\sigma_{r_i }$ são, respectivamente, a média e o desvio 
+padrão do i-ésimo anel. 
+
+
+\subsubsection{Discriminação com Redes Neurais Artificiais}
+\label{sssec:rna}
+
+Após a extração dos anéis pode-se utilizar uma abordagem não-segmentada, na qual
+se concatena os anéis e o propaga então para uma única \gls{rna} discriminadora,
+ou então uma abordagem segmentada, onde cada camada longitudinal do Sistema de
+Calorimetria é propagada para uma \gls{rna} 
+
+\begin{figure}[ht!]
+\label{fig:tipo_class}
+\centering
+\subfigure[]{
+    \label{fig:class_nseg}
+    \includegraphics[width=0.5\textwidth]{imagens/classificacao_nao_segmentada.pdf}
+}\\
+\subfigure[]{%
+    \label{fig:class_seg}
+    \includegraphics[width=0.7\textwidth]{imagens/classificacao_segmentada.pdf}
+}
+\caption[Abordagens de Discriminação.]{Abordagem de discriminação não-segmentada
+em~\ref{fig:class_nseg} e segmentada em~\ref{fig:class_nseg}. Extraído de 
+\cite{tese_eduardo}.}
+\end{figure}
 
 \section{O Sistema de Reconstrução (SR)}
 \label{sec:sr}
