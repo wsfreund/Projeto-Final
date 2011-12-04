@@ -322,7 +322,7 @@ ainda não verificada experimentalmente e sua busca é de máxima importância p
 a Física de Partículas. Diferente dos outros bóssoms, o
 bóssom de Higgs teria rotação nula \cite{Intro_Nuclear}.
 
-Este trabalho propõe um algoritmo para otimizar a perfomance de deteção de
+Este trabalho propõe um algoritmo para otimizar a perfomance de detecção de
 elétrons, pósitrons e fótons, partículas que são estados finais em alguns canais de
 decaimento no qual se esperam descobrir o bóssom de Higgs, inclusive o mais promissor
 deles, $H\rightarrow ZZ^*\rightarrow 4l$. 
@@ -791,7 +791,7 @@ Ainda que não seja o objetivo do trabalho, um breve resumo da cinemática
 relativística envolvida nas interações de partículas ajudará a entender algumas
 das variáveis comumente utilizadas. 
 Como o trabalho está englobado no experimento \gls{atlas}, irá se considerar o 
-eixe de coordenadas adotado para o \gls{ip}1, ponto de inserção do mesmo. 
+eixo de coordenadas adotado para o \gls{ip}1, ponto de inserção do mesmo. 
 
 \newacronym[type=Simb]{theta}{\ensuremath{\theta}}{ângulo polar} 
 \newacronym[type=Simb]{phi}{\ensuremath{\phi}}{ângulo azimutal} 
@@ -914,19 +914,18 @@ Tão importante quanto obter altas energias, é obter alta
 de partículas no ponto de colisão, parâmetro similar a \gls{densI} 
 utilizado na engenharia elétrica. A luminosidade, de maneira
 simplificada, pode ser definida por
-\ref{eq:luminosidade}. Nela a \gls{f} de cruzamento entre feixes
-é de 40 MHz, $n$ é o número de feixes, 
-$N_i$ equivale ao número de prótons em
-cada pacote, correspondentes a $1.5\times10^{11}$ no início de uma
-temporada\footnote{Traduzido do inglês \emph{run}.} de colisão nominal, e,
-finalmente, o termo A é a área dada pela seção transversal do feixe, 
-de 64 microns (aproximadamente um fio de cabelo) no ponto de colisão
-\cite{webLHC}. No \gls{lhc}, serão atingidos nos experimentos de maior luminosidade 
-valores de $10^{34}cm^{-2}s^{-1}$.
+\ref{eq:luminosidade}. Nela a \gls{fcmed} é de 31,6 MHz, $n$ é o número de feixes, 
+$N_i$ equivale ao número de prótons em cada pacote, correspondentes a $1.5\times10^{11}$ 
+no início de uma temporada\footnote{Traduzido do inglês \emph{run}.} de colisão nominal, e,
+finalmente, o termo A é a área dada pela seção transversal do feixe, que varia
+conforme os experimentos, sendo de 64 microns (aproximadamente um fio de cabelo) 
+no ponto de colisão dos experimentos de maior luminosidade \cite{webLHC}. 
+Esses valores levam a valores de luminosidade na ordem de
+$10^{34}cm^{-2}s^{-1}$.
 
 
 \begin{equation} \label{eq:luminosidade}
-\gls{lum}=fn\frac{N_1 N_2}{A}
+\gls{lum}=\gls{fcmed}n\frac{N_1 N_2}{A}
 \end{equation}
 
 \begin{equation}
@@ -1051,8 +1050,8 @@ hadrônicos com maiores \gls{pl} e baixos \gls{pt}.
 \newacronym[type=Simb]{bjorkenx}{\ensuremath{\hat{x}}}{Bjorken x} 
 
 A região de \gls{eta} para a produção de novas partículas pelas colisões
-rígidas está limitada de acordo com a massa das mesmas
-(M) e a energia da colisão ($\sqrt{s}$). A variável \gls{bjorkenx} representa a
+rígidas está limitada de acordo com a \gls{massa} das mesmas
+e a energia da colisão ($\sqrt{s}$). A variável \gls{bjorkenx} representa a
 fração de energia do hádron carregada por um párton. Sabendo a energia da colisão entre os
 hádrons, pode-se estimar a energia da colisão elementar ($\sqrt{s_{elem}}$)
 através de \ref{eq:s_elem}. Assim, a relação \ref{eq:cin_cov} contêm $\gls{y}_{max}$
@@ -1071,7 +1070,7 @@ possível.
 \sqrt{s_{elem}} = \hat{x_1} \hat{x_2} \sqrt{s}
 \end{equation}
 \begin{equation}\label{eq:cin_cov}
-y_{max} \longmapsto \log\left( \frac{\sqrt{s_{elem}}}{M}\right)
+y_{max} \longmapsto \log\left( \frac{\sqrt{s_{elem}}}{m}\right)
 \end{equation}
 
 
@@ -1495,11 +1494,11 @@ cada um dos detectores é fornecido na Tabela~\ref{tab:info_id}.
 ($\mu$m)} & \textbf{Canais ($10^6$)} & \textbf{Cobertura em $|\eta|$} \\
 \hline
 \hline
-Pixeis & 1 camada removível no barril (camada B) & 0,2 & R$\phi$ = 12, z = 66 & 16
+Pixeis & 1 camada removível no barril (Camada B) & 0,2 & R$\phi$ = 12, z = 66 & 16
 & $\leq 2,5$ \\
 & 2 camadas no barril & 1,4 & R$\phi$ = 12, z = 66 & 81 
 & $\leq 1,7$ \\
-& 4 discos nas tampas de cada lado & 0,7 & R$\phi$ = 12, R = 77 & 43 
+& 3 discos nas tampas de cada lado & 0,7 & R$\phi$ = 12, R = 77 & 43 
 & $1,7-2,5$ \\
 \hline
 SCT & 4 camadas no barril & 34,4 & R$\phi$ = 16, z = 580 & 3,2
@@ -1518,8 +1517,7 @@ TRT & Canudos axiais no barril &  & 170 (por canudo) & 0,1
 \caption[Parâmetros do ID]
 {Parâmetros do ID. As resoluções estão citadas em valores típicos (a
 resolução verdadeira em cada detector depende do ângulo de impacto). Adaptado de
-\cite{ATLAS_TDR}. O número de tampas de pixeis foi corrigida com base em
-\cite{pixel,inner_tdr1}.}
+\cite{ATLAS_TDR}.}
 \label{tab:info_id}
 \end{table}
 
@@ -1820,7 +1818,7 @@ Eletromagnéticos]{emec}{EMEC}{Tampa do Calorímetro Eletromagnético}
 \newacronym[type=Abrev]{fcal}{FCal}{Calorímetro Dianteiro}
 \newacronym[type=Abrev]{ps}{PS}{Calorímetro Pré-Amostrador}
 
-O sistema de calorimetria \cite{cal_tdr,ecal_tdr,hcal_tdr} do \gls{atlas}, retratados na
+O Sistema de Calorimetria \cite{cal_tdr,ecal_tdr,hcal_tdr} do \gls{atlas}, retratado na
 Figura~\ref{fig:cal_atlas}, consistem de calorímetros de amostragem com 
 simetria e cobertura total em \gls{phi}.
 
@@ -1850,7 +1848,7 @@ e ao \gls{hcal} com suas segunda e terceira camadas.
 
 Para todas as regiões de transição entre calorímetros citadas 
 há a extensão dos mesmos de modo que haja sobreposição, 
-de modo a se evitar a queda súbita de material \cite{paper_atlas}. 
+com o objetivo de evitar a queda súbita de material \cite{paper_atlas}. 
 
 A segmentação, granularidade e número de canais (um total de $\sim190.000$) 
 em cada um dos calorímetros está contida
@@ -2022,14 +2020,18 @@ Figura~\ref{fig:cal_lar_camadas}, com as seguintes propriedades:
 \centering
 \includegraphics[width=.6\textwidth]{imagens/cal_lar_camadas.pdf}
 \caption[Esboço da estrutura do acordeão e a granularidade de suas camadas para
-o barril do EMB]{Esboço da estrutura de acordeão e a granularidade de suas camadas para
+o EMB]{Esboço da estrutura de acordeão e a granularidade de suas camadas para
 $|\eta|=0$ do EMB. A quantidade de $X_0$ típicos para cada uma das camadas também são
 mostrados. Extraído de \cite{cal_tdr}.}
 \label{fig:cal_lar_camadas}
 \end{figure}
 
+\newacronym[type=Abrev]{e1}{E1}{Primeira Camada do ECAL, ou Camada de Tiras/\emph{Strips}}
+\newacronym[type=Abrev]{e2}{E2}{Segunda Camada do ECAL, ou Camada Central/\emph{Middle}}
+\newacronym[type=Abrev]{e3}{E3}{Terceira Camada do ECAL, ou Camada Trazeira/\emph{Back}}
+
 \begin{itemize}
-\item \textbf{Camada de Tiras (\emph{Strips})}: a primeira camada é composta por tiras
+\item \textbf{\gls{e1}}: a primeira camada é composta por tiras
 finas com grande granularidade em \gls{eta}, tendo como objetivo fazer uma
 boa leitura dessa posição. Isso é especialmente importante no caso de fótons,
 que não são medidos pelo detector de traços, e ao mesmo tempo para casar os
@@ -2043,13 +2045,13 @@ $\pi^0\rightarrow\gamma\gamma$ em regiões próximas do calorímetro. Para que s
 possível fazer a separação $\gamma/\pi^0$ é necessário granularidade de
 poucos milímetros, uma vez que só assim será possível fazer a distinção dos dois
 fótons do decaimento de um fóton "legítimo". 
-\item \textbf{Camada Central (\emph{Middle})}: a segunda camada é responsável pela
+\item \textbf{\gls{e2}}: a segunda camada é responsável pela
 absorção da maior quantidade de energia. Ela é segmentada transversalmente em
 torres quadradas de $(\Delta\eta\times\Delta\phi)\approx(0,025\times0,025)$, que
 permitem um compromisso ótimo entre a contenção do perfil lateral do chuveiro
 com a contribuição do ruído por Empilhamento e eletrônico para a medição de
 energia.
-\item \textbf{Camada Traseira (\emph{Back})}: a terceira camada tem a mesma
+\item \textbf{\gls{e3}}: a terceira camada tem a mesma
 granularidade que a central em \gls{phi}, mas sua granularidade é duas vezes mais grosseira
 em \gls{eta}. Ela é utilizada para separar chuveiros de altas energias, e
 contribui para a separação de $\gamma/$jato e elétron/jato. No caso da tampa
@@ -2090,6 +2092,10 @@ calorímetro.
 
 \newacronym[type=Abrev,\glslongpluralkey={Multiplicadores de Fótons}]{pmt}{PMT}{Multiplicador de Fótons}
 
+\newacronym[type=Abrev]{h0}{H0}{Primeira Camada do HCAL}
+\newacronym[type=Abrev]{h1}{H1}{Segunda Camada HCAL}
+\newacronym[type=Abrev]{h2}{H2}{Terceira Camada HCAL}
+
 No barril do \gls{hcal}, chamado de \gls{tilecal}, o meio de amostragem se consiste de telhas de
 cintiladores de plástico e seu material passivo é o aço (o \gls{lambdaint} é
 aproximadamente igual ao do chumbo, cerca de $16,8$ cm\fnref{fn:comp_rad_nucl}), Figura~\ref{fig:estr_tilecal}. 
@@ -2106,7 +2112,8 @@ sendo possível utilizar um método com menor custo financeiro.
 O \gls{tilecal} é segmentado longitudinalmente para garantir melhor identificação
 das partículas, e pela possibilidade de conseguir uma melhor resolução de
 energia através da calibração realizada pela ponderação do depósito em cada um
-das camadas. São utilizadas três camadas para esse propósito.
+das camadas. São utilizadas três camadas para esse propósito: \gls{h0}, \gls{h1} 
+e \gls{h2}.
 
 A resolução de energia do calorímetro necessária para fazer a medição dos
 diversos jatos e hádrons gerados nas colisões e dos jatos duplos provenientes 
@@ -2156,6 +2163,11 @@ Os requisitos de linearidade e de resolução de energia devem atender aqueles
 especificados para o \gls{tilecal}. Ainda, um tempo de pico de sinal
 de $\sim40$ ns deve ser atendido pelo \gls{lar}. O número de \gls{lambdaint} da
 \gls{hec} em função de $\gls{eta}$ estão na Figura~\ref{fig:cal_had_lambda}.
+
+Diferente do barril, a tampa do \gls{hec}
+possui 4 camadas, mas normalmente as duas camadas centrais são agrupadas em uma
+única camada, de forma a manter a uniformidade de segmentação longitudinal do
+\gls{hcal}.
 
 \paragraph{Calorímetro Dianteiro (FCal)}
 \label{par:cal_fcal}

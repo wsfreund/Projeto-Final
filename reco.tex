@@ -10,7 +10,7 @@ Calorímetro no Segundo Nível de Filtragem}
 A alta energia e luminosidade do \gls{lhc} (Seção~\ref{sec:lhc}) oferecem um alto alcance para
 explorar física, desde a medição precisa de propriedades de objetos conhecidos, a
 ultrapassar a fronteira de energias onde a física ainda não havia sido experimentada.
-Por ser um detector de propósito geral, o \gls{atlas} (Seção~\ref{sec:ATLAS}), deve ser capaz de
+Por ser um detector de propósito geral, o \gls{atlas} (Seção~\ref{sec:ATLAS}) deve ser capaz de
 explorar diversos dos objetivos do \gls{lhc} (Subseção~\ref{ssec:obj_lhc}), e
 para isso ele precisar ter a capacidade de explorar um largo espectro de assinaturas
 físicas. Esse fato guiou a otimização do projeto do \gls{atlas}, dando as especificações de sensibilidade e precisão do
@@ -50,9 +50,9 @@ traços isolados apontando para o chuveiro. Os sabores pesados procuram
 assinaturas de mésons pesados, que geralmente decaem a menos de 1 mm do ponto de
 colisão, sendo necessário criar um vértice secundário que será identificado com
 a alta precisão do Detector de Pixel. Finalmente, léptons neutrinos escapam da
-deteção, para sua assinatura é utilizada a propriedade de conservação de
+detecção, para sua assinatura é utilizada a propriedade de conservação de
 \gls{pt}, de modo que, quando há quantidade suficiente de \gls{ptmiss}, há indicios
-de que algo escapou do processo de deteção.
+de que algo escapou do processo de detecção.
 
 Os algoritmos são implementados em dois ambientes diferentes, um ambiente mais
 restrito, necessário devido ao alto nível de ruído físico gerado nas condições 
@@ -72,7 +72,6 @@ necessário a implementação (Tópico~\ref{sssec:egringer_impl}) de uma versão
 de \glsdesc{sr} (Subseção~\ref{ssec:egringer}) para que os físicos o utilizassem nas suas 
 análises a posteriori. A versão padrão (Subseção~\ref{ssec:egamma}) utilizada
 pelos físicos também foi abordada.
-
 
 \section{Busca pelo bóssom de Higgs}
 \label{sec:busca_higgs}
@@ -121,7 +120,7 @@ onde $jj$ representa o decaimento em jatos duplos;
 
 
 Nesse estudo se utilizou simulações
-de Monte Carlo do \emph{Pythia}, através da significância desses 
+de \gls{mc} do \emph{Pythia}, através da significância desses 
 canais numa região de 80-1000 GeV/$c^2$ (lembrando que na época só havia sido excluído
 o bóssom de Higgs para \gls{mh} < 95,2), utilizando os valores de resposta dos
 subdectores, resolução e capacidade esperadas de identificação de sinais e rejeição 
@@ -160,7 +159,7 @@ seus canais e alcances em massa,~\ref{fig:higgs_branch_ratio}, e os seus valores
 repectivas massas,~\ref{fig:higgs_production}, ambos extraídas de \cite{lhc_higgs_group}. 
 Em \ref{fig:higgs_sim_atlas} está uma simulação da significancia dos possíveis canais de decaimento do
 bóssom de Higgs, explorados pelo ATLAS, para uma luminosidade integrada de
-$100fb^{-1}$, utilizando as eficiências esperadas para a deteção das
+$100fb^{-1}$, utilizando as eficiências esperadas para a detecção das
 assinaturas dos estados finais e resoluções dos subdetectores, extraído de
 \cite{ATLAS_TDR2}.}
 \end{figure}
@@ -262,7 +261,8 @@ gera cerca de 19 colisões inelásticas para cada cruzamento entre
 feixes, que irão se cruzar numa frequência máxima de 40 MHz. O propósito do
 \gls{sf} \cite{trigger_perf_2010,trigger_tdr} é de reduzir essa taxa a cerca
 de 200 Hz para seu armazenamento e processamento a posteriori. Esse
-limite, correspondendo uma média de $\sim$300 MB/s, é determinado pelos recursos
+limite, correspondendo uma média de $\sim$300 MB/s ($\sim$ 1,5 MB por evento de
+cruzamento entre pacotes), é determinado pelos recursos
 computacionais para armazenamento e processamento dos dados. É possível gravar
 dados com taxas relativamentes mais altas por períodos mais curtos, como foi
 realizado durante 2010 quando a física foi beneficiada utilizando taxas de saída
@@ -327,13 +327,16 @@ no \gls{l2}.
 
 Os eventos de dados selecionados pelo \gls{sf} são escritos nos fluxos de dados
 inclusivos, baseados no canal de filtragem. Existem quatro canais de dados
-primários: Egamma, Muons, JetTauEtMiss, Minbias, adicionados de diversos canais
-de calibração. Cerca de 10\% dos eventos são escritos para um canal expresso
-aonde a reconstrução pronta dos eventos é realizada, como foi dito na
+primários, cada um com uma banda pré-determinada (taxa em Hz utilizada na
+luminosidade de $10^{32}cm^{-2}s^{1}$): Egamma (50),
+Muons (50), JetTauEtMiss (65), Minbias (10), adicionados de diversos canais
+de calibração (13). Cerca de 10\% dos eventos são escritos 
+para um canal expresso aonde a reconstrução pronta dos eventos é realizada, como foi dito na
 Subseção~\ref{ssec:lcg}. Ainda, além da gravação de evnetos completos em um
 canal, é possível escrever informação parcial de um ou mais subdetectores em um
 canal, o que é normalmente realizado para a calibração do detector nos canais
 destinados a esse propósito.
+
 
 \subsection{Topologia dos algoritmos e sua configuração}
 \label{ssec:alg_topo}
@@ -347,9 +350,9 @@ A configuração do \gls{sf} é realizada por um \emph{menu}, que define as
 \emph{cadeias} de filtragem que especificam uma sequência de passos de reconstrução e
 seleção para as especificas assinaturas de filtragems requeridas pela filtragem.
 A cadeia de filtragem de elétrons é ilustrada na Figura~\ref{fig:electron_chain}.
-Cada \emph{cadeia} é composta por \gls{fex} que criam objetos,
+Cada \emph{cadeia} é composta pelo \gls{fex} que criam objetos,
 como os aglomerados de células e variáveis que permitam obter uma informação
-sobre a descrição do evento, e \gls{hypo} que fazem a discriminação através dos
+sobre a descrição do evento, e pelo \gls{hypo} que fazem a discriminação através dos
 critérios de seleção nos objetos gerados, como por exemplo a exigência de um
 $\gls{pt} > 20$ GeV. As extrações de características realizadas por uma
 \emph{cadeia} podem ser reutilizadas por outro cadeia, reduzindo tanto o acesso
@@ -397,7 +400,7 @@ refere-se a toda a \emph{cadeia}.
 O controle das taxas de filtragem podem ser realizadas mudando os limiares ou
 aplicando outros valores de seleção. A seletividade de um grupo de cortes
 aplicados para um certo objeto de filtragem é representado pelos termos
-\emph{Loose} (frouxo), \emph{Medium} (mediano), \emph{Tight} (apertado). Esses
+\emph{Loose} (relaxado), \emph{Medium} (mediano), \emph{Tight} (apertado). Esses
 critérios de seleção são colocados como sufixos ao nome do filtro, por exemplo,
 e10\_medium. Requerimentos adicionais como isolamento, podem ser adicionados
 para reduzir as taxas dos filtros. O isolamento mede a quantidade de energia, ou
@@ -421,7 +424,7 @@ seletividades mais baixas e limiar mais baixo de \gls{Et} \emph{pré-escalados}
 para permitir sua gravação em disco, uma vez que a quantidade de dados que
 passam esse filtro será maior;
 \item \textbf{Filtros de Monitoração e Calibração}: permitindo a coleta de dados
-para garantir a operação correta do \gls{sf} e dos subdetetores do \gls{atlas},
+para garantir a operação correta do \gls{sf} e dos subdetectores do \gls{atlas},
 incluindo a calibração dos mesmos. 
 \end{enumerate}
 
@@ -444,7 +447,9 @@ no detector e raios cósmicos, ou até mesmo configurações mais inusitadas, co
 exigindo pacotes desparelhados separados por no mínimo 75 ns de quaisquer outro 
 pacote no feixe oposto.
 
-\subsection{Algoritmos Padrões da \emph{Cadeia} de Filtragem de Elétrons e Fótons}
+
+
+\subsection[Algoritmos Padrões da \emph{Cadeia} de Filtragem de eGamma]{Algoritmos Padrões da \emph{Cadeia} de Filtragem de $e/\gamma$}
 \label{ssec:cadeia_egamma}
 
 \newacronym[type=Abrev,\glslongpluralkey={Torres de Filtragem}]
@@ -466,13 +471,13 @@ células identificados como \emph{clusters} na literatura em inglês.} \gls{eg} 
 utilizando granularidade reduzida, as chamadas \glspl{tt}, que cobrem uma região
 de aproximadamente $\Delta\eta\times\Delta\phi\approx0,1\times0,1$, 
 a Figura~\ref{fig:cal_lar_camadas} contem um esboço da \gls{tt} para o
-barril do calorimetro \gls{em}. A vantagem de se utilizar \glspl{tt} se deve ao
+\gls{emb}. A vantagem de se utilizar \glspl{tt} se deve ao
 fato de reduzir a quantidade de fluxo de informação, reduzindo o custo e
 complexidade do sistema, e, ao mesmo tempo, conter o chuveiro \gls{em} inteiramente 
 em cerca de uma ou duas dessas torres, podendo
 assim identificar a região em que foi formado o chuveiro não prejudicando a sua
-eficiência. Para cada \gls{tt}, as células do calorímetro \gls{em} e \gls{had} são somadas, com a
-excessão da quarta camada da tampa do calorímetro \gls{had} e dos cintiladores.
+eficiência. Para cada \gls{tt}, as células do \gls{ecal} e \gls{hcal} são somadas, com a
+excessão da quarta camada do \gls{hec} e dos cintiladores.
 Um algoritmo de janela deslizante formada por uma dimensão de $4\times4$
 \gls{tt}, ilustrada na Figura~\ref{fig:sliding_window_l1}, 
 busca pela região com a melhor deposição de energia do chuveiro por
@@ -529,16 +534,18 @@ reconstrução do calorímetro trabalha de maneira semelhante aos algoritmos do
 Algumas diferenças entre o algoritmo do \gls{l2} e o \gls{sr} se dão as
 limitações no tempo de latência. O algoritmo de reconstrução do aglomerado de
 células do calorímetro no \gls{l2} começa utilizando a célula mais energética da
-segunda camada \gls{em} dentro da região central de $0,2 \times 0,2$, enquanto o
+\gls{e2} dentro da região central de $0,2 \times 0,2$, enquanto o
 algoritmo de análise a posteriori utiliza uma janela deslizante para encontrar
 sua semente.
 
 No \gls{l2}, o tamanho do aglomerado é fixado para $3
 \times 7$ células em $\gls{eta} \times \gls{phi}$ para o barril ($|\gls{eta}|<1,5$) e 
-$5 \times 5$ na tampa ($1,5<|\gls{eta}|<2,5$). O
-algoritmo a posteriori contêm tamanhos de aglomerados diferentes, usando
-$3\times5$ e $3\times7$ para fótons não convertidos e convertidos,
-respectivamente, em $|\gls{eta}|<1,5$, e $5\times5$ até $|\gls{eta}|<2,5$.
+$5 \times 5$ na tampa ($1,5<|\gls{eta}|<2,5$). O algoritmo a posteriori possui
+tamanhos diferentes dependendo do tipo de partícula e se a incidência foi no
+barril ou na tampa. No caso de incidência no barril, elétrons são reconstruídos
+através de aglomerados com $3\times7$ torres; fótons $3\times5$, 
+e fótons convertidos em elétrons, $3\times7$. Na tampa todos os aglomerados 
+são de $5\times5$.
 
 As energias das células podem ser corrigidas na análise a posteriori, para
 problemas transientes no \emph{hardware}, como falhas de energia, etc., o que não
@@ -546,19 +553,25 @@ pode ser realizado em tempo real, o que se aplica para tanto o \gls{l2} e
 \gls{ef}. Para a reconstrução de traços no \gls{l2}, um rápido reconhecimento de
 padrões é utilizado ao se determinar primeiro a posição z de interação ao longo
 do eixo do feixe e então realizando a combinação de pontos do traço apenas para o grupo
-de pontos que apontam para a posição determinada.
+de pontos que apontam para a posição determinada. O traço com a menor distância
+$\Delta R$, definida por \ref{eq:dist_clust_traco}, será atribuido ao
+aglomerado e seus parâmetros utilizados pelo \gls{l2} para a discriminação.
+
+\begin{equation}\label{eq:dist_clust_traco}
+\Delta R = \sqrt{\Delta\eta^2+\Delta\phi^2}
+\end{equation}
 
 Como no \gls{sr}, a reconstrução do aglomerado no \gls{ef} é realizado
-utilizando um algoritmo de janela deslizante atuando nas torres contendo energia
-de toda a profundidade do calorímetro somada. Após encontrada
-a semente, um aglomerado é construido iniciando da segunda camada \gls{em},
+utilizando um algoritmo de janela deslizante que será
+explicado em \ref{ssec:egamma}. Basicamente, após encontrada
+a semente através do máximo local, um aglomerado é construido iniciando da \gls{e2},
 com o mesmo tamanho que aqueles descritos para o algoritmo a posteriori. O
 centro de distribuição de energia em \gls{eta} e \gls{phi} é calculado
-utilizando o aglomerado construido na segunda camada, e então o valor dessa
-posição é então propagado de forma a incluir as camadas faltantes. O algoritmo
+utilizando o aglomerado construido na \gls{e2}, e então o valor dessa
+posição é propagado de forma a incluir as camadas faltantes. O algoritmo
 de reconstrução de traços é feito como no algoritmo a posteriori, com uma
 combinaçao dos traços começando dos pontos dos Detectores de Silicone e
-\gls{trt}. 
+\gls{trt}.
 
 Os algoritmos de seleção são aplicados na reconstrução do
 \gls{l2} e no \gls{ef} com o objetivo de identificar bons candidatos a \gls{eg}
@@ -568,7 +581,7 @@ citadas entre os chuveiros \gls{em} e \gls{had} no
 Subtópico~\ref{par:cal_part_id}, como: a largura dos chuveiros, onde os \gls{em}
 devem ser mais estreitos; sua profundidade, no qual os \gls{had} são mais
 profundos que os \gls{em} para uma partícula de mesma energia e geralmente
-somente os \gls{had} deverão alcançar o calorímetro \gls{had}, ou deverão
+somente os \gls{had} deverão alcançar o \gls{hcal}, ou deverão
 depositar a maior parte de sua energia no calorímetro específico para a
 contenção de sua energia. Para elétrons, também se utiliza critérios de seleção 
 baseados em informação do traço e qualidade de casamento entre o aglomerado e o
@@ -585,7 +598,7 @@ algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}}
 algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
 \newacronym[type=Simb]{weta2}{\ensuremath{w_{\eta2}}}{Variável de corte dos
 algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
-\newacronym[type=Simb]{weta}{\ensuremath{w_{\eta}}}{Variável de corte dos
+\newacronym[type=Simb]{wstot}{\ensuremath{w_{stot}}}{Variável de corte dos
 algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
 \newacronym[type=Simb]{deta1}{\ensuremath{\Delta\eta_1}}{Variável de corte dos
 algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}} 
@@ -598,19 +611,19 @@ algoritmos \acrshort{eg} padrões. Ver tabela \ref{tab:cortes_em}}
 \glsunset{Rhad}
 \glsunset{eratio}
 \glsunset{reta}
-\glsunset{weta}
+\glsunset{wstot}
 \glsunset{weta2}
 \glsunset{deta1}
 \glsunset{dphi2}
 \glsunset{Ep}
 
-Os três conjuntos de referências citados em~\ref{ssec:alg_topo} são utilizados para 
+Os três conjuntos de requerimentos citados em~\ref{ssec:alg_topo} são utilizados para 
 seleção de partículas \gls{eg}. Eles são definidos ao se elevar a potência de rejeição 
 de ruído físico nos dados finais: \emph{Loose}, com menor seletividade, 
 evitando a perda de dados prematura, mas ao mesmo tempo elevando a taxa de dados 
 a serem gravados; \emph{Tight}, com grande seletividade, reduzindo o
 ruído físico e a taxa de dados, mas podendo haver perda de eventos de interesse;
-\emph{Medium}, que tenta conciliar a escolha da seletividade de forma
+\emph{Medium}, que concilia a escolha da seletividade de forma
 a reduzir a taxa de armazenamento ao mesmo tempo que evita a perda de eventos
 de forma prematura. As variáveis utilizadas no \gls{ef}, dispostas na
 Tabela~\ref{tab:cortes_em}, são as mesmas que as
@@ -642,13 +655,13 @@ não se aplicam para fótons, independente do algoritmo em questão.
 \hline
 \hline
 Vazamento Hadrônico & Razão de \gls{Et} da primeira camada \gls{had} com a
-depositada no calorímetro \gls{em} (usado para $|\gls{eta}|<0,8$ e
+depositada no \gls{ecal} (usado para $|\gls{eta}|<0,8$ e
 $|\gls{eta}|>1,37$). & \gls{Rhad1} \\
- & Razão de \gls{Et} da energia depositada no calorímetro \gls{had} com a
-depositada no calorímetro \gls{em} (usado para $|\gls{eta}|>0,8$ e
+ & Razão de \gls{Et} da energia depositada no \gls{hcal} com a
+depositada no \gls{ecal} (usado para $|\gls{eta}|>0,8$ e
 $|\gls{eta}|<1,37$). & \gls{Rhad} \\
 \hline
-Segunda camada do calorímetro \gls{em} & Razão em \gls{eta} entre a enegia contida nas
+\gls{e2} & Razão em \gls{eta} entre a enegia contida nas
 células numa região de $3\times7$ por uma região $7\times7$. & \acrshort{reta}\\
  & Largura lateral do chuveiro. & \gls{weta2} \\
 \hline
@@ -656,7 +669,7 @@ células numa região de $3\times7$ por uma região $7\times7$. & \acrshort{reta
  & \centering Cortes \emph{Medium} (Incluem o \emph{Loose}) & \\
 \hline
 \hline
-Primeira camada do calorímetro \gls{em} & Largura lateral total do chuveiro. & \gls{weta} \\
+\gls{e1} & Largura total do chuveiro. & \gls{wstot} \\
  & Diferença entre o primeiro e o segundo depósito de maiores
 energias normalizadas por sua soma. & \gls{eratio} \\
 \hline
@@ -671,7 +684,7 @@ Casamento de Traço & $\Delta\eta$ entre o aglomerado de células e traço (<0,0
  & \centering Cortes \emph{Tight} (Incluem o \emph{Medium}) & \\
 \hline
 \hline
-1 camada do Detector de Pixel (camada B) & Número de pontos na camada B
+Primeira Camada do Detector de Pixel (Camada B) & Número de pontos na camada B
 ($\ge1$).  & \\
 \hline
 Casamento de Traço & $\Delta\phi$ entre o aglomerado de células e traço
@@ -682,7 +695,7 @@ Casamento de Traço & $\Delta\phi$ entre o aglomerado de células e traço
 Qualidade do Traço & Parâmetro de impacto transvero mais restritivo (<~1 mm).  & \gls{d0} \\
 \hline
 \gls{trt} & Número de pontos no \gls{trt}. & \\
- & Razão entre o número de pontos de alta precisão com o número de pontos no
+ & Razão entre o número de pontos de alto limiar pelo número total de pontos para o
 \gls{trt}. & \\
 \hline
 Conversões & Candidatos a elétron provenientes de fótons convertidos são
@@ -698,10 +711,91 @@ e \emph{tight}, na região de $|\gls{eta}|<2,47$. Adaptado de \cite{expected_per
 \label{tab:cortes_em}
 \end{table}
 
-\subsection{HLT\_EgammaCaloRinger (Ringer\_HLT)}
+Cada uma dessas variáveis contribuem na discriminação de acordo com os critérios
+de corte utilizados. Na Figura~\ref{fig:cortes_egamma_padrao} estão dispostos a
+distribuição nas variáveis de corte dos algoritmos padrão utilizados na
+colaboração para dados de simulações de \gls{mc} separados nas seguintes 
+categorias \cite{expected_perf_2011}:
+
+\begin{itemize}
+\item Elétrons isolados: elétrons originados de decaimentos dos
+bóssoms W ou Z, ou outras partículas como o $\text{J}/\Psi$;
+\item Hádrons: os hádrons provenientes de
+jatos hadrônicos compondo ruído físico para o Canal \gls{eg};
+\item Elétrons não-isolados: elétrons
+provenientes de mésons-b(c). Elétrons não-isolados têm sua distribuição
+comprometida, uma vez que são formados por elétrons dentro de jatos;
+\item Elétrons constituintes de ruído: elétrons
+provenientes de decimentos \emph{Dalitz} ou provenientes de fótons. Os elétrons
+provenientes de fótons podem ser divididos dependendo da origem do fóton, por
+exemplo, o fóton pode ser gerado de um decaimento de um $\pi^0$, ou de um
+chuveiro \gls{em} de um elétron originados de um decaimento de um Z, ou da
+radiação de estado inicial ou final de um bóssom Z.
+\end{itemize}
+
+\begin{sidewaysfigure}[p]
+\centering
+        \subfigure[\protect\acrshort{Rhad1}.]{%
+            \label{fig:Rhad1}
+            \includegraphics[width=0.2\textwidth]{imagens/egamma_padrao/egamma_padrao_rhad1.pdf}
+        }
+        \subfigure[\protect\acrshort{weta2}.]{%
+            \label{fig:weta2}
+            \includegraphics[width=0.2\textwidth]{imagens/egamma_padrao/egamma_padrao_weta2.pdf}
+        }
+        \subfigure[\protect\acrshort{reta}.]{%
+            \label{fig:reta}
+            \includegraphics[width=0.2\textwidth]{imagens/egamma_padrao/egamma_padrao_reta.pdf}
+        }
+        \subfigure[\protect\acrshort{wstot}.]{%
+            \label{fig:wstot}
+            \includegraphics[width=0.2\textwidth]{imagens/egamma_padrao/egamma_padrao_wstot.pdf}
+        }\\
+        \subfigure[\protect\acrshort{eratio}.]{%
+            \label{fig:eratio}
+            \includegraphics[width=0.2\textwidth]{imagens/egamma_padrao/egamma_padrao_eratio.pdf}
+        }
+        \subfigure[\protect\acrshort{d0}.]{%
+            \label{fig:d0}
+            \includegraphics[width=0.2\textwidth]{imagens/egamma_padrao/egamma_padrao_d0.pdf}
+        }
+        \subfigure[\protect\acrshort{deta1}.]{%
+            \label{fig:deta1}
+            \includegraphics[width=0.2\textwidth]{imagens/egamma_padrao/egamma_padrao_deltaeta1.pdf}
+        }
+        \subfigure[\protect\acrshort{Ep}.]{%
+            \label{fig:Ep}
+            \includegraphics[width=0.2\textwidth]{imagens/egamma_padrao/egamma_padrao_ep.pdf}
+        }
+\caption[Distribuição de elétrons e seu ruído físico para algumas das variáveis
+dos algoritmos e/$\gamma$ padrões.]
+{Distribuição de elétrons e seu ruído físico para algumas das variáveis
+dos algoritmos e/$\gamma$ padrões. Em preto, elétrons isolados; em vermelho,
+hádrons; em azul escuro pontilhado, elétrons não-isolados; e em azul claro
+pontilhado, elétrons constituintes de ruído. Extraído de \cite{expected_perf_2011}.}
+\label{fig:cortes_egamma_padrao}
+\end{sidewaysfigure}
+
+É possível observar os diferentes comportamentos para cada uma das
+categorias. Por exemplo, elétrons isolados na variável \gls{reta},
+Figura~\ref{fig:reta}, possuem grande parte de valores próximos a 1, 
+uma vez praticamente toda sua energia estará depositada no centro da 
+\gls{roi}, por outro lado, hádrons distribuem sua energia em um espaço maior da
+\gls{roi}, de forma que ao realizar a fração \gls{reta}, obterá-se geralmente
+valores menores de 1. No caso da variável
+\gls{eratio}, \ref{fig:eratio}, é esperado o mesmo valor para elétrons isolados,
+onde a diferença de deposito entre as duas células de maior
+energia deverá ser grande para elétrons, uma vez que os mesmos terão grande parte 
+de sua energia depositada na célula de maior energia, e pequeno para os hádrons. Cada variável
+tem sua distribuição especifica, mas reflete uma diferença física da interação
+de hádrons e elétrons com o detector.
+
+
+\subsection{HLT\_EgammaCaloRinger (HLT\_Ringer)}
 \label{ssec:hlt_ringer}
 
-\newacronym[type=Abrev]{rna}{RNA}{Rede Neural Artificial}
+\newacronym[type=Abrev,\glslongpluralkey={Redes Neurais Artificiais}]
+{rna}{RNA}{Rede Neural Artificial}
 \newacronym[type=Abrev]{ica}{ICA}{Análise de Componentes Independentes}
 \newacronym[type=Abrev]{nlica}{NLICA}{Análise de Componentes Independentes
 Não-Linear}
@@ -710,7 +804,10 @@ Não-Linear}
 \newacronym[type=Abrev]{som}{SOM}{Mapas Auto-Organizáveis}
 
 Uma outra proposta para se identificar a evolução do chuveiro no calorímetro é 
-abordada pelo algoritmo alternativo proposto, afim de se identificar as partículas \gls{em}. 
+abordada pelo algoritmo alternativo proposto, afim de se identificar as
+partículas \gls{em}. Como o algoritmo é proposto para atuar sobre as variáveis
+do calorímetro, ele não faz distinção de elétron e pósitrons para fótons, essa
+distinção pode ser realizada posteriormente utilizando a informação do \gls{id}.
 Inicialmente esse algoritmo, chamado de \gls{hltringer}, foi planejado para operar no
 \acrlong{l2} como uma alternativa ao \gls{t2calo}, o ambiente mais restritivo 
 em questões de tempo. Ao invés de gerar diversas variáveis de interpretação física 
@@ -719,14 +816,15 @@ citados: \gls{eratio}, \gls{reta} e \gls{Rhad1}; o algoritmo utiliza a informaç
 de calorimetria como o seu \gls{fex} (Tópico~\ref{sssec:anelamento}) 
 e um processo de discriminação para o seu \gls{hypo}. Qualquer método estatístico 
 pode ser aplicado para realizar o processo de discriminação. 
-Em partícular, os estudos deste trabalho utilizaram \gls{rna}
-(Tópico~\ref{sssec:rna}), pois resultados anteriores indicam melhor perfomance.
+Em partícular, os estudos deste trabalho utilizaram \glspl{rna} \cite{neural_networks} 
+(Tópico~\ref{sssec:rna}), pois obtiveram melhor perfomance nos estudos
+realizados no inicio do projeto.
 
 Diversas técnicas de pré-processamento podem ser combinadas com redes neurais de
 forma a melhorar a sua eficiência de discriminação. Estudos anteriores
 \cite{tese_eduardo,tese_torres} utilizaram métodos como \gls{ica}, \gls{pca},
-\gls{nlica}, \gls{som} e \gls{pcd}, obtendo resultados ainda melhores que uma
-abordagem utilizando diretamente \gls{rna}. Ainda, um caso especial de pré-processamento 
+\gls{nlica}, \gls{som} e \gls{pcd}, obtendo resultados melhores que uma
+abordagem utilizando diretamente \gls{rna}. Um caso especial de pré-processamento 
 de dados, necessaria quando utilizando redes neurais, é a normalização dos dados. Esse 
 pré-processamento ajusta o alcânce de energia dos anéis ao alcânce dinâmico das
 \gls{rna}. Uma grande gama de métodos de normalização são utilizados, podendo
@@ -735,36 +833,10 @@ interpretação da nova representação pode ter uma melhor, ou pior, interpreta
 pela \gls{rna}. As normalizações testadas para otimizar a eficiência do
 \gls{hltringer} estão explicadas no Tópico~\ref{sssec:preproc_norm}.
 
-
 \subsubsection{O processo de anelamento}
 \label{sssec:anelamento}
 
-O processo de anelamento, esboçado na Figura~\ref{fig:cons_aneis}, é realizado
-para todas as camadas do Sistema de Calorimetria do \gls{atlas}. Como foi dito,
-no \gls{l2} a semente utilizada para a construção do aglomerado é a célula mais quente  -- ou a célula mais
-energética -- da segunda camada \gls{em} na \gls{roi} estudada gerada a partir da posição 
-fornecida pelo \gls{l1}. No \gls{hltringer}, ao invés da construção do
-aglomerado, essa célula será o centro dos anéis e sua energia será a informação
-contida no anel central. Os anéis posteriores contêm a soma da energia das células adjacentes
-exteriores ao anel anterior, por exemplo, no caso do segundo anel, as células imediatamente
-exteriores a célula quente. Esse processo irá se repetir até que uma região pré-determinada seja
-completamente preenchida, no caso o valor atual utilizado é de $0,4\times0,4$ em
-$\Delta\eta\times\Delta\phi$ centrados na semente. Nas outras camadas a posição da
-semente é utilizada para encontrar a célula central e o processo é repetido, até
-que a mesma região seja preenchida, entretanto, como a granularidade das células
-do calorímetro variam conforme a segmentação longitudinal, o número anéis variam
-conforme a camada em questão. Como o \gls{l2} calcula
-um novo centro, anéis podem necessitar de células exteriores a \gls{roi}, essas não
-estando disponíveis para o \gls{l2}, de forma que nem todos os anéis seram
-completamente fechados, sendo assim o conceito de anéis abstrato. No caso de
-nenhuma célula estiver disponível para um dado anel, é então atribuido valor
-nulo ao mesmo para garantir que o processo complete o número necessário para o
-preenchimento da região. Um total de 100 anéis foram especificados inicialmente,
-divididos conforme as camadas da maneira indicada na Figura~\ref{fig:cons_aneis}, 
-onde a quantidade de anéis é proporcional a granularidade de cada camada.
-
-
-\begin{figure}[p]
+\begin{figure}[hp!]
 \label{fig:cons_aneis}
 \centering
 \includegraphics[height=0.9\textheight]{imagens/cons_aneis.pdf}
@@ -772,24 +844,113 @@ onde a quantidade de anéis é proporcional a granularidade de cada camada.
 {Diagrama do processo de construção dos anéis. Extraído de \cite{tese_eduardo}.}
 \end{figure}
 
+O processo de anelamento, esboçado na Figura~\ref{fig:cons_aneis}, é realizado
+para todas as camadas (\gls{ps}, \gls{e1}, \gls{e2}, \gls{e3}, \gls{h0},
+\gls{h1} e \gls{h2}) do Sistema de Calorimetria do \gls{atlas}. Como foi dito,
+no \gls{l2} a semente utilizada para a construção do aglomerado é a célula quente  -- ou a célula mais
+energética -- da \gls{e2} na \gls{roi} gerada a partir da posição 
+fornecida pelo \gls{l1}. No \gls{hltringer}, ao invés da construção do
+aglomerado, é realizada a construção de anéis concêntricos, onde essa célula
+será o núcleo, e sua energia a informação contida no primeiro anel, o anel central. 
+Os anéis posteriores contêm a soma da energia das células adjacentes
+exteriores ao anel anterior, por exemplo, no caso do segundo anel, as células imediatamente
+exteriores a célula quente. Esse processo irá se repetir até que uma região pré-determinada seja
+completamente preenchida. Atualmente o valor utilizado é de $0,4\times0,4$ em
+$\Delta\eta\times\Delta\phi$. Nas outras camadas, a posição da
+semente é utilizada para encontrar a célula central e o processo é repetido, até
+que a mesma região seja preenchida, entretanto, como a granularidade das células
+do calorímetro variam conforme a segmentação longitudinal, o número de anéis variam
+para cada camada. O conceito de anéis é abstrato: como o \gls{l2} calcula
+um novo centro na \gls{roi} formada a partir da informação fornecida pelo
+\gls{l1}, anéis podem por ventura necessitar de células exteriores a \gls{roi},
+e essas, não estando disponíveis para o \gls{l2}, geram anéis incompletos,
+como aqueles ilustrados para o \gls{ps} a partir do terceiro anel. 
+No caso de nenhuma célula estiver disponível para um dado anel, é então atribuido valor
+nulo ao mesmo para garantir que o processo complete o número necessário no
+preenchimento da região. Os anéis esboçados na figura são meramente
+ilustrativos, não possuindo a proporção real para cada uma das camadas, nem o
+número de anéis totais para cada uma delas. Um total de 100 anéis foram 
+especificados inicialmente, divididos conforme as camadas da maneira indicada na
+tabela contida no final dessa figura. Note que a quantidade de anéis é proporcional 
+a granularidade de cada camada. Em uma discriminação não-segmentada
+(veja~\ref{sssec:rna}), os anéis são contenados em um grande vetor de dados,
+como indicado.
+
+O processo de anelamento reduz a quantidade de informação a ser analisada no
+calorímetro, ao se agrupar diversas células em uma única informação, reduzindo
+as $\sim$1000 células dentro da \gls{roi} em 100 anéis, ou seja, um fator de
+compactação de $\sim$10$\times$. Indo além, o número total de anéis a serem
+propagados para o método de discriminação pode ser reduzido através de estudo
+com quantidade elevada de estatística do processo. Entretanto, a redução de informação 
+é utilizada para se referir a compactação da
+informação das células do calorímetro nos anéis, não podendo se comparar 
+com a ordem de informação armazenada nas variáveis físicas, 
+que se resumem a cerca de 5 variáveis.
+
+Ao mesmo tempo, a interpretação física da propagação do
+chuveiro é mantida, como a sua espessura lateral e profundidade longitudinal. 
+Na Figura~\ref{fig:perfil_aneis} está um 
+exemplo da deposição de energia de elétrons e de um dos hadrôns que
+compõem os jatos hadrônicos\footnote{Para evitar a repetição, quando se
+referindo a jatos no Canal \gls{eg}, estará se mencionando os hádrons individuais
+que formam os jatos hadrônicos, e não o conjunto. O canal de reconstrução de
+jatos, diferente do Canal \gls{eg}, reconstrói o jato como um todo, 
+o que pode gerar confusão na nomenclatura.} para a \gls{e2}. Pode-se observar na parte
+superior da figura a deposição de energia nas células do calorímetro, onde os
+jatos possuem um perfil de deposição mais largo, como o esperado para o chuveiro
+dessas partículas, quando em comparação com a deposição de energia de um
+elétron. Este, por sua vez, tem sua deposição de energia concentrada no centro da
+\gls{roi}. A parte inferior, contendo a deposição de energia nos anéis formados 
+para cada um dos caso, demonstra a diferença de ambos, onde elétrons depositam grande parte de
+sua energia no primeiro anel, e pouca energia nos anéis mais externos, enquanto
+os jatos possuem um perfil mais disperso, alcançando anéis mais externos.
+
+\begin{figure}[ht!]
+\label{fig:perfil_segunda_camada}
+\centering
+\includegraphics[width=0.9\textwidth]{imagens/segunda_camada_celulas.pdf}
+\caption[Perfil de distribuição de energia nas células e anéis na segunda camada para 
+elétrons e jatos.]{Perfil de distribuição de energia nas células e anéis na segunda camada 
+para elétrons e jatos. Extraído de \cite{tese_eduardo}.}
+\end{figure}
+
+Quando considerando a distribuição de energia em anéis de uma maneira global,
+pode-se observar a diferença dos perfis dos chuveiros \gls{em} e
+\gls{had}. A Figura~\ref{fig:perfil_aneis} contêm o perfil dos 100 anéis para um
+elétron (\ref{fig:perfil_aneis_eletron}) e um jato
+(\ref{fig:perfil_aneis_jato}), onde a distribuição citada para elétrons e jatos
+na \gls{e2} se repete para as outras camadas do \gls{ecal}, com os jatos
+distribuindo sua energia nos anéis mais externos. Por outro lado, os elétrons
+geralmente não alcançam as camadas hadrônicas, sendo absorvidos pela
+\gls{e2} ou \gls{e3}, enquanto jatos ultrapassam o \gls{ecal} depositando
+energia no \gls{hcal}. Contudo, esse fato nem sempre é verdadeiro, elétrons
+muito energéticos podem acabar ultrapassando a \gls{e3} e depositando parte de
+sua energia na \gls{h1}, e jatos podem também serem absorvidos no \gls{ecal},
+como aquele ilustrado em \ref{fig:perfil_aneis_jato_conf}.
 
 \begin{figure}[ht!]
 \label{fig:perfil_aneis}
 \centering
-\includegraphics[width=0.9\textwidth]{imagens/segunda_camada_celulas.pdf}
-\caption[Perfil dos anéis na segunda camada para elétrons e jatos.]{Perfil dos
-anéis na segunda camada para elétrons e jatos. Extraído de \cite{tese_eduardo}.}
+  \subfigure[]{%
+      \label{fig:perfil_aneis_eletron}
+      \includegraphics[width=0.45\textwidth]{imagens/perfil_aneis_eletron.pdf}
+  }\hspace{0.01\textwidth}
+  \subfigure[]{%
+      \label{fig:perfil_aneis_jato}
+      \includegraphics[width=0.45\textwidth]{imagens/perfil_aneis_jato.pdf}
+  }\\
+  \subfigure[]{%
+      \label{fig:perfil_aneis_jato_conf}
+      \includegraphics[width=0.45\textwidth]{imagens/perfil_aneis_jato_confundidor.pdf}
+  }\\
+\caption[Perfil típico para os 100 anéis de elétrons e jatos.]{Perfil típico
+para os 100 anéis de elétrons (\ref{fig:perfil_aneis_eletron}) e
+jatos (\ref{fig:perfil_aneis_jato}). Jatos atípicos (\ref{fig:perfil_aneis_jato_conf}) 
+dificultam o processo de discriminação. A escala de energia está normalizada
+pela Norma 1. Extraído de \cite{tese_eduardo}.}
 \end{figure}
 
-Esse processo reduz a quantidade de informação a ser analisada no calorímetro ao
-agrupar diversas células em uma única informação, mas, ao mesmo tempo, mantêm a interpretação 
-física da propagação do chuveiro, como a sua espessura
-lateral e profundidade longitudinal. Ainda, o número total de anéis a serem
-propagados para o método de discriminação pode ser reduzido através de estudo
-com quantidade elevada de estatística do processo. Entretanto, deve-se enfatizar
-que a redução de informação é utilizada para se referir a compactação da
-informação das células do calorímetro nos anéis, não podendo ser utilizado quando se comparando 
-com a ordem de informação armazenada nas variáveis físicas, que se resumem a cerca de 5 variáveis.
+
 
 \subsubsection{Normalização}
 \label{sssec:preproc_norm}
@@ -821,7 +982,8 @@ mantendo, ainda assim, a proporção de energia contida em cada anel.
 \paragraph{Energia da Camada}
 \label{par:norm_camada}
 
-Neste modo de normalização, os anéis ($r_c$) produzidos na c-ésima camada (PS, EM1, HD1, etc.) 
+Neste modo de normalização, os anéis ($r_c$) produzidos na c-ésima camada
+(\gls{ps}, \gls{e1}, \gls{h1}, etc.) 
 são normalizados pela energia contida na camada, em uma região de $0,4 \times 0,4$ em $\eta 
 \times \phi$, fazendo-se
 
@@ -905,13 +1067,17 @@ r_{i}' = \frac{r_i - \bar{r_i}}{\sigma_{r_i }}~~\forall~~i=1,2,3,...,N
 padrão do i-ésimo anel. 
 
 
-\subsubsection{Discriminação com Redes Neurais Artificiais}
+\subsubsection{Classificadores Neurais}
 \label{sssec:rna}
 
-Após a extração dos anéis pode-se utilizar uma abordagem não-segmentada, na qual
-se concatena os anéis e o propaga então para uma única \gls{rna} discriminadora,
-ou então uma abordagem segmentada, onde cada camada longitudinal do Sistema de
-Calorimetria é propagada para uma \gls{rna} 
+Após a extração e normalização dos anéis pode-se utilizar uma abordagem não-segmentada, 
+na qual a informação contendo as características discriminantes é concatenada em um vetor 
+e então propagada para uma única \gls{rna} discriminadora, ou então uma abordagem segmentada, 
+onde cada a informação normalizada da camada longitudinal do Sistema de Calorimetria é 
+propagada para sua \gls{rna} específica e então combinadas em um novo
+discriminador para compor a decisão. As abordagens estão esboçadas na
+Figura~\ref{fig:tipo_class}. No trabalho atual foi apenas utilizada a abordagem 
+não-segmentada.
 
 \begin{figure}[ht!]
 \label{fig:tipo_class}
@@ -924,34 +1090,323 @@ Calorimetria é propagada para uma \gls{rna}
     \label{fig:class_seg}
     \includegraphics[width=0.7\textwidth]{imagens/classificacao_segmentada.pdf}
 }
-\caption[Abordagens de Discriminação.]{Abordagem de discriminação não-segmentada
-em~\ref{fig:class_nseg} e segmentada em~\ref{fig:class_nseg}. Extraído de 
+\caption[Abordagens de Discriminação: segmentada e não-segmentada.]
+{Abordagem de discriminação não-segmentada
+em~\ref{fig:class_nseg}, e segmentada em~\ref{fig:class_seg}. Extraído de 
 \cite{tese_eduardo}.}
 \end{figure}
+
+\newacronym[type=Abrev]{rprop}{RPROP}{\emph{Resilient Back-propagation}}
+\newacronym[type=Abrev]{mlp}{MLP}{\emph{Perceptron} Multicamadas}
+\newacronym[type=Abrev]{mse}{MSE}{Erro Quadrático Médio}
+
+A topologia de uma \gls{rna} composta de uma rede \gls{mlp} alimentada em
+cascata, ou \emph{feed-forward}, com uma camada escondida está esboçada na
+Figura~\ref{fig:topologia_rna}. Estão simbolizados três neurônios de saída, para
+o caso de separação em três classes, mas a rede utilizada tem apenas uma saída,
+suficiente para realizar a discriminação em duas classes, as partículas \gls{em}
+compondo o sinal: elétrons, pósitrons e fótons; e o ruído físico: os
+hádrons dos jatos hadrônicos. Os alvos utilizados para as classes foi de +1 para o
+conjunto de sinal, e -1 para o conjunto de ruído físico.
+A camada de entrada recebe o vetor de dados, com os 100 anéis normalizados, enquanto o número de 
+neurônios na camada escondida varia conforme a representação dos dados, 
+sendo determinado através de um estudo de exaustão. Todos os neurônios utilizam
+função de ativação tipo tangente hiperbólica.
+
+\begin{figure}[ht!]
+\label{fig:topologia_rna}
+\centering
+\includegraphics[width=0.4\textwidth]{imagens/topologia_rna.pdf}
+\caption[Topologia de uma MLP alimentada em cascata.]{Topologia de uma
+MLP alimentada em cascata. Extraído de \cite{tese_eduardo}.}
+\end{figure}
+
+É necessário realizar o treinamento das \glspl{rna} para que as mesmas possam, de
+fato, reconhecer padrões. Para o processo de treinamento se
+utilizou, na inicialização dos pesos, o algoritmo de \emph{Nguyen-Widrow} \cite{initnw}, 
+enquanto no treinamento o \gls{rprop} \cite{rprop}, devido a sua simplicidade de uso e 
+rápida convergência. Para realizar o treinamento secciona-se o conjunto de dados
+em três partes: 
+
+\newacronym[type=Abrev]{det}{\ensuremath{\text{DET}}}{Taxa de Detecção}
+\newacronym[type=Abrev]{deteg}{\ensuremath{\text{DET}_{e/\gamma}}}{Taxa de Detecção de elétrons,
+pósitrons e fótons}
+\newacronym[type=Abrev]{detj}{\ensuremath{\text{DET}_{j}}}{Taxa de Detecção de hádrons}
+\newacronym[type=Abrev]{fa}{\ensuremath{\text{FA}}}{Taxa de Falso Alarme}
+
+\begin{enumerate} 
+\item \textbf{Conjunto de treino} (neste estudo totalizando 50\% dos dados em
+casos de pouca estatística e 33\% no oposto): 
+no qual se será atualizado os pesos sinápticos da \gls{rna} de modo a minimizar uma função 
+custo, na qual a utilizada foi o \gls{mse};
+\item \textbf{Conjunto de validação} (16,6\%/33,3\%): utilizado para garantir a boa 
+generalização da \gls{rna}; 
+\item \textbf{Conjunto de teste} (33,3\% para ambos os casos): 
+estatística não observada pela \gls{rna} durante seu treinamento, utilizada para 
+testar sua perfomance. 
+\end{enumerate}
+
+Para a análise de eficiência de discriminação, alguns parâmetros precisam ser definidos:
+
+\begin{enumerate}
+\item \textbf{\gls{det}}: taxa de uma classe corretamente identificada pelo
+discriminador. Geralmente se refere a taxa de sinal, no caso do Canal~\gls{eg} a
+\gls{deteg}, mas também podendo ser utilizada para o caso de ruído, \gls{detj}.
+Caso não identificado a classe de detecção, então se estará referindo a
+\gls{deteg};
+\item \textbf{\gls{fa}}: taxa da classe constituinte de ruído erroneamente
+identificada pelo discriminador. No Canal~\gls{eg} a taxa de hadrôns que formam os
+jatos hadrônicos identificados como \gls{eg}. Também pode
+ser obtida como: $1-\gls{detj}$.
+\end{enumerate}
+
+\newacronym[type=Abrev]{sp}{SP}{Produto Soma-Produto}
+
+Dois critérios podem ser utilizados para medir a figura de mérito da \gls{rna}
+durante o treinamento, aplicando-se aos conjuntos de validação e teste: \gls{mse} 
+e \gls{sp}. O \gls{mse} visa encontrar o ponto onde as saídas da \gls{rna} ficam
+o mais próximo possível do alvo especificado. O \gls{sp} é relacionado por:
+
+\begin{equation} \label{eq:produto_sp}
+SP = \sqrt{ \sqrt{\gls{deteg}\times \gls{detj}}\times\frac{\gls{deteg}+\gls{detj}}{2}}\times100\%
+\end{equation}
+
+\noindent no caso de discriminação binária. Esse critério visa indicar ao
+processo de treinamento o ponto onde a distinção máxima entre classes é obtido,
+sendo o critério mais apropriado para \glspl{rna} destinadas ao reconhecimento de
+padrões \cite{tese_torres}.
+
+O número de épocas (ou iterações) de treinamento foi ilimitado, de forma que o
+processo de treinamento somente é concluído quando ocorrem 50 falhas na tentativa
+de melhora do critério utilizado como figura de mérito para a validação. 
+Utilizou-se o critério \emph{Save the Best}, onde os pesos sinápticos na época com 
+o melhor resultado da figura de mérito para o conjunto de teste são armazenados 
+para a utilização da rede. Foi utilizado o critério de batelada, onde se sorteia os
+dados a se realizarem o treinamento, com o tamanho do menor 
+conjunto de dados de treinamento, geralmente sendo esse o de elétrons, para
+evitar uma maior estatística de um dos conjuntos durante o treinamento. O
+processo de treinamento é repetido $N$ vezes para evitar-se flutuação
+estatística, inicializando novos pesos aleatórios para cada configuração 
+testada.
+
+\newacronym[type=Abrev]{roc}{ROC}{Região de Critério}
+
+Após o treinamento é possivel especificar a \gls{det} (no caso de partículas \gls{eg}) 
+e \gls{fa} através da escolha do limiar de decisão, aonde valores maiores ao limiar serão considerados
+como \gls{eg} e os menores jatos. A escolha do limiar tem o seu compromisso
+representados nas curvas \gls{roc}: quanto maior a \gls{det}, também será a
+\gls{fa}. O \gls{sp} tenta conciliar o compromisso entre a detecção de
+partículas \gls{eg} e jatos, o que não é desejado quando no \gls{sf}, onde se
+deseja apenas filtrar os eventos a capacidade de armazenamento e processamento a
+posteriori, evitando a perda prematura dos dados. Assim, o \gls{sp} é utilizado
+apenas como figura de mérito para o treinamento das redes, e não como critério
+de seleção para o limiar de decisão, que visa buscar a melhor \gls{det} sem
+comprometer a capacidade de armazenamento e processamento a posteriori.
 
 \section{O Sistema de Reconstrução (SR)}
 \label{sec:sr}
 
-% Falar aqui que o Sistema de Filtragem é uma versão mais simples do Sistema de
-% Reconstrução
+O papel da reconstrução de física \cite{physics_perf_expected,atlas_computing_tdr}, 
+realizada pelo \gls{sr}, é de derivar dos dados armazenados os parâmetros das partículas 
+e auxiliar na informação necessária para a análise de física. 
+Cada subdetector do \gls{atlas} utiliza um método individual de calibração de
+sua informação, por exemplo, os calorímetros realizam a calibração da energias no
+nível das suas células, e a informação armazenada pelos especialistas do
+calorímetro para uma dada temporada é utilizada para evitar as células ruidosas ou mortas. 
+Posteriormente cada canal de física utiliza a informação contida nos
+subdetectores de modo a identificar as partículas de interesse e seus
+parâmetros, realizando outras calibrações para garantir a melhor precisão
+possível nesses parâmetros, de forma a facilitar e melhorar a qualidade de
+descobertas, como a do bóssom de Higgs, entendimento de física ainda não bem
+conhecida, como o quark \emph{top}, e outros objetivos citados em
+\ref{ssec:obj_lhc}.
+
+Muitas semelhanças podem ser observadas nos algoritmos do \gls{hlt}, em especial o
+\gls{ef}, com o \gls{sr}. Na verdade, os algoritmos do \gls{sf} foram feitos
+baseados no \gls{sr} com o objetivo de evitar ao máximo a polarização dos dados
+armazenados. As diferenças entre os dois ambientes, como já foi dito, está na
+maior restrição de tempo e robustez dos algoritmos no ambiente do \gls{sf}, de
+forma que os algoritmos no \gls{sf} realizam análises menos refinadas. Por esse
+motivo, os cortes utilizados no \gls{sf} são relaxados quando em comparação com
+os do \gls{sr} para evitar a perda prematura de física de partículas em que não
+se há muita certeza do que ocorreu. Nesses casos, prefere-se armazenar os
+dados para o \gls{sf} analisar os eventos com mais detalhes e tomar uma decisão
+com maior precisão, desde que isso não ultrapasse os recursos computacionais para 
+armazenamento e processamento dos dados.
 
 \subsection{\texorpdfstring{Algoritmo $e/\gamma$ Padrão}{Algoritmo eGamma Padrão}}
 \label{ssec:egamma}
 
+O algoritmo padrão de reconstrução de física a posteriori não é muito distinto
+daquele descrito para o \gls{ef} da cadeia \gls{eg} no Tópico~\ref{ssec:cadeia_egamma},
+inclusive já sendo realizadas algumas distinções entre os algoritmos que serão
+aqui complementadas.
 
-% Falar que tem mais opções que 
-% Colocar os requerimentos, tight, loose, medium.
+Primeiro, precisa-se ter em mente que o algoritmo a posteriori utiliza
+parâmetros com maiores precisões. Calibrações, como a posição de \gls{eta}, e 
+da energia depositada em cada camada é realizada com maior precisão. Outras
+calibrações, como a posição em \gls{phi} e calibrações no nível de células,
+também são realizadas no \gls{sr}, o que não ocorre para o \gls{hlt}.
+
+Para a construção dos aglomerados de células no calorímetro se utiliza um algoritmo 
+de janela deslizante \cite{sliding_window}.
+Dois tipos de aglomerados podem ser construídos: os aglomerados \gls{em}, no caso de elétrons e fótons; 
+e os combinados, na busca de jatos e identificação de
+táons-léptons. São utilizados três passos no algoritmo, a construção das torres de
+células, a procura por uma semente e o preenchimento do aglomerado, onde esses dois
+últimos passos ocorrem juntos para os aglomerados combinados. 
+
+Serão abordados apenas os aglomerados \gls{em}, uma vez apenas eles são
+utilizados pelo Canal~\gls{eg}. O processo de construção é realizado apenas para 
+$|\gls{eta}|<2,5$, onde é realizado a construção das torres, o Sistema de Calorímetria é 
+dividido em uma grade de $0,025\times0,025$, através da soma da energia das
+células das camadas longitudinais do \gls{ecal} contidas dentro da
+região. Em seguida, uma janela de $5\times5$ torres
+procura por uma região que ultrapasse um limiar para $\gls{Et} > 2,5$ GeV e 
+que seja um máximo local (a idéia de máximo local é a mesma que àquela citada
+para o \gls{l1}, presente no tópico já referênciado). Quando encontrado, é gerada uma
+semente cuja posição é calculada através da ponderação de energia das células contidas 
+em uma janela concêntrica a anterior mas menor ($3\times3$ torres) para evitar o
+acumulo de ruído, com as posições das células.
+Para remover duplicatas, ao se ocorrer multiplas sementes dentro de uma região
+$2\times2$ torres, apenas a semente mais energética será armazenada. Os
+aglomerados são reconstruídos com seus tamanhos 
+específicos dependente da partícula e sua incidência ($3\times7$ para elétrons e fótons convertidos,
+$3\times5$ para fótons não-convertidos quando incidindo no barril, e $5\times5$ na
+tampa). O processo se inicia na \gls{e2} através da construção do
+aglomerado a partir da posição da semente. Então o baricentro de energia é
+calculado e propagado para a \gls{e1} e \gls{e3}, aonde são gerados os
+aglomerados para essas camadas. Para o \gls{ps} é utilizado como centro o
+baricentro de energia da \gls{e1}. A partir desse aglomerado serão retiradas 
+as variáveis físicas utilizadas para representar a propagação do chuveiro, que
+serão utilizadas para realizar a discriminação. Essas variáveis são algumas
+daquelas contidas na Tabela~\ref{tab:cortes_em}.  
+Um algoritmo alternativo também pode ser utilizado para a construção
+de aglomerados topológicos, onde a idéia básica é agrupar as células 
+vizinhas a semente que tiverem energia significante quando comparado ao ruído
+esperado.
+
+A informação do aglomerado é combinado com a reconstrução do traço
+\cite{physics_perf_expected} das partículas para fazer a separação de elétrons e fótons, assim como melhorar o
+potêncial de identificação de elétrons. O traço com o último ponto no \gls{trt}
+com menor $\Delta\text{R}$ ao baricentro da \gls{e1} 
+é utilizado para a combinação entre o traço e aglomerado. Os parâmetros do traço
+e relação traço-aglomerado podem ser utilizados para gerar as outras variáveis
+da Tabela~\ref{tab:cortes_em}.
+
+Os requerimentos citados no \gls{sf} também se aplicam, sendo eles: \emph{loose}, 
+\emph{medium} e \emph{tight}. Eles são utilizados para
+identificar a característica da estatística utilizada para a análise.
+
+Além do algoritmo padrão, a colaboração também realizou estudos de técnicas
+multivariáveis, incluindo discriminadores de Máxima Verossimilhança, árvores 
+de decisões ampliadas e redes neurais \cite{physics_perf_expected}.
 
 
 \subsection{\texorpdfstring{$e/\gamma$ \emph{Calorimeter Ringer}
 (EgCaloRinger)}{eGamma Calorimeter Ringer (EgCaloRinger)}}
 \label{ssec:egringer}
 
-% Falar aqui da request feito pela colaboracao
+Uma dificuldade encontrada para a introdução do \gls{hltringer} na cadeia de
+filtragem \gls{eg} é sua configuração diferente ao \gls{t2calo}, causando o
+receio, por parte da Colaboração, que ocorra a polarização dos dados. Por isso, foi requisitado a
+implementação de uma versão do algoritmo para a análise a posteriori, permitindo
+a utilização da ferramenta pela Colaboração e a confiança de que as partículas
+selecionadas estão coerentes com a física. O \gls{egcaloringer} é a
+implementação do algoritmo proposto para o ambiente \gls{sf}.
+
+Embora a estrutura do algoritmo seja a mesma que aquela explicada para o \gls{l2}, no
+Tópico~\ref{ssec:hlt_ringer}, realizando a construção dos anéis, normalizando e
+então propagando para uma \gls{rna}, há diferenças nas versões devido aos ambientes de implementação, 
+de maneira que as duas versões não são identicas. Primeiro, o \gls{sf} realiza a calibração da energia 
+no nível das células, de forma que os anéis do \gls{egcaloringer} terão 
+valores mais refinados de energia, enquanto o \gls{hltringer} utiliza o
+valor cru medido pelo calorímetro. Outra mudança importante quanto a construção
+dos anéis está na disponibilidade de todas as células para este, de forma que
+os anéis serão completamente construídos, enquanto naquele apenas as
+células disponíveis na \gls{roi} podem ser acessadas, deixando anéis em aberto. 
+Finalmente, a diferença da semente utilizada para a construção dos anéis entre o \gls{sf} e \gls{l2}
+também modificarão o processo de anelamento, onde o \gls{hltringer} utiliza
+a célula quente da \gls{e2} contida na \gls{roi}, e sua versão a
+posteriori o centro do aglomerado calculado pelo \gls{sf}, que contém uma ponderação da
+distribuição de energia entre as células de todas as camadas do \gls{ecal}
+contidas em uma região $3\times3$ torres (cada torre tem $0,025\times0,025$ em
+$\gls{eta}\times\gls{phi}$), sendo uma posição muito mais realistica 
+do centro do chuveiro.
+
 
 \subsubsection{Implementação}
 \label{sssec:egringer_impl}
-% Implementação
+
+A implementação do \gls{egcaloringer} foi realizada garantindo que a operação
+dos algoritmos já implementados pela Colaboração não fossem afetados, alterando
+o mínimo de código necessário dos destes e garantindo a operação normal da
+reconstrução do Canal~\gls{eg}. O \gls{egcaloringer} não deveria ser executado
+exceto quando explicitamente exigido pelo usuário. 
+
+Para cumprir com esse requisito se idealizou a 
+estrutura disposta na Figura~\ref{fig:implementacao_ringer}, de forma que apenas
+quando adicionado a configuração via \glsdesc{jo} o algoritmo é executado.
+Durante a inicialização, o \emph{egammaBuilder} organiza os algoritmos no
+nível de informação dos subdetectores, adicionando os algoritmos de reconstrução
+de traços, vértices e aglomerados do calorímetro, e chama a configuração do
+\emph{EMPIDBuilder} que irá adicionar os algoritmos para a geração das variáveis
+físicas utilizadas para a discriminação. Quando exigido na \glsdesc{jo}, o
+processo de contrução dos anéis realizado pelo algoritmo \emph{RingerCaloTool} 
+é adicionado durante a inicialização ao \emph{egammaBuilder}, 
+que irá requisitar ao \emph{EMPIDBuilder} a adição da
+execução do algoritmo de discriminação do \gls{egcaloringer} pelo
+\emph{egammaEPiRingerCaloTool}, onde será executada a normalização especificada 
+na \glsdesc{jo} e a propagação das informações contidas nos anéis normalizados 
+na \gls{rna} também especificada. 
+
+\begin{figure}[ht!]
+\label{fig:implementacao_ringer}
+\centering
+\includegraphics[width=1.0\textwidth]{imagens/implementacao_ringer.pdf}
+\caption[Diagrama de implementação do \protect\gls{egcaloringer}]{Diagrama de
+implementação do \gls{egcaloringer}.}
+\end{figure}
+
+Durante a execução, o \emph{egammaBuilder}
+procura para cada evento os objetos de reconstrução dos subdetectores,
+em busca por aglomerados e seus respectivos traços, criando um objeto 
+\emph{egamma} transiente\footnote{Memória transiente é a informação contida na memória 
+virtual do computador.} com as informações no \gls{sg}. A informação será
+armazenada dentro recipiente \emph{egammaContainer} que irá ter \emph{Element
+Links}\footnote{Pode ser interpretado com uma espécie de ponteiro de C++, embora
+contenha outras informações além da posição de memória do objeto.} para o seu
+respectivo aglomerado de células (\emph{CaloCluster}), traço
+(\emph{TrackParticlesContainer}), vértice (\emph{VxContainer}), e detalhes como
+propriedades do chuveiro, reconstrução do \emph{bremsstrahlung}, etc. (\emph{egDetailContainer}). 
+O objeto \emph{egamma} é rotulado como um candidato a elétron, fóton, ou 
+fóton convertido dependendo dessas informações. Se o \emph{RingerCaloTool}
+estiver habilitado, durante a geração dos candidatos também será executado o
+processo de geração dos anéis, que serão armazenados transientemente no
+recipiente \emph{CaloRingsContainer}, também ligado ao seu objeto \emph{egamma}
+aravés do elo gerado pelo \emph{Element Link}. Após o preenchimento do
+\emph{egamma} com as informações do detector, o \emph{egammaBuilder} chama a
+execução do algoritmo \emph{EMPIDBuilder}, onde serão geradas as variáveis 
+físicas do algoritmo padrão, que serão armazenadas no \gls{sg} dentro do
+\emph{egamma} através do objeto \emph{egPID}. Novamente se habilitado, após a
+execução do algoritmo padrão, será realizada a execução do
+\emph{egammaEPiRingerCaloTool}, que também irá armazenar a sua resposta no
+\emph{egPID}.
+
+As variáveis são então persificadas\footnote{Memória persistente é a informação
+contida em disco rígido.}, onde os anéis e a saída neural só serão armazenados
+se o \gls{egcaloringer} tiver sido habilitado. Na primeira implementação
+realizada em Março de 2011, apenas a persificação no nível de \gls{aod} não foi
+implementada. A análise em \glspl{esd} só pode ser realizadas por \gls{ara},
+sendo um processo relativamente complexo, veja a Figura~\ref{fig:cadeia_athena}.
+A compatibilidade com dados mais simples de análise foi realizada, como a
+\gls{cbnta} e \emph{TrigEgammaNtuple}, um arquivo de análise especial gerado
+pelo grupo \gls{hlt} do Canal~\gls{eg}. Essa versão está disponível apartir da
+distribuição \emph{AtlasOffline-17-00-00} do \emph{Athena}.
+
+Um segundo passo de implementação foi realizada em Agosto adicionando a
+compatibilidade do algoritmo para \gls{d3pd} e \gls{aod}, mas ainda não foi
+adicionado ao código oficial da Colaboração.
 
 
 

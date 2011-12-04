@@ -2,31 +2,35 @@
 \label{cap:intro}
 \glsresetall
 
-\newacronym[type=Abrev]{sf}{SF}{Sistema de Filtragem}
-\newacronym[type=Abrev]{sr}{SR}{Sistema de Reconstrução}
+A engenharia tem auxiliado em diversas áreas através do emprego de
+novas tecnologias e desenvolvimento de ferramentas que estão se tornando cada
+vez mais necessárias, como na medicina, biologia, ciências financeiras, etc. Em 
+alguns casos seu papel é ainda mais essencial, caso das áreas
+multidisciplinares, quando ela e outras ciências se aliam para caminhar juntas no
+desenvolvimento de ferramentas e tecnologias. Com isso, se faz necessário a
+capacidade de sua adaptação à complexidade oferecida por esses novos ambientes, 
+como a alta quantidade e diversidade de sensores, alta taxa e raridade de
+eventos. Para realizar a interpretação dos diversos canais e a seleção dos eventos 
+de interesse, se faz mão de uma ferramenta: o \glsdesc{sf}, que irá descartar a 
+informação inútil ao problema em questão, remanescendo em sua maioria apenas
+a parte necessária. É importante que o filtro seja eficiente para evitar a polarização
+dos eventos, onde a porção interessante dos mesmos seria desprezada.
+A tarefa se torna ainda mais difícil nos casos de raros
+eventos de interesse, na qual a seleção errônea tem consequências piores,
+sendo necessário o emprego de técnicas para sua otimização. 
 
-O uso de técnicas de processamento de sinais podem facilitar a análise e
-classificação de dados, podendo ser utilizadas em um campo abrangente de áreas
-do conhecimento, citando como exemplos a medicina e bolsa de valores.
-
-Em certos casos a elevada taxa de dados pode ser um problema, sendo necessário a
-utilização de um \glsdesc{sf}. Essa ferramenta realiza a seleção dos dados 
-de interesse, de modo a eliminar aqueles que não agregam informações relevantes 
-para o caso em questão. A tarefa se torna ainda mais difícil nos casos de raros
-eventos de interesse, sendo necessário otimizar o \glsdesc{sf} de modo que 
-ele seja capaz de detectar com precisão tais eventos, descartando eficientemente a 
-informação inútil ao problema em questão, reduzindo assim a dimensão 
-de eventos, sem desprezar a parte interessante dos mesmos.
-Podem ser utilizados tanto métodos baseados no conhecimento especialista do
-assunto, quanto métodos baseados na informação estatística do processo, 
+No \glsdesc{sf} podem ser utilizados tanto métodos baseados no conhecimento 
+especialista do assunto, quanto métodos baseados na informação estatística do processo, 
 que geralmente filtram com maior qualidade os dados de interesse. Ainda, 
 a combinação do conhecimento especialista ao processamento 
 estatístico trás uma abordagem ainda mais poderosa, através da utilização das informações 
 em técnicas não lineares, como redes neurais.
 
-O \glsdesc{sf} pode ser utilizado no ambiente em tempo real,
-quando o processo de seleção ocorre durante a aquisição de dados. Nesse ambiente
-deseja-se reduzir o volume de dados a serem armazenados. A decisão deve ser realizada 
+% TODO falar sobre aplicação de redes neurais em engenharia eletrica
+
+A seleção de eventos pode ser realizada no ambiente em tempo real,
+quando o processo de seleção ocorre durante a aquisição de dados. Nesse
+ambiente, deseja-se reduzir o volume de dados a serem armazenados. A decisão deve ser realizada 
 em curtos espaços de tempo, de maneira que atenda a taxa esperada de geração de
 dados, e ainda ser eficiente, uma vez que os dados rejeitados serão perdidos. 
 No ambiente em tempo real é possível o processamento dos dados em série
@@ -34,14 +38,14 @@ ou em paralelo. O processamento em série limita o tempo de processamento àquel
 de aquisição dos dados, não sendo interessante quando há flutuação do
 processamento dos eventos. Por outro lado, o processamento em
 paralelo possibilita que eventos mais complexos ocorram durante um tempo maior
-que a taxa de aquisição de dados. Nesse tipo de processamento é necessário que
-todos os eventos não ultrapassem o valor máximo de latência (tempo utilizado
+que a taxa de aquisição de dados. Nesse tipo de processamento, é necessário que
+os eventos não ultrapassem o valor máximo de latência (tempo utilizado
 para a tomada de decisão pelo \glsdesc{sf}), assim como obterem um valor 
 médio de latência estipulado, determinados pela capacidade de processamento,
 afim de evitar gargalos no \glsdesc{sf}.
 
 Já no ambiente de análise a posteriori, o processo de seleção pode ser mais
-complexo, uma vez que ele não está imbuído de realizar a decisão atendendo aos
+complexo, uma vez que ele não realiza a decisão atendendo aos
 requisitos de tempo quando em tempo real. Assim, é esperado 
 uma melhor eficiência quando realizando a filtragem a posteriori.
 
@@ -49,10 +53,10 @@ uma melhor eficiência quando realizando a filtragem a posteriori.
 
 O \gls{cern} é o maior centro de
 pesquisas em física de partículas do mundo, situado na fronteira da Suíça com a
-França \cite{webCERN}. O experimento de grande repercussão do \gls{cern} se
+França. O experimento de grande repercussão do \gls{cern} se
 consiste no \gls{lhc}, um acelerador de partículas de 27 km de
 circunferência que irá atingir energia de colisões nunca antes obtidas
-experimentalmente \cite{webLHC}. 
+experimentalmente. 
 Nesse ambiente de colaboração internacional estarão presentes
 todas as características de um sistema de alta taxa de dados e raros eventos de
 interesse.
@@ -62,11 +66,10 @@ feixes com sentidos opostos no \gls{lhc},
 ocorrendo colisões em quatro pontos. Nesses pontos, são instalados 
 detectores de partículas que observam o subproduto das colisões dos pacotes de prótons 
 acelerados pelo \gls{lhc}. O \gls{atlas} é um dos detectores do
-\gls{lhc}, sendo construído e operado por 
-uma colaboração internacional envolvendo 174 institutos de 38
-países \cite{webATLAS}. Ele foi projetado 
-de modo a atender diversos dos requisitos da física experimental atual e por isso é dito de uso
-geral. Para atendê-los ele é dividido nos seguintes subdetectores:
+\gls{lhc}, sendo construído e operado por uma colaboração internacional envolvendo 174 institutos de 38
+países. Ele foi projetado de modo a atender diversos dos requisitos da física 
+experimental atual e por isso é dito de uso geral, contendo um total de $~140$ M 
+de canais de leitura. Para atendê-los ele é dividido nos seguintes subdetectores:
 
 \newacronym[type=Abrev]{id}{ID}{Detector Interno}
 \newacronym[type=Abrev,user1={Eletromagnéticas}]{em}{EM}{Eletromagnético}
@@ -92,8 +95,8 @@ Um dos objetivos para o qual o \gls{atlas} foi
 designado é a identificação da partícula bóssom de Higgs, única partícula 
 do \glslink{mp}{Modelo Padrão} ainda não observada. Estima-se que cerca de 17 k dessas
 partículas\footnote{Considerando o decaimento esperado para a massa de 500 GeV.} deverão ser produzidas por ano, comparados
-com o total de $1.7\times10^{16}$ eventos produzidos de interações inelásticas
-não difrativas \cite{resumo_ATLAS}. 
+com o total de $1,7\times10^{16}$ eventos produzidos de interações inelásticas
+não difrativas. 
 
 %\newglossaryentry{byte}{type=Simb,name=B,
 %  description={\emph{Byte}, unidade de informa{çã}o digital}
@@ -105,7 +108,7 @@ colisão. A taxa de cruzamento entre os pacotes de prótons é de 40 MHz,
 desta forma o fluxo de dados no decorrer do experimento será de 60 TB/s, impossibilitando o
 armazenamento completo dos eventos ocorridos no experimento. Para tornar a
 situação ainda mais complexa são esperadas cerca de 1 GHz de interações
-inelásticas não difrativas \cite{resumo_ATLAS} quando operando nas condições nominais, onde apenas
+inelásticas não difrativas quando operando nas condições nominais, onde apenas
 uma pequena parte dessas interações irá gerar a física desejada como objeto de
 estudo.
 
@@ -143,7 +146,7 @@ selecionados pelo segundo nível, realiza a procura por eventos não identificad
 primeiro nível por causa de sua menor resolução. Ele possui um tempo de 
 latência de 10 s, reduzindo a taxa de eventos para 200 Hz. Utiliza a mesma
 infraestrutura computacional do segundo nível, entretanto tem disponíveis 1900
-processadores \cite{tese_torres}.
+processadores.
 \end{itemize}
 
 Uma vez o evento sendo aceito pelo terceiro nível, o mesmo é então armazenado
@@ -193,15 +196,15 @@ desenvolvidos pela colaboração.
  % }}}
 \section{Organização do documento} % {{{
 
-O capítulo 2 apresenta o contexto de colaboração internacional no qual o projeto
-foi desenvolvido, dando a base necessária para o entendimento do experimento. No
-capítulo 3, são especificados os algoritmos de filtragem desenvolvidos para o
-canal e/$\gamma$, assim como os detalhes de implementação do algoritmo
-a posteriori. No capítulo 4 são apresentado os resultados para a analise de
-normalização e a eficiência da versão em tempo real algoritmo, enquanto no
-capítulo 5 são apresentados os resultados de performance para a versão {\it
-offline} do algoritmo. 
-sistema é usado pela colaboração no capítulo 6. Por fim, o capítulo 7 apresenta
-as conclusões do trabalho e os possíveis desdobramentos.
+%O capítulo 2 apresenta o contexto de colaboração internacional no qual o projeto
+%foi desenvolvido, dando a base necessária para o entendimento do experimento. No
+%capítulo 3, são especificados os algoritmos de filtragem desenvolvidos para o
+%canal e/$\gamma$, assim como os detalhes de implementação do algoritmo
+%a posteriori. No capítulo 4 são apresentado os resultados para a analise de
+%normalização e a eficiência da versão em tempo real algoritmo, enquanto no
+%capítulo 5 são apresentados os resultados de performance para a versão {\it
+%offline} do algoritmo. 
+%sistema é usado pela colaboração no capítulo 6. Por fim, o capítulo 7 apresenta
+%as conclusões do trabalho e os possíveis desdobramentos.
 
 % }}}
