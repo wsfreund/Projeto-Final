@@ -7,13 +7,21 @@
 \usepackage[unicode]{hyperref} % Para adicionar os links no pdf
 \usepackage[all]{hypcap}
 \usepackage{array} % Adicionar a opcao m e b em tabelas e um monte de coisa que eu nao usei
+% Para linha em negrito
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+#1\ignorespaces
+}
 \usepackage[overload]{textcase} % Adicionar MakeUpperCase etc.
 \usepackage{rotating} % Para rodar as figuras e tabelas
 \usepackage{pdflscape} % Para colocar paginas na horizontal no pdf
 \usepackage{eurosym} % Para o simbulo de Euro
 \usepackage{amssymb} % Para adicionar um monte de simbolos que nao existem normalmente, 
   % como aproximadamente menor que.
+\usepackage{pbox} % Para pular linhas dentro de celulas
 \usepackage{ccaption} % Para footnotes dentro de captions
+\usepackage{multirow} % Unir células
 \hypersetup{
     unicode=true,          % non-Latin characters in bookmarks
     pdftitle={Projeto Final},    % title
@@ -26,6 +34,7 @@
     linkcolor=black,%
     urlcolor=black%
 }
+
 
 \usepackage{indentfirst} % Para dar espaço para o primeiro parágrafo
 \usepackage{multirow} % Tabelas com celulas agrupadas
@@ -69,7 +78,7 @@
 \renewcommand{\glsgroupskip}{}
 
 
-%\renewcommand{\contentsname}{Whatever}
+% Adicionar números até a 4 subseção e as mesmas para a tabela de conteúdo
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 %\makeatletter
@@ -79,6 +88,8 @@
 %    {.5\baselineskip}%
 %    {\normalfont\normalsize\bfseries}}
 %\makeatother
+
+% Redefinir o paragraph para virar um Subtópico
 \makeatletter
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
     {-3.25ex\@plus -1ex \@minus -.2ex}%
@@ -86,6 +97,10 @@
     {\normalfont\normalsize\bfseries}}
 \makeatother
 
+% Novo comando de underscore para resolver problemas de não pular linha
+%\renewcommand\_{\textunderscore\allowbreak}
+
+% Mutliplas referências de pé de nota com o mesmo número
 \newcommand*{\fnref}[1]{\textsuperscript{\ref{#1}}}
 %\newcommand*{\addtotoc}[2]{\clearpage\phantomsection\addcontentsline{toc}{#1}{#2}}
 
@@ -121,13 +136,14 @@ internacionalmente conhecidas, optou-se por mantê-las em sua lingua original.}
 \input{cern}
 \input{reco}
 \input{resultados}
-%\input{bancos_de_dados}
-%\input{proposta}
-%\input{tecnologias}
-%\input{glance}
-%\input{aplicacoes}
 \input{conclusao}
 \glsaddall
+
+% TODO Rever o documento
+% TODO Adicionar as normalizações faltando
+% TODO Refazer o abstract
+% TODO Trocar as captions para \gls
+% TODO Traduzir as figuras
 
 \cleardoublepage
 
