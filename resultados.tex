@@ -1121,6 +1121,27 @@ wEta2.}
 JetTauEtMiss}}
 \label{ssec:Zee}
 
+O conjunto Zee x JetTauEtMiss, diferente dos conjuntos anteriores, é formado por
+colisões reais, sendo um desafio maior já que não se sabe de fato o que as
+partículas são, justamente pelo contrário, é essa a tarefa do discriminador.
+Como foi dito anteriormente, a estratégia utilizada pela Colaboração para
+escolher os cortes do Algoritmo Padrão é através das simulações de \gls{mc}, que
+depois são aplicadas aos dados reais. Um dos problemas encontrado durante a
+época do estudo, foi que as simulações de \gls{mc} não tinham um perfil de
+chuveiro \gls{em} adequado ao que a física produzia no detector, de forma que
+redes neurais treinadas através de simulações de \gls{mc} não eram capazes de
+generalizar para os dados reais. A solução foi então treinar uma nova rede
+através dos próprios dados de colisão, aplicando os mesmos critérios da
+Subseção~\ref{ssec:metodologia}. Ainda, os conjuntos de dados são formados pelo
+período de comissionamento do \gls{sf}, aonde se utilizou apenas filtros do
+\gls{l1}, de forma que a qualidade dos conjunto de dados é muito baixa, estando
+altamente contaminados por partículas que não pertencem aos seus respectivos
+conjuntos de modo similar ao conjunto JPsi x Minbias. Na
+Figura~\ref{fig:zeexjet_distenergia}, está a distribuição de energia para os
+dois conjuntos de dados, novamente sobrepostos por toda sua região. O conjunto
+de JetTauEtMiss possui uma quantidade grande de estatística, $\sim$5 M de
+candidatos.
+
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/EnergyDistribution/CaloRinger_Analysis_ZeexJetTauEtMissdata_energy_dist.pdf}
