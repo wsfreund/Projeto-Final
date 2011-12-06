@@ -25,13 +25,13 @@ estudado, assim, o efeito de Empilhamento) para o conjunto de sinal e jatos com
 os parâmetros especificados no Tópico~\ref{sssec:rna}, todas contendo 10
 neurônios na camada escondida. Uma exceção, foi realizado apenas uma única 
 inicialização e treinamento da \gls{rna}, de forma que os resultados
-podem ser influênciados por flutuação estatística. Contudo, os resultados 
+podem ser influenciados por flutuação estatística. Contudo, os resultados 
 foram reproduzidos por \cite{tese_torres} para as normalizações que se ressaltaram 
-neste estudo utilizando 10 inicializações, obtendo resultados semelhates de 
+neste estudo utilizando 10 inicializações, obtendo resultados semelhantes de 
 forma que a flutuação não afetou significativamente os resultados obtidos. O
 estudo também considerou os dois critérios utilizados durante o treinamento da
 \gls{rna} como figura de mérito, de modo a verificar se a utilização do \gls{sp}
-como critério de parada ao invés do \gls{mse} realmente melhoraria a perfomance
+como critério de parada ao invés do \gls{mse} realmente melhoraria a performance
 do \gls{rna}.
 
 \begin{table}[htb]
@@ -105,7 +105,7 @@ dos melhores resultados anteriormente indicados, o que pode ser uma vantagem em
 alguns casos devido a sua praticidade de aplicação, aonde não é necessário a
 descoberta do desvio padrão e média dos dados, ainda mais interessante para o
 caso da Norma 1, onde simplesmente se soma a energia de todos os anéis para
-então dividí-los por esse valor. A normalização sequencial, apesar de todo o
+então dividi-los por esse valor. A normalização sequencial, apesar de todo o
 conhecimento especialista aplicado para a otimização da Norma 1, obteve
 resultados bem inferiores aos demais, sendo talvez necessário a alteração de
 seus parâmetros para uma melhor eficiência. A utilização de normalização por
@@ -142,7 +142,7 @@ disponíveis em \cite{info_run}):
 \begin{itemize}
 \item Conjunto de sinal: Contém candidatos a Zee filtrados apenas pelo \gls{l1},
 estando assim altamente contaminado por ruído físico;
-\item Conjunto de ruído: Contém candidatos a jatos, taóns que também podem
+\item Conjunto de ruído: Contém candidatos a jatos, táons que também podem
 formar jatos e \gls{Etmiss} (neutrinos).
 \end{itemize}
 \end{itemize}
@@ -157,7 +157,7 @@ inicialização e treinamento 3 vezes seguidas para cada quantidade de neurônio
 escondida testadas, utilizando uma variação entre $5-20$. O baixo valor de
 inicializações se deu ao curto prazo para a apresentação dos resultados da
 implementação e eficiência do algoritmo. 
-Utilizou-se a normalização por Norma 1,
+Utilizou-se a Norma 1,
 devido aos resultados obtidos na Seção~\ref{sec:norm} e em \cite{tese_torres},
 onde a eficiência dessa normalização é ligeiramente mais baixa que aquelas de
 melhor desempenho, mas é de simples implementação. A \gls{rna} foi treinada utilizando os
@@ -166,7 +166,7 @@ Algoritmo Padrão e rejeitasse as partículas do conjunto de ruído que não fos
 aceitos pelo critério \emph{Loose} desse algoritmo, para que fosse possível uma
 boa detecção da parcela detectada por essas partículas, e ao mesmo tempo,
 rejeitar uma quantidade superior que a do Algoritmo Padrão, procurando um ganho em
-eficiência nesse quisito. Após o treinamento de uma rede para os casos a seguir,
+eficiência nesse requisito. Após o treinamento de uma rede para os casos a seguir,
 foi realizado um estudo de eficiência, e uma busca por correlação
 entre as variáveis físicas utilizadas pelo Algoritmo Padrão, para encontrar relações entre as
 variáveis. A busca por regiões de interseção das partículas aceitas pelos os
@@ -214,14 +214,14 @@ tabelas são as respectivas parcelas na qual o \gls{egcaloringer} tem em comum
 com o Algoritmo Padrão. Por exemplo, com o critério \emph{\gls{rna} Medium} o
 \gls{egcaloringer} é capaz de detectar 94,98\% dos elétrons, enquanto o
 Algoritmo Padrão irá obter 71,82\% dessas partículas, onde o conjunto de
-interseçã de partículas identificadas para ambos algoritmos com esses critérios
+interseção de partículas identificadas para ambos algoritmos com esses critérios
 (ambos \emph{Medium}) será de 71,59\% das total de partículas no conjunto. Ao
 mesmo tempo, 57,35\% das partículas do conjunto de sinal são identificadas por um critério
 \emph{Tight} no Algoritmo Padrão e pelo critério \emph{\gls{rna} Tight},
 mostrando que a \gls{rna} é capaz de identificar com alta fidelidade os elétrons
 \emph{Medium} e \emph{Tight}. Mais do que alta fidelidade com esses requisitos,
-o algoritmo implementado acabou superarando a taxa de deteção do Algoritmo
-Padrão. Seguindo o mesmo raciocínio para a deteção de elétrons, as taxas de falso
+o algoritmo implementado acabou superando a taxa de detecção do Algoritmo
+Padrão. Seguindo o mesmo raciocínio para a detecção de elétrons, as taxas de falso
 alarme do Algoritmo Padrão são de 5,90 e 0,94, para os requerimentos \emph{Medium}
 e \emph{Tight}, enquanto o \gls{egcaloringer} consegue valores menores, 1,16 e
 0,67, de modo que além da melhor capacidade de identificação de elétrons, o
@@ -238,10 +238,10 @@ algoritmo tem melhor capacidade de rejeição de jatos.
 \cline{2-3}
 \multirow{-2}{*}{Req. Do Alg. Padrão} & 
 Alg. Padrão & 
-EgCaloRinger & 
+Egcaloringer & 
 \multirow{-2}{*}{para FA (\%)} \\
 \hline
-Loose & 89,16 & 98,45 & 28,53 \\
+Loise & 89,16 & 98,45 & 28,53 \\
 Medium & 71,82 & 97,00 & 5,90 \\
 Tight & 57,68 & 94,18 & 0,94 \\
 \hline
@@ -296,11 +296,11 @@ A correlação da saída neural com os requerimentos do Algoritmo Padrão está
 disposta na Figura~\ref{fig:singlexj2_saidaneural}. O degradê em tom de azul
 identifica a contagem de elétrons com os valores de saída neural, e os
 requerimentos aceitos pelo Algoritmo Padrão, sendo eles do tom mais escuro para
-o mais claro: Sem Requerimento (todo o conjunto de dados), \emph{Loose},
+o mais claro: Sem Requerimento (todo o conjunto de dados), \emph{Loise},
 \emph{Medium} e \emph{Tight}. O limiar de decisão para o corte \emph{\gls{rna}
 Medium} está indicado na figura através da linha pontilhada vertical. Os valores
-da saída neural para os elétrons que passaram critérios \emph{medium} e
-\emph{tight} estão bastante concentrados em +1, o valor alvo para elétrons,
+da saída neural para os elétrons que passaram critérios \emph{Medium} e
+\emph{Tight} estão bastante concentrados em +1, o valor alvo para elétrons,
 mostrando alta correlação entre a rede neural e esses critérios. Por outro lado,
 o degradê em tom de vermelho identifica a saída neural para o conjunto de jatos,
 novamente os tons mais escuros estão relacionados às partículas que
@@ -345,17 +345,17 @@ neural está sempre acima dos pontos do Algoritmo Padrão, de forma que o
 \label{fig:singlexj2_roc}
 \end{figure}
 
-As taxas de deteção, parte superior, e falso alarme, parte inferior, também podem ser 
+As taxas de detecção, parte superior, e falso alarme, parte inferior, também podem ser 
 observadas e comparadas para os algoritmos em função dos parâmetros \gls{Et} e \gls{eta} 
 da partícula na Figura~\ref{fig:singlexj2_eficiencia_loose},
 Figura~\ref{fig:singlexj2_eficiencia_medium} e Figura~\ref{fig:singlexj2_eficiencia_medium}, 
-para respectivamente os critérios \emph{Loose}, \emph{Medium} e \emph{Tight}. A
+para respectivamente os critérios \emph{Loise}, \emph{Medium} e \emph{Tight}. A
 distribuição assimétrica para o eixo positivo e negativo de \gls{eta} é incomum
 e uma característica dos conjuntos de dados simulados de elétrons, observe que
 os jatos (falso alarme), por sua vez, têm uma distribuição simétrica. O
 \gls{egcaloringer} obteve uma eficiência superior para toda a região de energia
-e \gls{eta} ao do Algoritmo Padrão, com excessão de algumas regiões de \gls{eta}
-para a taxa de deteção no critério \emph{Loose}. Um fato importante também
+e \gls{eta} ao do Algoritmo Padrão, com exceção de algumas regiões de \gls{eta}
+para a taxa de detecção no critério \emph{Loose}. Um fato importante também
 observado nessas figuras é taxa de falso alarme constante para a região de fenda
 no Sistema de Calorimetria (Subtópico~\ref{par:ecal_prec}), $|\gls{eta}|\sim1,45$, 
 aonde operação do mesmo é degradada.
@@ -365,7 +365,7 @@ que se está tendo maior ou menor facilidade de se discriminar. A
 Tabela~\ref{tab:singlexj2_part_j2} contém as taxas de rejeição de algumas
 partículas estáveis -- partículas que irão interagir com o \gls{atlas} --, sendo
 eles os fótons, píons, káons e elétrons para os requerimentos de ambos
-algoritmos. O algoritmo proposto possuí um melhor potêncial de rejeição para
+algoritmos. O algoritmo proposto possuí um melhor potencial de rejeição para
 todas as partículas desse conjunto de dados, como os hádrons que compõem os
 jatos, incluindo fótons e elétrons. Parte dos fótons contidos nesse
 conjunto são de decaimentos de $\pi^0\rightarrow\gamma\gamma$, de forma que a
@@ -402,7 +402,7 @@ $e^+/e^-$ & 66,03 & 77,69 & 81,27 & 95,82 & 97,24 & 98,40 \\
 Finalmente, algumas das variáveis físicas foram foram traçadas em conjunto com
 a saída neural em busca de correlações. As
 Figuras~\ref{fig:singlexj2_rcore}-\ref{fig:singlexj2_width2} contêm histogramas
-de duas dimensões em escala logaritimica para o eixo z, 
+de duas dimensões em escala logarítmica para o eixo z, 
 a saída da rede neural está no eixo das ordenadas e a
 variável física no eixo das abscissas. Essas variáveis são: \gls{reta},
 \gls{eratio}, \gls{Rhad1} e \gls{weta2}; informações sobre essas as variáveis estão
@@ -423,7 +423,7 @@ requerimento. Algumas observações podem ser realizadas, como no caso da variá
 barril sem a exigência de requerimento (Sem Req.). É esperado que elétrons
 tenham valores próximos a 1 nessa variável, justamente a região em que há uma
 região de confusão para a saída neural, enquanto valores distantes de 1 são
-raramente confundidos pela rede, sendo com frequência atribuidos a -1. Outra
+raramente confundidos pela rede, sendo com frequência atribuídos a -1. Outra
 variável, o \gls{eratio} também deverá ter valores próximos a 1 para elétrons,
 onde novamente é concentrada a região de confusão da \gls{rna}. A variável
 \gls{Rhad1} deverá se formar próximo de 0, uma vez que elétrons não devem
@@ -660,14 +660,14 @@ o conjunto atual. Primeiro, a sobreposição da faixa de energia nos dados
 acontece para toda ela, como pode ser visto na
 Figura~\ref{fig:jpsixminb_dist_energia}. Além disso, agora o conjunto de sinal
 não contém apenas elétrons, mas também simulações de \gls{mbias}, de forma que o
-conjunto está contaminado por partículas constituíntes de ruído. Também, não é
+conjunto está contaminado por partículas constituintes de ruído. Também, não é
 garantido que os elétrons estarão isolados, podendo ter parte da sua deposição
 de energia contaminada por outra partícula, dificultando o processo de
 discriminação uma vez que o outro deposito irá fazer partículas \gls{em}
 perderem suas características deposição de energia em regiões mais estreitas.
 Quanto ao conjunto de ruído composto por \gls{mbias}, diferente do conjunto de
 J2, onde todas as partículas são compostas por jatos de seus decaimentos, podem
-estar contidos nesse conjunto elétrons legítmos, de forma que ambos os conjuntos
+estar contidos nesse conjunto elétrons legítimos, de forma que ambos os conjuntos
 podem conter partículas que, teoricamente, eram para pertencer ao conjunto
 oposto. O procedimento é o mesmo que aquele realizado para o conjunto anterior, entretanto
 essas diferenças serão importantes para determinar as diferenças encontradas
@@ -705,7 +705,7 @@ Tight  & 33.70 & 34.51 & 4.48 \\
 \end{table}
 
 
-A Tabela~\ref{tab:jpsixminb_efic} contém as taxas de deteção de ambos os
+A Tabela~\ref{tab:jpsixminb_efic} contém as taxas de detecção de ambos os
 algoritmos para falso alarme fixo nos valores do Algoritmo Padrão. O
 \gls{egcaloringer} obtém valores consideravelmente maiores que os do Algoritmo
 Padrão para os cortes \emph{Loose}, \emph{Medium}, contudo os algoritmos
@@ -771,7 +771,7 @@ Quanto a Figura~\ref{fig:jpsixminb_saidaneural}, pode-se reparar que a saída da
 rede neural já não está mais tão concentrada nos extremos, como quando no
 conjunto de Singlepart\_e x J2, mostrando o impacto da contaminação dos dados no
 ajuste da rede neural, que irá deslocar os picos de concentração de saídas para
-uma região ligeraimente mais central. Contudo, a rede ainda foi capaz de
+uma região ligeiramente mais central. Contudo, a rede ainda foi capaz de
 concentrar grande parte dos elétrons \emph{Medium} e \emph{Tight} do Algoritmo
 Padrão na região do pico correspondente a elétrons na saída neural. Por outro
 lado, quando observando a saída neural para o conjunto de Minbias, observa-se
@@ -890,7 +890,7 @@ $e^+/e^-$     &20.07 &25.69 &35.82 &25.95 &41.70 &61.24  \\
 \end{table}
 
 
-As eficiências de taxa de deteção e falso alarme em função das variáveis estão
+As eficiências de taxa de detecção e falso alarme em função das variáveis estão
 dispostas nas Figuras~\ref{fig:jpsixminb_eficiencia_tight},
 \ref{fig:jpsixminb_eficiencia_medium} e \ref{fig:jpsixminb_eficiencia_loose},
 para os cortes \emph{Tight}, \emph{Medium} e \emph{Loose}. Os valores do
@@ -902,7 +902,7 @@ eficiência disposto nas Tabelas~\ref{tab:jpsixminb_efic_det} e
 Os histogramas de duas dimensões,
 Figuras~\ref{fig:jpsixminb_rcore}-\ref{fig:jpsixminb_width2}, 
 para as variáveis físicas e saída neural seguem
-o que foi dito para a análise realizada para o conjuto Singlepart\_e x J2, onde
+o que foi dito para a análise realizada para o conjunto Singlepart\_e x J2, onde
 a região de confusão fica relativamente próximo dos limiares de corte utilizados
 pelo Algoritmo Padrão, região aonde os jatos mascaram os elétrons.
 Contudo, a concentração dos dados não é na borda como no conjunto anterior, 
@@ -1161,8 +1161,8 @@ obteve valores melhores de detecção, entretanto, assim como no caso do JPsi x
 Minbias, mas não se pode afirmar que esse ganho de detecção é necessariamente
 composto de sinal, uma vez que os conjuntos conjuntos estão contaminados. Por
 outro lado, o estudo de JPsi x Minbias indicou que a abordagem trás um aumento
-de eficiência em sua maioria através de ganhos em deteção de elétrons, e não nas
-partículas contaminadoras do conjunto, trazendo índicios de que os resultados
+de eficiência em sua maioria através de ganhos em detecção de elétrons, e não nas
+partículas contaminadoras do conjunto, trazendo indícios de que os resultados
 são bons. As Tabelas~\ref{tab:zeexjet_efic_det} e \ref{tab:zeexjet_efic_fa}
 contêm as taxas de detecção e falso alarme dos algoritmos testados. Desta vez,
 os valores dos limiares foram forçados para que o algoritmo proposto obtenha os
@@ -1172,7 +1172,7 @@ algoritmos foi a mais elevada, mas ainda assim os valores obtidos foram modestos
 variando na ordem de 70-80\% de correlação entre as saídas dos dois algoritmos
 para os requerimentos. Quanto a taxa de falso alarme, os valores foram obtidos
 por especificação do limiar de decisão para que os valores fossem próximos,
-entretudo, pode-se percebe que a rede está rejeitando uma parcela considerável
+entretanto, pode-se percebe que a rede está rejeitando uma parcela considerável
 dos candidatos a JetTauEtMiss que foram aceitos pelo Algoritmo Padrão.
 
 \begin{table}[htb]

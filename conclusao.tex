@@ -9,9 +9,9 @@ alcançadas experimentalmente. O seu detector \gls{atlas}, detector que terá a
 capacidade de explorar grande parte da física produzida nas colisões do
 \gls{lhc}, foi construído e é operado por uma Colaboração de 174 institutos e 38 
 países. Seu projeto foi feito de modo a atender as severas condições impostas
-pelo \gls{lhc}, que foi atribuida a todos os seus subsistemas. Deles, os principais são, 
+pelo \gls{lhc}, que foi atribuída a todos os seus subsistemas. Deles, os principais são, 
 o \gls{id}, que irá reconstruir a trajetória das partículas carregadas 
-eletricamente, o Sistema de Calorímeria, responsável pela absorção da energia 
+eletricamente, o Sistema de Calorimetria, responsável pela absorção da energia 
 de grande parte das partículas de estados finais das colisões, e o Espectrômetro de 
 Múons, que irá operar de maneira similar ao \gls{id} para realizar a detecção 
 dessas partículas. As informações desses subdetectores, compondo um total de
@@ -31,7 +31,7 @@ prevista pelo \gls{mp} ainda não observada experimentalmente. Essa partícula
 poderá sofrer diversos decaimentos diferentes, dependendo de sua massa. Grande
 parte deles decaem em estados finais como elétrons, pósitrons e fótons, as
 partículas de interesse do Canal \gls{eg}. Os algoritmos dos sistemas
-utilizam a informação do Sistema de Calorímetria e do \gls{id} para realizarem a
+utilizam a informação do Sistema de Calorimetria e do \gls{id} para realizarem a
 tarefa de reconstrução ou filtragem utilizando as versões implementada pela
 Colaboração, que gera variáveis físicas que permitam a interpretação dos
 chuveiros de partículas no calorímetro, do traço da partícula e as relações
@@ -40,10 +40,10 @@ dos algoritmos padrões foram baseados nos algoritmos do \gls{sr} para obter o
 mínimo possível de polarização dos dados pelo \gls{sf}.
 
 O algoritmo proposto, o \gls{hltringer} inicialmente para o \gls{l2}, utiliza o
-conhecimento especiaslita através do processo de anelamento, que mantém a interpretação da propagação do
+conhecimento especialista através do processo de anelamento, que mantém a interpretação da propagação do
 chuveiro no calorímetro como a informação de espessura lateral e profundidade
 longitudinal. Essa informação precisa ser normalizada antes de sua propagação em
-uma rede neural, o processo discriminador multivariável atualemnte utilizado,
+uma rede neural, o processo discriminador multivariável atualmente utilizado,
 por esse motivo foi realizado um estudo de normalização, obtendo como resultados
 a melhor eficiência a normalização por Esferização Modificada e Fixa por Seção.
 A Norma 1, um tipo de normalização simples também foi indicado, por ter
@@ -57,20 +57,20 @@ entendido pela Colaboração no \gls{sr}. Ao mesmo tempo, a implementação deve
 afetar o funcionamento de qualquer um dos algoritmos padrões. O esquema foi
 implementado de modo bem sucedido, adicionando a compatibilidade das variáveis
 do \gls{egcaloringer} para diversos meios de análise. Em seguida, o estudo foi então
-proceguido, agora buscando testar a capacidade do algoritmo no novo ambiente.
+prosseguido, agora buscando testar a capacidade do algoritmo no novo ambiente.
 Utilizou a normalização mais simples, a Norma 1 por causa desse estudo anterior.
 Um total de três conjuntos foi analisado. O primeiro deles, Singlepart\_e x J2,
 continha conjuntos com amostras limpas, sendo o conjunto em que os algoritmos
-tiveram a melhor eficiência, aonde o algoritmo proposto superou a perfomance do
+tiveram a melhor eficiência, aonde o algoritmo proposto superou a performance do
 algoritmo padrão. O conjunto de JPsi x Minbias possuem contaminação por
 partículas que não eram para pertencer aos dados, alterando o perfil da saída
-neural, que ainda assim, tem uma perfomance melhor que o algoritmo padrão, sendo
+neural, que ainda assim, tem uma performance melhor que o algoritmo padrão, sendo
 capaz de identificar uma quantidade maior dos elétrons do conjunto de JPsi
 exceto para o requerimento \emph{Tight}, onde ambos algoritmos tiveram
-perfomance similiar. Finalmente, o conjunto de dados reais possuia amostras de
+performance similar. Finalmente, o conjunto de dados reais possuía amostras de
 dados filtrados apenas pelo \gls{l1}, e estando ainda mais contaminado que o
 conjunto de Jpsi x Minbias. Os resultados obtidos para os dados reais indicaram
-uma perfomance bastante positiva para o algoritmo, e a vantagem da alta
+uma performance bastante positiva para o algoritmo, e a vantagem da alta
 estatística facilitou a percepção de relação entre as variáveis físicas e a saída
 neural.
 
@@ -78,9 +78,9 @@ neural.
 \section{Perspectivas}
 
 Os resultados dos estudos preliminares após a implementação da versão de análise
-a posteriori mostraram o potêncial do algoritmo para a discriminação de
+a posteriori mostraram o potencial do algoritmo para a discriminação de
 partículas \gls{em}. Não foi possível se aprofundar nos estudos, para refinar os
-conjuntos de Jpsi x Minbias utilizados, através da seleção das partículas pela
+conjuntos de JPsi x Minbias utilizados, através da seleção das partículas pela
 verdade de \gls{mc} melhorando as análises filtradas. Ainda, no caso de
 $\text{J}/\Psi$ e do bóssom de Z decaindo em dois elétrons, é necessário a
 utilização do método \emph{tag and probe}, o que não foi realizado.

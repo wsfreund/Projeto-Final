@@ -14,7 +14,7 @@ elementares}
 
 A complexidade e quantidade de requisitos exigidos tem se elevado conforme o avanço da ciência, 
 de forma que novas técnicas precisam ser aplicadas para a continuação do processo evolutivo.
-A engenharia tem auxiliado em diversas áreas, auxiliando com ferramentas e novas tecnologias. 
+A engenharia tem auxiliado em diversas áreas, apresentando ferramentas e novas tecnologias. 
 Na física, um dos ambientes que proporciona todos esses desafios é o maior acelerador 
 de partículas já construído no mundo, o \acrshort{lhc}, que permitirá aos
 cientistas validar e desenvolver teorias, como o \glslink{mp}{Modelo Padrão}. A
@@ -29,7 +29,7 @@ trivial.
 O \gls{sr} do \acrshort{atlas} é o responsável por identificar as
 partículas e seus parâmetros, onde a capacidade de descoberta de novas físicas 
 está relacionada com sua eficiência. Outras dificuldades a serem superadas são a alta taxa de
-eventos acompanhado da escassidade de eventos de interesse. 
+eventos acompanhado da escassez de eventos de interesse. 
 O \gls{sf} foi desenvolvido para selecionar as informações relevantes para o experimento 
 atuando em tempo real, de forma a reduzir a quantidade massiça de dados a ser armazenada.
 
@@ -46,7 +46,7 @@ atualmente composto de redes neurais. O algoritmo de discriminação foi otimiza
 através do estudo do pré-processamento mais indicado para a rede neural. 
 Não obstante, embora o algoritmo tenha sido idealizado para o \gls{sf}, 
 o mesmo foi portado ao \gls{sr}, de modo a permitir sua utilização e 
-entendimento pela Colaboração do \acrshort{atlas}. A sua perfomance foi 
+entendimento pela Colaboração do \acrshort{atlas}. A sua performance foi 
 testada utilizando como referência o algoritmo padrão utilizado 
 pela colaboração.
 
@@ -65,45 +65,42 @@ pela colaboração.
 \end{center}
 \addcontentsline{toc}{chapter}{Abstract}
 
-% TODO REDO THIS FUCKING SHIT
+The amount of requirements and its complexity needed are enhanced while science
+develops, so new techniques are requested to maintain the evolutive proccess.
+The engeneering has supported in many areas of knowledge, introducing tools and
+new technologies.
+In physics, one enviromment which provides all this challenges is the biggest
+particle accelerator in the world, the \acrshort{lhc}, which will enable
+scientists validate and develop new theories, aas the Standart Model. The only
+particle yet not observated, provided by this model is the Higgs boson, where
+one of the LHC detectors, the ATLAS, has among its goals to confirm this
+particle existance. However, the Higgs boson is highly unstable and will rapidly
+decay in others particle, like electrons and photons, so it is important the
+detection of those to the experiment triumph. This particles will have their
+signature faked by others, so the identification process it not trivial.
 
-The \glslink{cern}{European Laboratory for Particle Physics (CERN)} is one of the current
-media highlights due to the biggest particle accelerator ever built, \glslink{lhc}{the Large 
-Hadron Collider (LHC)}. This accelerator will give scientists the opportunity to explore 
-one new experimental physics universe, allowing them to validate and develop
-theories.
-
-One of those theories, the Standard Model, foresees the Higgs boson particles,
-yet not seen experimentally. One of the \acrshort{lhc} detectors, the
-\gls{atlas}, has between its goals to corroborate this particle existence.
-
-The Higgs boson is highly unstable and will decay rapidly into other particles,
-such as electrons and photons, so that it is important the detection of those in 
-order to the experiment corroborate the existence, or not, of this particle.
-
-However the events of interest are rare, therefore a large amount of physics
-production will compose noise on the detector. A Trigger System was developed in the
-intent to select the relevant information for the experiment. There are two
-versions, the on-line, which reduce the massive amount of data
-to be stored, and another off-line, refereed as Reconstruction System, used by 
-physicists on stored data to evaluate their theories.
+The ATLAS Reconstruction System is requested to identify the particle and its
+parameters, while the discoverability of new physics is related to its
+efficiency. Other difficulties to be overcome are the high event rate together
+with the short rate for events of interest. The Trigger System was developed to
+select the relevant information for the experiment as an online algorithm in
+order to reduce data storage.
 
 In this international context, the present work proceed with the Egamma
-Calorimeter project. The project consists of one algorithm to the
-\gls{atlas} Reconstruction System, acting on the \acrshort{eg} physics channel. In this
-algorithm, particular information from the detector is propagated to a stochastic
+Calorimeter project. The project consists of one algorithm to the 
+ATLAS Reconstruction System, 
+acting on the $e/\gamma$ physics channel. In this algorithm,
+particular information from the detector is propagated to a stochastic
 discrimination method, currently composed of artificial neural networks.
-
 This document describes the algorithm efficiency optimization, through a study
 of the most indicated data preprocessing. Furthermore, it was developed an
-offline version for this algorithm, which was officially added to the
-\gls{atlas} framework. Finally, the algorithm performance was compared using as benchmark
-the standard algorithm developed by the collaboration.
-
+offline version for this algorithm, which was officially added to the ATLAS fra-
+mework. Finally, the algorithm performance was compared using as benchmark the
+standard algorithm developed by the collaboration.
 
 \paragraph*{}
 
-\noindent Key-words: neural networks, Trigger, \acrshort{cern}, \acrshort{atlas}.
+\noindent Key-words: neural networks, Trigger, Calorimetry.
 
 
 \vfill
