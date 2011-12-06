@@ -22,9 +22,10 @@ normalizações testadas foi realizada no Tópico~\ref{sssec:preproc_norm}. Fora
 utilizadas simulações de \gls{mc} de 2008, contendo elétrons isolados (não sendo
 estudado, assim, o efeito de Empilhamento) para o conjunto de sinal e jatos com 
 \gls{Et} máximo de 17 GeV para o conjunto de ruído. As redes foram treinadas com
-os parâmetros especificados no Tópico~\ref{sssec:rna}, com a exceção da
-utilização de apenas uma inicialização da \gls{rna}, de forma que os resultados
-estavam haver flutuação estatística nos resultados indicados. Contudo, os resultados 
+os parâmetros especificados no Tópico~\ref{sssec:rna}, todas contendo 10
+neurônios na camada escondida. Uma exceção, foi realizado apenas uma única 
+inicialização e treinamento da \gls{rna}, de forma que os resultados
+podem ser influênciados por flutuação estatística. Contudo, os resultados 
 foram reproduzidos por \cite{tese_torres} para as normalizações que se ressaltaram 
 neste estudo utilizando 10 inicializações, obtendo resultados semelhates de 
 forma que a flutuação não afetou significativamente os resultados obtidos. O
@@ -33,7 +34,7 @@ estudo também considerou os dois critérios utilizados durante o treinamento da
 como critério de parada ao invés do \gls{mse} realmente melhoraria a perfomance
 do \gls{rna}.
 
-\begin{table}[ht!]
+\begin{table}[htb]
 \centering
 \resizebox{\textwidth}{!}{
 \begin{tabular}{
@@ -121,20 +122,20 @@ Para o estudo de eficiência do \gls{egcaloringer} foram utilizados três
 conjuntos de dados contendo elétrons e o respectivo ruído esperado
 (o nome dos conjuntos de dados utilizados estão em \cite{portal_caloringer}):
 \begin{itemize}
-\item \textbf{Singlepart\_e $\times$ J2}: originados através de simulações de
+\item \textbf{Singlepart\_e $\times$ J2} (Subseção~\ref{ssec:single_e}): originados através de simulações de
 \gls{mc}:
 \begin{itemize}
 \item Conjunto de sinal: formado por elétrons isolados;
 \item Conjunto de ruído: contém jatos hadrônicos.
 \end{itemize}
-\item \textbf{\text{J}/$\Psi \times$ Minbias}: novamente original de simulações
+\item \textbf{\text{J}/$\Psi \times$ Minbias} (Subseção~\ref{ssec:jpsi}): novamente original de simulações
 de \gls{mc}:
 \begin{itemize}
 \item Conjunto de sinal: contém decaimentos de $\text{J}/\Psi$ em elétrons adicionados de eventos de
 \gls{mbias} para simular o fenômeno de Empilhamento;
 \item Conjunto de ruído: composto por eventos de \gls{mbias}.
 \end{itemize}
-\item \textbf{Z$\rightarrow$ee $\times$ JetTauEtmiss}: composto por dados de
+\item \textbf{Z$\rightarrow$ee $\times$ JetTauEtmiss} (Subseção~\ref{ssec:Zee}): composto por dados de
 colisões reais da temporada 167776, com pico de luminosidade de
 $1,8\times10^{30}cm^{-2}s^{-1}$ (todas as informações da temporada estão
 disponíveis em \cite{info_run}):
@@ -146,16 +147,83 @@ formar jatos e \gls{Etmiss} (neutrinos).
 \end{itemize}
 \end{itemize}
 
+\subsection{Metodologia} %?
+\label{ssec:metodologia}
+
+Para cada um dos casos foi utilizado os critérios de treinamento e separando os 
+conjuntos de dados nas porcentagens dependendo da quantidade de estatística
+disponível, indicadas no Tópico~\ref{sssec:rna}. Se realizou o processo de
+inicialização e treinamento 3 vezes seguidas para cada quantidade de neurônios na camada
+escondida testadas, utilizando uma variação entre $5-20$. O baixo valor de
+inicializações se deu ao curto prazo para a apresentação dos resultados da
+implementação e eficiência do algoritmo. 
+Utilizou-se a normalização por Norma 1,
+devido aos resultados obtidos na Seção~\ref{sec:norm} e em \cite{tese_torres},
+onde a eficiência dessa normalização é ligeiramente mais baixa que aquelas de
+melhor desempenho, mas é de simples implementação. A \gls{rna} foi treinada utilizando os
+dados do conjunto de sinal que fossem aceitos pelo critério \emph{Medium} do
+Algoritmo Padrão e rejeitasse as partículas do conjunto de ruído que não fossem
+aceitos pelo critério \emph{Loose} desse algoritmo, para que fosse possível uma
+boa detecção da parcela detectada por essas partículas, e ao mesmo tempo,
+rejeitar uma quantidade superior que a do Algoritmo Padrão, procurando um ganho em
+eficiência nesse quisito. Após o treinamento de uma rede para os casos a seguir,
+foi realizado um estudo de eficiência, e uma busca por correlação
+entre as variáveis físicas utilizadas pelo Algoritmo Padrão, para encontrar relações entre as
+variáveis. A busca por regiões de interceção das partículas aceitas pelos os
+requerimentos da \gls{rna}, \emph{\gls{rna} Loose}, \emph{\gls{rna} Medium} e
+\emph{\gls{rna} Tight}, com as partículas aceitas pelos requerimentos do
+Algoritmo Padrão, teve como o objetivo provar o ganho de eficiência. Nos estudos
+de \gls{mc}, a verdade de \gls{mc}, contendo as informações sobre a partícula
+gerada, sua energia, e outros parâmetros podem ser utilizados para aprimorar a
+análise, de forma que essa informação disponível foi utilizada para esses
+conjuntos.
 
 
-
-%\subsection{Metodologia} %?
-%\label{ssec:metodologia}
+\FloatBarrier
 
 \subsection{\texorpdfstring{Singlepart\_e $\times$ J2}{Singlepart\_e x J2}}
 \label{ssec:single_e}
 
-\begin{table}[ht!]
+Neste conjunto de dados há sobreposição dos dados para a faixa de energia por
+volta dos $\sim10-35$ GeV, praticamente não havendo jatos na região de maiores
+energias, como indicado na Figura~\ref{fig:singlexj2_distenergia}. Os conjuntos de
+dados são limpos, contendo apenas elétrons no caso do Singlepart\_e, e jatos
+para o J2.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_ElectronVsJet/EnergyDistribution/CaloRinger_Analysis_ElectronVsJetdata_energy_dist.pdf}
+\label{fig:singlexj2_distenergia}
+\caption{Distribuição de energia para o conjunto Singlepart\_e x J2.}
+\end{figure}
+
+A Tabela~\ref{tab:singlexj2_efic} contém a eficiência dos algoritmos padrão e
+\gls{egcaloringer}. O último teve suas taxas fixadas para obter as mesmas taxas
+de \gls{fa} que aquelas de cada um dos requisitos do Algoritmo Padrão. Os
+valores do algoritmo proposto foi bastante superior para os três requisitos, com
+ganhos de 9,26\%, 25,18\% e 36,5\% de detecção para os critérios \emph{Loose},
+\emph{Medium} e \emph{Tight}, respectivamente. As eficiências de
+detecção para os algoritmos com seus requerimentos estão na
+Tabela~\ref{tab:singlexj2_efic_det}, e as de falso alarme
+na Tabela~\ref{tab:singlexj2_fa_det}. Os valores contidos no interior dessas
+tabelas são as respectivas parcelas na qual o \gls{egcaloringer} tem em comum
+com o Algoritmo Padrão. Por exemplo, com o critério \emph{\gls{rna} Medium} o
+\gls{egcaloringer} é capaz de detectar 94,98\% dos elétrons, enquanto o
+Algoritmo Padrão irá obter 71,82\% dessas partículas, onde o conjunto de
+interseçã de partículas identificadas para ambos algoritmos com esses critérios
+(ambos \emph{Medium}) será de 71,59\% das total de partículas no conjunto. Ao
+mesmo tempo, 57,35\% das partículas do conjunto de sinal são identificadas por um critério
+\emph{Tight} no Algoritmo Padrão e pelo critério \emph{\gls{rna} Tight},
+mostrando que a \gls{rna} é capaz de identificar com alta fidelidade os elétrons
+\emph{Medium} e \emph{Tight}. Mais do que alta fidelidade com esses requisitos,
+o algoritmo implementado acabou superarando a taxa de deteção do Algoritmo
+Padrão. Seguindo o mesmo raciocínio para a deteção de elétrons, as taxas de falso
+alarme do Algoritmo Padrão são de 5,90 e 0,94, para os requerimentos \emph{Medium}
+e \emph{Tight}, enquanto o \gls{egcaloringer} consegue valores menores, 1,16 e
+0,67, de modo que além da melhor capacidade de identificação de elétrons, o
+algoritmo tem melhor capacidade de rejeição de jatos.
+
+\begin{table}[htb]
 \centering
 \begin{tabular}{cccc}
 \hline
@@ -169,16 +237,17 @@ Alg. Padrão &
 EgCaloRinger & 
 \multirow{-2}{*}{para FA (\%)} \\
 \hline
-Loose & 89,16 & 98,45(+9,26) & 28,53 \\
-Medium & 71,82 & 97,00(+25,18) & 5,90 \\
-Tight & 57,68 & 94,18(+36,50) & 0,94 \\
+Loose & 89,16 & 98,45 & 28,53 \\
+Medium & 71,82 & 97,00 & 5,90 \\
+Tight & 57,68 & 94,18 & 0,94 \\
 \hline
 \hline
 \end{tabular}
-\caption{Eficiências do algoritmos para FA fixos.}
+\caption{Eficiências do algoritmos para FA fixos. Conjunto Singlepart\_e x J2.}
+\label{tab:singlexj2_efic}
 \end{table}
 
-\begin{table}[ht!]
+\begin{table}[htb]
 \centering
 \begin{tabular}{l cccc}
 \hline
@@ -195,11 +264,12 @@ Todo o Conj. &  - & 89,16 & 71,82 & 57,68 \\
 \hline
 \hline
 \end{tabular}
-\caption{Taxa de deteção (\%) dos algoritmos e parcela na qual o EgCaloRinger
-identifica em comum ao algoritmo padrão.}
+\caption{Taxa de detecção (\%) dos algoritmos e parcela na qual o EgCaloRinger
+identifica em comum ao algoritmo padrão. Conjunto Singlepart\_e x J2.}
+\label{tab:singlexj2_efic_det}
 \end{table}
 
-\begin{table}[ht!]
+\begin{table}[htb]
 \centering
 \begin{tabular}{l cccc}
 \hline
@@ -214,13 +284,92 @@ Todo o Conj. & - & 28.57 & 5.90 &  0.94 \\
 \hline
 \end{tabular}
 \caption{Taxa de falso alarme (\%) dos algoritmos e parcela na qual o EgCaloRinger
-identifica em comum ao algoritmo padrão.}
+identifica em comum ao algoritmo padrão. Conjunto Singlepart\_e x J2.}
+\label{tab:singlexj2_fa_det}
 \end{table}
 
+A correlação da saída neural com os requerimentos do Algoritmo Padrão está
+disposta na Figura~\ref{fig:singlexj2_saidaneural}. O degradê em tom de azul
+identifica a contagem de elétrons com os valores de saída neural, e os
+requerimentos aceitos pelo Algoritmo Padrão, sendo eles do tom mais escuro para
+o mais claro: Sem Requerimento (todo o conjunto de dados), \emph{Loose},
+\emph{Medium} e \emph{Tight}. O limiar de decisão para o corte \emph{\gls{rna}
+Medium} está indicado na figura através da linha pontilhada vertical. Os valores
+da saída neural para os elétrons que passaram critérios \emph{medium} e
+\emph{tight} estão bastante concentrados em +1, o valor alvo para elétrons,
+mostrando alta correlação entre a rede neural e esses critérios. Por outro lado,
+o degradê em tom de vermelho identifica a saída neural para o conjunto de jatos,
+novamente os tons mais escuros estão relacionados às partículas que
+ultrapassaram critérios menos seletivos, e os tons mais claros, de maior
+seletividade. É possível visualizar que jatos que foram aceitos pelo critério
+mais seletivo (\emph{Tight}) do Algoritmo Padrão foram rejeitados pela rede neural, 
+estando em sua maioria em -1, o valor alvo para jatos.
 
+\begin{figure}[htb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.50\textwidth}@{\hskip 0.5cm}
+>{\centering\arraybackslash}m{0.50\textwidth}@{\hskip 0.5cm}
+}
+\includegraphics[width=0.5\textwidth]{imagens/CaloRinger_Analysis_ElectronVsJet/NeuralOutput/CaloRinger_Analysis_ElectronVsJet_nnoutput_electrons.pdf}
+&
+\includegraphics[width=0.5\textwidth]{imagens/CaloRinger_Analysis_ElectronVsJet/NeuralOutput/CaloRinger_Analysis_ElectronVsJet_nnoutput_jets.pdf}
+\\
+(a) \textbf{Elétrons} & (b) \textbf{Jatos} \\
+\end{tabular}
+}
+\label{fig:singlexj2_saidaneural}
+\caption{Saída da rede neural e suas relações com os requerimentos do algoritmo
+eGamma padrão. Conjunto Singlepart\_e x J2.}
+\end{figure}
 
+Não obstante, a curva~\gls{roc} pode ser utilizada para a escolha do limiar de
+decisão ou comparação da eficiência dos algoritmos. Nela, a relação entre a taxa
+de detecção e falso alarme é realizada, estando a detecção no eixo das
+ordenadas, e o falso alarme nas abscissas, que são obtidas através do
+deslocamento do limiar de decisão. Na Figura~\ref{fig:singlexj2_roc} está a
+curva~\gls{roc} para a \gls{rna} treinada e os três pontos correspondentes aos
+valores obtidos para os requerimentos do Algoritmo Padrão. A curva da rede
+neural está sempre acima dos pontos do Algoritmo Padrão, de forma que o
+\gls{egcaloringer} sempre terá eficiência melhor.
 
-\begin{table}[ht!]
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_roc.pdf}
+\label{fig:singlexj2_roc}
+\caption{Curva ROC para o conjunto Singlepart\_e x J2.}
+\end{figure}
+
+As taxas de deteção, parte superior, e falso alarme, parte inferior, também podem ser 
+observadas e comparadas para os algoritmos em função dos parâmetros \gls{Et} e \gls{eta} 
+da partícula na Figura~\ref{fig:singlexj2_eficiencia_loose},
+Figura~\ref{fig:singlexj2_eficiencia_medium} e Figura~\ref{fig:singlexj2_eficiencia_medium}, 
+para respectivamente os critérios \emph{Loose}, \emph{Medium} e \emph{Tight}. A
+distribuição assimétrica para o eixo positivo e negativo de \gls{eta} é incomum
+e uma característica dos conjuntos de dados simulados de elétrons, observe que
+os jatos (falso alarme), por sua vez, têm uma distribuição simétrica. O
+\gls{egcaloringer} obteve uma eficiência superior para toda a região de energia
+e \gls{eta} ao do Algoritmo Padrão, com excessão de algumas regiões de \gls{eta}
+para a taxa de deteção no critério \emph{Loose}. Um fato importante também
+observado nessas figuras é taxa de falso alarme constante para a região de fenda
+no Sistema de Calorimetria (Subtópico~\ref{par:ecal_prec}), $|\gls{eta}|\sim1,45$, 
+aonde operação do mesmo é degradada.
+
+Um outro estudo possível em dados de \gls{mc} é a identificação das partículas
+que se está tendo maior ou menor facilidade de se discriminar. A
+Tabela~\ref{tab:singlexj2_part_j2} contém as taxas de rejeição de algumas
+partículas estáveis -- partículas que irão interagir com o \gls{atlas} --, sendo
+eles os fótons, píons, káons e elétrons para os requerimentos de ambos
+algoritmos. O algoritmo proposto possuí um melhor potêncial de rejeição para
+todas as partículas desse conjunto de dados, como os hádrons que compõem os
+jatos, incluindo fótons e elétrons. Parte dos fótons contidos nesse
+conjunto são de decaimentos de $\pi^0\rightarrow\gamma\gamma$, de forma que a
+eliminação desses fótons é desejada. A pequena amostra de elétrons contida nesse
+conjunto são compostos por elétrons não isolados que mais se assemelham com
+hádrons, o que explica a maior rejeição pelo \gls{egcaloringer}.
+
+\begin{table}[htb]
 \centering
 \resizebox{\textwidth}{!}{
 \begin{tabular}{m{4cm} ccc ccc}
@@ -228,8 +377,8 @@ identifica em comum ao algoritmo padrão.}
 \hline
 \multirow{2}{4cm}{Taxa de Rejeição (\%) para partícula estável} &
 \multicolumn{3}{c}{Alg. Padrão} & \multicolumn{3}{c}{CaloRinger} \\
- & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} & \textbf{Loose} &
-\textbf{Medium} & \textbf{Tight} \\
+ & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} & \textbf{\gls{rna} Loose} &
+\textbf{\gls{rna} Medium} & \textbf{\gls{rna} Tight} \\
 \hline
 $\gamma$ & 78,38 & 94,10 & 99,34 & 98,69 & 99,24 & 99,58 \\
 $\pi^+/\pi^-$ & 89,85 & 96,69 & 99,66 & 99,49 & 99,74 & 99,88 \\
@@ -242,61 +391,102 @@ $e^+/e^-$ & 66,03 & 77,69 & 81,27 & 95,82 & 97,24 & 98,40 \\
 \end{tabular}
 }
 \caption{Rejeição de partículas estáveis para o conjunto de J2.}
+\label{tab:singlexj2_part_j2}
 \end{table}
 
 
-\begin{figure}[ht]
-\centering
-\subfigure[Elétrons]{%
-\label{fig:singlexj2_saidaneural_eletron}
-\includegraphics[width=0.45\textwidth]{imagens/CaloRinger_Analysis_ElectronVsJet/NeuralOutput/CaloRinger_Analysis_ElectronVsJet_nnoutput_electrons.pdf} 
-}
-\subfigure[Jatos.]{%
-\label{fig:singlexj2_saidaneural_jato}
-\includegraphics[width=0.45\textwidth]{imagens/CaloRinger_Analysis_ElectronVsJet/NeuralOutput/CaloRinger_Analysis_ElectronVsJet_nnoutput_jets.pdf}
-}
-\label{fig:singlexj2_saidaneural}
-\caption{Saída da rede neural e suas relações com os requerimentos do algoritmo
-eGamma padrão para o conjunto Single\_e x J2.}
-\end{figure}
+Finalmente, algumas das variáveis físicas foram foram traçadas em conjunto com
+a saída neural em busca de correlações. As
+Figuras~\ref{fig:singlexj2_rcore}-\ref{fig:singlexj2_width2} contém histogramas
+de duas dimensões em escala logaritimica para o eixo z, 
+a saída da rede neural está no eixo das ordenadas e a
+variável física no eixo das abscissas. Essas variáveis são: \gls{reta},
+\gls{eratio}, \gls{Rhad1} e \gls{weta2}; informações sobre essas as variáveis estão
+contidas na Tabela~\ref{tab:cortes_em}. As linhas pontilhadas horizontais
+indicam os três requerimento do \gls{egcaloringer}, sendo assim o limiar de
+decisão da rede. Valores abaixo desse limiar serão considerados pela rede como
+jatos, e acima como uma partícula \gls{eg}. As linhas pontilhadas verticais
+apresentam uma referência para o corte da variável física, mas não devem ser
+levadas como o seu valor verdadeiro uma vez que os cortes variam conforme
+\gls{eta} e \gls{Et}. Um conjunto de 16 figuras estão
+disponíveis para cada variável, sendo as linhas elétrons 
+incidindo no barril, jatos incidindo no barril, elétrons incidindo na tampa, e
+jatos incidindo na tampa. As colunas indicam os requerimentos (ou a ausência de) exigidos para as
+partículas, estando presente nas figuras, no caso de elétrons, aqueles aceitos pelo 
+requerimento, enquanto para jatos, aqueles que \emph{não} foram aceitos pelo
+requerimento. Algumas observações podem ser realizadas, como no caso da variável
+\gls{reta} para jatos localizados no
+barril sem a exigência de requerimento (Sem Req.). É esperado que elétrons
+tenham valores próximos a 1 nessa variável, justamente a região em que há uma
+região de confusão para a saída neural, enquanto valores distantes de 1 são
+raramente confundidos pela rede, sendo com frequência atribuidos a -1. Outra
+variável, o \gls{eratio} também deverá ter valores próximos a 1 para elétrons,
+onde novamente é concentrada a região de confusão da \gls{rna}. A variável
+\gls{Rhad1} deverá se formar próximo de 0, uma vez que elétrons não devem
+depositar energia no \gls{hcal}, enquanto valores negativos ou positivos muito
+elevados são devido a jatos (os valores negativos se devem a deposito de energia
+menor que o pedestal de ruído no \gls{ecal}), onde é formada a região de
+confusão da rede neural para a região do barril, entretanto, na tampa a variável
+tem uma distribuição relativamente uniforme. Finalmente, \gls{weta2} contém a
+espessura do chuveiro na \gls{e2}, de forma que chuveiros muito largos deverão
+ser formados por jatos, novamente sendo possível visualizar a região de confusão
+formada próximo à variável e corte utilizado pelo Algoritmo Padrão.
 
-\begin{figure}
-\centering
-\includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_roc.pdf}
-\label{fig:singlexj2_saidaneural}
-\caption{Curva ROC para o conjunto Single\_e x J2.}
-\end{figure}
 
 
 %--------------------------------------------------
-\begin{sidewaysfigure}[p]
+\begin{sidewaysfigure}[phb]
 \centering
 \resizebox{\textwidth}{!}{
 \begin{tabular}{
->{\centering\arraybackslash}m{0.10\textwidth} 
->{\centering\arraybackslash}m{0.45\textwidth}@{\hskip 0.01cm}
->{\centering\arraybackslash}m{0.45\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{\textwidth}@{\hskip 0.01cm}
 }
- & \textbf{Taxa de Deteção} & \textbf{Taxa de Falso Alarme} \\
-\textbf{Loose} &  
-\includegraphics[width=0.45\textwidth,height=0.23\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_loose_eff.pdf} &
-\includegraphics[width=0.45\textwidth,height=0.23\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_loose_fa.pdf} \\
-\textbf{Medium} &  
-\includegraphics[width=0.45\textwidth,height=0.23\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_medium_eff.pdf} &
-\includegraphics[width=0.45\textwidth,height=0.23\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_medium_fa.pdf} \\
-\textbf{Tight} &  
-\includegraphics[width=0.45\textwidth,height=0.23\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_tight_eff.pdf} &
-\includegraphics[width=0.45\textwidth,height=0.23\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_tight_fa.pdf} \\
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_loose_eff.pdf} \\
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_loose_fa.pdf} \\
 \end{tabular}
 }
-\label{fig:singlexj2_eficiencias}
+\label{fig:singlexj2_eficiencia_loose}
 \caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
-para ambos algoritmos e seus requerimentos.}
+para ambos algoritmos no requerimento \emph{Loose}. Conjunto Singlepart\_e x J2.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{\textwidth}@{\hskip 0.01cm}
+}
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_medium_eff.pdf} \\
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_medium_fa.pdf} \\
+\end{tabular}
+}
+\label{fig:singlexj2_eficiencia_medium}
+\caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
+para ambos algoritmos no requerimento \emph{Medium}. Conjunto Singlepart\_e x J2.}
 \end{sidewaysfigure}
 
 
 %--------------------------------------------------
-\begin{sidewaysfigure}[p]
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{\textwidth}@{\hskip 0.01cm}
+}
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_tight_eff.pdf} \\
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_tight_fa.pdf} \\
+\end{tabular}
+}
+\label{fig:singlexj2_eficiencia_tight}
+\caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
+para ambos algoritmos no requerimento \emph{Tight}. Conjunto Singlepart\_e x J2.}
+\end{sidewaysfigure}
+
+
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
 \centering
 \resizebox{\textwidth}{!}{
 \begin{tabular}{
@@ -332,11 +522,11 @@ para ambos algoritmos e seus requerimentos.}
 \end{tabular}
 }
 \label{fig:singlexj2_rcore}
-\caption{Correlações da saída neural para o conjunto Single\_e x J2 com: rEta}
+\caption{Correlações da saída neural para o conjunto Singlepart\_e x J2 com: rEta.}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
-\begin{sidewaysfigure}[p]
+\begin{sidewaysfigure}[phb]
 \centering
 \resizebox{\textwidth}{!}{
 \begin{tabular}{
@@ -372,11 +562,12 @@ para ambos algoritmos e seus requerimentos.}
 \end{tabular}
 }
 \label{fig:singlexj2_eratio}
-\caption{Correlações da saída neural para o conjunto Single\_e x J2 com: eRatio}
+\caption{Correlações da saída neural para o conjunto Singlepart\_e x J2 com: eRatio.}
 \end{sidewaysfigure}
 
+
 %--------------------------------------------------
-\begin{sidewaysfigure}[p]
+\begin{sidewaysfigure}[phb]
 \centering
 \resizebox{\textwidth}{!}{
 \begin{tabular}{
@@ -412,11 +603,11 @@ para ambos algoritmos e seus requerimentos.}
 \end{tabular}
 }
 \label{fig:singlexj2_hadleakage}
-\caption{Correlações da saída neural para o conjunto Single\_e x J2 com: Rhad1}
+\caption{Correlações da saída neural para o conjunto Singlepart\_e x J2 com: Rhad1.}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
-\begin{sidewaysfigure}[p]
+\begin{sidewaysfigure}[phb]
 \centering
 \resizebox{\textwidth}{!}{
 \begin{tabular}{
@@ -452,20 +643,799 @@ para ambos algoritmos e seus requerimentos.}
 \end{tabular}
 }
 \label{fig:singlexj2_width2}
-\caption{Correlações da saída neural para o conjunto Single\_e x J2 com: wEta2}
+\caption{Correlações da saída neural para o conjunto Singlepart\_e x J2 com: wEta2.}
 \end{sidewaysfigure}
 
-
-
+\FloatBarrier
 
 \subsection{\texorpdfstring{$\text{J}/\Psi \times$ Minbias}{JPsi x Minbias}}
 \label{ssec:jpsi}
 
+Deve-se levantar algumas diferenças entre o conjunto de Singlepart\_e x J2 para
+o conjunto atual. Primeiro, a sobreposição da faixa de energia nos dados
+acontece para toda ela, como pode ser visto na
+Figura~\ref{fig:jpsixminb_dist_energia}. Além disso, agora o conjunto de sinal
+não contém apenas elétrons, mas também simulações de \gls{mbias}, de forma que o
+conjunto está contaminado por partículas constituíntes de ruído. Também, não é
+garantido que os elétrons estarão isolados, podendo ter parte da sua deposição
+de energia contaminada por outra partícula, dificultando o processo de
+discriminação uma vez que o outro deposito irá fazer partículas \gls{em}
+perderem suas características deposição de energia em regiões mais estreitas.
+Quanto ao conjunto de ruído composto por \gls{mbias}, diferente do conjunto de
+J2, onde todas as partículas são compostas por jatos de seus decaimentos, podem
+estar contidos nesse conjunto elétrons legítmos, de forma que ambos os conjuntos
+podem conter partículas que, teoricamente, eram para pertencer ao conjunto
+oposto. O procedimento é o mesmo que aquele realizado para o conjunto anterior, entretanto
+essas diferenças serão importantes para determinar as diferenças encontradas
+durante a análise.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/EnergyDistribution/CaloRinger_Analysis_JpsiVsMinBiasdata_energy_dist.pdf}
+\label{fig:jpsixminb_dist_energia}
+\caption{Distribuição de energia para o conjunto JPsi x Minbias.}
+\end{figure}
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{cccc}
+\hline
+\hline
+ & 
+\multicolumn{2}{c}{DET (\%) para algoritmo} & 
+\\
+\cline{2-3}
+\multirow{-2}{*}{Req. Do Alg. Padrão} & 
+Alg. Padrão & 
+EgCaloRinger & 
+\multirow{-2}{*}{para FA (\%)} \\
+\hline
+Loose  & 62.89 & 86.52 & 54.22\\
+Medium & 43.89 & 77.51 & 29.17\\
+Tight  & 33.70 & 34.51 & 4.48 \\
+\hline
+\hline
+\end{tabular}
+\caption{Eficiências do algoritmos para FA fixos para o conjunto JPsi x Minbias.}
+\label{tab:jpsixminb_efic}
+\end{table}
+
+
+A Tabela~\ref{tab:jpsixminb_efic} contém as taxas de deteção de ambos os
+algoritmos para falso alarme fixo nos valores do Algoritmo Padrão. O
+\gls{egcaloringer} obtém valores consideravelmente maiores que os do Algoritmo
+Padrão para os cortes \emph{Loose}, \emph{Medium}, contudo os algoritmos
+obtiveram eficiência equivalente para o \emph{Tight}. Todavia, esses valores não
+devem ser considerados sem um estudo mais profundo, uma vez que não se sabe,
+ainda, quais são as partículas que o \gls{egcaloringer} está considerando como
+sinal, enquanto o Algoritmo Padrão rejeita. As taxas de detecção e falso alarme 
+para os algoritmos e seus requerimentos estão na Tabelas~\ref{tab:jpsixminb_efic_det} 
+e \ref{tab:jpsixminb_efic_fa}. Diferente do conjunto de elétrons isolados, há
+uma quantidade de elétrons \emph{Tight} do Algoritmo Padrão que estão sendo
+rejeitados pelo requerimento \emph{\gls{rna} Tight}. Por outro lado o
+\emph{\gls{rna} Medium} está considerando boa parte dos elétrons selecionados
+pelo critério \emph{Medium} e \emph{Tight} do Algoritmo padrão. Por sua vez, as
+taxas de rejeição do algoritmo proposto são menores para os requerimentos
+\emph{\gls{rna} Loose} e \emph{\gls{rna} Medium} quando em comparação com os
+respectivos requerimentos do Algoritmo Padrão, enquanto o oposto ocorre para o
+\emph{\gls{rna} Tight}.
+
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{l cccc}
+\hline
+\hline
+DET (\%)& Todo o Conj. & Loose & Medium & Tight \\
+\hline
+Todo o Conj.      &     -  &  62.89      & 43.89       &  33.70      \\
+\hline
+\gls{rna} Loose   &  80.00 & 57.49/62.89 & 42.61/43.89 & 33.08/33.70 \\
+\hline
+\gls{rna} Medium  &  70.39 & 51.74/62.89 & 40.04/43.89 & 31.36/33.70 \\
+\hline
+\gls{rna} Tight   &  52.72 & 39.99/62.89 & 32.71/43.89 & 26.14/33.70 \\
+\hline
+\hline
+\end{tabular}
+\caption{Taxa de detecção (\%) dos algoritmos e parcela na qual o EgCaloRinger
+identifica em comum ao algoritmo padrão. Conjunto JPsi x Minbias.}
+\label{tab:jpsixminb_efic_det}
+\end{table}
+
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{l cccc}
+\hline
+\hline
+FA (\%)& Todo o Conj. & Loose & Medium & Tight \\
+\hline
+Todo o Conj.    &  -    & 54.23       & 29.18       & 4.48      \\
+\gls{rna} Loose & 34.32 & 27.54/54.23 & 14.18/29.18 & 2.70/4.48 \\
+\gls{rna} Medium& 19.67 & 16.85/54.23 & 8.34/29.18  & 1.82/4.48 \\
+\gls{rna} Tight & 9.64  & 8.53/54.23  & 4.08/29.18  & 1.06/4.48 \\
+\hline
+\hline
+\end{tabular}
+\caption{Taxa de falso alarme (\%) dos algoritmos e parcela na qual o EgCaloRinger
+identifica em comum ao algoritmo padrão. Conjunto JPsi x Minbias.}
+\label{tab:jpsixminb_efic_fa}
+\end{table}
+
+Quanto a Figura~\ref{fig:jpsixminb_saidaneural}, pode-se reparar que a saída da
+rede neural já não está mais tão concentrada nos extremos, como quando no
+conjunto de Singlepart\_e x J2, mostrando o impacto da contaminação dos dados no
+ajuste da rede neural, que irá deslocar os picos de concentração de saídas para
+uma região ligeraimente mais central. Contudo, a rede ainda foi capaz de
+concentrar grande parte dos elétrons \emph{Medium} e \emph{Tight} do Algoritmo
+Padrão na região do pico correspondente a elétrons na saída neural. Por outro
+lado, quando observando a saída neural para o conjunto de Minbias, observa-se
+uma distribuição praticamente uniforme para os Minbias que passaram o critério
+\emph{Tight}. A distribuição gradualmente se concentra no pico destinado a jatos
+da saída neural conforme os requerimentos do Algoritmo Padrão são relaxados,
+até o momento que se chega aos jatos sem requerimento, que nitidamente se agrupam 
+no pico destinados a jatos.
+
+\begin{figure}[ht]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.50\textwidth}@{\hskip 0.5cm}
+>{\centering\arraybackslash}m{0.50\textwidth}@{\hskip 0.5cm}
+}
+\includegraphics[width=0.5\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/NeuralOutput/CaloRinger_Analysis_JpsiVsMinBias_nnoutput_jpsi.pdf}
+&
+\includegraphics[width=0.5\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/NeuralOutput/CaloRinger_Analysis_JpsiVsMinBias_nnoutput_minbias.pdf}
+\\
+(a) \textbf{Elétrons} & (b) \textbf{Jatos} \\
+\end{tabular}
+}
+\label{fig:jpsixminb_saidaneural}
+\caption{Saída da rede neural e suas relações com os requerimentos do algoritmo
+eGamma padrão. Conjunto JPsi x Minbias.}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/Efficiency/CaloRinger_Analysis_JpsiVsMinBias_roc.pdf}
+\label{fig:jpsixminb_roc}
+\caption{Curva ROC para o conjunto JPsi x Minbias.}
+\end{figure}
+
+Na curva~\gls{roc} fica nítido a informação contida na
+Tabela~\ref{tab:jpsixminb_efic}, aonde a eficiência da rede para a taxa de falso
+alarme do requerimento \emph{\gls{rna} Tight} é praticamente a mesma daquela do Algoritmo
+Padrão no seu respetivo requerimento, enquanto os critérios \emph{Medium} e
+\emph{Loose} obtém valores mais elevados, entretanto, sem se saber realmente
+quais são as partículas que estão sendo selecionadas. A
+Tabela~\ref{tab:jpsixminb_part_jpsi} está preenchida com as taxas de rejeição de
+algumas partículas estáveis contidas no conjunto de dados de JPsi. A rede neural
+está rejeitando menos elétrons em todos os cortes, que na lógica invertida, 
+significaria uma melhor eficiência de detecção, demonstrando que as maiores taxas
+de detecção obtidas contêm, sim, uma maior quantidade de elétrons que aqueles
+selecionados pelo Algoritmo Padrão. Por outro lado, as taxas de rejeição de
+hádrons e fótons -- que aqui novamente devem ser resultados de decaimentos da
+partícula $\pi^0$ -- são menores que aquelas do Algoritmo Padrão. Esse fator
+pode ser corrigido ao se filtrar essas partículas que estão contaminando o
+conjunto de sinal, alterando o alvo das mesmas para jatos, mas, ainda assim é
+interessante notar que a rede neural foi capaz de rejeitar grande parte
+dessas partículas mesmo que o alvo delas tenha sido como de elétrons,
+demonstrando que os dados contidos no conjunto de \gls{mbias} deslocaram essas
+partículas para a região de ruído por conterem características similares. O
+mesmo estudo foi realizado para o conjunto de \gls{mbias}, estando na
+Tabela~\ref{tab:jpsixminb_part_minb}. Observa-se que o critério \emph{\gls{rna}
+Tight} não obteve o mesmo poder de rejeição que o critério \emph{Tight} do
+Algoritmo Padrão, mas que pode ser compensado pelo ganho obtido na taxa de
+detecção. Por outro lado, os critérios \emph{\gls{rna} Loose} e \emph{\gls{rna} Medium} 
+foram capazes de rejeitar uma maior porção dos hádrons. Ao mesmo tempo, foram
+perdidos elétrons contidos nesse conjunto, que compõe uma quantidade porção
+pequena das partículas nesse conjunto, podendo ser corrigido através da
+alteração do alvo dessas partículas.
+
+
+
+\begin{table}[htb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{m{4cm} ccc ccc}
+\hline
+\hline
+\multirow{2}{4cm}{Taxa de Rejeição (\%) para partícula estável} &
+\multicolumn{3}{c}{Alg. Padrão} & \multicolumn{3}{c}{CaloRinger} \\
+ & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} & \textbf{gls{rna} Loose} &
+\textbf{gls{rna} Medium} & \textbf{gls{rna} Tight} \\
+\hline
+$\gamma$      &64.52&91.63&95.39&67.37&79.32&88.86\\
+$\pi^+/\pi^-$ &73.91&89.36&94.18&79.27&86.25&91.46\\
+$K^+/K^-$     &78.37&91.78&95.76&82.57&89.45&93.74\\
+$K^0_l$       &69.17&87.97&93.23&75.19&81.95&89.47\\
+$K^0_s$       &71.45&91.00&93.61&79.66&86.31&92.57\\
+$e^+/e^-$     &30.02&42.65&48.92&4.92 &13.82&33.95\\
+\hline
+\hline
+\end{tabular}
+}
+\caption{Rejeição de partículas estáveis para o conjunto de JPsi.}
+\label{tab:jpsixminb_part_jpsi}
+\end{table}
+
+\begin{table}[htb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{m{4cm} ccc ccc}
+\hline
+\hline
+\multirow{2}{4cm}{Taxa de Rejeição (\%) para partícula estável} &
+\multicolumn{3}{c}{Alg. Padrão} & \multicolumn{3}{c}{CaloRinger} \\
+ & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} & \textbf{\gls{rna} Loose} &
+\textbf{\gls{rna} Medium} & \textbf{\gls{rna} Tight} \\
+\hline
+$\gamma$      &50.44 &77.66 &97.09 &61.85 &76.89 &88.45  \\
+$\pi^+/\pi^-$ &53.47 &66.21 &95.63 &79.02 &90.10 &96.04  \\
+$K^+/K^-$     &58.51 &69.84 &96.84 &83.05 &91.82 &96.83  \\
+$K^0_l$       &63.24 &79.41 &95.34 &82.11 &91.67 &96.57  \\
+$K^0_s$       &64.70 &82.41 &98.11 &84.53 &93.07 &97.44  \\
+$e^+/e^-$     &20.07 &25.69 &35.82 &25.95 &41.70 &61.24  \\
+\hline
+\hline
+\end{tabular}
+}
+\caption{Rejeição de partículas estáveis para o conjunto de Minbias.}
+\label{tab:jpsixminb_part_minb}
+\end{table}
+
+
+As eficiências de taxa de deteção e falso alarme em função das variáveis estão
+dispostas nas Figuras~\ref{fig:jpsixminb_eficiencia_tight},
+\ref{fig:jpsixminb_eficiencia_medium} e \ref{fig:jpsixminb_eficiencia_loose},
+para os cortes \emph{Tight}, \emph{Medium} e \emph{Loose}. Os valores do
+\gls{egcaloringer} flutuam seguindo as tendências do Algoritmo Padrão, obtendo
+eficiências melhores ou piores para cada requerimento dependendo do valor médio de 
+eficiência disposto nas Tabelas~\ref{tab:jpsixminb_efic_det} e
+\ref{tab:jpsixminb_efic_fa}.
+
+Os histogramas de duas dimensões para as variáveis físicas e saída neural seguem
+o que foi dito para a análise realizada para o conjuto Singlepart\_e x J2, onde
+a região de confusão fica relativamente próximo dos limiares de corte utilizados
+pelo Algoritmo Padrão, região aonde os jatos mascaram os elétrons.
+Contudo, a concentração dos dados não é na borda como no conjunto anterior, 
+reflexo do deslocamento dos picos observados na Figura~\ref{fig:jpsixminb_saidaneural}.
+
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{\textwidth}@{\hskip 0.01cm}
+}
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_JpsiVsMinBias/Efficiency/CaloRinger_Analysis_JpsiVsMinBias_comparison_loose_eff.pdf} \\
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_JpsiVsMinBias/Efficiency/CaloRinger_Analysis_JpsiVsMinBias_comparison_loose_fa.pdf} \\
+\end{tabular}
+}
+\label{fig:jpsixminb_eficiencia_tight}
+\caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
+para ambos algoritmos no requerimento \emph{Loose}. Conjunto JPsi x Minbias.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{\textwidth}@{\hskip 0.01cm}
+}
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_JpsiVsMinBias/Efficiency/CaloRinger_Analysis_JpsiVsMinBias_comparison_medium_eff.pdf} \\
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_JpsiVsMinBias/Efficiency/CaloRinger_Analysis_JpsiVsMinBias_comparison_medium_fa.pdf} \\
+\end{tabular}
+}
+\label{fig:jpsixminb_eficiencia_medium}
+\caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
+para ambos algoritmos no requerimento \emph{Medium}. Conjunto JPsi x Minbias.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{\textwidth}@{\hskip 0.01cm}
+}
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_JpsiVsMinBias/Efficiency/CaloRinger_Analysis_JpsiVsMinBias_comparison_tight_eff.pdf} \\
+\includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_JpsiVsMinBias/Efficiency/CaloRinger_Analysis_JpsiVsMinBias_comparison_tight_fa.pdf} \\
+\end{tabular}
+}
+\label{fig:jpsixminb_eficiencia_loose}
+\caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
+para ambos algoritmos no requerimento \emph{Medium}. Conjunto JPsi x Minbias.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.10\textwidth} 
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+}
+ & \textbf{Sem Req.} & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} \\
+\textbf{Single\linebreak part\_e}\linebreak (Barril) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_noreq/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_jpsi_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_loose/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_jpsi_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_medium/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_jpsi_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_tight/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_jpsi_bc_tight.pdf} \\
+\textbf{Minbias} \linebreak (Barril)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_noreq/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_minb_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_loose/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_minb_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_medium/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_minb_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_tight/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_minb_bc_tight.pdf} \\
+\textbf{Single\linebreak part\_e}\linebreak (Tampa) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_noreq/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_jpsi_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_loose/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_jpsi_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_medium/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_jpsi_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_tight/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_jpsi_ac_tight.pdf}
+\\
+\textbf{Minbias} \linebreak (Tampa)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_noreq/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_minb_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_loose/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_minb_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_medium/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_minb_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_tight/CaloRinger_Analysis_JpsiVsMinBias_rcorexnnoutput_minb_ac_tight.pdf}
+\\
+\end{tabular}
+}
+\label{fig:jpsixminb_rcore}
+\caption{Correlações da saída neural para o conjunto JPsi x Minbias com:
+rEta.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.10\textwidth} 
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+}
+ & \textbf{Sem Req.} & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} \\
+\textbf{Single\linebreak part\_e}\linebreak (Barril) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_noreq/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_jpsi_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_loose/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_jpsi_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_medium/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_jpsi_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_tight/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_jpsi_bc_tight.pdf} \\
+\textbf{Minbias} \linebreak (Barril)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_noreq/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_minb_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_loose/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_minb_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_medium/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_minb_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_tight/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_minb_bc_tight.pdf} \\
+\textbf{Single\linebreak part\_e}\linebreak (Tampa) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_noreq/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_jpsi_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_loose/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_jpsi_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_medium/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_jpsi_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_tight/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_jpsi_ac_tight.pdf}
+\\
+\textbf{Minbias} \linebreak (Tampa)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_noreq/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_minb_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_loose/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_minb_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_medium/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_minb_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_tight/CaloRinger_Analysis_JpsiVsMinBias_eratioxnnoutput_minb_ac_tight.pdf}
+\\
+\end{tabular}
+}
+\label{fig:jpsixminb_eratio}
+\caption{Correlações da saída neural para o conjunto JPsi x Minbias com:
+eRatio.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.10\textwidth} 
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+}
+ & \textbf{Sem Req.} & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} \\
+\textbf{Single\linebreak part\_e}\linebreak (Barril) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_noreq/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_jpsi_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_loose/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_jpsi_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_medium/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_jpsi_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_tight/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_jpsi_bc_tight.pdf} \\
+\textbf{Minbias} \linebreak (Barril)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_noreq/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_minb_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_loose/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_minb_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_medium/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_minb_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_tight/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_minb_bc_tight.pdf} \\
+\textbf{Single\linebreak part\_e}\linebreak (Tampa) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_noreq/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_jpsi_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_loose/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_jpsi_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_medium/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_jpsi_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_tight/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_jpsi_ac_tight.pdf}
+\\
+\textbf{Minbias} \linebreak (Tampa)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_noreq/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_minb_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_loose/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_minb_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_medium/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_minb_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_tight/CaloRinger_Analysis_JpsiVsMinBias_hadleakagexnnoutput_minb_ac_tight.pdf}
+\\
+\end{tabular}
+}
+\label{fig:jpsixminb_hadleakage}
+\caption{Correlações da saída neural para o conjunto JPsi x Minbias com:
+Rhad1.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.10\textwidth} 
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+}
+ & \textbf{Sem Req.} & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} \\
+\textbf{Single\linebreak part\_e}\linebreak (Barril) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_noreq/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_jpsi_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_loose/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_jpsi_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_medium/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_jpsi_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Jpsi_3e3_tight/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_jpsi_bc_tight.pdf} \\
+\textbf{Minbias} \linebreak (Barril)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_noreq/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_minb_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_loose/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_minb_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_medium/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_minb_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_BC/Minbias_tight/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_minb_bc_tight.pdf} \\
+\textbf{Single\linebreak part\_e}\linebreak (Tampa) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_noreq/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_jpsi_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_loose/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_jpsi_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_medium/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_jpsi_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Jpsi_3e3_tight/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_jpsi_ac_tight.pdf}
+\\
+\textbf{Minbias} \linebreak (Tampa)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_noreq/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_minb_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_loose/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_minb_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_medium/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_minb_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/CorrelationPlots_AC/Minbias_tight/CaloRinger_Analysis_JpsiVsMinBias_width2xnnoutput_minb_ac_tight.pdf}
+\\
+\end{tabular}
+}
+\label{fig:jpsixminb_width2}
+\caption{Correlações da saída neural para o conjunto JPsi x Minbias com:
+wEta2.}
+\end{sidewaysfigure}
+
+\FloatBarrier
 
 \subsection{\texorpdfstring{Z$\rightarrow$ee $\times$ JetTauEtmiss}{Zee x
 JetTauEtMiss}}
 \label{ssec:Zee}
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/EnergyDistribution/CaloRinger_Analysis_ZeexJetTauEtMissdata_energy_dist.pdf}
+\label{fig:zeexjet_distenergia}
+\caption{Distribuição de energia para o conjunto Zee x JetTauEtMiss.}
+\end{figure}
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{cccc}
+\hline
+\hline
+ & 
+\multicolumn{2}{c}{DET (\%) para algoritmo} & 
+\\
+\cline{2-3}
+\multirow{-2}{*}{Req. Do Alg. Padrão} & 
+Alg. Padrão & 
+EgCaloRinger & 
+\multirow{-2}{*}{para FA (\%)} \\
+\hline
+Loose &  48.44 & 54.35 & 16.52 \\
+Medium & 11.70 & 36.47 & 5.61 \\
+Tight & 7.47 & 20.99 &  1.83 \\
+\hline
+\hline
+\end{tabular}
+\caption{Eficiências do algoritmos para FA fixos para o conjunto Zee x JetTauEtMiss.}
+\label{tab:zeexjet_efic}
+\end{table}
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{l cccc}
+\hline
+\hline
+DET (\%)& Todo o Conj. & Loose & Medium & Tight \\
+\hline
+Todo o Conj.   &    - &  48.44 &  11.70 &  7.47  \\ 
+\hline
+\gls{rna} Loose & 54.63 & 43.57/48.44 & 11.23/11.70 & 7.35/7.47 \\
+\hline
+\gls{rna} Medium & 37.14 & 34.45/48.44 & 10.05/11.70 & 6.82/7.47 \\
+\hline
+\gls{rna} Tight &  21.25 & 20.74/48.44 & 7.85/11.70  & 5.57/7.47 \\
+\hline
+\hline
+\end{tabular}
+\caption{Taxa de detecção (\%) dos algoritmos e parcela na qual o EgCaloRinger
+identifica em comum ao algoritmo padrão. Conjunto Zee x JetTauEtMiss.}
+\label{tab:zeexjet_efic_det}
+\end{table}
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{l cccc}
+\hline
+\hline
+FA (\%)& Todo o Conj. & Loose & Medium & Tight \\
+\hline
+Todo o Conj.  &  - & 16.52 & 5.61 & 1.83 \\
+\hline
+\gls{rna} Loose  & 16.81 & 8.94/16.52 &  3.73/5.61 & 1.51/1.83 \\
+\hline                                             
+\gls{rna} Medium & 5.83  & 4.31/16.52 &  2.16/5.61 & 1.01/1.83 \\
+\hline
+\gls{rna} Tight  & 1.86  & 1.65/16.52 &  0.93/5.61 & 0.47/1.83 \\
+\hline
+\hline
+\end{tabular}
+\caption{Taxa de falso alarme (\%) dos algoritmos e parcela na qual o EgCaloRinger
+identifica em comum ao algoritmo padrão. Conjunto Zee x JetTauEtMiss.}
+\label{tab:zeexjet_fa_det}
+\end{table}
 
 
+\begin{figure}[ht]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.50\textwidth}@{\hskip 0.5cm}
+>{\centering\arraybackslash}m{0.50\textwidth}@{\hskip 0.5cm}
+}
+\includegraphics[width=0.5\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/NeuralOutput/CaloRinger_Analysis_ZeexJetTauEtMiss_nnoutput_electrons.pdf}
+&
+\includegraphics[width=0.5\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/NeuralOutput/CaloRinger_Analysis_ZeexJetTauEtMiss_nnoutput_jets.pdf}
+\\
+(a) \textbf{Elétrons} & (b) \textbf{Jatos} \\
+\end{tabular}
+}
+\label{fig:zeexjet_saidaneural}
+\caption{Saída da rede neural e suas relações com os requerimentos do algoritmo
+eGamma padrão. Conjunto Zee x JetTauEtMiss. }
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/Efficiency/CaloRinger_Analysis_ZeexJetTauEtMiss_roc.pdf}
+\label{fig:zeexjet_roc}
+\caption{Curva ROC para o conjunto Zee x JetTauEtMiss.}
+\end{figure}
+
+
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{\textwidth}@{\hskip 0.01cm}
+}
+\includegraphics[width=.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/Efficiency/CaloRinger_Analysis_ZeexJetTauEtMiss_comparison_loose_eff.pdf} \\
+\includegraphics[width=.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/Efficiency/CaloRinger_Analysis_ZeexJetTauEtMiss_comparison_loose_fa.pdf} \\
+\end{tabular}
+}
+\label{fig:zeexjet_eficiencia_loose}
+\caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
+para ambos algoritmos no requerimento \emph{Loose}, conjunto Zee x JetTauEtMiss.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{\textwidth}@{\hskip 0.01cm}
+}
+\includegraphics[width=.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/Efficiency/CaloRinger_Analysis_ZeexJetTauEtMiss_comparison_medium_eff.pdf} \\
+\includegraphics[width=.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/Efficiency/CaloRinger_Analysis_ZeexJetTauEtMiss_comparison_medium_fa.pdf} \\
+\end{tabular}
+}
+\label{fig:zeexjet_eficiencia_medium}
+\caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
+para ambos algoritmos no requerimento \emph{Medium}, conjunto Zee x JetTauEtMiss.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{\textwidth}@{\hskip 0.01cm}
+}
+\includegraphics[width=.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/Efficiency/CaloRinger_Analysis_ZeexJetTauEtMiss_comparison_tight_eff.pdf} \\
+\includegraphics[width=.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/Efficiency/CaloRinger_Analysis_ZeexJetTauEtMiss_comparison_tight_fa.pdf} \\
+\end{tabular}
+}
+\label{fig:zeexjet_eficiencia_tight}
+\caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
+para ambos algoritmos no requerimento \emph{Tight}, conjunto Zee x JetTauEtMiss.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.10\textwidth} 
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+}
+ & \textbf{Sem Req.} & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} \\
+\textbf{Single\linebreak part\_e}\linebreak (Barril) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_electron_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_electron_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_electron_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_electron_bc_tight.pdf} \\
+\textbf{JetTauMiss} \linebreak (Barril)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_jet_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_jet_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_jet_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_jet_bc_tight.pdf} \\
+\textbf{Single\linebreak part\_e}\linebreak (Tampa) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_electron_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_electron_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_electron_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_electron_ac_tight.pdf}
+\\
+\textbf{JetTauMiss} \linebreak (Tampa)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_jet_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_jet_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_jet_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_rcorexnnoutput_jet_ac_tight.pdf}
+\\
+\end{tabular}
+}
+\label{fig:zeexjet_rcore}
+\caption{Correlações da saída neural para o conjunto Zee x JetTauEtMiss com:
+rEta.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[phb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.10\textwidth} 
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+}
+ & \textbf{Sem Req.} & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} \\
+\textbf{Single\linebreak part\_e}\linebreak (Barril) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_electron_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_electron_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_electron_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_electron_bc_tight.pdf} \\
+\textbf{JetTauMiss} \linebreak (Barril)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_jet_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_jet_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_jet_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_jet_bc_tight.pdf} \\
+\textbf{Single\linebreak part\_e}\linebreak (Tampa) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_electron_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_electron_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_electron_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_electron_ac_tight.pdf}
+\\
+\textbf{JetTauMiss} \linebreak (Tampa)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_jet_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_jet_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_jet_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_eratioxnnoutput_jet_ac_tight.pdf}
+\\
+\end{tabular}
+}
+\label{fig:zeexjet_eratio}
+\caption{Correlações da saída neural para o conjunto Zee x JetTauEtMiss com:
+eRatio.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[hpb]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.10\textwidth} 
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+}
+ & \textbf{Sem Req.} & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} \\
+\textbf{Single\linebreak part\_e}\linebreak (Barril) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_electron_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_electron_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_electron_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_electron_bc_tight.pdf} \\
+\textbf{JetTauMiss} \linebreak (Barril)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_jet_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_jet_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_jet_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_jet_bc_tight.pdf} \\
+\textbf{Single\linebreak part\_e}\linebreak (Tampa) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_electron_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_electron_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_electron_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_electron_ac_tight.pdf}
+\\
+\textbf{JetTauMiss} \linebreak (Tampa)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_jet_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_jet_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_jet_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_hadleakagexnnoutput_jet_ac_tight.pdf}
+\\
+\end{tabular}
+}
+\label{fig:zeexjet_hadleakage}
+\caption{Correlações da saída neural para o conjunto Zee x JetTauEtMiss com:
+Rhad1.}
+\end{sidewaysfigure}
+
+%--------------------------------------------------
+\begin{sidewaysfigure}[hp]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{
+>{\centering\arraybackslash}m{0.10\textwidth} 
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+>{\centering\arraybackslash}m{0.225\textwidth}@{\hskip 0.01cm}
+}
+ & \textbf{Sem Req.} & \textbf{Loose} & \textbf{Medium} & \textbf{Tight} \\
+\textbf{Single\linebreak part\_e}\linebreak (Barril) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_electron_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_electron_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_electron_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/Zee_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_electron_bc_tight.pdf} \\
+\textbf{JetTauMiss} \linebreak (Barril)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_jet_bc_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_jet_bc_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_jet_bc_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_BC/JetTauMiss_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_jet_bc_tight.pdf} \\
+\textbf{Single\linebreak part\_e}\linebreak (Tampa) &  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_electron_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_electron_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_electron_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/Zee_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_electron_ac_tight.pdf}
+\\
+\textbf{JetTauMiss} \linebreak (Tampa)&  
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_noreq/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_jet_ac_all.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_loose/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_jet_ac_loose.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_medium/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_jet_ac_medium.pdf} &
+\includegraphics[width=0.225\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/CorrelationPlots_AC/JetTauMiss_tight/CaloRinger_Analysis_ZeexJetTauEtMiss_width2xnnoutput_jet_ac_tight.pdf}
+\\
+\end{tabular}
+}
+\label{fig:zeexjet_width2}
+\caption{Correlações da saída neural para o conjunto Zee x JetTauEtMiss com:
+wEta2.}
+\end{sidewaysfigure}
+
+\FloatBarrier
 

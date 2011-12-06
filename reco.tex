@@ -713,7 +713,7 @@ e \emph{tight}, na região de $|\gls{eta}|<2,47$. Adaptado de \cite{expected_per
 
 Cada uma dessas variáveis contribuem na discriminação de acordo com os critérios
 de corte utilizados. Na Figura~\ref{fig:cortes_egamma_padrao} estão dispostos a
-distribuição nas variáveis de corte dos algoritmos padrão utilizados na
+distribuição nas variáveis de corte dos algoritmos padrões utilizados na
 colaboração para dados de simulações de \gls{mc} separados nas seguintes 
 categorias \cite{expected_perf_2011}:
 
@@ -1175,7 +1175,7 @@ o caso de separação em três classes, mas a rede utilizada tem apenas uma saí
 suficiente para realizar a discriminação em duas classes, as partículas \gls{em}
 compondo o sinal: elétrons, pósitrons e fótons; e o ruído físico: os
 hádrons dos jatos hadrônicos. Os alvos utilizados para as classes foi de +1 para o
-conjunto de sinal, e -1 para o conjunto de ruído físico.
+conjunto de dados contendo sinal, e -1 para o conjunto de dados contendo ruído físico.
 A camada de entrada recebe o vetor de dados, com os 100 anéis normalizados, enquanto o número de 
 neurônios na camada escondida varia conforme a representação dos dados, 
 sendo determinado através de um estudo de exaustão. Todos os neurônios utilizam
@@ -1309,7 +1309,7 @@ armazenamento e processamento dos dados.
 \subsection{\texorpdfstring{Algoritmo $e/\gamma$ Padrão}{Algoritmo eGamma Padrão}}
 \label{ssec:egamma}
 
-O algoritmo padrão de reconstrução de física a posteriori não é muito distinto
+O Algoritmo Padrão de reconstrução de física a posteriori não é muito distinto
 daquele descrito para o \gls{ef} da cadeia \gls{eg} no Tópico~\ref{ssec:cadeia_egamma},
 inclusive já sendo realizadas algumas distinções entre os algoritmos que serão
 aqui complementadas.
@@ -1370,7 +1370,7 @@ Os requerimentos citados no \gls{sf} também se aplicam, sendo eles: \emph{loose
 \emph{medium} e \emph{tight}. Eles são utilizados para
 identificar a característica da estatística utilizada para a análise.
 
-Além do algoritmo padrão, a colaboração também realizou estudos de técnicas
+Além do Algoritmo Padrão, a colaboração também realizou estudos de técnicas
 multivariáveis, incluindo discriminadores de Máxima Verossimilhança, árvores 
 de decisões ampliadas e redes neurais \cite{physics_perf_expected}.
 
@@ -1459,9 +1459,9 @@ recipiente \emph{CaloRingsContainer}, também ligado ao seu objeto \emph{egamma}
 através do elo gerado pelo \emph{Element Link}. Após o preenchimento do
 \emph{egamma} com as informações do detector, o \emph{egammaBuilder} chama a
 execução do algoritmo \emph{EMPIDBuilder}, onde serão geradas as variáveis 
-físicas do algoritmo padrão, que serão armazenadas no \gls{sg} dentro do
+físicas do Algoritmo Padrão, que serão armazenadas no \gls{sg} dentro do
 \emph{egamma} através do objeto \emph{egPID}. Novamente se habilitado, após a
-execução do algoritmo padrão, será realizada a execução do
+execução do Algoritmo Padrão, será realizada a execução do
 \emph{egammaEPiRingerCaloTool}, que também irá armazenar a sua resposta no
 \emph{egPID}.
 
