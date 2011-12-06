@@ -1,31 +1,97 @@
 \chapter{Conclusão}
 
-%O LHC, em operação no CERN, é o maior acelerador de partículas do mundo. O
-%ATLAS, o maior dos seus detectores, foi construído e é operado por uma
-%colaboração internacional envolvendo 172 institutos em 37 países.  Nesse
-%ambiente, dados referentes à instalação, resultados de testes ou monitoração
-%do desempenho dos milhares de equipamentos, são armazenados em bancos de dados
-%usando modelagens específicas para cada caso e até tecnologias de armazenamento
-%diferentes, tais como banco de dados Oracle ou MySQL.  Como a colaboração
-%envolve pessoas inseridas em diferentes culturas, pode também acontecer de haver
-%diferentes terminologias para um mesmo equipamento.  Além disso, se uma busca
-%é realizada sobre todos os dados da colaboração, é grande a probabilidade de não
-%trazer resultados úteis por causa de possíveis erros de digitação ou pelo grande
-%volume de dados retornados.  Por outro lado, se cada grupo da colaboração criar
-%um sistema de recuperação para os dados de interesse, será necessário um grande
-%esforço de manutenção para que os sistemas continuem funcionando durante toda a
-%operação do detector, que será de, pelo menos, 20 anos.
+O \gls{cern} é uma das fontes de avanços tecnológicos, obtendo grandes feitos
+desde sua fundação. Seus experimentos
+levam diversas áreas do conhecimento ao limite em busca de novas técnicas. 
+O maior acelerador de partículas do mundo, o acelerador \gls{lhc}, utiliza
+tecnologia de ponta em seus magneto para produzir energias nunca antes
+alcançadas experimentalmente. O seu detector \gls{atlas}, detector que terá a
+capacidade de explorar grande parte da física produzida nas colisões do
+\gls{lhc}, foi construído e é operado por uma Colaboração de 174 institutos e 38 
+países. Seu projeto foi feito de modo a atender as severas condições impostas
+pelo \gls{lhc}, que foi atribuida a todos os seus subsistemas. Deles, os principais são, 
+o \gls{id}, que irá reconstruir a trajetória das partículas carregadas 
+eletricamente, o Sistema de Calorímeria, responsável pela absorção da energia 
+de grande parte das partículas de estados finais das colisões, e o Espectrômetro de 
+Múons, que irá operar de maneira similar ao \gls{id} para realizar a detecção 
+dessas partículas. As informações desses subdetectores, compondo um total de
+$\sim$140 M canais de leitura, são utilizadas para reconstruir a física das colisões, 
+buscando por novas físicas de interesse. O
+\glsdesc{sr} é o ambiente responsável pela reconstrução dos parâmetros das
+partículas e sua identificação. O \gls{lhc} irá operar com altas
+taxas de eventos, com um cruzamento máximo entre feixes de 40 MHz,
+impossibilitando o armazenamento por completo dos dados, enquanto
+a física de interesse é extremamente rara, de forma que o \glsdesc{sf} do
+\gls{atlas} realiza a seleção dos eventos que serão armazenados.
 
+Para encontrar os raros eventos de interesse, são separados canais que irão
+buscar reconstruir uma física específica. Um dos objetivos do \gls{atlas} é a
+confirmação das existência da partícula bóssom de Higgs, única partícula
+prevista pelo \gls{mp} ainda não observada experimentalmente. Essa partícula
+poderá sofrer diversos decaimentos diferentes, dependendo de sua massa. Grande
+parte deles decaem em estados finais como elétrons, pósitrons e fótons, as
+partículas de interesse do Canal \gls{eg}. Os algoritmos dos sistemas
+utilizam a informação do Sistema de Calorímetria e do \gls{id} para realizarem a
+tarefa de reconstrução ou filtragem utilizando as versões implementada pela
+Colaboração, que gera variáveis físicas que permitam a interpretação dos
+chuveiros de partículas no calorímetro, do traço da partícula e as relações
+entre o traço e o aglomerado de células do calorímetro. As versões no \gls{hlt}
+dos algoritmos padrões foram baseados nos algoritmos do \gls{sr} para obter o
+mínimo possível de polarização dos dados pelo \gls{sf}.
 
+O algoritmo proposto, o \gls{hltringer} inicialmente para o \gls{l2}, utiliza o
+conhecimento especiaslita através do processo de anelamento, que mantém a interpretação da propagação do
+chuveiro no calorímetro como a informação de espessura lateral e profundidade
+longitudinal. Essa informação precisa ser normalizada antes de sua propagação em
+uma rede neural, o processo discriminador multivariável atualemnte utilizado,
+por esse motivo foi realizado um estudo de normalização, obtendo como resultados
+a melhor eficiência a normalização por Esferização Modificada e Fixa por Seção.
+A Norma 1, um tipo de normalização simples também foi indicado, por ter
+eficiência ligeiramente menor mas ser de simples implementação. Ainda nesse
+estudo, a escolha do produto \gls{sp} como figura de mérito da \gls{rna} foi
+testado e bem sucedido.
 
+Foi necessário a implementação do algoritmo proposto, \gls{egcaloringer}, para o ambiente de análise
+do \gls{sr}, para que antes de adicionar filtros o algoritmo fosse melhor
+entendido pela Colaboração no \gls{sr}. Ao mesmo tempo, a implementação deveria ser transparente e não
+afetar o funcionamento de qualquer um dos algoritmos padrões. O esquema foi
+implementado de modo bem sucedido, adicionando a compatibilidade das variáveis
+do \gls{egcaloringer} para diversos meios de análise. Em seguida, o estudo foi então
+proceguido, agora buscando testar a capacidade do algoritmo no novo ambiente.
+Utilizou a normalização mais simples, a Norma 1 por causa desse estudo anterior.
+Um total de três conjuntos foi analisado. O primeiro deles, Singlepart\_e x J2,
+continha conjuntos com amostras limpas, sendo o conjunto em que os algoritmos
+tiveram a melhor eficiência, aonde o algoritmo proposto superou a perfomance do
+algoritmo padrão. O conjunto de JPsi x Minbias possuem contaminação por
+partículas que não eram para pertencer aos dados, alterando o perfil da saída
+neural, que ainda assim, tem uma perfomance melhor que o algoritmo padrão, sendo
+capaz de identificar uma quantidade maior dos elétrons do conjunto de JPsi
+exceto para o requerimento \emph{Tight}, onde ambos algoritmos tiveram
+perfomance similiar. Finalmente, o conjunto de dados reais possuia amostras de
+dados filtrados apenas pelo \gls{l1}, e estando ainda mais contaminado que o
+conjunto de Jpsi x Minbias. Os resultados obtidos para os dados reais indicaram
+uma perfomance bastante positiva para o algoritmo, e a vantagem da alta
+estatística facilitou a percepção de relação entre as variáveis físicas e a saída
+neural.
+
+  
 \section{Perspectivas}
 
+Os resultados dos estudos preliminares após a implementação da versão de análise
+a posteriori mostraram o potêncial do algoritmo para a discriminação de
+partículas \gls{em}. Não foi possível se aprofundar nos estudos, para refinar os
+conjuntos de Jpsi x Minbias utilizados, através da seleção das partículas pela
+verdade de \gls{mc} melhorando as análises filtradas. Ainda, no caso de
+$\text{J}/\Psi$ e do bóssom de Z decaindo em dois elétrons, é necessário a
+utilização do método \emph{tag and probe}, o que não foi realizado.
+Ainda, não se testou a eficiência do \gls{egcaloringer} para canais de fótons,
+como por exemplo $H\rightarrow\gamma\gamma$, sendo esse um estudo necessário.
+Pela flexibilidade que o ambiente de análise a posteriori proporciona, o estudo
+adicionando as variáveis \gls{eta} e \gls{Et} para a rede neural pode trazer
+benefícios, uma vez que se sabe que a produção de física tem correlação com
+\gls{eta}, assim como o fato do detector não ser homogêneo para essa coordenada.
+Ao mesmo tempo, a utilização de \gls{Et} pode auxiliar a rede a identificar as
+diferenças entres os chuveiros mais energéticos.
 
-% Falar sobre a adição do eta e energia a rede neural como uma possível melhora
-% para a eficiencia da rede neural, por dois motivos, o calorimetro nao eh
-% uniforme em eta, e há correlação entre a produção de física e essa coordenada.
 
-% Procurar nas conclusões e ver o que mais tinha que fazer.
-
-% testar os canais de decaimento em fótons.
 

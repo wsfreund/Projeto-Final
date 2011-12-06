@@ -169,10 +169,14 @@ rejeitar uma quantidade superior que a do Algoritmo Padrão, procurando um ganho
 eficiência nesse quisito. Após o treinamento de uma rede para os casos a seguir,
 foi realizado um estudo de eficiência, e uma busca por correlação
 entre as variáveis físicas utilizadas pelo Algoritmo Padrão, para encontrar relações entre as
-variáveis. A busca por regiões de interceção das partículas aceitas pelos os
+variáveis. A busca por regiões de interseção das partículas aceitas pelos os
 requerimentos da \gls{rna}, \emph{\gls{rna} Loose}, \emph{\gls{rna} Medium} e
 \emph{\gls{rna} Tight}, com as partículas aceitas pelos requerimentos do
-Algoritmo Padrão, teve como o objetivo provar o ganho de eficiência. Nos estudos
+Algoritmo Padrão, teve como o objetivo provar o ganho de eficiência. Os
+requerimentos da rede foram arbitrariamente escolhidos como +0,5, 0, e -0,5,
+para os critérios na ordem citados, exceto para o estudo de Zee x JetTauEtMiss,
+onde os valores do limiar foi ajustado de modo a obter aproximadamente os mesmo
+valores de taxa de falso alarme que o do Algoritmo Padrão. Nos estudos
 de \gls{mc}, a verdade de \gls{mc}, contendo as informações sobre a partícula
 gerada, sua energia, e outros parâmetros podem ser utilizados para aprimorar a
 análise, de forma que essa informação disponível foi utilizada para esses
@@ -319,9 +323,9 @@ estando em sua maioria em -1, o valor alvo para jatos.
 (a) \textbf{Elétrons} & (b) \textbf{Jatos} \\
 \end{tabular}
 }
-\label{fig:singlexj2_saidaneural}
 \caption{Saída da rede neural e suas relações com os requerimentos do algoritmo
 eGamma padrão. Conjunto Singlepart\_e x J2.}
+\label{fig:singlexj2_saidaneural}
 \end{figure}
 
 Não obstante, a curva~\gls{roc} pode ser utilizada para a escolha do limiar de
@@ -337,8 +341,8 @@ neural está sempre acima dos pontos do Algoritmo Padrão, de forma que o
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_roc.pdf}
-\label{fig:singlexj2_roc}
 \caption{Curva ROC para o conjunto Singlepart\_e x J2.}
+\label{fig:singlexj2_roc}
 \end{figure}
 
 As taxas de deteção, parte superior, e falso alarme, parte inferior, também podem ser 
@@ -397,7 +401,7 @@ $e^+/e^-$ & 66,03 & 77,69 & 81,27 & 95,82 & 97,24 & 98,40 \\
 
 Finalmente, algumas das variáveis físicas foram foram traçadas em conjunto com
 a saída neural em busca de correlações. As
-Figuras~\ref{fig:singlexj2_rcore}-\ref{fig:singlexj2_width2} contém histogramas
+Figuras~\ref{fig:singlexj2_rcore}-\ref{fig:singlexj2_width2} contêm histogramas
 de duas dimensões em escala logaritimica para o eixo z, 
 a saída da rede neural está no eixo das ordenadas e a
 variável física no eixo das abscissas. Essas variáveis são: \gls{reta},
@@ -445,9 +449,9 @@ formada próximo à variável e corte utilizado pelo Algoritmo Padrão.
 \includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_loose_fa.pdf} \\
 \end{tabular}
 }
-\label{fig:singlexj2_eficiencia_loose}
 \caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
 para ambos algoritmos no requerimento \emph{Loose}. Conjunto Singlepart\_e x J2.}
+\label{fig:singlexj2_eficiencia_loose}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -461,9 +465,9 @@ para ambos algoritmos no requerimento \emph{Loose}. Conjunto Singlepart\_e x J2.
 \includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_medium_fa.pdf} \\
 \end{tabular}
 }
-\label{fig:singlexj2_eficiencia_medium}
 \caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
 para ambos algoritmos no requerimento \emph{Medium}. Conjunto Singlepart\_e x J2.}
+\label{fig:singlexj2_eficiencia_medium}
 \end{sidewaysfigure}
 
 
@@ -478,9 +482,9 @@ para ambos algoritmos no requerimento \emph{Medium}. Conjunto Singlepart\_e x J2
 \includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ElectronVsJet/Efficiency/CaloRinger_Analysis_ElectronVsJet_comparison_tight_fa.pdf} \\
 \end{tabular}
 }
-\label{fig:singlexj2_eficiencia_tight}
 \caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
 para ambos algoritmos no requerimento \emph{Tight}. Conjunto Singlepart\_e x J2.}
+\label{fig:singlexj2_eficiencia_tight}
 \end{sidewaysfigure}
 
 
@@ -521,8 +525,8 @@ para ambos algoritmos no requerimento \emph{Tight}. Conjunto Singlepart\_e x J2.
 \\
 \end{tabular}
 }
-\label{fig:singlexj2_rcore}
 \caption{Correlações da saída neural para o conjunto Singlepart\_e x J2 com: rEta.}
+\label{fig:singlexj2_rcore}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -561,8 +565,8 @@ para ambos algoritmos no requerimento \emph{Tight}. Conjunto Singlepart\_e x J2.
 \\
 \end{tabular}
 }
-\label{fig:singlexj2_eratio}
 \caption{Correlações da saída neural para o conjunto Singlepart\_e x J2 com: eRatio.}
+\label{fig:singlexj2_eratio}
 \end{sidewaysfigure}
 
 
@@ -602,8 +606,8 @@ para ambos algoritmos no requerimento \emph{Tight}. Conjunto Singlepart\_e x J2.
 \\
 \end{tabular}
 }
-\label{fig:singlexj2_hadleakage}
 \caption{Correlações da saída neural para o conjunto Singlepart\_e x J2 com: Rhad1.}
+\label{fig:singlexj2_hadleakage}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -642,8 +646,8 @@ para ambos algoritmos no requerimento \emph{Tight}. Conjunto Singlepart\_e x J2.
 \\
 \end{tabular}
 }
-\label{fig:singlexj2_width2}
 \caption{Correlações da saída neural para o conjunto Singlepart\_e x J2 com: wEta2.}
+\label{fig:singlexj2_width2}
 \end{sidewaysfigure}
 
 \FloatBarrier
@@ -672,8 +676,8 @@ durante a análise.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/EnergyDistribution/CaloRinger_Analysis_JpsiVsMinBiasdata_energy_dist.pdf}
-\label{fig:jpsixminb_dist_energia}
 \caption{Distribuição de energia para o conjunto JPsi x Minbias.}
+\label{fig:jpsixminb_dist_energia}
 \end{figure}
 
 \begin{table}[htb]
@@ -791,23 +795,23 @@ no pico destinados a jatos.
 (a) \textbf{Elétrons} & (b) \textbf{Jatos} \\
 \end{tabular}
 }
-\label{fig:jpsixminb_saidaneural}
 \caption{Saída da rede neural e suas relações com os requerimentos do algoritmo
 eGamma padrão. Conjunto JPsi x Minbias.}
+\label{fig:jpsixminb_saidaneural}
 \end{figure}
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_JpsiVsMinBias/Efficiency/CaloRinger_Analysis_JpsiVsMinBias_roc.pdf}
-\label{fig:jpsixminb_roc}
 \caption{Curva ROC para o conjunto JPsi x Minbias.}
+\label{fig:jpsixminb_roc}
 \end{figure}
 
 Na curva~\gls{roc} fica nítido a informação contida na
 Tabela~\ref{tab:jpsixminb_efic}, aonde a eficiência da rede para a taxa de falso
 alarme do requerimento \emph{\gls{rna} Tight} é praticamente a mesma daquela do Algoritmo
 Padrão no seu respetivo requerimento, enquanto os critérios \emph{Medium} e
-\emph{Loose} obtém valores mais elevados, entretanto, sem se saber realmente
+\emph{Loose} obtêm valores mais elevados, entretanto, sem se saber realmente
 quais são as partículas que estão sendo selecionadas. A
 Tabela~\ref{tab:jpsixminb_part_jpsi} está preenchida com as taxas de rejeição de
 algumas partículas estáveis contidas no conjunto de dados de JPsi. A rede neural
@@ -895,7 +899,9 @@ eficiências melhores ou piores para cada requerimento dependendo do valor médi
 eficiência disposto nas Tabelas~\ref{tab:jpsixminb_efic_det} e
 \ref{tab:jpsixminb_efic_fa}.
 
-Os histogramas de duas dimensões para as variáveis físicas e saída neural seguem
+Os histogramas de duas dimensões,
+Figuras~\ref{fig:jpsixminb_rcore}-\ref{fig:jpsixminb_width2}, 
+para as variáveis físicas e saída neural seguem
 o que foi dito para a análise realizada para o conjuto Singlepart\_e x J2, onde
 a região de confusão fica relativamente próximo dos limiares de corte utilizados
 pelo Algoritmo Padrão, região aonde os jatos mascaram os elétrons.
@@ -914,9 +920,9 @@ reflexo do deslocamento dos picos observados na Figura~\ref{fig:jpsixminb_saidan
 \includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_JpsiVsMinBias/Efficiency/CaloRinger_Analysis_JpsiVsMinBias_comparison_loose_fa.pdf} \\
 \end{tabular}
 }
-\label{fig:jpsixminb_eficiencia_tight}
 \caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
 para ambos algoritmos no requerimento \emph{Loose}. Conjunto JPsi x Minbias.}
+\label{fig:jpsixminb_eficiencia_tight}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -930,9 +936,9 @@ para ambos algoritmos no requerimento \emph{Loose}. Conjunto JPsi x Minbias.}
 \includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_JpsiVsMinBias/Efficiency/CaloRinger_Analysis_JpsiVsMinBias_comparison_medium_fa.pdf} \\
 \end{tabular}
 }
-\label{fig:jpsixminb_eficiencia_medium}
 \caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
 para ambos algoritmos no requerimento \emph{Medium}. Conjunto JPsi x Minbias.}
+\label{fig:jpsixminb_eficiencia_medium}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -946,9 +952,9 @@ para ambos algoritmos no requerimento \emph{Medium}. Conjunto JPsi x Minbias.}
 \includegraphics[width=0.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_JpsiVsMinBias/Efficiency/CaloRinger_Analysis_JpsiVsMinBias_comparison_tight_fa.pdf} \\
 \end{tabular}
 }
-\label{fig:jpsixminb_eficiencia_loose}
 \caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
 para ambos algoritmos no requerimento \emph{Medium}. Conjunto JPsi x Minbias.}
+\label{fig:jpsixminb_eficiencia_loose}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -987,9 +993,9 @@ para ambos algoritmos no requerimento \emph{Medium}. Conjunto JPsi x Minbias.}
 \\
 \end{tabular}
 }
-\label{fig:jpsixminb_rcore}
 \caption{Correlações da saída neural para o conjunto JPsi x Minbias com:
 rEta.}
+\label{fig:jpsixminb_rcore}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -1028,9 +1034,9 @@ rEta.}
 \\
 \end{tabular}
 }
-\label{fig:jpsixminb_eratio}
 \caption{Correlações da saída neural para o conjunto JPsi x Minbias com:
 eRatio.}
+\label{fig:jpsixminb_eratio}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -1069,9 +1075,9 @@ eRatio.}
 \\
 \end{tabular}
 }
-\label{fig:jpsixminb_hadleakage}
 \caption{Correlações da saída neural para o conjunto JPsi x Minbias com:
 Rhad1.}
+\label{fig:jpsixminb_hadleakage}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -1110,9 +1116,9 @@ Rhad1.}
 \\
 \end{tabular}
 }
-\label{fig:jpsixminb_width2}
 \caption{Correlações da saída neural para o conjunto JPsi x Minbias com:
 wEta2.}
+\label{fig:jpsixminb_width2}
 \end{sidewaysfigure}
 
 \FloatBarrier
@@ -1134,7 +1140,7 @@ generalizar para os dados reais. A solução foi então treinar uma nova rede
 através dos próprios dados de colisão, aplicando os mesmos critérios da
 Subseção~\ref{ssec:metodologia}. Ainda, os conjuntos de dados são formados pelo
 período de comissionamento do \gls{sf}, aonde se utilizou apenas filtros do
-\gls{l1}, de forma que a qualidade dos conjunto de dados é muito baixa, estando
+\gls{l1}. Assim, a qualidade dos conjuntos de dados é muito baixa, estando
 altamente contaminados por partículas que não pertencem aos seus respectivos
 conjuntos de modo similar ao conjunto JPsi x Minbias. Na
 Figura~\ref{fig:zeexjet_distenergia}, está a distribuição de energia para os
@@ -1145,9 +1151,29 @@ candidatos.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/EnergyDistribution/CaloRinger_Analysis_ZeexJetTauEtMissdata_energy_dist.pdf}
-\label{fig:zeexjet_distenergia}
 \caption{Distribuição de energia para o conjunto Zee x JetTauEtMiss.}
+\label{fig:zeexjet_distenergia}
 \end{figure}
+
+As taxas de detecção de ambos os algoritmos para o falso alarme fixo nos valores
+do Algoritmo Padrão estão na Tabela~\ref{tab:zeexjet_efic}. O \gls{egcaloringer}
+obteve valores melhores de detecção, entretanto, assim como no caso do JPsi x
+Minbias, mas não se pode afirmar que esse ganho de detecção é necessariamente
+composto de sinal, uma vez que os conjuntos conjuntos estão contaminados. Por
+outro lado, o estudo de JPsi x Minbias indicou que a abordagem trás um aumento
+de eficiência em sua maioria através de ganhos em deteção de elétrons, e não nas
+partículas contaminadoras do conjunto, trazendo índicios de que os resultados
+são bons. As Tabelas~\ref{tab:zeexjet_efic_det} e \ref{tab:zeexjet_efic_fa}
+contêm as taxas de detecção e falso alarme dos algoritmos testados. Desta vez,
+os valores dos limiares foram forçados para que o algoritmo proposto obtenha os
+mesmos valores de falso alarme do Algoritmo Padrão para cada um dos
+requerimentos. A parcela de interseção para os critérios \emph{Medium} de ambos
+algoritmos foi a mais elevada, mas ainda assim os valores obtidos foram modestos, 
+variando na ordem de 70-80\% de correlação entre as saídas dos dois algoritmos
+para os requerimentos. Quanto a taxa de falso alarme, os valores foram obtidos
+por especificação do limiar de decisão para que os valores fossem próximos,
+entretudo, pode-se percebe que a rede está rejeitando uma parcela considerável
+dos candidatos a JetTauEtMiss que foram aceitos pelo Algoritmo Padrão.
 
 \begin{table}[htb]
 \centering
@@ -1214,9 +1240,12 @@ Todo o Conj.  &  - & 16.52 & 5.61 & 1.83 \\
 \end{tabular}
 \caption{Taxa de falso alarme (\%) dos algoritmos e parcela na qual o EgCaloRinger
 identifica em comum ao algoritmo padrão. Conjunto Zee x JetTauEtMiss.}
-\label{tab:zeexjet_fa_det}
+\label{tab:zeexjet_efic_fa}
 \end{table}
 
+A saída neural está na Figura~\ref{fig:zeexjet_saidaneural}, aonde se pode
+observar novamente o deslocamento dos picos de concentração, mas ainda mais
+agudo, dos conjuntos de dados de sinal e ruído devido a contaminação dos mesmos.
 
 \begin{figure}[ht]
 \centering
@@ -1232,18 +1261,48 @@ identifica em comum ao algoritmo padrão. Conjunto Zee x JetTauEtMiss.}
 (a) \textbf{Elétrons} & (b) \textbf{Jatos} \\
 \end{tabular}
 }
-\label{fig:zeexjet_saidaneural}
 \caption{Saída da rede neural e suas relações com os requerimentos do algoritmo
 eGamma padrão. Conjunto Zee x JetTauEtMiss. }
+\label{fig:zeexjet_saidaneural}
 \end{figure}
+
+A curva~\gls{roc}, Figura~\ref{fig:zeexjet_roc} reflete os valores da
+Tabela~\ref{tab:zeexjet_efic} para os
+requerimentos do Algoritmo Padrão, e a curva todos os valores de detecção e
+falso alarme possíveis para o \gls{egcaloringer}. Os valores baixos de
+eficiência são consequência da contaminação dos conjuntos.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.7\textwidth]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/Efficiency/CaloRinger_Analysis_ZeexJetTauEtMiss_roc.pdf}
-\label{fig:zeexjet_roc}
 \caption{Curva ROC para o conjunto Zee x JetTauEtMiss.}
+\label{fig:zeexjet_roc}
 \end{figure}
 
+As Figuras~\ref{fig:zeexjet_eficiencia_loose},
+\ref{fig:zeexjet_eficiencia_medium} e \ref{fig:zeexjet_eficiencia_tight} possuem
+a eficiência dos algoritmos para os parâmetros \gls{eta} e \gls{Et} da
+partícula. Para a variável \gls{eta}, o \gls{egcaloringer} possui valores que
+acompanham a tendência do Algoritmo Padrão, entretanto o mesmo não ocorre para a
+parâmetro \gls{Et}, aonde o \gls{egcaloringer} cresce com o aumento da energia
+tanto no caso da detecção, quanto no falso alarme.
+
+O estudo da relação entre as variáveis físicas e a saída neural,
+Figuras~\ref{fig:zeexjet_rcore}-\ref{fig:zeexjet_width2}, obteve ganho
+devido a grande quantidade de estatística do conjunto JetTauEtMiss, sendo mais
+simples a observação. O deslocamento do pico reflete nas manchas vermelhas
+dessas figuras. No \gls{reta} observa-se no caso de elétrons no barril sem a
+aplicação de requerimento, na mancha verde no local aonde a rede e a variável do
+Algoritmo Padrão concentraram a grande maioria das partículas do JetTauEtMiss,
+contendo assim as mesmas características, tanto para a rede quanto para a
+variável física de ruído, ficando claro que essas partículas são compostas de
+ruído no conjunto de sinal. Na variável \gls{eratio} e \gls{weta2} essa
+concentração também pode ser observada. A correlação da variável \gls{Rhad1} que
+antes não era possível de ser visualizada, ficou perceptível através da mancha
+de jatos contida na região inferior ao requerimento \emph{\gls{rna} Loose} e
+superior ao limiar de \gls{Rhad1}, enquanto a concentração para elétrons está
+acima do requerimento \emph{\gls{rna} Tight} e próximo a 0 na variável
+\gls{Rhad1}.
 
 
 %--------------------------------------------------
@@ -1257,9 +1316,9 @@ eGamma padrão. Conjunto Zee x JetTauEtMiss. }
 \includegraphics[width=.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/Efficiency/CaloRinger_Analysis_ZeexJetTauEtMiss_comparison_loose_fa.pdf} \\
 \end{tabular}
 }
-\label{fig:zeexjet_eficiencia_loose}
 \caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
 para ambos algoritmos no requerimento \emph{Loose}, conjunto Zee x JetTauEtMiss.}
+\label{fig:zeexjet_eficiencia_loose}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -1273,9 +1332,9 @@ para ambos algoritmos no requerimento \emph{Loose}, conjunto Zee x JetTauEtMiss.
 \includegraphics[width=.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/Efficiency/CaloRinger_Analysis_ZeexJetTauEtMiss_comparison_medium_fa.pdf} \\
 \end{tabular}
 }
-\label{fig:zeexjet_eficiencia_medium}
 \caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
 para ambos algoritmos no requerimento \emph{Medium}, conjunto Zee x JetTauEtMiss.}
+\label{fig:zeexjet_eficiencia_medium}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -1289,9 +1348,9 @@ para ambos algoritmos no requerimento \emph{Medium}, conjunto Zee x JetTauEtMiss
 \includegraphics[width=.7\textwidth,height=0.32\textheight]{imagens/CaloRinger_Analysis_ZeexJetTauEtMiss/Efficiency/CaloRinger_Analysis_ZeexJetTauEtMiss_comparison_tight_fa.pdf} \\
 \end{tabular}
 }
-\label{fig:zeexjet_eficiencia_tight}
 \caption{Comparações das eficiências em função das variáveis $\eta$ e $E_{T}$
 para ambos algoritmos no requerimento \emph{Tight}, conjunto Zee x JetTauEtMiss.}
+\label{fig:zeexjet_eficiencia_tight}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -1330,9 +1389,9 @@ para ambos algoritmos no requerimento \emph{Tight}, conjunto Zee x JetTauEtMiss.
 \\
 \end{tabular}
 }
-\label{fig:zeexjet_rcore}
 \caption{Correlações da saída neural para o conjunto Zee x JetTauEtMiss com:
 rEta.}
+\label{fig:zeexjet_rcore}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -1371,9 +1430,9 @@ rEta.}
 \\
 \end{tabular}
 }
-\label{fig:zeexjet_eratio}
 \caption{Correlações da saída neural para o conjunto Zee x JetTauEtMiss com:
 eRatio.}
+\label{fig:zeexjet_eratio}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -1412,9 +1471,9 @@ eRatio.}
 \\
 \end{tabular}
 }
-\label{fig:zeexjet_hadleakage}
 \caption{Correlações da saída neural para o conjunto Zee x JetTauEtMiss com:
 Rhad1.}
+\label{fig:zeexjet_hadleakage}
 \end{sidewaysfigure}
 
 %--------------------------------------------------
@@ -1453,9 +1512,9 @@ Rhad1.}
 \\
 \end{tabular}
 }
-\label{fig:zeexjet_width2}
 \caption{Correlações da saída neural para o conjunto Zee x JetTauEtMiss com:
 wEta2.}
+\label{fig:zeexjet_width2}
 \end{sidewaysfigure}
 
 \FloatBarrier

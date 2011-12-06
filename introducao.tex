@@ -2,6 +2,10 @@
 \label{cap:intro}
 \glsresetall
 
+\newacronym[type=Abrev]{t2calo}{\emph{T2Calo}}{Algoritmo para a Reconstrução do
+Calorímetro no Segundo Nível de Filtragem} 
+\newacronym[type=Abrev]{hltringer}{\emph{HLT\_Ringer}}{HLT\_EgammaCaloRinger} 
+
 A engenharia tem auxiliado em diversas áreas através do emprego de
 novas tecnologias e desenvolvimento de ferramentas que estão se tornando cada
 vez mais necessárias, como na medicina, biologia, ciências financeiras, etc. Em 
@@ -85,7 +89,7 @@ de canais de leitura. Para atendê-los ele é dividido nos seguintes subdetector
 energia de partículas eletromagnéticas;
 \item \gls{hcal}, que de maneira similar ao eletromagnético realiza a
 absorção da energia de partículas hadrônicas;
-\item Espectômetro de Múons, para a identificação e determinação da trajetória de
+\item Espectrômetro de Múons, para a identificação e determinação da trajetória de
 Múons.
 \end{itemize}
 
@@ -196,15 +200,22 @@ desenvolvidos pela colaboração.
  % }}}
 \section{Organização do documento} {{{
 
-%O capítulo 2 apresenta o contexto de colaboração internacional no qual o projeto
-%foi desenvolvido, dando a base necessária para o entendimento do experimento. No
-%capítulo 3, são especificados os algoritmos de filtragem desenvolvidos para o
-%canal e/$\gamma$, assim como os detalhes de implementação do algoritmo
-%a posteriori. No capítulo 4 são apresentado os resultados para a analise de
-%normalização e a eficiência da versão em tempo real algoritmo, enquanto no
-%capítulo 5 são apresentados os resultados de performance para a versão {\it
-%offline} do algoritmo. 
-%sistema é usado pela colaboração no capítulo 6. Por fim, o capítulo 7 apresenta
-%as conclusões do trabalho e os possíveis desdobramentos.
+O Capítulo~\ref{cap:cern} é dedicado ao \gls{cern} e ao contexto de colaboração internacional
+no qual o projeto foi desenvolvido, dando a base necessária para o entendimento
+do experimento \gls{atlas}, fazendo uma introdução sobre a Física de Partículas,
+o acelerador \gls{lhc}, os componentes do \gls{atlas} e as ferramentas
+utilizadas pela Colaboração.
 
+No Capítulo 3 está a apresentação dos ambientes aonde atua o algoritmo proposto,
+o Canal \acrshort{eg}. Nele será realizada uma apresentação do \gls{sr} e do
+\gls{sf}, considerando o algoritmo padrão utilizado pela Colaboração para
+realizar as tarefas necessárias do Canal \gls{eg} como a obtenção dos parâmetros
+das partículas e discriminação. Também será apresentado o algoritmo proposto em
+detalhes para suas duas versões, a versão de análise em tempo real no \gls{sf},
+\gls{hltringer} e a versão de análise a posteriori, o \gls{egcaloringer}. A
+descrição da implementação da versão em análise também será realizada nesse 
+
+O Capítulo 4 é destinado a apresentação dos resultados e a sua discussão,
+sendo dividido nos dois estudos realizados: a análise da normalização mais
+indicada, e o estudo de eficiência do \gls{egcaloringer}. 
 }}}

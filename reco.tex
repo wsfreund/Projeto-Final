@@ -2,9 +2,6 @@
 {Reconstrução da Física do Canal e/$\gamma$ do Experimento ATLAS}
 \label{cap:reco}
 
-\newacronym[type=Abrev]{t2calo}{\emph{T2Calo}}{Algoritmo para a Reconstrução do
-Calorímetro no Segundo Nível de Filtragem} 
-\newacronym[type=Abrev]{hltringer}{\emph{HLT\_Ringer}}{HLT\_EgammaCaloRinger} 
 \glsunset{t2calo}
 
 A alta energia e luminosidade do \gls{lhc} (Seção~\ref{sec:lhc}) oferecem um alto alcance para
@@ -1479,7 +1476,13 @@ distribuição \emph{AtlasOffline-17-00-00} do \emph{Athena}.
 
 Um segundo passo de implementação foi realizada em Agosto adicionando a
 compatibilidade do algoritmo para \gls{d3pd} e \gls{aod}, mas ainda não foi
-adicionado ao código oficial da Colaboração.
+adicionado ao código oficial da Colaboração. A implementação em \gls{aod} trás a
+vantagem de se poder alterar redes neurais e obter novos valores de propagação,
+sem necessitar ter quer gerar os anéis novamente. Finalmente, a implementação do 
+\gls{egcaloringer} como um todo proporciona um ambiente muito
+mais flexivel para análise, podendo utilizar \gls{esd} para a geração dos anéis,
+enquanto no \gls{hltringer} é necessário a utilização de \emph{RAW}, que são de
+dificil obtenção.
 
 
 
