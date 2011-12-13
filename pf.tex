@@ -1,4 +1,4 @@
-\documentclass[pdftex,12pt,oneside,openany,a4paper]{book}
+\documentclass[pdftex,12pt,twoside,openany,a4paper]{book}
 \usepackage[brazilian]{babel}
 \usepackage[utf8]{inputenc} % Aqui tem que mudar de acordo com o seu sistema operacional
 \usepackage[T1]{fontenc} %
@@ -8,7 +8,7 @@
 \usepackage[all]{hypcap}
 \usepackage{array} % Adicionar a opcao m e b em tabelas e um monte de coisa que eu nao usei
 \usepackage[section]{placeins} % Caso tenha muitas imagens
-\usepackage{morefloats} % mais floats!
+\usepackage{morefloats} % mais floats (figuras tabelas etc)!
 \usepackage{afterpage}
 % Para linha em negrito
 \newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
@@ -45,8 +45,6 @@
 \usepackage{listings} % Para colocar códigos de programas
 %\usepackage{simplemargins}
 % Formato do PF
-\usepackage{layout} 
-% Modelo da página
 \setlength{\textheight}{24.7cm}
 \setlength{\textwidth}{15cm}
 \setlength{\footskip}{1.25cm}
@@ -54,11 +52,42 @@
 \setlength{\headheight}{0pt}
 \setlength{\headsep}{0pt}
 \setlength{\oddsidemargin}{0.46cm} % 0.46
+\setlength{\evensidemargin}{0.46cm} % 0.46
 \setlength{\topmargin}{-.04cm}   %-.04
 \setlength{\marginparsep}{0pt}
 \setlength{\marginparwidth}{0pt}
 \setlength{\parindent}{1.25cm}
 \renewcommand{\baselinestretch}{1.5}
+\usepackage{fancyhdr} % Numero das paginas na esquerda e direita:
+\fancypagestyle{plain}{
+\fancyhf{} 
+\fancyfoot[LE]{\thepage}
+\fancyfoot[RO]{\thepage}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+%% Modelo da página
+%\textheight 24.7cm
+%\textwidth 15cm
+%\footskip 1.25cm
+%\footnotesep 0.5cm
+%\headheight 0pt
+%\headsep 0pt
+%\oddsidemargin 0.46cm % 0.46
+%\topmargin -.04cm   %-.04
+%\marginparsep 0pt
+%\marginparwidth 0pt
+%\parindent 1.25cm
+%\oddsidemargin 0.46cm
+%\evensidemargin 0.46cm
+%
+}
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{fancy}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother
 \pagestyle{plain}
 
 %\usepackage[style=long,nonumberlist,toc]{glossaries}
@@ -75,6 +104,7 @@
 
 % add = sign in the list of abbreviations:
 
+\renewcommand*{\glsclearpage}{\clearpage} % Para não haver diferença entre página par e impar
 \renewenvironment{theglossary}
   {\begin{longtable}{l@{{ }{ }{ }{ }{ }{ }{ }{ }{ }{ }}p{0.80\textwidth}}}
   {\end{longtable}}%
@@ -107,22 +137,28 @@
 \newcommand*{\fnref}[1]{\textsuperscript{\ref{#1}}}
 %\newcommand*{\addtotoc}[2]{\clearpage\phantomsection\addcontentsline{toc}{#1}{#2}}
 
+
+
 \begin{document}
 
 \input{capa.tex}
 \pagenumbering{roman}
+\setcounter{page}{2} 
 % Agradecimento
 \input{agradecimento}
 \input{resumo}
-\cleardoublepage
+\clearpage
 % Sumário
 \vfill
 \clearpage \phantomsection \addcontentsline{toc}{chapter}{Sumário}
 \tableofcontents
+\vfill
 \clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Figuras}
 \listoffigures
+\vfill
 \clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Tabelas}
 \listoftables
+\vfill
 \clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Símbolos}
 %\renewcommand{\glossarypreamble}{Texto Simbulos}
 \printglossary[type=Simb]
@@ -132,7 +168,7 @@ internacionalmente conhecidas, optou-se por mantê-las em sua lingua original.}
 \printglossary[type=Abrev]
 %\glssymbol{ohm}.
 
-\cleardoublepage
+\clearpage
 \pagenumbering{arabic}
 
 \input{introducao}
@@ -149,7 +185,7 @@ internacionalmente conhecidas, optou-se por mantê-las em sua lingua original.}
 % TODO Trocar as captions para \gls
 % TODO Traduzir as figuras
 
-\cleardoublepage
+\clearpage
 
 \bibliographystyle{coppe}
 \clearpage \phantomsection \addcontentsline{toc}{chapter}{Referências Bibliográficas}
