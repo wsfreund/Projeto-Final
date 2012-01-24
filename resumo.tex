@@ -4,55 +4,43 @@
 \end{center}
 \addcontentsline{toc}{chapter}{Resumo}
 
-\newacronym[type=Abrev]{cern}{CERN}{\emph{Centre Européene pour la Rech{è}rche Nucleaire}} 
-\newacronym[type=Abrev]{lhc}{LHC}{\emph{Large Hadron Collider}} 
-\newacronym[type=Abrev]{mp}{MP}{Modelo Padr{ã}o de intera{çã}o entre as part{í}culas
-elementares} 
-\newacronym[type=Abrev]{atlas}{ATLAS}{\textit{A Toroidal LHC ApparatuS}} 
-\newacronym[type=Abrev]{sf}{SF}{Sistema de Filtragem}
-\newacronym[type=Abrev]{sr}{SR}{Sistema de Reconstrução}
-
-A complexidade e quantidade de requisitos exigidos tem se elevado conforme o avanço da ciência, 
-de forma que novas técnicas precisam ser aplicadas para a continuação do processo evolutivo.
-A engenharia tem auxiliado em diversas áreas, apresentando ferramentas e novas tecnologias. 
-Na física, um dos ambientes que proporciona todos esses desafios é o maior acelerador 
-de partículas já construído no mundo, o \acrshort{lhc}, que permitirá aos
+Ferramentas e tecnologias utilizadas em engenharia têm encontrado sua
+aplicação em outras áreas do conhecimento.
+Na Física, um dos ambientes que está no limiar da ciência atual é o maior acelerador 
+de partículas já construído, o \acrshort{lhc}, que permitirá aos
 cientistas validar e desenvolver teorias, como o \glslink{mp}{Modelo Padrão}. A
-única partícula ainda não observada prevista por esse modelo é o bóssom
-de Higgs, onde um dos detectores do \acrshort{lhc}, o \acrshort{atlas}, tem dentre seus objetivos 
-confirmar a existência de tal partícula. Todavia, o bóssom de Higgs é altamente instável 
-e irá decair rapidamente em outras partículas, como elétrons e fótons, de forma que é importante 
-a detecção das mesmas para o sucesso do experimento. Essas partículas terão sua
-assinatura mascarada por outras, de modo que o processo de identificação não é
-trivial. 
+única partícula prevista ainda não observada por esse modelo é o bóson
+de Higgs. Um dos detectores do \acrshort{lhc}, o \acrshort{atlas}, tem entre seus objetivos 
+confirmar a existência de tal partícula. Todavia, o bóson de Higgs é altamente
+instável, o que faz com que ele decaia rapidamente em outras partículas, como elétrons e fótons, de forma que é importante 
+a detecção das mesmas para o sucesso do experimento. Por sua vez, essas
+partículas têm sua assinatura mascarada por outras, como jatos hadrônicos, o que
+torna o processo de sua identificação não trivial. 
 
 O \gls{sr} do \acrshort{atlas} é o responsável por identificar as
-partículas e seus parâmetros, onde a capacidade de descoberta de novas físicas 
-está relacionada com sua eficiência. Outras dificuldades a serem superadas são a alta taxa de
-eventos acompanhado da escassez de eventos de interesse. 
-O \gls{sf} foi desenvolvido para selecionar as informações relevantes para o experimento 
-atuando em tempo real, de forma a reduzir a quantidade massiça de dados a ser armazenada.
-
-\newacronym[type=Simb]{ej}{\ensuremath{e/J}}{El{é}tron / Jato} 
-\newacronym[type=Simb]{eg}{\ensuremath{e/\gamma}}{El{é}tron, Pósitron e Fóton} 
-\newacronym[type=Abrev,sort=egcaloringer]{egcaloringer}{EgCaloRinger}{\acrshort{eg} \emph{
-Calorimeter Ringer}} 
+partículas e seus parâmetros, e a capacidade de descoberta de novas físicas 
+depende de sua eficiência. Outras dificuldades a serem superadas são a alta taxa de
+eventos e a escassez dos eventos de interesse. 
+O \gls{sf} foi desenvolvido para selecionar as informações relevantes para o experimento, 
+atuando em tempo real, de forma a reduzir a grande quantidade de dados a ser armazenada.
 
 Nesse contexto internacional, o presente trabalho realiza a continuação
 do projeto \acrshort{egcaloringer}. O projeto consiste de um algoritmo 
-para a identificação de elétrons e fótons utilizando a informação especialista 
+para a identificação de elétrons e fótons, utilizando a informação especialista 
 do detetor que é, então, propagada para um método estatístico de discriminação, 
-atualmente composto de redes neurais. O algoritmo de discriminação foi otimizado 
+atualmente formado por Redes Neurais, sendo uma das contribuições da
+Engenharia para este experimento. O algoritmo de discriminação foi otimizado 
 através do estudo do pré-processamento mais indicado para a rede neural. 
 Não obstante, embora o algoritmo tenha sido idealizado para o \gls{sf}, 
 o mesmo foi portado ao \gls{sr}, de modo a permitir sua utilização e 
-entendimento pela Colaboração do \acrshort{atlas}. A sua performance foi 
+entendimento pela Colaboração do \acrshort{atlas}. Sua performance foi 
 testada utilizando como referência o algoritmo padrão utilizado 
-pela colaboração.
+pela colaboração. O algoritmo proposto superou o algoritmo padrão nas três bases
+de dados testadas em relação à sua capacidade de discriminação.
 
 \paragraph*{}
 
-\noindent Palavras-Chave: Redes Neurais, Sistema de Filtragem, Calorimetria.
+\noindent Palavra-chave: Redes Neurais, Sistema de Filtragem, Calorimetria.
 
 \vfill
 
@@ -65,38 +53,39 @@ pela colaboração.
 \end{center}
 \addcontentsline{toc}{chapter}{Abstract}
 
-The amount of requirements and its complexity needed are enhanced while science
-develops, so new techniques are requested to maintain the evolutional process.
-The engineering has supported in many areas of knowledge, introducing tools and
-new technologies.
-In physics, one environment which provides all this challenges is the biggest
+Tools and technologies used in engineering have found their
+application in other areas of expertise assisting on the Science evolutionary
+process. In physics, one environment on Science's edge is the biggest
 particle accelerator in the world, the \acrshort{lhc}, which will enable
-scientists validate and develop new theories, as the Standard Model. The only
-particle yet not observed, provided by this model is the Higgs boson, where
-one of the LHC detectors, the ATLAS, has among its goals to confirm this
-particle existence. However, the Higgs boson is highly unstable and will rapidly
-decay in others particle, like electrons and photons, so it is important the
-detection of those to the experiment triumph. This particles will have their
-signature faked by others, so the identification process it not trivial.
+scientists to validate and develop new theories, as the Standard Model. The only
+particle not yet observed provided by this model is the Higgs boson. One of the LHC 
+detectors, the ATLAS, has among its goals to confirm the existence
+of this particle. The Higgs boson is highly unstable and will rapidly
+decay in others particles, like electrons and photons, such that the detection
+of those particles is important to the experiment triumph. These particles will 
+have their signature faked by others such as hadronic jets, 
+which makes the identification process not trivial.
 
-The ATLAS Reconstruction System is requested to identify the particle and its
-parameters, while the discoverability of new physics is related to its
-efficiency. Other difficulties to be overcome are the high event rate together
-with the short rate for events of interest. The Trigger System was developed to
+The ATLAS Reconstruction System is responsible to identify the particles and its
+parameters, and, as consequence, the discoverability of new physics is related to its
+efficiency. Other difficulties that need to be overcome are the high event rate together
+with scarcity of events of interest. The Trigger System was developed to
 select the relevant information for the experiment as an on-line algorithm in
 order to reduce data storage.
 
 In this international context, the present work proceed with the Egamma
 Calorimeter project. The project consists of one algorithm to the 
-ATLAS Reconstruction System, 
-acting on the $e/\gamma$ physics channel. In this algorithm,
+ATLAS Reconstruction System, acting on the $e/\gamma$ physics channel. In this algorithm,
 particular information from the detector is propagated to a stochastic
-discrimination method, currently composed of artificial neural networks.
-This document describes the algorithm efficiency optimization, through a study
+discrimination method, currently composed of Artificial Neural Networks, which
+is one of the Engeneering contributions for this experiment.
+This document describes the algorithm efficiency optimization through a study
 of the most indicated data pre-processing. Furthermore, it was developed an
 offline version for this algorithm, which was officially added to the ATLAS framework. 
-Finally, the algorithm performance was compared using as benchmark the
-standard algorithm developed by the collaboration.
+The algorithm performance was tested using as benchmark the
+standard algorithm developed by the collaboration. Finally, the proposed
+algorithm overcomes the standart algorithm at the three datasets tested with
+respect to their discrimination capacity.
 
 \paragraph*{}
 

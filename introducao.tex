@@ -2,35 +2,29 @@
 \label{cap:intro}
 \glsresetall
 
-\newacronym[type=Abrev]{t2calo}{\emph{T2Calo}}{Algoritmo para a Reconstrução do
-Calorímetro no Segundo Nível de Filtragem} 
-\newacronym[type=Abrev]{hltringer}{\emph{HLT\_Ringer}}{HLT\_EgammaCaloRinger} 
 
 A engenharia tem auxiliado em diversas áreas através do emprego de
-novas tecnologias e desenvolvimento de ferramentas que estão se tornando cada
-vez mais necessárias, como na medicina, biologia, ciências financeiras, etc. Em 
+novas tecnologias e o desenvolvimento de ferramentas que estão se tornando cada
+vez mais necessárias em áreas como medicina, biologia, ciências financeiras, etc. Em 
 alguns casos seu papel é ainda mais essencial, caso das áreas
 multidisciplinares, quando ela e outras ciências se aliam para caminhar juntas no
 desenvolvimento de ferramentas e tecnologias. Com isso, se faz necessário a
 capacidade de sua adaptação à complexidade oferecida por esses novos ambientes, 
 como a alta quantidade e diversidade de sensores, alta taxa e raridade de
 eventos. Para realizar a interpretação dos diversos canais e a seleção dos eventos 
-de interesse, se faz mão de uma ferramenta: o \glsdesc{sf}, que irá descartar a 
-informação inútil ao problema em questão, remanescendo em sua maioria apenas
-a parte necessária. É importante que o filtro seja eficiente para evitar a polarização
+de interesse, se faz mão de uma ferramenta que irá descartar a 
+informação inútil ao problema em questão, permanescendo apenas
+a parte necessária. É importante que ela seja eficiente para evitar a polarização
 dos eventos, onde a porção interessante dos mesmos seria desprezada.
-A tarefa se torna ainda mais difícil nos casos de raros
-eventos de interesse, na qual a seleção errônea tem consequências piores,
+A tarefa se torna ainda mais difícil nos casos de 
+eventos raros de interesse, na qual a seleção errônea tem consequências piores,
 sendo necessário o emprego de técnicas para sua otimização. 
 
-No \glsdesc{sf} podem ser utilizados tanto métodos baseados no conhecimento 
-especialista do assunto, quanto métodos baseados na informação estatística do processo, 
-que geralmente filtram com maior qualidade os dados de interesse. Ainda, 
-a combinação do conhecimento especialista ao processamento 
-estatístico trás uma abordagem ainda mais poderosa, através da utilização das informações 
-em técnicas não lineares, como redes neurais.
-
-% TODO falar sobre aplicação de redes neurais em engenharia eletrica
+O \glsdesc{sf}, a ferramenta citada, pode utilizar tanto de métodos baseados no conhecimento 
+especialista do assunto, quanto baseados na informação estatística do processo. Ainda, 
+a combinação do conhecimento especialista ao processamento estatístico trás uma abordagem ainda 
+mais poderosa, através da utilização das informações em técnicas não lineares, 
+como \glsdesc{rna}.
 
 A seleção de eventos pode ser realizada no ambiente em tempo real,
 quando o processo de seleção ocorre durante a aquisição de dados. Nesse
@@ -57,8 +51,8 @@ uma melhor eficiência quando realizando a filtragem a posteriori.
 
 O \gls{cern} é o maior centro de
 pesquisas em física de partículas do mundo, situado na fronteira da Suíça com a
-França. O experimento de grande repercussão do \gls{cern} se
-consiste no \gls{lhc}, um acelerador de partículas de 27 km de
+França. O experimento de maior repercussão do \gls{cern} atualmente é o \gls{lhc}, 
+um acelerador de partículas de 27 km de
 circunferência que irá atingir energia de colisões nunca antes obtidas
 experimentalmente. 
 Nesse ambiente de colaboração internacional estarão presentes
@@ -75,14 +69,6 @@ países. Ele foi projetado de modo a atender diversos dos requisitos da física
 experimental atual e por isso é dito de uso geral, contendo um total de $~140$ M 
 de canais de leitura. Para atendê-los ele é dividido nos seguintes subdetectores:
 
-\newacronym[type=Abrev]{id}{ID}{Detector Interno}
-\newacronym[type=Abrev,user1={Eletromagnéticas}]{em}{EM}{Eletromagnético}
-\newacronym[type=Abrev,user1={Hadrônicas}]{had}{HAD}{Hadrônico}
-\newacronym[type=Abrev,\glslongpluralkey=Calorímetros Eletromagnéticos]
-{ecal}{ECAL}{Calorímetro Eletromagnético}
-\newacronym[type=Abrev,\glslongpluralkey=Calorímetros Hadrônicos]
-{hcal}{HCAL}{Calorímetro Hadrônico}
-
 \begin{itemize}
 \item \gls{id}, responsável pela detecção da trajetória de partículas carregadas;
 \item \gls{ecal}, cujo objetivo é realizar a absorção total da
@@ -96,16 +82,11 @@ Múons.
 A física estudada nesse experimento é muito rara, podendo ser observados eventos
 de interesse algumas poucas vezes ao longo de vários dias de colisão. 
 Um dos objetivos para o qual o \gls{atlas} foi 
-designado é a identificação da partícula bóssom de Higgs, única partícula 
+designado é a identificação da partícula bóson de Higgs, única partícula 
 do \glslink{mp}{Modelo Padrão} ainda não observada. Estima-se que cerca de 17 k dessas
 partículas\footnote{Considerando o decaimento esperado para a massa de 500 GeV.} deverão ser produzidas por ano, comparados
 com o total de $1,7\times10^{16}$ eventos produzidos de interações inelásticas
 não difrativas. 
-
-%\newglossaryentry{byte}{type=Simb,name=B,
-%  description={\emph{Byte}, unidade de informa{çã}o digital}
-%\newglossaryentry{hertz}{type=Simb,name=Hz,
-%  description={\emph{Hertz}, unidade de informa{çã}o digital}
 
 É prevista uma média de cerca de 1,5 MB de espaço em disco rígido para cada evento de 
 colisão. A taxa de cruzamento entre os pacotes de prótons é de 40 MHz, 
@@ -121,14 +102,6 @@ identificação dos eventos de interesse a serem armazenados, reduzindo a taxa d
 para cerca de 100 Hz. O \glsdesc{sf} do \gls{atlas} realiza o processamento dos 
 eventos em paralelo, estando dividido em três níveis sequenciais, cada um 
 analisando o evento com maior complexidade:
-
-\newacronym[type=Abrev]{fpga}{FPGA}{\emph{Field-Programmable Gate Array}} 
-\newacronym[type=Abrev,\glslongpluralkey={Regiões de Interesse}]{roi}{RoI}{Região de Interesse} 
-\newacronym[type=Abrev]{l1}{L1}{Primeiro N\'{i}vel de filtragem} 
-\newacronym[type=Abrev]{l2}{L2}{Segundo N\'{i}vel de filtragem} 
-\newacronym[type=Abrev]{ef}{EF}{Filtro de Eventos, ou terceiro n{í}vel de
-filtragem} 
-\newacronym[type=Abrev]{hlt}{HLT}{Alto Nível de Filtragem} 
 
 \begin{itemize}
 \item O \glslink{l1}{Primeiro Nível de filtragem (L1)} realiza a filtragem com
@@ -164,7 +137,7 @@ Filtragem, já a sua versão de analise a posteriori será referida como \glsdes
 Um dos canais de interesse do experimento, o Canal \acrshort{eg},
 deseja identificar elétrons \glslink{eg}{(e$^-$)}, pósitrons \glslink{eg}(e$^+$)
 ou fótons \glslink{eg}{($\gamma$)}, 
-partículas de componentes eletromagnéticas. Muitos dos decaimentos do bóssom de
+partículas de componentes eletromagnéticas. Muitos dos decaimentos do bóson de
 Higgs serão nessas partículas, de forma que esse canal é de fundamental
 importância para o experimento. Ainda, a partícula $J/\Psi$, partícula importante
 para a determinação da resolução em baixa energia do detector, 

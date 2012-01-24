@@ -9,6 +9,7 @@ from multiprocessing import Process, Lock
 env = Environment(ENV=os.environ)
 env.PDF(target = file + '.pdf', source = file + '.tex')
 os.system('open -a Preview ' + file + '.pdf')
+os.system('mex --help')
 
 
 #pdfCreated = threading.Event()

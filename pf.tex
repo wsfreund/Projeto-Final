@@ -1,4 +1,4 @@
-\documentclass[pdftex,12pt,twoside,openany,a4paper]{book}
+\documentclass[pdftex,12pt,oneside,openany,a4paper]{book}
 \usepackage[brazilian]{babel}
 \usepackage[utf8]{inputenc} % Aqui tem que mudar de acordo com o seu sistema operacional
 \usepackage[T1]{fontenc} %
@@ -65,24 +65,9 @@
 \fancyfoot[RO]{\thepage}
 \renewcommand{\headrulewidth}{0.0pt}
 \renewcommand{\footrulewidth}{0.0pt}
-%% Modelo da página
-%\textheight 24.7cm
-%\textwidth 15cm
-%\footskip 1.25cm
-%\footnotesep 0.5cm
-%\headheight 0pt
-%\headsep 0pt
-%\oddsidemargin 0.46cm % 0.46
-%\topmargin -.04cm   %-.04
-%\marginparsep 0pt
-%\marginparwidth 0pt
-%\parindent 1.25cm
-%\oddsidemargin 0.46cm
-%\evensidemargin 0.46cm
-%
 }
 \makeatletter
-\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+\renewcommand\chapter{\if@openright\cleardoublepage\else\cleardoublepage\fi
                     \thispagestyle{fancy}%
                     \global\@topnum\z@
                     \@afterindentfalse
@@ -104,7 +89,7 @@
 
 % add = sign in the list of abbreviations:
 
-\renewcommand*{\glsclearpage}{\clearpage} % Para não haver diferença entre página par e impar
+\renewcommand*{\glsclearpage}{\cleardoublepage} % Para não haver diferença entre página par e impar
 \renewenvironment{theglossary}
   {\begin{longtable}{l@{{ }{ }{ }{ }{ }{ }{ }{ }{ }{ }}p{0.80\textwidth}}}
   {\end{longtable}}%
@@ -135,40 +120,43 @@
 
 % Mutliplas referências de pé de nota com o mesmo número
 \newcommand*{\fnref}[1]{\textsuperscript{\ref{#1}}}
-%\newcommand*{\addtotoc}[2]{\clearpage\phantomsection\addcontentsline{toc}{#1}{#2}}
+%\newcommand*{\addtotoc}[2]{\cleardoublepage\phantomsection\addcontentsline{toc}{#1}{#2}}
 
 
 
 \begin{document}
 
-\input{capa.tex}
+\input{simb.tex}
+\input{abrev.tex}
+
 \pagenumbering{roman}
-\setcounter{page}{2} 
+\addtocounter{page}{1}
+\input{capa.tex}
 % Agradecimento
 \input{agradecimento}
 \input{resumo}
-\clearpage
+\cleardoublepage
 % Sumário
 \vfill
-\clearpage \phantomsection \addcontentsline{toc}{chapter}{Sumário}
+\cleardoublepage \phantomsection \addcontentsline{toc}{chapter}{Sumário}
 \tableofcontents
 \vfill
-\clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Figuras}
+\cleardoublepage \phantomsection \addcontentsline{toc}{section}{Lista de Figuras}
 \listoffigures
 \vfill
-\clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Tabelas}
+\cleardoublepage \phantomsection \addcontentsline{toc}{section}{Lista de Tabelas}
 \listoftables
 \vfill
-\clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Símbolos}
+\cleardoublepage \phantomsection \addcontentsline{toc}{section}{Lista de Símbolos}
 %\renewcommand{\glossarypreamble}{Texto Simbulos}
 \printglossary[type=Simb]
-\clearpage \phantomsection \addcontentsline{toc}{section}{Lista de Abreviaturas}
+\cleardoublepage \phantomsection \addcontentsline{toc}{section}{Lista de Abreviaturas}
 \renewcommand{\glossarypreamble}{No caso de algumas abreviaturas
 internacionalmente conhecidas, optou-se por mantê-las em sua lingua original.}
 \printglossary[type=Abrev]
 %\glssymbol{ohm}.
 
-\clearpage
+\cleardoublepage
 \pagenumbering{arabic}
 
 \input{introducao}
@@ -185,10 +173,10 @@ internacionalmente conhecidas, optou-se por mantê-las em sua lingua original.}
 % TODO Trocar as captions para \gls
 % TODO Traduzir as figuras
 
-\clearpage
+\cleardoublepage
 
 \bibliographystyle{coppe}
-\clearpage \phantomsection \addcontentsline{toc}{chapter}{Referências Bibliográficas}
+\cleardoublepage \phantomsection \addcontentsline{toc}{chapter}{Referências Bibliográficas}
 \bibliography{bibliografia}
 
 %\appendix
