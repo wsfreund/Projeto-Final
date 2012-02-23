@@ -7,7 +7,7 @@ novas tecnologias e o desenvolvimento de ferramentas que estão se tornando cada
 vez mais necessárias em áreas como medicina, biologia, ciências financeiras, etc. Em 
 alguns casos seu papel é ainda mais essencial, caso das áreas
 multidisciplinares, quando ela e outras ciências se aliam para caminhar juntas no
-desenvolvimento de ferramentas e tecnologias. Com isso, se faz necessário a
+desenvolvimento de ferramentas e tecnologias. Com isso, se faz necessária a
 capacidade de sua adaptação à complexidade oferecida por esses novos ambientes, 
 como a alta quantidade e diversidade de sensores, alta taxa e raridade de
 eventos. Para realizar a interpretação dos diversos canais e a seleção dos eventos 
@@ -23,10 +23,10 @@ O \glsdesc{sf}, a ferramenta citada, pode utilizar tanto de métodos baseados no
 especialista do assunto, quanto baseados na informação estatística do processo. Ainda, 
 a combinação do conhecimento especialista ao processamento estatístico trás uma abordagem ainda 
 mais poderosa através da utilização das informações em técnicas não lineares, 
-como \glsdescrpl{rna}.
+como \acrlongpl{rna}.
 
 A seleção de eventos pode ser realizada no ambiente em tempo real,
-quando o processo de seleção ocorre durante a aquisição de dados. Nesse
+quando o processo ocorre durante a aquisição de dados. Nesse
 ambiente, deseja-se reduzir o volume de dados a serem armazenados. A decisão deve ser realizada 
 em curtos espaços de tempo, de maneira que atenda a taxa esperada de geração de
 dados, e ainda ser eficiente, uma vez que os dados rejeitados serão perdidos. 
@@ -39,7 +39,7 @@ que a taxa de aquisição de dados. Nesse tipo de processamento, é necessário 
 os eventos não ultrapassem o valor máximo de latência (tempo utilizado
 para a tomada de decisão pelo \glsdesc{sf}), assim como obterem um valor 
 médio de latência estipulado, determinados pela capacidade de processamento,
-afim de evitar gargalos no \glsdesc{sf}.
+a fim de evitar gargalos no \glsdesc{sf}.
 
 Já no ambiente de análise a posteriori, o processo de seleção pode ser mais
 complexo, uma vez que ele não realiza a decisão atendendo aos
@@ -51,7 +51,7 @@ uma melhor eficiência quando realizando a filtragem a posteriori.
 O \gls{cern} é o maior centro de
 pesquisas em física de partículas do mundo, situado na fronteira da Suíça com a
 França. O experimento de maior repercussão do \gls{cern} atualmente é o \gls{lhc}, 
-um acelerador de partículas de 27 km de
+um acelerador de partículas de 27~km de
 circunferência que irá atingir energia de colisões nunca antes obtidas
 experimentalmente. 
 Nesse ambiente de colaboração internacional estarão presentes
@@ -60,13 +60,13 @@ interesse.
 
 Serão acelerados pacotes\footnote{Um aglomerado de partículas.} de prótons em
 feixes com sentidos opostos no \gls{lhc},
-ocorrendo colisões em quatro pontos. Nesses pontos, são instalados 
+ocorrendo colisões em quatro pontos. Nesses pontos são instalados 
 detectores de partículas que observam o subproduto das colisões dos pacotes de prótons 
 acelerados pelo \gls{lhc}. O \gls{atlas} é um dos detectores do
 \gls{lhc}, sendo construído e operado por uma colaboração internacional envolvendo 174 institutos de 38
 países. Ele foi projetado de modo a atender diversos dos requisitos da física 
-experimental atual e por isso é dito de uso geral, contendo um total de $~140$ M 
-de canais de leitura. Para atendê-los ele é dividido nos seguintes subdetectores:
+experimental atual e por isso é dito de uso geral, contendo um total de $~140$~M 
+de canais de leitura. O \gls{atlas} é dividido nos seguintes subdetectores:
 
 \begin{itemize}
 \item \gls{id}, responsável pela detecção da trajetória de partículas carregadas;
@@ -82,56 +82,56 @@ A física estudada nesse experimento é muito rara, podendo ser observados event
 de interesse algumas poucas vezes ao longo de vários dias de colisão. 
 Um dos objetivos para o qual o \gls{atlas} foi 
 designado é a identificação da partícula bóson de Higgs, única partícula 
-do \glslink{mp}{Modelo Padrão} ainda não observada. Estima-se que cerca de 17 k dessas
-partículas\footnote{Considerando o decaimento esperado para a massa de 500 GeV.} deverão ser produzidas por ano, comparados
+do \glslink{mp}{Modelo Padrão} ainda não observada. Estima-se que cerca de 17~k dessas
+partículas\footnote{Considerando o decaimento esperado para a massa de 500~GeV.} deverão ser produzidas por ano, comparados
 com o total de $1,7\times10^{16}$ eventos produzidos de interações inelásticas
 não difrativas. 
 
-É prevista uma média de cerca de 1,5 MB de espaço em disco rígido para cada evento de 
-colisão. A taxa de cruzamento entre os pacotes de prótons é de 40 MHz, 
-desta forma o fluxo de dados no decorrer do experimento será de 60 TB/s, impossibilitando o
+É prevista uma média de cerca de 1,5~MB de espaço em disco rígido para cada evento de 
+colisão. A taxa de cruzamento entre os pacotes de prótons é de 40~MHz, 
+desta forma o fluxo de dados no decorrer do experimento será de 60~TB/s, impossibilitando o
 armazenamento completo dos eventos ocorridos no experimento. Para tornar a
-situação ainda mais complexa são esperadas cerca de 1 GHz de interações
+situação ainda mais complexa são esperadas cerca de 1~GHz de interações
 inelásticas não difrativas quando operando nas condições nominais, onde apenas
 uma pequena parte dessas interações irá gerar a física desejada como objeto de
 estudo.
 
 Assim é natural a adoção de um \glsdesc{sf} em tempo real para a
-identificação dos eventos de interesse a serem armazenados, reduzindo a taxa de 1 GHz
-para cerca de 100 Hz. O \glsdesc{sf} do \gls{atlas} realiza o processamento dos 
+identificação dos eventos de interesse a serem armazenados, reduzindo a taxa de 1~GHz
+para cerca de 100~Hz. O \glsdesc{sf} do \gls{atlas} realiza o processamento dos 
 eventos em paralelo, estando dividido em três níveis sequenciais, cada um 
 analisando o evento com maior complexidade:
 
 \begin{itemize}
 \item O \glslink{l1}{Primeiro Nível de filtragem (L1)} realiza a filtragem com
-\gls{fpga}\footnote{Circuitos integrados com portas lógicas.}, 
+\gls{fpga}\footnote{Circuitos integrados digitáis e programáveis.}, 
 utilizando resolução reduzida das células do detector
-com um tempo fixo de 2 $\mu$s, reduzindo a taxa de eventos para
-75 kHz. Ele também é responsável pela identificação de regiões no detector onde
+com um tempo fixo de 2~$\mu$s, reduzindo a taxa de eventos para
+75~kHz. Ele também é responsável pela identificação de regiões no detector onde
 há informação relevante, referidas como \gls{roi}. Somente a
 informação contida nessa região é propagada para o segundo nível, de forma a
 minimizar o fluxo de dados no sistema.
 \item O \glslink{l2}{Segundo Nível (L2)} analisa somente os eventos que passaram pelas condições do
 primeiro nível. Utiliza a resolução total das células do detector, 
-tendo um tempo de latência de 10 ms, de maneira a reduzir a taxa de eventos para
-2 kHz. É implementado em linguagens de alto nível como C++ e python para sua configuração. 
-Para esse nível são disponíveis cerca de 500 processadores, com quatro
+tendo um tempo de latência de 10~ms, de maneira a reduzir a taxa de eventos para
+2~kHz. É implementado em linguagens de alto nível como C++ e Python. 
+Para esse nível são utilizados cerca de 500 processadores, com quatro
 núcleos de processamento, conectados em rede.
 \item O \glslink{ef}{Terceiro Nível (EF)}, além de avaliar com maior acurácia aqueles que foram
 selecionados pelo segundo nível, realiza a procura por eventos não identificados pelo
 primeiro nível por causa de sua menor resolução. Ele possui um tempo de 
-latência de 10 s, reduzindo a taxa de eventos para 200 Hz. Utiliza a mesma
+latência de 10~s, reduzindo a taxa de eventos para 200~Hz. Utiliza a mesma
 infraestrutura computacional do segundo nível, entretanto tem disponíveis 1900
 processadores.
 \end{itemize}
 
-Uma vez o evento sendo aceito pelo terceiro nível, o mesmo é então armazenado
-para futura analise pelos físicos que irão utilizar os algoritmos desenvolvidos 
-para analise a posteriori. Os físicos dão o nome para esses algoritmos de Sistema de
+Uma vez o evento foi aceito pelo terceiro nível, o mesmo é então armazenado
+para futura análise por pesquisadores que irão utilizar algoritmos desenvolvidos 
+para análise a posteriori. Os físicos dão o nome para esses algoritmos de Sistema de
 Reconstrução, pois eles os permitem fazer a reconstrução da física que ocorreu
-durante a colisão e sua interação com o detetor. Para facilitar a leitura irá se 
-referir ao \glsdesc{sf} em tempo real simplesmente como Sistema de 
-Filtragem, já a sua versão de analise a posteriori será referida como \glsdesc{sr}.
+durante a colisão e sua interação com o detetor. Para facilitar a leitura, o
+\glsdesc{sf} em tempo real será chamado simplesmente de \glsdesc{sf}.
+Já sua versão de análise a posteriori será referida como \glsdesc{sr}.
 
 Um dos canais de interesse do experimento, o Canal \acrshort{eg},
 deseja identificar elétrons \glslink{eg}{(e$^-$)}, pósitrons \glslink{eg}(e$^+$)
@@ -147,25 +147,25 @@ com que a tarefa da identificação dessas partículas não seja trivial.
 
 \section{Objetivo} % {{{
 
-O objetivo deste trabalho é otimizar o \gls{egcaloringer},
+O objetivo deste trabalho é aprimorar o \gls{egcaloringer},
 um algoritmo alternativo que vem sido desenvolvido pelo \gls{lps}
 para realizar a discriminação 
 no canal \acrshort{eg}. Tal algoritmo foi idealizado para o \gls{l2}, 
 sendo implementado na colaboração em 2005.
 Nele a informação de calorimetria é tratada através do conhecimento especialista
 e então propagada para um método estatístico 
-de discriminação, onde atualmente é utilizado redes neurais. 
+de discriminação, onde atualmente são utilizadas Redes Neurais. 
 Para que tal melhoria seja alcançada no
-algoritmo será realizado um estudo de preprocessamento dos dados,
+algoritmo, será realizado um estudo de preprocessamento dos dados,
 através da escolha da melhor normalização a ser adotada.
 
 Ainda, um dos requisitos para a adesão do algoritmo no \glsdesc{sf} é a
 implementação de uma versão do mesmo para o \glsdesc{sr},
 de maneira  que a colaboração possa utilizá-lo e entender o seu
-funcionamento. Por esse motivo, também se faz necessário a implementação 
+funcionamento. Por esse motivo, também se faz necessária a implementação 
 da nova versão para a complexa estrutura de código desse ambiente.
 
-Por fim, é necessária uma analise da eficiência do algoritmo para ambos os
+Por fim, é necessária uma análise da eficiência do algoritmo para ambos os
 ambientes, utilizando como parâmetro de comparação seus equivalentes 
 desenvolvidos pela colaboração.
 
@@ -176,16 +176,16 @@ O Capítulo~\ref{cap:cern} é dedicado ao \gls{cern} e ao contexto de colaboraç
 no qual o projeto foi desenvolvido, dando a base necessária para o entendimento
 do experimento \gls{atlas}, fazendo uma introdução sobre a Física de Partículas,
 o acelerador \gls{lhc}, os componentes do \gls{atlas} e as ferramentas
-utilizadas pela Colaboração.
+utilizadas pela colaboração.
 
-No Capítulo 3 está a apresentação dos ambientes aonde atua o algoritmo proposto,
+No Capítulo 3 está a apresentação dos ambientes onde atua o algoritmo proposto,
 o Canal \acrshort{eg}. Nele será realizada uma apresentação do \gls{sr} e do
-\gls{sf}, considerando o algoritmo padrão utilizado pela Colaboração para
+\gls{sf}, considerando o algoritmo padrão utilizado pela colaboração para
 realizar as tarefas necessárias do Canal \gls{eg} como a obtenção dos parâmetros
 das partículas e discriminação. Também será apresentado o algoritmo proposto em
 detalhes para suas duas versões, a versão de análise em tempo real no \gls{sf},
 \gls{hltringer} e a versão de análise a posteriori, o \gls{egcaloringer}. A
-descrição da implementação da versão em análise também será realizada nesse 
+descrição da implementação da versão de análise a posteriori também será realizada nesse capítulo. 
 
 O Capítulo 4 é destinado a apresentação dos resultados e a sua discussão,
 sendo dividido nos dois estudos realizados: a análise da normalização mais

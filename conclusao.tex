@@ -3,93 +3,87 @@
 O \gls{cern} é uma das fontes de avanços tecnológicos, obtendo grandes feitos
 desde sua fundação. Seus experimentos
 levam diversas áreas do conhecimento ao limite em busca de novas técnicas. 
-O maior acelerador de partículas do mundo, o acelerador \gls{lhc}, utiliza
+O maior acelerador de partículas do mundo, o \gls{lhc}, utiliza
 tecnologia de ponta em seus magnetos para produzir energias nunca antes
-alcançadas experimentalmente. O seu detector \gls{atlas}, detector que terá a
+alcançadas experimentalmente. O detector \gls{atlas}, que terá a
 capacidade de explorar grande parte da física produzida nas colisões do
-\gls{lhc}, foi construído e é operado por uma Colaboração de 174 institutos e 38 
-países. Seu projeto foi feito de modo a atender as severas condições impostas
-pelo \gls{lhc}, que foi atribuída a todos os seus subsistemas. Deles, os principais são, 
-o \gls{id}, que irá reconstruir a trajetória das partículas carregadas 
-eletricamente, o Sistema de Calorimetria, responsável pela absorção da energia 
-de grande parte das partículas de estados finais das colisões, e o Espectrômetro de 
-Múons, que irá operar de maneira similar ao \gls{id} para realizar a detecção 
-dessas partículas. As informações desses subdetectores, compondo um total de
-$\sim$140 M canais de leitura, são utilizadas para reconstruir a física das colisões, 
-buscando por novas físicas de interesse. O
-\glsdesc{sr} é o ambiente responsável pela reconstrução dos parâmetros das
-partículas e sua identificação. O \gls{lhc} irá operar com altas
-taxas de eventos, com um cruzamento máximo entre feixes de 40 MHz,
-impossibilitando o armazenamento por completo dos dados, enquanto
-a física de interesse é extremamente rara, de forma que o \glsdesc{sf} do
-\gls{atlas} realiza a seleção dos eventos que serão armazenados.
-
-Para encontrar os raros eventos de interesse, são separados canais que irão
-buscar reconstruir uma física específica. Um dos objetivos do \gls{atlas} é a
+\gls{lhc}, foi construído e é operado por uma colaboração de 174 institutos e 38 
+países. 
+%Seu projeto foi feito de modo a atender as severas condições impostas
+%pelo \gls{lhc} atribuída a todos os seus subsistemas. Deles, os principais são, 
+%o \acrlong{id}, que irá reconstruir a trajetória das partículas carregadas 
+%eletricamente, o Sistema de Calorimetria, responsável pela absorção da energia 
+%de grande parte das partículas de estados finais das colisões, e o Espectrômetro de 
+%Múons, que irá operar de maneira similar ao \acrlong{id} para realizar a detecção 
+%dessas partículas. As informações desses subdetectores, compondo um total de
+%$\sim$140 M canais de leitura, são utilizadas para reconstruir a física das colisões, 
+%buscando novas físicas de interesse. O
+%\glsdesc{sr} é o ambiente responsável pela reconstrução dos parâmetros das
+%partículas e sua identificação. O \gls{lhc} irá operar com altas
+%taxas de eventos, com um cruzamento máximo entre feixes de 40 MHz,
+%impossibilitando o armazenamento completo dos dados, enquanto
+%a física de interesse é extremamente rara, de forma que o \glsdesc{sf} do
+%\gls{atlas} realiza a seleção dos eventos que serão armazenados.
+%Para encontrar os raros eventos de interesse, são separados canais que irão
+%buscar reconstruir uma física específica. 
+Um dos objetivos do \gls{atlas} é a
 confirmação das existência da partícula bóssom de Higgs, única partícula
 prevista pelo \gls{mp} ainda não observada experimentalmente. Essa partícula
 poderá sofrer diversos decaimentos diferentes, dependendo de sua massa. Grande
 parte deles decaem em estados finais como elétrons, pósitrons e fótons, as
-partículas de interesse do Canal \gls{eg}. Os algoritmos dos sistemas
-utilizam a informação do Sistema de Calorimetria e do \gls{id} para realizarem a
-tarefa de reconstrução ou filtragem utilizando as versões implementada pela
-Colaboração, que gera variáveis físicas que permitam a interpretação dos
-chuveiros de partículas no calorímetro, do traço da partícula e as relações
-entre o traço e o aglomerado de células do calorímetro. As versões no \gls{hlt}
-dos algoritmos padrões foram baseados nos algoritmos do \gls{sr} para obter o
-mínimo possível de polarização dos dados pelo \gls{sf}.
+partículas de interesse do Canal \gls{eg}. 
+Os algoritmos desse Canal utilizam a informação do Sistema de Calorimetria e do
+\acrlong{id} para realizarem a tarefa de reconstrução ou filtragem.
 
-O algoritmo proposto, o \gls{hltringer} inicialmente para o \gls{l2}, utiliza o
+O \gls{hltringer}, algoritmo proposto inicialmente para o \gls{l2}, utiliza o
 conhecimento especialista através do processo de anelamento, que mantém a interpretação da propagação do
 chuveiro no calorímetro como a informação de espessura lateral e profundidade
-longitudinal. Essa informação precisa ser normalizada antes de sua propagação em
-uma rede neural, o processo discriminador multivariável atualmente utilizado,
-por esse motivo foi realizado um estudo de normalização, obtendo como resultados
-a melhor eficiência a normalização por Esferização Modificada e Fixa por Seção.
+longitudinal. Essa informação precisa ser normalizada antes de sua propagação
+para uma rede neural, o discriminador multivariável atualmente utilizado.
+Por esse motivo, foi realizado um estudo de normalização, obtendo como 
+melhor eficiência a normalização por Esferização Modificada e Fixa por Seção.
 A Norma 1, um tipo de normalização simples também foi indicado, por ter
 eficiência ligeiramente menor mas ser de simples implementação. Ainda nesse
 estudo, a escolha do produto \gls{sp} como figura de mérito da \gls{rna} foi
 testado e bem sucedido.
 
-Foi necessário a implementação do algoritmo proposto, \gls{egcaloringer}, para o ambiente de análise
-do \gls{sr}, para que antes de adicionar filtros o algoritmo fosse melhor
-entendido pela Colaboração no \gls{sr}. Ao mesmo tempo, a implementação deveria ser transparente e não
-afetar o funcionamento de qualquer um dos algoritmos padrões. O esquema foi
-implementado de modo bem sucedido, adicionando a compatibilidade das variáveis
-do \gls{egcaloringer} para diversos meios de análise. Em seguida, o estudo foi então
-prosseguido, agora buscando testar a capacidade do algoritmo no novo ambiente.
-Utilizou a normalização mais simples, a Norma 1 por causa desse estudo anterior.
+Foi necessária a implementação do algoritmo proposto, \gls{egcaloringer}, para o ambiente de análise
+do \gls{sr}, para que o algoritmo fosse melhor
+entendido pela colaboração. Ao mesmo tempo, a implementação foi transparente e não
+afetou o funcionamento de qualquer um dos algoritmos anteriormente implementados
+pela colaboração. O esquema implementado foi bem sucedido, adicionando a compatibilidade das variáveis
+do \gls{egcaloringer} para diversos meios de análise. Em seguida, o estudo
+prosseguiu, buscando testar a capacidade do algoritmo no novo ambiente.
+Utilizou-se a normalização mais simples, a Norma 1, por causa do estudo anterior.
 Um total de três conjuntos foi analisado. O primeiro deles, Singlepart\_e x J2,
 continha conjuntos com amostras limpas, sendo o conjunto em que os algoritmos
-tiveram a melhor eficiência, aonde o algoritmo proposto superou a performance do
-algoritmo padrão. O conjunto de JPsi x Minbias possuem contaminação por
+propostos tiveram a melhor eficiência, principalmente quando comparados com o
+algoritmo padrão. O conjunto de J/$\Psi$ x Minbias possuem contaminação por
 partículas que não eram para pertencer aos dados, alterando o perfil da saída
-neural, que ainda assim, tem uma performance melhor que o algoritmo padrão, sendo
-capaz de identificar uma quantidade maior dos elétrons do conjunto de JPsi
+neural, que ainda assim, teve uma performance melhor que o algoritmo padrão, sendo
+capaz de identificar uma quantidade maior dos elétrons do conjunto de J/$\Psi$,
 exceto para o requerimento \emph{Tight}, onde ambos algoritmos tiveram
 performance similar. Finalmente, o conjunto de dados reais possuía amostras de
-dados filtrados apenas pelo \gls{l1}, e estando ainda mais contaminado que o
-conjunto de Jpsi x Minbias. Os resultados obtidos para os dados reais indicaram
-uma performance bastante positiva para o algoritmo, e a vantagem da alta
-estatística facilitou a percepção de relação entre as variáveis físicas e a saída
-neural.
+dados filtrados apenas pelo \gls{l1}, estando ainda mais contaminado que o
+conjunto J/$\Psi$ x Minbias. Os resultados obtidos para os dados reais indicaram
+uma performance bastante promissora para o algoritmo. 
 
   
 \section{Perspectivas}
 
-Os resultados dos estudos preliminares após a implementação da versão de análise
+Os resultados preliminares após a implementação da versão de análise
 a posteriori mostraram o potencial do algoritmo para a discriminação de
-partículas \gls{em}. Não foi possível se aprofundar nos estudos, para refinar os
-conjuntos de JPsi x Minbias utilizados, através da seleção das partículas pela
-verdade de \gls{mc} melhorando as análises filtradas. Ainda, no caso de
+partículas \gls{em}. Não foi possível se aprofundar nos estudos para refinar os
+conjuntos de J/$\Psi$ x Minbias utilizados, através da seleção das partículas pela
+verdade de \gls{mc}, melhorando as análises filtradas. No caso de
 $\text{J}/\Psi$ e do bóssom de Z decaindo em dois elétrons, é necessário a
 utilização do método \emph{tag and probe}, o que não foi realizado.
 Ainda, não se testou a eficiência do \gls{egcaloringer} para canais de fótons,
 como por exemplo $H\rightarrow\gamma\gamma$, sendo esse um estudo necessário.
-Pela flexibilidade que o ambiente de análise a posteriori proporciona, o estudo
+Pela flexibilidade que o ambiente de análise a posteriori proporciona, um estudo
 adicionando as variáveis \gls{eta} e \gls{Et} para a rede neural pode trazer
 benefícios, uma vez que se sabe que a produção de física tem correlação com
-\gls{eta}, assim como o fato do detector não ser homogêneo para essa coordenada.
+\gls{eta}, assim como o fato de o detector não ser homogêneo para essa coordenada.
 Ao mesmo tempo, a utilização de \gls{Et} pode auxiliar a rede a identificar as
 diferenças entres os chuveiros mais energéticos.
 

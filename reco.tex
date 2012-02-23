@@ -5,15 +5,15 @@
 \glsunset{t2calo}
 
 A alta energia e luminosidade do \gls{lhc} (Seção~\ref{sec:lhc}) oferecem um alto alcance para
-explorar física, desde a medição precisa de propriedades de objetos conhecidos, a
-ultrapassar a fronteira de energias onde a física ainda não havia sido experimentada.
+explorar física, desde a medição precisa de propriedades de objetos conhecidos a
+ultrapassar a fronteira de energias onde a física ainda não foi experimentada.
 Por ser um detector de propósito geral, o \gls{atlas} (Seção~\ref{sec:ATLAS}) deve ser capaz de
 explorar diversos dos objetivos do \gls{lhc} (Subseção~\ref{ssec:obj_lhc}), e
 para isso ele precisar ter a capacidade de explorar um largo espectro de assinaturas
 físicas. Esse fato guiou a otimização do projeto do \gls{atlas}, dando as especificações de sensibilidade e precisão do
 detector para que seja possível através das assinaturas realizar a reconstrução
 com precisão da física ocorrida nas colisões. O foco principal é na busca pelo
-bóson de Higgs \cite{ATLAS_TDR2}, com o objetivo de provar a origem da escala
+bóson de Higgs \cite{ATLAS_TDR2} com o objetivo de provar a origem da escala
 eletrofraca\footnote{A escala eletrofraca existe somente no estado primitivo descrito na
 Subseção~\ref{ssec:bossoms}.}. 
 
@@ -29,14 +29,14 @@ disso, outras partículas como o bóson Z e partícula $\text{J}/\Psi$, podem se
 utilizadas para melhorar a escala de medida de energia dos calorímetros e
 estudar sua linearidade de resposta por terem suas massas bem conhecidas, 
 em especial os decaimentos de elétrons do
-$\text{J}/\Psi$ para baixas energias ($\gls{Et} > 5$ GeV), onde se esperam encontrar 
-decaimentos leptônicos do bóson de Higgs de menor energia ($\gls{Et} > 7$ GeV).
+$\text{J}/\Psi$ para baixas energias ($\gls{Et} > 5$~GeV), onde se esperam encontrar 
+decaimentos leptônicos do bóson de Higgs de menor energia ($\gls{Et} > 7$~GeV).
 Outras assinaturas experimentais são as de hádrons e jatos, que serão tratadas
 quando abordando o Canal \gls{eg}, por serem o ruído de fundo do qual se deseja
 filtrar nesse canal. Entretanto existem setores de física que se
 interessam por esses decaimentos, como o já citado decaimento do bóson W em jatos
 duplos\footnote{A citação foi realizada no Subtópico~\ref{par:cal_part_id}.}. 
-Além disso, múons constituem de outras assinaturas, uma vez que interagem
+Além disso, múons constituem outras assinaturas, uma vez que interagem
 pouco com os calorímetros, tendo seu próprio subsistema, o Espectrômetro de
 Múons. Existem outras três assinaturas:
 táons, sabores pesados e léptons neutrinos. Os táons decaem
@@ -44,18 +44,18 @@ rapidamente em múons (ou elétrons) e mais dois neutrinos, ou ainda, em um ou t
 píons carregados, de forma que sua assinatura é
 feita nos espectrômetros de múons (ou calorímetro), ou de chuveiros \gls{had} com um ou três
 traços isolados apontando para o chuveiro. Os sabores pesados procuram
-assinaturas de mésons pesados, que geralmente decaem a menos de 1 mm do ponto de
+assinaturas de mésons pesados, que geralmente decaem a menos de 1~mm do ponto de
 colisão, sendo necessário criar um vértice secundário que será identificado com
 a alta precisão do Detector de Pixel. Finalmente, léptons neutrinos escapam da
-detecção, para sua assinatura é utilizada a propriedade de conservação de
+detecção. Sua assinatura é baseada na propriedade de conservação de
 \gls{pt}, de modo que, quando há quantidade suficiente de \gls{ptmiss}, há indícios
 de que algo escapou do processo de detecção.
 
-Os algoritmos são implementados em dois ambientes diferentes, um ambiente mais
+Os algoritmos são implementados em dois ambientes diferentes. Um ambiente mais
 restrito, necessário devido ao alto nível de ruído físico gerado nas condições 
 impostas do \gls{lhc} (citadas no Tópico~\ref{sssec:minb_ue_pileup}): o
 \glsdesc{sf} (Seção~\ref{sec:sf}). Nesse ambiente o tempo de discriminação 
-é limitado a latência suportada pela capacidade computacional das máquinas localizadas 
+é limitado pela capacidade computacional das máquinas localizadas 
 no \gls{ip}1. O trabalho segue com o desenvolvimento do algoritmo
 \acrlong{hltringer} (Subseção~\ref{ssec:hlt_ringer}), um algoritmo alternativo proposto para o
 Segundo Nível de Filtragem desse sistema. A versão implementada pela
@@ -63,10 +63,10 @@ colaboração, o \gls{t2calo} (Subseção~\ref{ssec:cadeia_egamma}),
 também é descrita em detalhes. Por sua vez o outro ambiente, o \glsdesc{sr}
 (Seção~\ref{sec:sr}), visa fazer uma análise mais precisa dos eventos de colisão e da 
 física gerada, sendo o \glsdesc{sf}, nos níveis mais altos de filtragem, 
-nada mais que uma versão restringida baseada no mesmo. Para que a Colaboração tenha 
-um melhor contato com o algoritmo proposto e entenda o seu funcionamento, se fez
-necessário a implementação (Tópico~\ref{sssec:egringer_impl}) de uma versão no Sistema 
-de \glsdesc{sr} (Subseção~\ref{ssec:egringer}) para que os físicos o utilizassem nas suas 
+nada mais que uma versão reduzida baseada no mesmo. Para que a colaboração tenha 
+um melhor contato com o algoritmo proposto e entenda o seu funcionamento se fez
+necessário a implementação (Tópico~\ref{sssec:egringer_impl}) de uma versão no 
+\glsdesc{sr} (Subseção~\ref{ssec:egringer}), para que os físicos o utilizassem nas suas 
 análises a posteriori. A versão padrão (Subseção~\ref{ssec:egamma}) utilizada
 pelos físicos também foi abordada.
 
@@ -77,7 +77,8 @@ O bóson de Higgs no setor do \gls{mp} é amplamente irrestrito, de forma que su
 massa, \acrshort{mh}, não é prevista pela teoria. Um limite superior na ordem de
 $\sim$1 TeV teórico, e um limite inferior experimental\footnote{As exclusões
 citadas foram feitas para um nível de confiança de 95\%.\label{fn:95cl}} de 95,2
-GeV \cite{lep_higgs_1999} por um experimento anterior do \gls{cern}, o \gls{lep}, determinam a região para a qual
+GeV \cite{lep_higgs_1999} dado por um experimento anterior do \gls{cern}, o \gls{lep}, 
+determinam a região para a qual
 se esperava encontrar o bóson de Higgs durante a época das últimas propostas técnicas
 do projeto do \gls{atlas} \cite{ATLAS_TDR,ATLAS_TDR2}, por volta de 1999. 
 
@@ -86,14 +87,14 @@ possíveis canais de decaimentos explorados pelo programa de física do
 \gls{atlas} foi revisado na propostas citadas. Esses canais são:
 
 \begin{itemize}
-\item $H\rightarrow\gamma\gamma$ (110 a 150 GeV/$c^2$), produção direta;
-\item $H\rightarrow\gamma\gamma$ (110 a 150 GeV/$c^2$), da produção associada $WH$, $ZH$ e
+\item $H\rightarrow\gamma\gamma$ (110 a 150~GeV/$c^2$), produção direta;
+\item $H\rightarrow\gamma\gamma$ (110 a 150~GeV/$c^2$), da produção associada $WH$, $ZH$ e
 $t\bar{t}H$, usando um lépton (e, $\mu$) rotulado do decaimento dos bóson W, Z ou
 do quark \emph{top};
 \item $H\rightarrow b\bar{b}$ (110 a 130 GeV/$c^2$), da produção associada $WH$, $ZH$ e
 $t\bar{t}H$, usando um lépton (e, $\mu$) rotulado do decaimento dos bóson W, Z ou
 do quark \emph{top};
-\item $H\rightarrow ZZ^*\rightarrow4l$ (110 a 600 GeV/$c^2$. O símbolo $^*$ representa uma partícula 
+\item $H\rightarrow ZZ^*\rightarrow4l$ (110 a 600~GeV/$c^2$. O símbolo $^*$ representa uma partícula 
 que está fora de sua fronteira de massa\footnote {Na literatura em inglês 
 \emph{off the mass shell}, ou simplesmente \emph{off
 shell}.} na relação massa-momento dada pela equação~\ref{eq:rel_mom}. Essas
@@ -104,27 +105,27 @@ constante
 de Plank pela diferença de energia, ou $\Delta E \Delta t \gtrsim h$), onde l
 representa estes léptons: $e,\mu$; 
 \item $H\rightarrow ZZ\rightarrow4l$ e $H\rightarrow ZZ\rightarrow ll\nu\nu$i
-(200 a 600 GeV/$c^2$), aqui $\nu$ são os léptons neutrinos;
+(200 a 600~GeV/$c^2$), aqui $\nu$ são os léptons neutrinos;
 \item $H\rightarrow WW\rightarrow l\nu jj$ e $H\rightarrow ZZ\rightarrow ll jj$
-($\sim$600 a 1 TeV),
+($\sim$600 a 1~TeV),
 onde $jj$ representa o decaimento em jatos duplos;
-\item $H\rightarrow WW^*\rightarrow l\nu l\nu$ (110 a 300 GeV/$c^2$). 
+\item $H\rightarrow WW^*\rightarrow l\nu l\nu$ (110 a 300~GeV/$c^2$). 
 \end{itemize}
 
 
 Nesse estudo se utilizou simulações
 de \gls{mc} do \emph{Pythia}, através da significância desses 
-canais numa região de 80-1000 GeV/$c^2$ (lembrando que na época só havia sido excluído
-o bóson de Higgs para \gls{mh} < 95,2), utilizando os valores de resposta dos
+canais numa região de 80-1000~GeV/$c^2$ (lembrando que na época só havia sido excluído
+o bóson de Higgs para \gls{mh}~<~95,2), utilizando os valores de resposta dos
 subdectores, resolução e capacidade esperadas de identificação de sinais e rejeição 
 de ruídos redutíveis. 
 Os resultados desse estudo estão resumidos na Figura~\ref{fig:higgs_sim_atlas},
 mostrando a significância do sinal para uma luminosidade integrada\footnote{A 
 luminosidade integrada, como seu nome indica, não passa da integral da luminosidade 
 instantânea no tempo de operação do \gls{lhc}: $\int{L_{inst} dt}$.} de
-100 $\text{fb}^{-1}$. Para efeito de comparação na
+100~$\text{fb}^{-1}$. Para efeito de comparação na
 Figura~\ref{fig:higgs_branch_ratio} há as relações entre os canais
-e seus alcances em massa. A Figura~\ref{fig:higgs_production} contêm a seção
+e seus alcances em massa. A Figura~\ref{fig:higgs_production} contém a seção
 de choque esperada para as possíveis massas.
 
 \begin{figure}[ht!]
@@ -168,14 +169,14 @@ Os canais mais importantes nas regiões de massa intermediária, $\gls{mh}<2m_Z$
 onde se espera que os decaimentos reconstruam um pico de massa, são 
 o canal de quatro léptons, $H\rightarrow ZZ^* \rightarrow 4l$, o canal de
 produção direta em dois fótons, $H\rightarrow \gamma\gamma$, junto com os
-canais de produção associada com o mesmo estados finais, . Para massas por volta
-de 170 GeV/$c^2$, onde a produção de $ZZ^*$ é suprimida, o potencial da descoberta do
+canais de produção associada com os mesmos estados finais. Para massas por volta
+de 170~GeV/$c^2$, onde a produção de $ZZ^*$ é suprimida, o potencial da descoberta do
 Higgs pode ser elevada pelo decaimento $H\rightarrow WW^*\rightarrow l\nu l\nu$,
 nesse caso, o sinal deverá ser observado como um excesso de eventos. O canal de
 quatro léptons com dois bósons Z reais é o dominante na região de
 $\gls{mh}>2m_Z$, cobrindo uma vasta região de massa\footnote{Por isso chegou a
-ser referenciado como canal banhado a ouro.}. Em massas mais elevadas, por volta de 600 GeV/$c^2$ até 1
-TeV, outros canais como $H\rightarrow WW\rightarrow l\nu jj$, $H\rightarrow
+ser referenciado como canal banhado a ouro.}. Em massas mais elevadas, por volta 
+de 600~GeV/$c^2$ até 1~TeV, outros canais como $H\rightarrow WW\rightarrow l\nu jj$, $H\rightarrow
 WW\rightarrow ll\nu\nu$ são utilizados para a busca do bóson de Higgs.
 
 Posteriormente, outro canal foi adicionado, por outros estudos
@@ -183,7 +184,7 @@ Posteriormente, outro canal foi adicionado, por outros estudos
 
 \begin{itemize} 
 \item $H\rightarrow \tau \tau \rightarrow ll4\nu$ e $H\rightarrow \tau \tau
-\rightarrow l\tau_{had}3\nu$ (110 a 150 GeV/$c^2$), onde $\tau_{had}$ seria o
+\rightarrow l\tau_{had}3\nu$ (110 a 150~GeV/$c^2$), onde $\tau_{had}$ seria o
 decaimento do táon em píons especificados no início deste capítulo.
 \end{itemize} 
 
@@ -218,7 +219,7 @@ mostrando a importância do Canal \gls{eg}.
     \end{center}
 \caption[Exclusões de massa do Higgs realizada pela combinação dos dados do
 ATLAS e CMS. As exclusões de massa do Tevatron e LEP também estão indicadas.]{As exclusões de massa do bóson de Higgs. Os valores de massa
-observados, no caso para os resultados combinados do ATLAS e CMS, quando
+observados para os resultados combinados do ATLAS e CMS. Quando
 abaixo da linha horizonal vermelha indicada são excluídos com um nível de
 confiança de 95\%. A linha pontilhada indica o ruído de fundo esperado gerado
 por física na ausência do bóson de Higgs. As faixas verdes e amarelas indicam
@@ -230,15 +231,15 @@ conhecido. Extraído de \cite{atlas_cms_higgs}.}
 \end{figure}
 
 Resultados mais recentes excluíram outras regiões de massa do bóson de Higgs. Em 2008, 
-o legado deixado pelo \gls{lep} elevou o limite inferior para 114 GeV/$c^2$
+o legado deixado pelo \gls{lep} elevou o limite inferior para 114~GeV/$c^2$
 \cite{lep_higgs_2008}, enquanto o experimento Tevatron realizado pelo Fermilab, excluiu as
-regiões de $156 < \gls{mh} < 177$ GeV/$c^2$, em Setembro de 2011
+regiões de $156 < \gls{mh} < 177$~GeV/$c^2$, em Setembro de 2011
 \cite{tevatron_higgs}. Também no final de Setembro, resultados preliminares do
-\gls{atlas} excluíram o bóson de Higgs para as regiões de 146-230 GeV/$c^2$, 256-282 GeV/$c^2$ 
-e 296-459 GeV/$c^2$ \cite{atlas_higgs}. Um mês antes o \gls{cms} havia excluído o bóson para
-as regiões parecidas: de 145-216 GeV/$c^2$, 226-288 GeV/$c^2$ e 310-400 GeV/$c^2$
+\gls{atlas} excluíram o bóson de Higgs para as regiões de 146-230~GeV/$c^2$, 256-282~GeV/$c^2$ 
+e 296-459~GeV/$c^2$ \cite{atlas_higgs}. Um mês antes o \gls{cms} havia excluído o bóson para
+as regiões parecidas: de 145-216~GeV/$c^2$, 226-288~GeV/$c^2$ e 310-400~GeV/$c^2$
 \cite{cms_higgs}. Em meados de Novembro o \gls{atlas} e \gls{cms} uniram seus
-dados para excluir a região de 141-476 GeV/$c^2$ \cite{atlas_cms_higgs}. Esses
+dados para excluir a região de 141-476~GeV/$c^2$ \cite{atlas_cms_higgs}. Esses
 resultados estão indicados na Figura~\ref{fig:higgs_exclusion}, onde estão os
 resultados mais recentes do \gls{lhc}, incluídas das regiões anteriormente
 excluídas por outros experimentos.
@@ -249,16 +250,16 @@ excluídas por outros experimentos.
 
 O \gls{atlas}, para a luminosidade na qual tem operado: $\sim10^{33}cm^{-2}s^{-1}$,
 gera cerca de 19 colisões inelásticas para cada cruzamento entre
-feixes, que irão se cruzar numa frequência máxima de 40 MHz. O propósito do
+feixes, que irão se cruzar numa frequência máxima de 40~MHz. O propósito do
 \gls{sf} \cite{trigger_perf_2010,trigger_tdr} é de reduzir essa taxa a cerca
-de 200 Hz para seu armazenamento e processamento a posteriori. Esse
-limite, correspondendo uma média de $\sim$300 MB/s ($\sim$ 1,5 MB por evento de
+de 200 Hz para armazenamento e processamento a posteriori. Esse
+limite, correspondendo a uma média de $\sim$300~MB/s ($\sim$ 1,5~MB por evento de
 cruzamento entre pacotes), é determinado pelos recursos
 computacionais para armazenamento e processamento dos dados. É possível gravar
 dados com taxas relativamente mais altas por períodos mais curtos, como foi
 realizado durante 2010 quando a física foi beneficiada utilizando taxas de saída
-de até $\sim$600 Hz. Nessa época, a luminosidade instantânea máxima atingida foi de
-$\sim10^{32}cm^{-2}s^{-1}$, gerando cerca de $\sim$ 1,3 MB, e o \gls{lhc} não 
+de até $\sim$600~Hz. Nessa época, a luminosidade instantânea máxima atingida foi de
+$\sim10^{32}cm^{-2}s^{-1}$, gerando cerca de $\sim$ 1,3~MB, e o \gls{lhc} não 
 operava de forma continua -- o que é comum para um acelerador novo -- permitindo 
 elevar a taxa de armazenamento.
 
@@ -266,14 +267,14 @@ elevar a taxa de armazenamento.
 \label{ssec:estru_sf}
 
 O \gls{sf}, Figura~\ref{fig:sf_esboco}, é dividido em três níveis sequenciais,
-sendo descrito aqui resumidamente uma vez que já foi explicada em maiores detalhes em
-trabalhos anteriores como \cite{tese_eduardo,tese_torres}, também podendo ser encontrada 
+sendo descrito aqui resumidamente uma vez que já foi explicado em maiores detalhes nos
+trabalhos anteriores \cite{tese_torres,tese_eduardo}, também podendo ser encontrada 
 em detalhes nas referências \cite{trigger_tdr,l1_trigger_tdr,l2_ef_daq_dcs_tdr,trigger_perfomance}.
 
-Os sinais do detector são armazenados em memórias \emph{pipeline}, com pendência
-à decisão do \acrshort{l1}. Para obter uma latência de menos de 2,5 $\mu$s, 
+Os sinais do detector são armazenados em memórias \emph{pipeline}, aguardando a
+à decisão do \acrshort{l1}. Para obter uma latência inferior a 2,5~$\mu$s, 
 o \gls{l1} é implementado em rápida eletrônica constituída de \gls{fpga} e
-\gls{asic}, de forma a reduzir a taxa para uma valor máximo de 75 kHz. Para
+\gls{asic}, de forma a reduzir a taxa para um valor máximo de 75~kHz. Para
 aumentar a velocidade, esse nível utiliza apenas a informação dos subsistemas de
 calorimetria e câmaras de múons com granularidade reduzida. Além do
 primeiro passo de seleção, o \gls{l1} identifica as \glspl{roi} do detector a
@@ -286,32 +287,32 @@ serem investigadas pelo \acrshort{hlt}.
 \caption[Esboço do Sistema de Filtragem.]{Esboço do Sistema de Filtragem. Extraído de \cite{tese_eduardo}.}
 \end{figure}
 
-O \gls{hlt} se consiste de fazendas de
-processadores comerciais conectados a rede dedicadas (\emph{Ethernet} de \emph{Gigabit} 
-e 10 \emph{Gigabit}).  O \gls{sf} foi projetado para conter cerca de 500 nós para o
+O \gls{hlt} consiste de fazendas (\emph{clusters}) de
+processadores comerciais conectados em rede dedicada (\emph{Ethernet} de \emph{Gigabit} 
+e 10 \emph{Gigabit}).  O \gls{sf} foi projetado para utilizar cerca de 500 nós para o
 \acrshort{l2} e 1800 nós para o \acrshort{ef}\footnote{Em 2010, a fazenda de processamento 
-se consistia de 800 nós configuráveis como tanto \acrshort{l2} ou \acrshort{ef}, este 
+consistia de 800 nós configuráveis tanto no \acrshort{l2} ou no \acrshort{ef}, este 
 contendo mais 300 nós dedicados.}. Quando um evento é aceito pelo
 \gls{l1}, os dados na memória de cada um dos detectores são então transferidos
-para \gls{rob} específicos para cada um dos subdetectores, que armazenam o
-evento em fragmentos pendendo à decisão do \gls{l2}. Um ou mais \glspl{rob} são
-agrupados para formar os \gls{ros} que são conectados a rede do \gls{hlt}. O
-seleção do \gls{l2} é baseada em algoritmos personalizados e rápidos que
+para o \gls{rob} específico para cada um dos subdetectores que armazenam o
+evento em fragmentos aguardando a decisão do \gls{l2}. Um ou mais \glspl{rob} são
+agrupados para formar os \gls{ros} que são conectados à rede do \gls{hlt}. O
+seleção do \gls{l2} é baseada em algoritmos rápidos que
 processam os dados dos eventos de forma parcial nas regiões especificadas pelas
 \glspl{roi} identificadas pelo \gls{l1}. Os processadores do \gls{l2} solicitam os
 dados dos \gls{ros} correspondentes aos elementos do subdetector dentro de cada
 \gls{roi}, reduzindo a quantidade de dados a serem transferidas e processadas no
 mesmo a cerca de 2-6\% do volume total dos dados. O \gls{l2} reduz a taxa de
-dados para cerca de $\sim$3 kHz com uma média de processamento de $\sim$40
-ms/evento. Qualquer evento com tempo excedendo a 5 s nesse nível é perdido a
+dados para cerca de $\sim$3~kHz com uma média de processamento de $\sim$40
+ms/evento. Qualquer evento com tempo excedendo a 5~s nesse nível é perdido a
 rotulado como evento excedente ao tempo limite.   
 
 O \gls{ef} reúne todos os fragmentos dos eventos aceitos pelo \gls{l2} das
 \glspl{rob}, tendo assim acesso a toda sua informação. O \gls{ef} é, em grande
 maioria, baseado nos algoritmos do \acrlong{sr} rodando em interfaces
 personalizadas para o ambiente do \gls{sf}. Esse nível é projetado para reduzir
-os dados para $\sim$200 Hz com uma média de processamento de $\sim$4 s/evento.
-Qualquer evento com um tempo excedente a 180 s também é rotulado e perdido como
+os dados para $\sim$200~Hz com uma média de processamento de $\sim$4~s/evento.
+Qualquer evento com um tempo excedente a 180~s também é rotulado e perdido como
 no \gls{l2}. 
 
 Os eventos de dados selecionados pelo \gls{sf} são escritos nos fluxos de dados
@@ -333,40 +334,40 @@ destinados a esse propósito.
 
 A configuração do \gls{sf} é realizada por um \emph{menu}, que define as
 \emph{cadeias} de filtragem que especificam uma sequência de passos de reconstrução e
-seleção para as especificas assinaturas de filtragens requeridas pela filtragem.
+seleção para as assinaturas especificas requeridas pela filtragem.
 A cadeia de filtragem de elétrons é ilustrada na Figura~\ref{fig:electron_chain}.
 Cada \emph{cadeia} é composta pelo \gls{fex} que criam objetos,
 como os aglomerados de células e variáveis que permitam obter uma informação
-sobre a descrição do evento, e pelo \gls{hypo} que fazem a discriminação através dos
+sobre a descrição do evento, e pelo \gls{hypo} que faz a discriminação através dos
 critérios de seleção nos objetos gerados, como por exemplo a exigência de um
-$\gls{pt} > 20$ GeV. As extrações de características realizadas por uma
-\emph{cadeia} podem ser reutilizadas por outro cadeia, reduzindo tanto o acesso
+$\gls{pt} > 20$~GeV. As extrações de características realizadas por uma
+\emph{cadeia} podem ser reutilizadas por outra cadeia, reduzindo tanto o acesso
 a dados como o tempo de processamento do \gls{sf}.
 
 \begin{figure}[ht!]
 \label{fig:electron_chain}
 \centering
 \includegraphics[width=0.9\textwidth]{imagens/cadeia_eletron.pdf}
-\caption[A \emph{cadeia} de filtragem de elétrons.]{A \emph{cadeia} de filtragem
+\caption[À \emph{cadeia} de filtragem de elétrons.]{À \emph{cadeia} de filtragem
 de elétrons. A direita de cada nível de filtragem estão colocados exemplos de
-nomes de filtros de elétrons e fótons, e o nome de sua respectiva cadeia a
+nomes de filtros de elétrons e fótons, e o nome de sua respectiva cadeia à
 direita da seta indicando a evolução da \emph{cadeia}. Adaptado de \cite{trigger_perf_2010}.}
 \end{figure}
 
 Aproximadamente 500 filtros são definidos nos \emph{menus} atuais, sendo
-composto por um número de diferentes classes de filtros:
+compostos por um número de diferentes classes de filtros:
 
 \begin{itemize}
 \item \textbf{Objetos de filtro único}: usado para determinar estados com pelo
 menos um objeto característico. Por exemplo, um filtro para elétron único com um
-limiar nominal superior a 3 GeV seria referido como $e3$;
-\item \textbf{Objetos de filtro múltiplos}: usado para determinar estados finais
+limiar nominal superior a 3~GeV seria referido como $e3$;
+\item \textbf{Objetos de filtros múltiplos}: usado para determinar estados finais
 com dois ou mais objetos do mesmo tipo. Por exemplo, elétrons duplos decaindo da
 partícula $\text{J}/\Psi$. Esses filtros são indicados dependendo de sua
 multiplicidade, por exemplo: $2e3$;
 \item \textbf{Objetos de filtro combinados}: usados por estados finais de dois
-ou mais objetos característicos de tipos diferentes. Por exemplo, um múon de 13
-GeV adicionado de 20 GeV de \gls{Etmiss} para selecionar decaimentos
+ou mais objetos característicos de tipos diferentes. Por exemplo, um múon de 13~GeV adicionado de 
+20~GeV de \gls{Etmiss} para selecionar decaimentos
 $W\rightarrow \mu\nu$, que seriam denotados de $mu13\_xe20$;
 \item \textbf{Filtros Topológicos}: usados para estados finais selecionados de
 duas ou mais \glspl{roi}, como no caso do decaimento da partícula
@@ -387,7 +388,7 @@ aplicando outros valores de seleção. A seletividade de um grupo de cortes
 aplicados para um certo objeto de filtragem é representado pelos termos
 \emph{Loose} (relaxado), \emph{Medium} (mediano), \emph{Tight} (apertado). Esses
 critérios de seleção são colocados como sufixos ao nome do filtro, por exemplo,
-e10\_medium. Requerimentos adicionais como isolamento, podem ser adicionados
+e10\_medium. requisitos adicionais como isolamento, podem ser adicionados
 para reduzir as taxas dos filtros. O isolamento mede a quantidade de energia, ou
 o número de partículas próximos a uma assinatura, se esse valor estiver acima de
 um limiar, então a partícula não está isolada. Nesse caso se adiciona a letra
@@ -418,7 +419,7 @@ luminosidade durante um preenchimento do \gls{lhc} de forma a garantir a
 maximização das taxas utilizadas pelos filtros, enquanto garantindo uma taxa
 constante para a monitoração e calibração. Assim, as mesmas podem ser alteradas
 em quaisquer momentos de uma temporada, no início de um novo \gls{lb}. Um
-\gls{lb} é a unidade fundamental para a medição da luminosidade, cerca de 120 s
+\gls{lb} é a unidade fundamental para a medição da luminosidade, cerca de 120~s
 em 2010, na qual se considera que a mesma permaneceu constante com o valor
 medido.
 
@@ -427,7 +428,7 @@ filtros para colisões com pacotes emparelhados (compõe as colisões de física
 regulares, contendo pacotes de feixes opostos que se encontram no ponto de
 colisão simultaneamente), pacotes vazios para estudo de pedestal criado por ruído 
 no detector e raios cósmicos, ou até mesmo configurações mais inusitadas, como 
-exigindo pacotes desparelhados separados por no mínimo 75 ns de quaisquer outro 
+exigindo pacotes desparelhados separados por no mínimo 75~ns de quaisquer outro 
 pacote no feixe oposto.
 
 
@@ -450,7 +451,7 @@ No \gls{l1}, os aglomerados de informação\footnote{No caso, um conjunto de
 células identificados como \emph{clusters} na literatura em inglês.} \gls{eg} do calorímetro são retirados
 utilizando granularidade reduzida, as chamadas \glspl{tt}, que cobrem uma região
 de aproximadamente $\Delta\eta\times\Delta\phi\approx0,1\times0,1$, 
-a Figura~\ref{fig:cal_lar_camadas} contem um esboço da \gls{tt} para o
+a Figura~\ref{fig:cal_lar_camadas} contém um esboço da \gls{tt} para o
 \gls{emb}. A vantagem de se utilizar \glspl{tt} se deve ao
 fato de reduzir a quantidade de fluxo de informação, reduzindo o custo e
 complexidade do sistema, e, ao mesmo tempo, conter o chuveiro \gls{em} inteiramente 
@@ -472,7 +473,7 @@ quando os seguintes critérios forem satisfeitos:
             \label{fig:sliding_window_l1}
             \includegraphics[width=0.6\textwidth]{imagens/sliding_window_l1.pdf}
         }\hspace{0.01\textwidth}
-        \subfigure[Requerimento para o núcleo ser máximo local.]{%
+        \subfigure[Requisitos para o núcleo ser máximo local.]{%
             \label{fig:local_et}
             \includegraphics[width=0.3\textwidth]{imagens/roi_local_max.pdf}
         }
@@ -511,8 +512,8 @@ reconstrução do calorímetro trabalha de maneira semelhante aos algoritmos do
 \gls{sr}, entretanto apenas a região da janela de $\Delta\eta\times\Delta\phi =
 0,4 \times 0,4$, região chamada de \gls{roi}, em torno da posição alimentada pelo \gls{l1} 
 é utilizada, o que reduz o tráfico de dados e aumenta a velocidade de processamento no \gls{l2}.
-Algumas diferenças entre o algoritmo do \gls{l2} e o \gls{sr} se dão as
-limitações no tempo de latência. O algoritmo de reconstrução do aglomerado de
+Algumas diferenças entre o algoritmo do \gls{l2} e o \gls{sr} se dá devido as
+limitações em tempo. O algoritmo de reconstrução do aglomerado de
 células do calorímetro no \gls{l2} começa utilizando a célula mais energética da
 \gls{e2} dentro da região central de $0,2 \times 0,2$, enquanto o
 algoritmo de análise a posteriori utiliza uma janela deslizante para encontrar
@@ -578,7 +579,7 @@ traço. A parte do algoritmo responsável pela reconstrução do calorímetro no
 \glsunset{dphi2}
 \glsunset{Ep}
 
-Os três conjuntos de requerimentos citados em~\ref{ssec:alg_topo} são utilizados para 
+Os três conjuntos de requisitos citados em~\ref{ssec:alg_topo} são utilizados para 
 seleção de partículas \gls{eg}. Eles são definidos ao se elevar a potência de rejeição 
 de ruído físico nos dados finais: \emph{Loose}, com menor seletividade, 
 evitando a perda de dados prematura, mas ao mesmo tempo elevando a taxa de dados 
@@ -594,7 +595,7 @@ que no último para se evitar a perda de eventos interessantes, enquanto o
 \gls{ef} pelo mesmo motivo. No caso do \gls{t2calo} essas variáveis são: \gls{reta}, 
 \gls{eratio}, \gls{Et} e \gls{Rhad1}, com algumas condições específicas 
 dependendo da região em que a partícula está incidindo, em especial nesse 
-caso para a região de fenda do calorímetro, e para partículas de altas energias onde se aceita um maior
+caso para a região de fissura (\emph{gap}) do calorímetro, e para partículas de altas energias onde se aceita um maior
 vazamento hadrônico. Os valores dos limiares são escolhidos através de estudos
 de \gls{mc}, e, ainda que os mesmos variem conforme \gls{eta} e a energia da
 partícula, eles são compostos por diversos cortes lineares nessas variáveis
@@ -748,7 +749,7 @@ valores menores de 1. No caso da variável
 onde a diferença de deposito entre as duas células de maior
 energia deverá ser grande para elétrons, uma vez que os mesmos terão grande parte 
 de sua energia depositada na célula de maior energia, e pequeno para os hádrons. Cada variável
-tem sua distribuição especifica, mas reflete uma diferença física da interação
+tem sua distribuição específica, mas reflete uma diferença física da interação
 de hádrons e elétrons com o detector.
 
 
@@ -756,7 +757,7 @@ de hádrons e elétrons com o detector.
 \label{ssec:hlt_ringer}
 
 Uma outra proposta para se identificar a evolução do chuveiro no calorímetro é 
-abordada pelo algoritmo alternativo proposto, afim de se identificar as
+abordada pelo algoritmo alternativo proposto, a fim de se identificar as
 partículas \gls{em}. Como o algoritmo é proposto para atuar sobre as variáveis
 do calorímetro, ele não faz distinção de elétron e pósitrons para fótons, essa
 distinção pode ser realizada posteriormente utilizando a informação do \gls{id}.
@@ -811,13 +812,13 @@ completamente preenchida. Atualmente o valor utilizado é de $0,4\times0,4$ em
 $\Delta\eta\times\Delta\phi$. Nas outras camadas, a posição da
 semente é utilizada para encontrar a célula central e o processo é repetido, até
 que a mesma região seja preenchida, entretanto, como a granularidade das células
-do calorímetro variam conforme a segmentação longitudinal, o número de anéis variam
+do calorímetro varia conforme a segmentação longitudinal, o número de anéis é diferente
 para cada camada. O conceito de anéis é abstrato: como o \gls{l2} calcula
 um novo centro na \gls{roi} formada a partir da informação fornecida pelo
-\gls{l1}, anéis podem por ventura necessitar de células exteriores a \gls{roi},
+\gls{l1}, anéis podem necessitar de células exteriores à \gls{roi},
 e essas, não estando disponíveis para o \gls{l2}, geram anéis incompletos,
 como aqueles ilustrados para o \gls{ps} a partir do terceiro anel. 
-No caso de nenhuma célula estiver disponível para um dado anel, é então atribuído valor
+No caso de nenhuma célula estar disponível para um dado anel, é então atribuído valor
 nulo ao mesmo para garantir que o processo complete o número necessário no
 preenchimento da região. Os anéis esboçados na figura são meramente
 ilustrativos, não possuindo a proporção real para cada uma das camadas, nem o
@@ -829,7 +830,7 @@ a granularidade de cada camada. Em uma discriminação não-segmentada
 como indicado.
 
 O processo de anelamento reduz a quantidade de informação a ser analisada no
-calorímetro, ao se agrupar diversas células em uma única informação, reduzindo
+calorímetro, ao agrupar diversas células em uma única informação, reduzindo
 as $\sim$1000 células dentro da \gls{roi} em 100 anéis, ou seja, um fator de
 compactação de $\sim$10$\times$. Indo além, o número total de anéis a serem
 propagados para o método de discriminação pode ser reduzido através de estudo
@@ -910,7 +911,7 @@ pela Norma 1. Extraído de \cite{tese_eduardo}.}
 Neste tópico estão as descrições das normalizações testadas para a otimização do
 \gls{hltringer}. Foram utilizadas normalizações presentes na literatura
 utilizando tratamento estatístico dos dados, como a Esferização, MinMax, 
-adicionadas de normalizações que fazem mão do conhecimento da topologia dos calorímetros, 
+adicionadas de normalizações baseadas no conhecimento da topologia dos calorímetros, 
 sua segmentação longitudinal e das diferenças entre os chuveiros \gls{em} e \gls{had}, 
 buscando realçar suas características, citando entre elas a normalização
 sequencial.
@@ -918,7 +919,7 @@ sequencial.
 \paragraph{Energia Total (Norma 1)}
 \label{par:norm_norm1}
 
-Neste modo de normalização, cada um dos \glspl{anel} produzidos são normalizados pela energia total 
+Neste modo de normalização, os \glspl{anel} produzidos são normalizados pela energia total 
 (considerando-se todas as camadas) contida em uma região de $0,4 \times 0,4$ em 
 $\eta \times \phi$ do evento, fazendo-se:
 
@@ -976,7 +977,7 @@ Cada anel foi normalizado por
 r_{c_i}' = \frac{r_{c_i}}{||\mathbf{r_c}||}~~\forall~~i=1,2,3,...,N_c
 \end{equation}
 
-\noindent onde $||\mathbf{r}||$ é a norma 2 dos $N_c$ anéis produzidos para a
+\noindent onde $||\mathbf{r_c}||$ é a norma 2 dos $N_c$ anéis produzidos para a
 c-ésima camada.
 
 \paragraph{Norma 2 Seção}
@@ -985,11 +986,12 @@ c-ésima camada.
 Cada anel foi normalizado por
 
 \begin{equation}
-r_{s_{i}}' = \frac{r_{s_{i}}}{\underset{j=1}{\overset{N_s}{ \sum}} r_{s_{j}}}~~\forall~~i=1,2,3,...,N_s
+r_{s_i}' = \frac{r_{s_i}}{||\mathbf{r_s}||}~~\forall~~i=1,2
 \end{equation}
 
-\noindent onde $||\mathbf{r}||$ é a norma 2 dos $N_c$ anéis produzidos para a
-c-ésima camada.
+
+\noindent onde $||\mathbf{r}||$ é a norma 2 dos $N_s$ anéis produzidos para a
+s-ésima seção.
 
 \paragraph{Sequencial}
 \label{par:norm_seq}
@@ -1115,7 +1117,7 @@ em~\ref{fig:class_nseg}, e segmentada em~\ref{fig:class_seg}. Extraído de
 A topologia de uma \gls{rna} composta de uma rede \gls{mlp} alimentada em
 cascata, ou \emph{feed-forward}, com uma camada escondida está esboçada na
 Figura~\ref{fig:topologia_rna}. Estão simbolizados três neurônios de saída, para
-o caso de separação em três classes, mas a rede utilizada tem apenas uma saída,
+o caso de separação em três classes, mas a rede utilizada possui apenas um neurônio na camada de saída,
 suficiente para realizar a discriminação em duas classes, as partículas \gls{em}
 compondo o sinal: elétrons, pósitrons e fótons; e o ruído físico: os
 hádrons dos jatos hadrônicos. Os alvos utilizados para as classes foi de +1 para o
@@ -1141,9 +1143,9 @@ rápida convergência. Para realizar o treinamento secciona-se o conjunto de dad
 em três partes: 
 
 \begin{itemize} 
-\item \textbf{\gls{trn}} (neste estudo totalizando 50\% dos dados em
+\item \textbf{\gls{trn}} (totaliza 50\% dos dados em
 casos de pouca estatística e 33\% no oposto): 
-no qual se será atualizado os pesos sinápticos da \gls{rna} de modo a minimizar uma função 
+no qual serão atualizados os pesos sinápticos da \gls{rna} de modo a minimizar uma função 
 custo, na qual a utilizada foi o \gls{mse};
 \item \textbf{\gls{val}} (16,6\%/33,3\%): utilizado para garantir a boa 
 generalização da \gls{rna}; 
@@ -1196,7 +1198,7 @@ testada.
 Após o treinamento é possível especificar a \gls{det} (no caso de partículas \gls{eg}) 
 e \gls{fa} através da escolha do limiar de decisão, aonde valores maiores ao limiar serão considerados
 como \gls{eg} e os menores jatos. A escolha do limiar tem o seu compromisso
-representados nas curvas \gls{roc}: quanto maior a \gls{det}, também será a
+representado nas curvas \gls{roc}: quanto maior a \gls{det}, também será a
 \gls{fa}. O \gls{sp} tenta conciliar o compromisso entre a detecção de
 partículas \gls{eg} e jatos, o que não é desejado quando no \gls{sf}, onde se
 deseja apenas filtrar os eventos a capacidade de armazenamento e processamento a
@@ -1212,7 +1214,7 @@ O papel da reconstrução de física \cite{physics_perf_expected,atlas_computing
 realizada pelo \gls{sr}, é de derivar dos dados armazenados os parâmetros das partículas 
 e auxiliar na informação necessária para a análise de física. 
 Cada subdetector do \gls{atlas} utiliza um método individual de calibração de
-sua informação, por exemplo, os calorímetros realizam a calibração da energias no
+sua informação. Por exemplo, os calorímetros realizam a calibração da energia no
 nível das suas células, e a informação armazenada pelos especialistas do
 calorímetro para uma dada temporada é utilizada para evitar as células ruidosas ou mortas. 
 Posteriormente cada canal de física utiliza a informação contida nos
@@ -1223,8 +1225,8 @@ descobertas, como a do bóson de Higgs, entendimento de física ainda não bem
 conhecida, como o quark \emph{top}, e outros objetivos citados em
 \ref{ssec:obj_lhc}.
 
-Muitas semelhanças podem ser observadas nos algoritmos do \gls{hlt}, em especial o
-\gls{ef}, com o \gls{sr}. Na verdade, os algoritmos do \gls{sf} foram feitos
+Muitas semelhanças podem ser observadas nos algoritmos do \gls{hlt}, em especial
+quando levando em consideração o \gls{ef}, com o \gls{sr}. Na verdade, os algoritmos do \gls{sf} foram feitos
 baseados no \gls{sr} com o objetivo de evitar ao máximo a polarização dos dados
 armazenados. As diferenças entre os dois ambientes, como já foi dito, está na
 maior restrição de tempo e robustez dos algoritmos no ambiente do \gls{sf}, de
@@ -1258,8 +1260,8 @@ táons-léptons. São utilizados três passos no algoritmo, a construção das t
 células, a procura por uma semente e o preenchimento do aglomerado, onde esses dois
 últimos passos ocorrem juntos para os aglomerados combinados. 
 
-Serão abordados apenas os aglomerados \gls{em}, uma vez apenas eles são
-utilizados pelo Canal~\gls{eg}. O processo de construção é realizado apenas para 
+Serão abordados apenas os aglomerados \gls{em}, uma vez que somente os mesmos são
+utilizados pelo Canal~\gls{eg}. O processo de construção é realizado para 
 $|\gls{eta}|<2,5$, onde é realizado a construção das torres, o Sistema de Calorimetria é 
 dividido em uma grade de $0,025\times0,025$, através da soma da energia das
 células das camadas longitudinais do \gls{ecal} contidas dentro da
@@ -1296,7 +1298,7 @@ potencial de identificação de elétrons. O traço, no qual o último ponto no
 e relação traço-aglomerado podem ser utilizados para gerar as outras variáveis
 da Tabela~\ref{tab:cortes_em}.
 
-Os requerimentos citados no \gls{sf} também se aplicam, sendo eles: \emph{loose}, 
+Os requisitos citados no \gls{sf} também se aplicam, sendo eles: \emph{loose}, 
 \emph{medium} e \emph{tight}. Eles são utilizados para
 identificar a característica da estatística utilizada para a análise.
 
@@ -1310,12 +1312,11 @@ de decisões ampliadas e redes neurais \cite{physics_perf_expected}.
 \label{ssec:egringer}
 
 Uma dificuldade encontrada para a introdução do \gls{hltringer} na cadeia de
-filtragem \gls{eg} é sua configuração diferente ao \gls{t2calo}, causando o
-receio, por parte da Colaboração, que ocorra a polarização dos dados. Por isso, foi requisitado a
-implementação de uma versão do algoritmo para a análise a posteriori, permitindo
-a utilização da ferramenta pela Colaboração e a confiança de que as partículas
+filtragem \gls{eg} é o receio, por parte da colaboração, que ocorra a polarização dos dados. 
+Por isso, foi requisitada a implementação de uma versão do \emph{Ringer} para o \gls{sr}, permitindo
+a utilização da ferramenta pela colaboração e a confiança de que as partículas
 selecionadas estão coerentes com a física. O \gls{egcaloringer} é a
-implementação do algoritmo proposto para o ambiente do \gls{sf}.
+implementação do algoritmo proposto para esse ambiente.
 
 Embora a estrutura do algoritmo seja a mesma que aquela explicada para o \gls{l2}, no
 Tópico~\ref{ssec:hlt_ringer}, realizando a construção dos anéis, normalizando e
@@ -1341,14 +1342,14 @@ do centro do chuveiro.
 \label{sssec:egringer_impl}
 
 A implementação do \gls{egcaloringer} foi realizada garantindo que a operação
-dos algoritmos já implementados pela Colaboração não fossem afetados, alterando
-o mínimo de código necessário dos destes e garantindo a operação normal da
-reconstrução do Canal~\gls{eg}. O \gls{egcaloringer} não deveria ser executado
-exceto quando explicitamente exigido pelo usuário. 
-
+dos algoritmos já implementados pela colaboração não fossem afetados, alterando
+o mínimo de código necessário destes e garantindo a operação normal da
+reconstrução do Canal~\gls{eg}. Assim, o \gls{egcaloringer} só será executado
+quando explicitamente exigido pelo usuário. 
 Para cumprir com esse requisito se idealizou a 
 estrutura disposta na Figura~\ref{fig:implementacao_ringer}, de forma que apenas
 quando adicionado a configuração via \glsdesc{jo} o algoritmo é executado.
+
 Durante a inicialização, o \emph{egammaBuilder} organiza os algoritmos no
 nível de informação dos subdetectores, adicionando os algoritmos de reconstrução
 de traços, vértices e aglomerados do calorímetro, e chama a configuração do
@@ -1370,12 +1371,12 @@ na \gls{rna} também especificada.
 implementação do \gls{egcaloringer}.}
 \end{figure}
 
-Durante a execução, o \emph{egammaBuilder}
+Na execução, o \emph{egammaBuilder}
 procura para cada evento os objetos de reconstrução dos subdetectores,
 em busca por aglomerados e seus respectivos traços, criando um objeto 
 \emph{egamma} transiente\footnote{Memória transiente é a informação contida na memória 
 virtual do computador.} com as informações no \gls{sg}. A informação será
-armazenada dentro recipiente \emph{egammaContainer} que irá ter \emph{Element
+armazenada dentro do recipiente \emph{egammaContainer}, que irá ter \emph{Element
 Links}\footnote{Pode ser interpretado com uma espécie de ponteiro de C++, embora
 contenha outras informações além da posição de memória do objeto.} para o seu
 respectivo aglomerado de células (\emph{CaloCluster}), traço
@@ -1407,9 +1408,9 @@ A compatibilidade com dados mais simples de análise foi realizada, como a
 pelo grupo \gls{hlt} do Canal~\gls{eg}. Essa versão está disponível a partir da
 distribuição \emph{AtlasOffline-17-00-00} do \emph{Athena}.
 
-Um segundo passo de implementação foi realizada em Agosto adicionando a
+Um segundo passo de implementação foi realizada em Agosto de 2011, adicionando a
 compatibilidade do algoritmo para \gls{d3pd} e \gls{aod}, mas ainda não foi
-adicionado ao código oficial da Colaboração. A implementação em \gls{aod} trás a
+adicionado ao código oficial da colaboração. A implementação em \gls{aod} trás a
 vantagem de se poder alterar redes neurais e obter novos valores de propagação,
 sem necessitar ter quer gerar os anéis novamente. Finalmente, a implementação do 
 \gls{egcaloringer} como um todo proporciona um ambiente muito
