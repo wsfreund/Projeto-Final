@@ -20,9 +20,7 @@ Subseção~\ref{ssec:bossoms}.}.
 A física se apoia em algoritmos
 para realizar a busca pelas assinaturas, sendo este capítulo dedicado aos
 algoritmos que fazem a reconstrução do Canal \gls{eg},
-onde se deseja encontrar as assinaturas dessas partículas (e dos pósitrons, que
-tem a mesma assinatura de elétrons, excluindo a direção de deflexão de seus
-traços, oposta àquela de elétrons devido a sua carga positiva). A identificação
+onde se deseja encontrar as assinaturas dessas partículas. A identificação
 dessas partículas é de fundamental importância por formarem os canais de
 decaimentos mais limpos do bóson de Higgs (Sessão~\ref{sec:busca_higgs}). Além
 disso, outras partículas como o bóson Z e partícula $\text{J}/\Psi$, podem ser
@@ -32,12 +30,12 @@ em especial os decaimentos de elétrons do
 $\text{J}/\Psi$ para baixas energias ($\gls{Et} > 5$~GeV), onde se esperam encontrar 
 decaimentos leptônicos do bóson de Higgs de menor energia ($\gls{Et} > 7$~GeV).
 Outras assinaturas experimentais são as de hádrons e jatos, que serão tratadas
-quando abordando o Canal \gls{eg}, por serem o ruído de fundo do qual se deseja
-filtrar nesse canal. Entretanto existem setores de física que se
+quando abordando o Canal \gls{eg} por serem o ruído de fundo do qual se deseja
+filtrar nesse canal. Entretanto, existem setores de física que se
 interessam por esses decaimentos, como o já citado decaimento do bóson W em jatos
 duplos\footnote{A citação foi realizada no Subtópico~\ref{par:cal_part_id}.}. 
-Além disso, múons constituem outras assinaturas, uma vez que interagem
-pouco com os calorímetros, tendo seu próprio subsistema, o Espectrômetro de
+Além disso, múons constituem outras assinaturas, já que interagem
+pouco com os calorímetros, e por isso contam com seu próprio subsistema, o Espectrômetro de
 Múons. Existem outras três assinaturas:
 táons, sabores pesados e léptons neutrinos. Os táons decaem
 rapidamente em múons (ou elétrons) e mais dois neutrinos, ou ainda, em um ou três
@@ -123,7 +121,7 @@ Os resultados desse estudo estão resumidos na Figura~\ref{fig:higgs_sim_atlas},
 mostrando a significância do sinal para uma luminosidade integrada\footnote{A 
 luminosidade integrada, como seu nome indica, não passa da integral da luminosidade 
 instantânea no tempo de operação do \gls{lhc}: $\int{L_{inst} dt}$.} de
-100~$\text{fb}^{-1}$. Para efeito de comparação na
+100~$\text{fb}^{-1}$. Para efeito de comparação, na
 Figura~\ref{fig:higgs_branch_ratio} há as relações entre os canais
 e seus alcances em massa. A Figura~\ref{fig:higgs_production} contém a seção
 de choque esperada para as possíveis massas.
@@ -179,8 +177,8 @@ ser referenciado como canal banhado a ouro.}. Em massas mais elevadas, por volta
 de 600~GeV/$c^2$ até 1~TeV, outros canais como $H\rightarrow WW\rightarrow l\nu jj$, $H\rightarrow
 WW\rightarrow ll\nu\nu$ são utilizados para a busca do bóson de Higgs.
 
-Posteriormente, outro canal foi adicionado, por outros estudos
-\cite{atlas_tautau,atlas_tautau2}:
+Posteriormente os estudos \cite{atlas_tautau,atlas_tautau2} adicionaram outro
+canal na busca pelo bóson de Higgs:
 
 \begin{itemize} 
 \item $H\rightarrow \tau \tau \rightarrow ll4\nu$ e $H\rightarrow \tau \tau
@@ -275,7 +273,7 @@ Os sinais do detector são armazenados em memórias \emph{pipeline}, aguardando 
 à decisão do \acrshort{l1}. Para obter uma latência inferior a 2,5~$\mu$s, 
 o \gls{l1} é implementado em rápida eletrônica constituída de \gls{fpga} e
 \gls{asic}, de forma a reduzir a taxa para um valor máximo de 75~kHz. Para
-aumentar a velocidade, esse nível utiliza apenas a informação dos subsistemas de
+aumentar a velocidade de processamento, esse nível utiliza apenas a informação dos subsistemas de
 calorimetria e câmaras de múons com granularidade reduzida. Além do
 primeiro passo de seleção, o \gls{l1} identifica as \glspl{roi} do detector a
 serem investigadas pelo \acrshort{hlt}. 
@@ -379,16 +377,16 @@ Quando se referindo a um nível em particular, o nível (\gls{l1}, \gls{l2},
 \gls{ef}) aparece como um prefixo, como por exemplo L1\_EM3 (aqui elétrons e
 fótons não são diferenciados, então se utiliza o prefixo EM em ambos os casos)
 para denotar um filtro de elétrons e fótons com um limiar nominal superior a 3
-GeV para o \gls{l1} e L2\_e3 no caso de elétrons para um filtro com o mesmo
-limiar mas para elétrons apenas no \gls{l2}. Um nome sem o prefixo de nível
+GeV para o \gls{l1}. Outro exemplo, a L2\_e3 identifica um filtro para elétrons
+com o mesmo limiar para o \gls{l2}. Um nome sem o prefixo de nível
 refere-se a toda a \emph{cadeia}.
 
-O controle das taxas de filtragem podem ser realizadas mudando os limiares ou
+O controle das taxas de filtragem podem ser realizadas mudando limiares de corte ou
 aplicando outros valores de seleção. A seletividade de um grupo de cortes
 aplicados para um certo objeto de filtragem é representado pelos termos
 \emph{Loose} (relaxado), \emph{Medium} (mediano), \emph{Tight} (apertado). Esses
 critérios de seleção são colocados como sufixos ao nome do filtro, por exemplo,
-e10\_medium. requisitos adicionais como isolamento, podem ser adicionados
+e10\_medium. Requisitos adicionais como isolamento, podem ser adicionados
 para reduzir as taxas dos filtros. O isolamento mede a quantidade de energia, ou
 o número de partículas próximos a uma assinatura, se esse valor estiver acima de
 um limiar, então a partícula não está isolada. Nesse caso se adiciona a letra
@@ -436,7 +434,7 @@ pacote no feixe oposto.
 \subsection[Algoritmos Padrões da \emph{Cadeia} de Filtragem de eGamma]{Algoritmos Padrões da \emph{Cadeia} de Filtragem de $e/\gamma$}
 \label{ssec:cadeia_egamma}
 
-O sistema de calorimetria do \gls{atlas} cobre uma região de $|\gls{eta}| <
+O Sistema de Calorimetria do \gls{atlas} cobre uma região de $|\gls{eta}| <
 4,9$, enquanto o \gls{id} fornece reconstrução precisa de traços dentro de
 $|\gls{eta}| < 2,5$. Os chuveiros \gls{em} são reconstruídos com melhor
 performance para essa última região, a região de precisão do \gls{atlas}, 
@@ -450,8 +448,8 @@ referentes ao \gls{id}.
 No \gls{l1}, os aglomerados de informação\footnote{No caso, um conjunto de
 células identificados como \emph{clusters} na literatura em inglês.} \gls{eg} do calorímetro são retirados
 utilizando granularidade reduzida, as chamadas \glspl{tt}, que cobrem uma região
-de aproximadamente $\Delta\eta\times\Delta\phi\approx0,1\times0,1$, 
-a Figura~\ref{fig:cal_lar_camadas} contém um esboço da \gls{tt} para o
+de aproximadamente $\Delta\eta\times\Delta\phi\approx0,1\times0,1$.
+A Figura~\ref{fig:cal_lar_camadas} contém um esboço da \gls{tt} para o
 \gls{emb}. A vantagem de se utilizar \glspl{tt} se deve ao
 fato de reduzir a quantidade de fluxo de informação, reduzindo o custo e
 complexidade do sistema, e, ao mesmo tempo, conter o chuveiro \gls{em} inteiramente 
@@ -530,7 +528,7 @@ são de $5\times5$.
 
 As energias das células podem ser corrigidas na análise a posteriori, para
 problemas transientes no \emph{hardware}, como falhas de energia, etc., o que não
-pode ser realizado em tempo real, o que se aplica para tanto o \gls{l2} e
+pode ser realizado em tempo real, se aplicando para tanto o \gls{l2} quanto
 \gls{ef}. Para a reconstrução de traços no \gls{l2}, um rápido reconhecimento de
 padrões é utilizado ao se determinar primeiro a posição z de interação ao longo
 do eixo do feixe e então realizando a combinação de pontos do traço apenas para o grupo
@@ -757,7 +755,7 @@ de hádrons e elétrons com o detector.
 \label{ssec:hlt_ringer}
 
 Uma outra proposta para se identificar a evolução do chuveiro no calorímetro é 
-abordada pelo algoritmo alternativo proposto, a fim de se identificar as
+abordada pelo algoritmo alternativo, a fim de se identificar as
 partículas \gls{em}. Como o algoritmo é proposto para atuar sobre as variáveis
 do calorímetro, ele não faz distinção de elétron e pósitrons para fótons, essa
 distinção pode ser realizada posteriormente utilizando a informação do \gls{id}.
@@ -1220,9 +1218,9 @@ calorímetro para uma dada temporada é utilizada para evitar as células ruidos
 Posteriormente cada canal de física utiliza a informação contida nos
 subdetectores de modo a identificar as partículas de interesse e seus
 parâmetros, realizando outras calibrações para garantir a melhor precisão
-possível nesses parâmetros, de forma a facilitar e melhorar a qualidade de
-descobertas, como a do bóson de Higgs, entendimento de física ainda não bem
-conhecida, como o quark \emph{top}, e outros objetivos citados em
+possível nesses parâmetros, facilitando e melhorando a qualidade de
+descobertas, como a do bóson de Higgs, assim como o entendimento de física ainda não bem
+conhecida, no caso do quark \emph{top}, e outros objetivos citados em
 \ref{ssec:obj_lhc}.
 
 Muitas semelhanças podem ser observadas nos algoritmos do \gls{hlt}, em especial

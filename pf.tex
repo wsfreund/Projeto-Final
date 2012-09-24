@@ -1,6 +1,6 @@
 \documentclass[pdftex,12pt,oneside,openany,a4paper]{book}
 \usepackage[brazilian]{babel}
-\usepackage[utf8]{inputenc} % Aqui tem que mudar de acordo com o seu sistema operacional
+\usepackage[utf8]{inputenc} % Aqui tem que mudar de acordo com o seu editor de texto
 \usepackage[T1]{fontenc} %
 \usepackage[pdftex]{graphicx} % includegraphics
 \usepackage{subfigure} % Poder colocar varias figuras juntas
@@ -84,6 +84,10 @@
 % Define a new glossary type
 \newglossary[slg]{Simb}{sym}{sbl}{Lista de S{í}mbolos}
 \newglossary[alg]{Abrev}{abr}{abv}{Lista de Abreviaturas}
+%\defglsdisplayfirst[Abrev]{#4 #1}
+%\defglsdisplay[Abrev]{#1#4 (denoted #3)}
+%\defglsdisplayfirst[Simb]{#1 #4 (denoted #3)}
+%\defglsdisplay[Simb]{#1#4 (denoted #3)}
 
 \makeglossaries
 

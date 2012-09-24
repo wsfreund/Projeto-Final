@@ -2,49 +2,63 @@
 \label{cap:intro}
 \glsresetall
 
-A engenharia tem auxiliado em diversas áreas através do emprego de
-novas tecnologias e o desenvolvimento de ferramentas que estão se tornando cada
-vez mais necessárias em áreas como medicina, biologia, ciências financeiras, etc. Em 
-alguns casos seu papel é ainda mais essencial, caso das áreas
-multidisciplinares, quando ela e outras ciências se aliam para caminhar juntas no
-desenvolvimento de ferramentas e tecnologias. Com isso, se faz necessária a
-capacidade de sua adaptação à complexidade oferecida por esses novos ambientes, 
-como a alta quantidade e diversidade de sensores, alta taxa e raridade de
-eventos. Para realizar a interpretação dos diversos canais e a seleção dos eventos 
-de interesse, se faz mão de uma ferramenta que irá descartar a 
-informação inútil ao problema em questão, permanescendo apenas
-a parte necessária. É importante que ela seja eficiente para evitar a polarização
-dos eventos, onde a porção interessante dos mesmos seria desprezada.
-A tarefa se torna ainda mais difícil nos casos de 
-eventos raros de interesse, na qual a seleção errônea tem consequências piores,
-sendo necessário o emprego de técnicas para sua otimização. 
+Varias áreas têm aplicações cuja alta taxa de eventos e a rara ocorrência de
+eventos de interesse são uma dificuldade a ser superada. Técnicas de
+Inteligência Computacional muitas vezes são utilizadas, como \acrlongpl{rna},
+para reduzir, em tempo real, essa taxa a um nível adequado, selecionando eficientemente a
+informação relevante ao experimento. Normalmente, se utilizam técnicas mais refinadas 
+durante a análise a posteriori ao armazenamento dos dados, a fim de se obter
+melhores resultados que aqueles realizados durante a análise em tempo real.
 
-O \glsdesc{sf}, a ferramenta citada, pode utilizar tanto de métodos baseados no conhecimento 
-especialista do assunto, quanto baseados na informação estatística do processo. Ainda, 
-a combinação do conhecimento especialista ao processamento estatístico trás uma abordagem ainda 
-mais poderosa através da utilização das informações em técnicas não lineares, 
-como \acrlongpl{rna}.
+Em certos casos, a aplicação utiliza uma grande quantidade e diversidade de
+sensores, sendo necessário o processamento dos sinais em uma informação mais
+compacta, que possa representar com
+fidelidade o fenômeno ocorrido. Novamente, as técnicas de Inteligência
+Computacional e Processamento de Sinais Estocástico podem ser utilizadas para realizar a extração de
+características, reduzindo o fluxo e quantidade de informação a ser analisada na aplicação.
 
-A seleção de eventos pode ser realizada no ambiente em tempo real,
-quando o processo ocorre durante a aquisição de dados. Nesse
-ambiente, deseja-se reduzir o volume de dados a serem armazenados. A decisão deve ser realizada 
-em curtos espaços de tempo, de maneira que atenda a taxa esperada de geração de
-dados, e ainda ser eficiente, uma vez que os dados rejeitados serão perdidos. 
-No ambiente em tempo real é possível o processamento dos dados em série
-ou em paralelo. O processamento em série limita o tempo de processamento àquele
-de aquisição dos dados, não sendo interessante quando há flutuação do
-processamento dos eventos. Por outro lado, o processamento em
-paralelo possibilita que eventos mais complexos ocorram durante um tempo maior
-que a taxa de aquisição de dados. Nesse tipo de processamento, é necessário que
-os eventos não ultrapassem o valor máximo de latência (tempo utilizado
-para a tomada de decisão pelo \glsdesc{sf}), assim como obterem um valor 
-médio de latência estipulado, determinados pela capacidade de processamento,
-a fim de evitar gargalos no \glsdesc{sf}.
-
-Já no ambiente de análise a posteriori, o processo de seleção pode ser mais
-complexo, uma vez que ele não realiza a decisão atendendo aos
-requisitos de tempo quando em tempo real. Assim, é esperado 
-uma melhor eficiência quando realizando a filtragem a posteriori.
+%A engenharia tem auxiliado em diversas áreas através do emprego de
+%novas tecnologias e o desenvolvimento de ferramentas que estão se tornando cada
+%vez mais necessárias em áreas como medicina, biologia, ciências financeiras, etc. No caso de áreas
+%multidisciplinares seu papel é ainda mais importante, quando ela e outras ciências 
+%se aliam para caminhar juntas no desenvolvimento de ferramentas e tecnologias. 
+%Com isso, se faz necessária a capacidade de sua adaptação à complexidade oferecida por esses novos ambientes, 
+%como a alta quantidade e diversidade de sensores, alta taxa e raridade de
+%eventos. Para realizar a interpretação dos diversos canais e a seleção dos eventos 
+%de interesse, se faz mão de uma ferramenta que irá descartar a 
+%informação inútil ao problema em questão, permanecendo apenas
+%a parte necessária. É importante que ela seja eficiente para evitar a polarização
+%dos eventos, onde a porção interessante dos mesmos seria desprezada.
+%A tarefa se torna ainda mais difícil nos casos de 
+%eventos raros de interesse, na qual a seleção errônea tem consequências piores,
+%sendo necessário o emprego de técnicas para sua otimização. 
+%
+%O \glsdesc{sf}, a ferramenta citada, pode utilizar tanto de métodos baseados no conhecimento 
+%especialista do assunto, quanto baseados na informação estatística do processo. Ainda, 
+%a combinação do conhecimento especialista ao processamento estatístico trás uma abordagem ainda 
+%mais poderosa através da utilização das informações em técnicas não lineares, 
+%como \acrlongpl{rna}.
+%
+%A seleção de eventos pode ser realizada no ambiente em tempo real,
+%quando o processo ocorre durante a aquisição de dados. Nesse
+%ambiente, deseja-se reduzir o volume de dados a serem armazenados. A decisão deve ser realizada 
+%em curtos espaços de tempo, de maneira que atenda a taxa esperada de geração de
+%dados, e ainda ser eficiente, uma vez que os dados rejeitados serão perdidos. 
+%No ambiente em tempo real é possível o processamento dos dados em série
+%ou em paralelo. O processamento em série limita o tempo de processamento àquele
+%de aquisição dos dados, não sendo interessante quando há flutuação do
+%processamento dos eventos. Por outro lado, o processamento em
+%paralelo possibilita que eventos mais complexos ocorram durante um tempo maior
+%que a taxa de aquisição de dados. Nesse tipo de processamento, é necessário que
+%os eventos não ultrapassem o valor máximo de latência (tempo utilizado
+%para a tomada de decisão pelo \glsdesc{sf}), assim como obterem um valor 
+%médio de latência estipulado, determinados pela capacidade de processamento,
+%a fim de evitar gargalos no \glsdesc{sf}.
+%
+%Já no ambiente de análise a posteriori, o processo de seleção pode ser mais
+%complexo, uma vez que ele não realiza a decisão atendendo aos
+%requisitos de tempo quando em tempo real. Assim, é esperado 
+%uma melhor eficiência quando realizando a filtragem a posteriori.
 
 \section{Motivação}
 
@@ -54,9 +68,6 @@ França. O experimento de maior repercussão do \gls{cern} atualmente é o \gls{
 um acelerador de partículas de 27~km de
 circunferência que irá atingir energia de colisões nunca antes obtidas
 experimentalmente. 
-Nesse ambiente de colaboração internacional estarão presentes
-todas as características de um sistema de alta taxa de dados e raros eventos de
-interesse.
 
 Serão acelerados pacotes\footnote{Um aglomerado de partículas.} de prótons em
 feixes com sentidos opostos no \gls{lhc},
@@ -96,15 +107,17 @@ inelásticas não difrativas quando operando nas condições nominais, onde apen
 uma pequena parte dessas interações irá gerar a física desejada como objeto de
 estudo.
 
-Assim é natural a adoção de um \glsdesc{sf} em tempo real para a
-identificação dos eventos de interesse a serem armazenados, reduzindo a taxa de 1~GHz
+Percebe-se nesse ambiente a presença de todas as características de um sistema de 
+alta taxa de dados e raros eventos de interesse.
+Assim, é natural a adoção de um \glsdesc{sf} em tempo real para a
+identificação dos eventos a serem armazenados, reduzindo a taxa de 1~GHz
 para cerca de 100~Hz. O \glsdesc{sf} do \gls{atlas} realiza o processamento dos 
 eventos em paralelo, estando dividido em três níveis sequenciais, cada um 
-analisando o evento com maior complexidade:
+analisando o evento com maior complexidade.
 
 \begin{itemize}
 \item O \glslink{l1}{Primeiro Nível de filtragem (L1)} realiza a filtragem com
-\gls{fpga}\footnote{Circuitos integrados digitáis e programáveis.}, 
+\gls{fpga}\footnote{Circuitos integrados digitais e programáveis.}, 
 utilizando resolução reduzida das células do detector
 com um tempo fixo de 2~$\mu$s, reduzindo a taxa de eventos para
 75~kHz. Ele também é responsável pela identificação de regiões no detector onde
@@ -125,11 +138,11 @@ infraestrutura computacional do segundo nível, entretanto tem disponíveis 1900
 processadores.
 \end{itemize}
 
-Uma vez o evento foi aceito pelo terceiro nível, o mesmo é então armazenado
+Uma vez o evento sendo aceito pelo terceiro nível, o mesmo é então armazenado
 para futura análise por pesquisadores que irão utilizar algoritmos desenvolvidos 
 para análise a posteriori. Os físicos dão o nome para esses algoritmos de Sistema de
 Reconstrução, pois eles os permitem fazer a reconstrução da física que ocorreu
-durante a colisão e sua interação com o detetor. Para facilitar a leitura, o
+durante a colisão e sua interação com o detector. Para facilitar a leitura, o
 \glsdesc{sf} em tempo real será chamado simplesmente de \glsdesc{sf}.
 Já sua versão de análise a posteriori será referida como \glsdesc{sr}.
 
@@ -138,56 +151,76 @@ deseja identificar elétrons \glslink{eg}{(e$^-$)}, pósitrons \glslink{eg}(e$^+
 ou fótons \glslink{eg}{($\gamma$)}, 
 partículas de componentes eletromagnéticas. Muitos dos decaimentos do bóson de
 Higgs serão nessas partículas, de forma que esse canal é de fundamental
-importância para o experimento. Ainda, a partícula $J/\Psi$, partícula importante
+importância para o experimento. Ainda, a partícula \acrshort{jpsi}, partícula importante
 para a determinação da resolução em baixa energia do detector, 
 também decai em elétrons, sendo assim um objeto de estudo nesse canal.
 Jatos, partículas onde componentes hadrônicas são predominantes, 
 mascaram a assinatura das partículas desejadas pelo Canal \acrshort{eg}, fazendo 
 com que a tarefa da identificação dessas partículas não seja trivial.
 
-\section{Objetivo} % {{{
+Por isso, uma das tarefas essenciais dos algoritmos nesse canal está em 
+discriminar elétron, pósitrons e fótons de jatos. O \gls{egcaloringer} é um algoritmo alternativo 
+que vem sido desenvolvido pelo \gls{lps} para realizar essa tarefa. Nele,
+a informação das células dos calorímetros é extraída e então tratada através de
+um processo que faz mão do conhecimento especialista das interações das partículas 
+com o Sistema de Calorimetria, chamado de anelamento. Os anéis, resultado desse
+processo, são propagados para um método estatístico de discriminação, 
+onde atualmente são utilizadas \glspl{rna}. Esse algoritmo foi idealizado para
+atuar no \acrshort{l2}, o que justifica a escolha de \glspl{rna}, uma vez que são
+algoritmos velozes eficientes. Por outro lado, apesar de ter sido implementado
+na colaboração em 2005, o algoritmo não foi aderido à cadeia de execução do
+\glsdesc{sf}. Para que isso seja possível, é necessário a implementação de uma versão do mesmo 
+no ambiente do \glsdesc{sr}, permitindo a utilização e compreensão do algoritmo pela
+colaboração.
 
-O objetivo deste trabalho é aprimorar o \gls{egcaloringer},
-um algoritmo alternativo que vem sido desenvolvido pelo \gls{lps}
-para realizar a discriminação 
-no canal \acrshort{eg}. Tal algoritmo foi idealizado para o \gls{l2}, 
-sendo implementado na colaboração em 2005.
-Nele a informação de calorimetria é tratada através do conhecimento especialista
-e então propagada para um método estatístico 
-de discriminação, onde atualmente são utilizadas Redes Neurais. 
-Para que tal melhoria seja alcançada no
-algoritmo, será realizado um estudo de preprocessamento dos dados,
-através da escolha da melhor normalização a ser adotada.
+\section{Objetivos} % {{{
 
-Ainda, um dos requisitos para a adesão do algoritmo no \glsdesc{sf} é a
-implementação de uma versão do mesmo para o \glsdesc{sr},
-de maneira  que a colaboração possa utilizá-lo e entender o seu
-funcionamento. Por esse motivo, também se faz necessária a implementação 
-da nova versão para a complexa estrutura de código desse ambiente.
+Este trabalho foi dividido em duas etapas. Em uma etapa inicial 
+foi realizado o aperfeiçoamento do \gls{egcaloringer} através da busca de uma
+melhor eficiência de discriminação. Na segunda etapa foi feita a implementação 
+do algoritmo para o ambiente de análise a posteriori, o \glsdesc{sr}, sendo
+necessário testar sua capacidade de discriminação. 
 
-Por fim, é necessária uma análise da eficiência do algoritmo para ambos os
-ambientes, utilizando como parâmetro de comparação seus equivalentes 
-desenvolvidos pela colaboração.
+As \glspl{rna} são sensíveis a ordem de grandeza dos valores de suas
+entradas, no caso os anéis, sendo necessário o ajuste destes para o
+alcance dinâmico daquelas. Esse feito é realizado através da normalização, uma técnica de
+pré-processamento dos dados. Diversas normalizações podem ser
+aplicadas, afetando a característica dos dados apresentados para as \glspl{rna},
+e, consequentemente, sua eficiência. Por isso, o aperfeiçoamento do algoritmo
+pode ser obtido através do teste de diversas normalizações em busca daquelas que apresentarem
+os melhores resultados. Esse estudo foi realizado na versão do \gls{egcaloringer}
+para o \glsdesc{sf}, por ainda não ter sido requisitado pela colaboração a
+implementação do algoritmo para o \glsdesc{sr}.
 
- % }}}
+A versão implementada para a complexa estrutura de código do
+ambiente do \glsdesc{sr} foi analisada tendo como referência o algoritmo
+implementado pela colaboração nesse ambiente. No total 
+foram utilizados três conjuntos para análise. Os dois primeiros conjuntos são
+provenientes de simulações de \acrlong{mc}, o primeiro contendo elétrons estão
+isolados, e o segundo elétrons decaídos da partícula \acrshort{jpsi}. O último
+conjunto utiliza dados de colisões de 2010, onde os elétrons são candidatos a
+decaimentos do bóson Z.
+
 \section{Organização do documento} {{{
 
 O Capítulo~\ref{cap:cern} é dedicado ao \gls{cern} e ao contexto de colaboração internacional
 no qual o projeto foi desenvolvido, dando a base necessária para o entendimento
-do experimento \gls{atlas}, fazendo uma introdução sobre a Física de Partículas,
-o acelerador \gls{lhc}, os componentes do \gls{atlas} e as ferramentas
-utilizadas pela colaboração.
+do experimento \gls{atlas}. Foi realizada uma introdução sobre a Física de
+Partículas, uma apresentação ao acelerador \gls{lhc}, os componentes do detector \gls{atlas} 
+e as ferramentas utilizadas por esse trabalho disponíveis na colaboração. Esse
+Capítulo se aprofunda nos tópicos mais do que o necessário para apenas a
+compreensão do ambiente em que o trabalho se engloba com o intuito facilitar
+trabalhos futuros.
 
-No Capítulo 3 está a apresentação dos ambientes onde atua o algoritmo proposto,
-o Canal \acrshort{eg}. Nele será realizada uma apresentação do \gls{sr} e do
-\gls{sf}, considerando o algoritmo padrão utilizado pela colaboração para
-realizar as tarefas necessárias do Canal \gls{eg} como a obtenção dos parâmetros
-das partículas e discriminação. Também será apresentado o algoritmo proposto em
-detalhes para suas duas versões, a versão de análise em tempo real no \gls{sf},
-\gls{hltringer} e a versão de análise a posteriori, o \gls{egcaloringer}. A
-descrição da implementação da versão de análise a posteriori também será realizada nesse capítulo. 
+O Capítulo~\ref{cap:reco} é destinado a reconstrução da física do Canal
+\acrshort{eg}. Nele será detalhado a importância desse Canal na busca pelo bóson de
+Higgs, os ambientes \glsdesc{sf} e \glsdesc{sr}, os respectivos algoritmos utilizados
+pela colaboração nesse canal, assim como as versões do \gls{egcaloringer} para
+esses ambientes e suas diferenças. No final desse capítulo também será detalhada
+a implementação do \gls{egcaloringer} para o \glsdesc{sr}.
 
-O Capítulo 4 é destinado a apresentação dos resultados e a sua discussão,
-sendo dividido nos dois estudos realizados: a análise da normalização mais
-indicada, e o estudo de eficiência do \gls{egcaloringer}. 
+No Capítulo~\ref{cap:resultados} serão apresentados os resultados. Ele
+está dividido em duas partes, destinado aos resultados obtidos em cada uma das
+etapas do trabalho. Serão detalhados a metodologia utilizada
+em cada um dos casos, e então apresentados os resultados e sua discussão.
 }}}
